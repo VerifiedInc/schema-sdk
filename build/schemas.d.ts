@@ -1,4 +1,5 @@
 import { TObject } from '@sinclair/typebox';
+import { UnumSchemaObject } from './validate';
 /**
  * Map of schemas.
  */
@@ -8,5 +9,5 @@ export declare const jsonSchemasMap: Map<string, TObject<import("@sinclair/typeb
  * @param type
  * @returns
  */
-export declare function getSchema(type: string): TObject;
+export declare function getSchema(type: string): UnumSchemaObject;
 //# sourceMappingURL=schemas.d.ts.map

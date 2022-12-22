@@ -25,12 +25,12 @@ export const jsonSchemasMap = new Map<string, TObject>([
  * @param type
  * @returns
  */
-export function getSchema (type: string): TObject {
+export function getSchema (type: string): UnumSchemaObject {
   const schema = jsonSchemasMap.get(type);
 
   if (!schema) {
     throw new SchemaError(undefined, `Schema not found for type: ${type}`);
   }
 
-  return schema;
+  return schema as UnumSchemaObject;
 }
