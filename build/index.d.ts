@@ -1,6 +1,6 @@
 import { emailCredentialSchema } from './schemas';
-import types from './types';
+import { EmailCredentialSchemaType } from './types';
 import { UnumSchemaObject, validateSchema } from './validate';
 import { validatorFactory } from './validatorFactory';
-export { emailCredentialSchema, types, UnumSchemaObject, validatorFactory, validateSchema };
+export { UnumSchemaObject, validatorFactory, validateSchema, emailCredentialSchema, EmailCredentialSchemaType };
 //# sourceMappingURL=index.d.ts.map
