@@ -6,7 +6,10 @@ exports.SchemaError = void 0;
  */
 class SchemaError extends Error {
     constructor(errors) {
-        const message = errors.map((error) => error.message).join(', ');
+        let message = 'Schema validation error';
+        if (errors) {
+            message = errors.map((error) => error.message).join(', ');
+        }
         super(message);
         this.errors = errors;
         // see: typescriptlang.org/docs/handbook/release-notes/typescript-2-2.html

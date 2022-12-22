@@ -1,4 +1,4 @@
-import Ajv, { JSONSchemaType } from 'ajv';
+import Ajv, { ErrorObject, JSONSchemaType } from 'ajv';
 import { SchemaError } from './error';
 
 const ajv = new Ajv(); // options can be passed, e.g. {allErrors: true}

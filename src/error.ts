@@ -1,13 +1,20 @@
 import { ErrorObject } from 'ajv';
 
+// type from ajv's ValidateFunction errors interface.
+type AjvErrorObject = ErrorObject[] | null | undefined;
+
 /**
  * Class to encapsulate schema errors.
  */
 export class SchemaError extends Error {
-  errors?: ErrorObject[];
+  errors?: AjvErrorObject
 
-  constructor (errors: ErrorObject[]) {
-    const message = errors.map((error) => error.message).join(', ');
+  constructor (errors: AjvErrorObject) {
+    let message = 'Schema validation error';
+    if (errors) {
+      message = errors.map((error) => error.message).join(', ');
+    }
+
     super(message);
     this.errors = errors;
 
