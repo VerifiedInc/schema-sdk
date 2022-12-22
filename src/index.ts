@@ -1,4 +1,4 @@
-import { emailCredentialSchema } from './schemas';
+import { getSchema, jsonSchemasMap } from './schemas';
 import { EmailCredentialSchemaType } from './types';
 // import types from './types';
 import { UnumSchemaObject, validate } from './validate';
@@ -9,9 +9,10 @@ export {
 
   // functions
   validate,
+  getSchema,
 
-  // credential schemas
-  emailCredentialSchema,
+  // credential schemas map
+  jsonSchemasMap,
 
   // credential types
   EmailCredentialSchemaType

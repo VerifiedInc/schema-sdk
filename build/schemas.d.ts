@@ -1,9 +1,12 @@
 import { TObject } from '@sinclair/typebox';
-export declare const emailCredentialSchema: TObject<{
-    email: import("@sinclair/typebox").TString<string>;
-}>;
-export declare const ssnCredentialSchema: TObject<{
-    ssn: import("@sinclair/typebox").TString<string>;
-}>;
-export declare const jsonSchemas: Map<string, TObject<import("@sinclair/typebox").TProperties>>;
+/**
+ * Map of schemas.
+ */
+export declare const jsonSchemasMap: Map<string, TObject<import("@sinclair/typebox").TProperties>>;
+/**
+ * Function to get the schema for a given type.
+ * @param type
+ * @returns
+ */
+export declare function getSchema(type: string): TObject;
 //# sourceMappingURL=schemas.d.ts.map
