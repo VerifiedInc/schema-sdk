@@ -1,13 +1,14 @@
 import { emailCredentialSchema } from './schemas';
 import { EmailCredentialSchemaType } from './types';
 // import types from './types';
-import { UnumSchemaObject, validateSchema } from './validate';
+import { UnumSchemaObject, validate } from './validate';
 
 export {
   // types
   UnumSchemaObject,
-  // validator factory
-  validateSchema,
+
+  // functions
+  validate,
 
   // credential schemas
   emailCredentialSchema,
