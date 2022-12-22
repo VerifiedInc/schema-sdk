@@ -45,6 +45,7 @@
   "dependencies": {
     "@sinclair/typebox": "^0.25.16",
     "ajv": "^8.11.2",
+    "dotenv": "^16.0.3",
     "winston": "^3.3.3",
     "winston-syslog": "^2.4.4"
   }

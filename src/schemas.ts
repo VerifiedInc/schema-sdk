@@ -1,11 +1,11 @@
 import { TObject, Type } from '@sinclair/typebox';
 
-const emailCredentialSchema = Type.Object({
+export const emailCredentialSchema = Type.Object({
   email: Type.String()
 },
 { $id: 'EmailCredentialType', additionalProperties: false });
 
-const ssnCredentialSchema = Type.Object({
+export const ssnCredentialSchema = Type.Object({
   ssn: Type.String()
 },
 { $id: 'SsnCredentialType', additionalProperties: false });
