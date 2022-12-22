@@ -1,5 +1,5 @@
 {
-  "name": "schema-sdk",
+  "name": "@unumid/schema-sdk",
   "version": "0.1.0",
   "description": "SDK for Unum ID credential scheme handling, e.g. definitions and validation.",
   "main": "build/index.js",
