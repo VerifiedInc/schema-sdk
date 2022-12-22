@@ -1,4 +1,6 @@
-export declare function validateSchema(jsonSchema: {
+import { TObject, TProperties } from '@sinclair/typebox';
+export interface UnumSchemaObject extends TObject<TProperties> {
     $id: string;
-}, data: any): boolean;
+}
+export declare function validateSchema(jsonSchema: UnumSchemaObject, data: any): boolean;
 //# sourceMappingURL=validate.d.ts.map

@@ -1,7 +1,7 @@
 import { emailCredentialSchema } from './schemas';
 // import { EmailCredentialSchemaType } from './types';
 import types from './types';
-import { validateSchema } from './validate';
+import { UnumSchemaObject, validateSchema } from './validate';
 import { validatorFactory } from './validatorFactory';
 
 export {
@@ -10,6 +10,7 @@ export {
   // types
   // EmailCredentialSchemaType
   types,
+  UnumSchemaObject,
   // validator factory
   validatorFactory,
   validateSchema
