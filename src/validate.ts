@@ -10,6 +10,7 @@ import { ssnCredentialSchema } from './schemas';
 export interface UnumSchemaObject extends TObject<TProperties> {
     $id: string; // UnumID schema definitions will always have a valid $id property
 }
+
 /**
  * Function to validate the jsonSchema against the data.
  * @param type: string

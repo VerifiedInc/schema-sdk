@@ -1,7 +1,6 @@
 import { Static, TObject, Type } from '@sinclair/typebox';
 import { ajv } from './ajv';
 import { SchemaError } from './error';
-import { UnumSchemaObject } from './validate';
 
 export const emailCredentialSchema = Type.Object({
   email: Type.String()
@@ -13,30 +12,82 @@ export const ssnCredentialSchema = Type.Object({
 },
 { $id: 'SsnCredential', additionalProperties: false });
 
-// /**
-//  * Map of schemas.
-//  */
-// export const jsonSchemasMap = new Map<string, TObject>([
-//   ['EmailCredential', emailCredentialSchema],
-//   ['SsnCredential', ssnCredentialSchema]
-// ]);
+export const countryResidenceCredentialSchema = Type.Object({
+  country: Type.String()
+},
+{ $id: 'CountryResidenceCredential', additionalProperties: false });
 
-// /**
-//  * Function to get the schema for a given type.
-//  * @param type
-//  * @returns
-//  */
-// export function getSchema (type: string): TObject {
-//   const schema = jsonSchemasMap.get(type);
+export const facialImageCredentialSchema = Type.Object({
+  image: Type.String()
+},
+{ $id: 'FacialImageCredential', additionalProperties: false });
 
-//   if (!schema) {
-//     throw new SchemaError(undefined, `Schema not found for type: ${type}`);
-//   }
+export const livelinessCredentialSchema = Type.Object({
+  liveness: Type.String()
+},
+{ $id: 'LivelinessCredential', additionalProperties: false });
 
-//   //   return schema as UnumSchemaObject;
-//   return schema;
-// }
+export const addressCredentialSchema = Type.Object({
+  address: Type.String()
+},
+{ $id: 'AddressCredential', additionalProperties: false });
 
-// // export type SsnCredentialSchemaType = Static<typeof ssnCredentialSchema>;
-// const ssn = getSchema('SsnCredential');
-// export type SsnCredentialSchemaType = Static<typeof ssn>;
+export const lastNameCredentialSchema = Type.Object({
+  lastName: Type.String()
+},
+{ $id: 'LastNameCredential', additionalProperties: false });
+
+export const firstNameCredentialSchema = Type.Object({
+  firstName: Type.String()
+},
+{ $id: 'FirstNameCredential', additionalProperties: false });
+
+export const birthDateCredentialSchema = Type.Object({
+  birthDate: Type.String()
+},
+{ $id: 'BirthDateCredential', additionalProperties: false });
+
+export const phoneCredentialSchema = Type.Object({
+  phone: Type.String()
+},
+{ $id: 'PhoneCredential', additionalProperties: false });
+
+export const fullNameCredentialSchema = Type.Object({
+  fullName: Type.String()
+},
+{ $id: 'FullNameCredential', additionalProperties: false });
+
+export const genderCredential = Type.Object({
+  gender: Type.String()
+},
+{ $id: 'GenderCredential', additionalProperties: false });
+
+export const governmentIdDocumentImageCredentialSchema = Type.Object({
+  image: Type.String()
+},
+{ $id: 'GovernmentIdDocumentImageCredential', additionalProperties: false });
+
+export const livelinessConfidenceCredentialSchema = Type.Object({
+  confidence: Type.String()
+},
+{ $id: 'LivelinessConfidenceCredential', additionalProperties: false });
+
+export const facialMatchCredentialSchema = Type.Object({
+  match: Type.String()
+},
+{ $id: 'FacialMatchCredential', additionalProperties: false });
+
+export const facialMatchConfidenceCredentialSchema = Type.Object({
+  confidence: Type.String()
+},
+{ $id: 'FacialMatchConfidenceCredential', additionalProperties: false });
+
+export const governmentIdTypeCredentialSchema = Type.Object({
+  documentType: Type.String()
+},
+{ $id: 'GovernmentIdTypeCredential', additionalProperties: false });
+
+export const governmentIdDocumentBackImageCredentialSchema = Type.Object({
+  image: Type.String()
+},
+{ $id: 'GovernmentIdDocumentBackImageCredential', additionalProperties: false });

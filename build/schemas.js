@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ssnCredentialSchema = exports.emailCredentialSchema = void 0;
+exports.governmentIdDocumentBackImageCredentialSchema = exports.governmentIdTypeCredentialSchema = exports.facialMatchConfidenceCredentialSchema = exports.facialMatchCredentialSchema = exports.livelinessConfidenceCredentialSchema = exports.governmentIdDocumentImageCredentialSchema = exports.genderCredential = exports.fullNameCredentialSchema = exports.phoneCredentialSchema = exports.birthDateCredentialSchema = exports.firstNameCredentialSchema = exports.lastNameCredentialSchema = exports.addressCredentialSchema = exports.livelinessCredentialSchema = exports.facialImageCredentialSchema = exports.countryResidenceCredentialSchema = exports.ssnCredentialSchema = exports.emailCredentialSchema = void 0;
 const typebox_1 = require("@sinclair/typebox");
 exports.emailCredentialSchema = typebox_1.Type.Object({
     email: typebox_1.Type.String()
@@ -8,27 +8,52 @@ exports.emailCredentialSchema = typebox_1.Type.Object({
 exports.ssnCredentialSchema = typebox_1.Type.Object({
     ssn: typebox_1.Type.String()
 }, { $id: 'SsnCredential', additionalProperties: false });
-// /**
-//  * Map of schemas.
-//  */
-// export const jsonSchemasMap = new Map<string, TObject>([
-//   ['EmailCredential', emailCredentialSchema],
-//   ['SsnCredential', ssnCredentialSchema]
-// ]);
-// /**
-//  * Function to get the schema for a given type.
-//  * @param type
-//  * @returns
-//  */
-// export function getSchema (type: string): TObject {
-//   const schema = jsonSchemasMap.get(type);
-//   if (!schema) {
-//     throw new SchemaError(undefined, `Schema not found for type: ${type}`);
-//   }
-//   //   return schema as UnumSchemaObject;
-//   return schema;
-// }
-// // export type SsnCredentialSchemaType = Static<typeof ssnCredentialSchema>;
-// const ssn = getSchema('SsnCredential');
-// export type SsnCredentialSchemaType = Static<typeof ssn>;
+exports.countryResidenceCredentialSchema = typebox_1.Type.Object({
+    country: typebox_1.Type.String()
+}, { $id: 'CountryResidenceCredential', additionalProperties: false });
+exports.facialImageCredentialSchema = typebox_1.Type.Object({
+    image: typebox_1.Type.String()
+}, { $id: 'FacialImageCredential', additionalProperties: false });
+exports.livelinessCredentialSchema = typebox_1.Type.Object({
+    liveness: typebox_1.Type.String()
+}, { $id: 'LivelinessCredential', additionalProperties: false });
+exports.addressCredentialSchema = typebox_1.Type.Object({
+    address: typebox_1.Type.String()
+}, { $id: 'AddressCredential', additionalProperties: false });
+exports.lastNameCredentialSchema = typebox_1.Type.Object({
+    lastName: typebox_1.Type.String()
+}, { $id: 'LastNameCredential', additionalProperties: false });
+exports.firstNameCredentialSchema = typebox_1.Type.Object({
+    firstName: typebox_1.Type.String()
+}, { $id: 'FirstNameCredential', additionalProperties: false });
+exports.birthDateCredentialSchema = typebox_1.Type.Object({
+    birthDate: typebox_1.Type.String()
+}, { $id: 'BirthDateCredential', additionalProperties: false });
+exports.phoneCredentialSchema = typebox_1.Type.Object({
+    phone: typebox_1.Type.String()
+}, { $id: 'PhoneCredential', additionalProperties: false });
+exports.fullNameCredentialSchema = typebox_1.Type.Object({
+    fullName: typebox_1.Type.String()
+}, { $id: 'FullNameCredential', additionalProperties: false });
+exports.genderCredential = typebox_1.Type.Object({
+    gender: typebox_1.Type.String()
+}, { $id: 'GenderCredential', additionalProperties: false });
+exports.governmentIdDocumentImageCredentialSchema = typebox_1.Type.Object({
+    image: typebox_1.Type.String()
+}, { $id: 'GovernmentIdDocumentImageCredential', additionalProperties: false });
+exports.livelinessConfidenceCredentialSchema = typebox_1.Type.Object({
+    confidence: typebox_1.Type.String()
+}, { $id: 'LivelinessConfidenceCredential', additionalProperties: false });
+exports.facialMatchCredentialSchema = typebox_1.Type.Object({
+    match: typebox_1.Type.String()
+}, { $id: 'FacialMatchCredential', additionalProperties: false });
+exports.facialMatchConfidenceCredentialSchema = typebox_1.Type.Object({
+    confidence: typebox_1.Type.String()
+}, { $id: 'FacialMatchConfidenceCredential', additionalProperties: false });
+exports.governmentIdTypeCredentialSchema = typebox_1.Type.Object({
+    documentType: typebox_1.Type.String()
+}, { $id: 'GovernmentIdTypeCredential', additionalProperties: false });
+exports.governmentIdDocumentBackImageCredentialSchema = typebox_1.Type.Object({
+    image: typebox_1.Type.String()
+}, { $id: 'GovernmentIdDocumentBackImageCredential', additionalProperties: false });
 //# sourceMappingURL=schemas.js.map
