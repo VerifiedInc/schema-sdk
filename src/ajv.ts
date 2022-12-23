@@ -42,9 +42,10 @@ export const ajv = new Ajv({
 // Adding formats to ajv
 addFormats(ajv);
 
-/***********************************
- * Add custom formats to ajv below *
- ***********************************/
+/*******************************************************************
+ * Add custom formats to ajv below                                 *
+ * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
+ *******************************************************************/
 ajv.addFormat('ssn', {
   type: 'string',
   validate: (ssn: string) => {
