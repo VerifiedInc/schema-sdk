@@ -3,6 +3,7 @@ import logger from './logger';
 import addFormats from 'ajv-formats';
 import { addressCredentialSchema, birthDateCredentialSchema, countryResidenceCredentialSchema, emailCredentialSchema, facialImageCredentialSchema, facialMatchConfidenceCredentialSchema, facialMatchCredentialSchema, firstNameCredentialSchema, fullNameCredentialSchema, genderCredential, governmentIdDocumentBackImageCredentialSchema, governmentIdDocumentImageCredentialSchema, governmentIdTypeCredentialSchema, lastNameCredentialSchema, livelinessConfidenceCredentialSchema, livelinessCredentialSchema, phoneCredentialSchema, ssnCredentialSchema } from './schemas';
 
+// schemas to add to ajv instance options
 const schemas = [
   ssnCredentialSchema,
   emailCredentialSchema,
@@ -38,8 +39,12 @@ export const ajv = new Ajv({
   schemas
 });
 
+// Adding formats to ajv
 addFormats(ajv);
 
+/***********************************
+ * Add custom formats to ajv below *
+ ***********************************/
 ajv.addFormat('ssn', {
   type: 'string',
   validate: (ssn: string) => {
