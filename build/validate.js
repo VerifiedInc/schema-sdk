@@ -4,7 +4,7 @@ exports.validateOld = exports.validate = void 0;
 const ajv_1 = require("./ajv");
 const error_1 = require("./error");
 /**
- * Function to validate the jsonSchema against the data.
+ * Function to validate the credential schema based on type against the data.
  * @param type: string
  * @param data: any
  * @returns boolean

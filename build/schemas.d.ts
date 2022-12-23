@@ -31,7 +31,7 @@ export declare const phoneCredentialSchema: import("@sinclair/typebox").TObject<
 export declare const fullNameCredentialSchema: import("@sinclair/typebox").TObject<{
     fullName: import("@sinclair/typebox").TString<string>;
 }>;
-export declare const genderCredential: import("@sinclair/typebox").TObject<{
+export declare const genderCredentialSchema: import("@sinclair/typebox").TObject<{
     gender: import("@sinclair/typebox").TString<string>;
 }>;
 export declare const governmentIdDocumentImageCredentialSchema: import("@sinclair/typebox").TObject<{

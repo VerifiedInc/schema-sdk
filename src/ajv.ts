@@ -1,7 +1,7 @@
 import Ajv, { } from 'ajv';
 import logger from './logger';
 import addFormats from 'ajv-formats';
-import { addressCredentialSchema, birthDateCredentialSchema, countryResidenceCredentialSchema, emailCredentialSchema, facialImageCredentialSchema, facialMatchConfidenceCredentialSchema, facialMatchCredentialSchema, firstNameCredentialSchema, fullNameCredentialSchema, genderCredential, governmentIdDocumentBackImageCredentialSchema, governmentIdDocumentImageCredentialSchema, governmentIdTypeCredentialSchema, lastNameCredentialSchema, livelinessConfidenceCredentialSchema, livelinessCredentialSchema, phoneCredentialSchema, ssnCredentialSchema } from './schemas';
+import { addressCredentialSchema, birthDateCredentialSchema, countryResidenceCredentialSchema, emailCredentialSchema, facialImageCredentialSchema, facialMatchConfidenceCredentialSchema, facialMatchCredentialSchema, firstNameCredentialSchema, fullNameCredentialSchema, genderCredentialSchema, governmentIdDocumentBackImageCredentialSchema, governmentIdDocumentImageCredentialSchema, governmentIdTypeCredentialSchema, lastNameCredentialSchema, livelinessConfidenceCredentialSchema, livelinessCredentialSchema, phoneCredentialSchema, ssnCredentialSchema } from './schemas';
 
 // schemas to add to ajv instance options
 const schemas = [
@@ -16,7 +16,7 @@ const schemas = [
   birthDateCredentialSchema,
   phoneCredentialSchema,
   fullNameCredentialSchema,
-  genderCredential,
+  genderCredentialSchema,
   governmentIdDocumentImageCredentialSchema,
   livelinessConfidenceCredentialSchema,
   facialMatchCredentialSchema,

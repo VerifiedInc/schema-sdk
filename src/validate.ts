@@ -12,7 +12,7 @@ export interface UnumSchemaObject extends TObject<TProperties> {
 }
 
 /**
- * Function to validate the jsonSchema against the data.
+ * Function to validate the credential schema based on type against the data.
  * @param type: string
  * @param data: any
  * @returns boolean

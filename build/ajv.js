@@ -21,7 +21,7 @@ const schemas = [
     schemas_1.birthDateCredentialSchema,
     schemas_1.phoneCredentialSchema,
     schemas_1.fullNameCredentialSchema,
-    schemas_1.genderCredential,
+    schemas_1.genderCredentialSchema,
     schemas_1.governmentIdDocumentImageCredentialSchema,
     schemas_1.livelinessConfidenceCredentialSchema,
     schemas_1.facialMatchCredentialSchema,

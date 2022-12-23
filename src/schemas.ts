@@ -63,7 +63,7 @@ export const fullNameCredentialSchema = Type.Object({
 },
 { $id: 'FullNameCredential', additionalProperties: false });
 
-export const genderCredential = Type.Object({
+export const genderCredentialSchema = Type.Object({
   gender: Type.String()
 },
 { $id: 'GenderCredential', additionalProperties: false });
