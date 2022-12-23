@@ -10,8 +10,6 @@ const error_1 = require("./error");
  * @returns boolean
  */
 function validate(type, data) {
-    // adding schemas on demand instead of having to preload all of them.
-    // ref: https://ajv.js.org/guide/managing-schemas.html#pre-adding-all-schemas-vs-adding-on-demand
     const validator = ajv_1.ajv.getSchema(type);
     if (!validator) {
         throw new error_1.SchemaError(undefined, `Schema not found for type: ${type}`);

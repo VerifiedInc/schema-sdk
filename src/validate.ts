@@ -18,8 +18,6 @@ export interface UnumSchemaObject extends TObject<TProperties> {
  * @returns boolean
  */
 export function validate (type: string, data: any): boolean {
-  // adding schemas on demand instead of having to preload all of them.
-  // ref: https://ajv.js.org/guide/managing-schemas.html#pre-adding-all-schemas-vs-adding-on-demand
   const validator = ajv.getSchema(type);
 
   if (!validator) {
