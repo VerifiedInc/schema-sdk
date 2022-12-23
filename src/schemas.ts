@@ -99,14 +99,3 @@ export const governmentIdDocumentBackImageCredentialSchema = Type.Object({
   })
 },
 { $id: 'GovernmentIdDocumentBackImageCredential', additionalProperties: false });
-
-export const ssnFormatted = {
-  type: 'object',
-  properties: {
-    ssn: {
-      type: 'ssn',
-      format: 'ssnCustom'
-    }
-  },
-  required: ['ssn']
-};
