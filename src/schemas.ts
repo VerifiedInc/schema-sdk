@@ -8,7 +8,9 @@ export const emailCredentialSchema = Type.Object({
 { $id: 'EmailCredential', additionalProperties: false });
 
 export const ssnCredentialSchema = Type.Object({
-  ssn: Type.String()
+  ssn: Type.String({
+    format: 'ssn'
+  })
 },
 { $id: 'SsnCredential', additionalProperties: false });
 
@@ -18,7 +20,9 @@ export const countryResidenceCredentialSchema = Type.Object({
 { $id: 'CountryResidenceCredential', additionalProperties: false });
 
 export const facialImageCredentialSchema = Type.Object({
-  image: Type.String()
+  image: Type.String({
+    contentEncoding: 'base64'
+  })
 },
 { $id: 'FacialImageCredential', additionalProperties: false });
 
@@ -63,7 +67,9 @@ export const genderCredential = Type.Object({
 { $id: 'GenderCredential', additionalProperties: false });
 
 export const governmentIdDocumentImageCredentialSchema = Type.Object({
-  image: Type.String()
+  image: Type.String({
+    contentEncoding: 'base64'
+  })
 },
 { $id: 'GovernmentIdDocumentImageCredential', additionalProperties: false });
 
@@ -88,6 +94,19 @@ export const governmentIdTypeCredentialSchema = Type.Object({
 { $id: 'GovernmentIdTypeCredential', additionalProperties: false });
 
 export const governmentIdDocumentBackImageCredentialSchema = Type.Object({
-  image: Type.String()
+  image: Type.String({
+    contentEncoding: 'base64'
+  })
 },
 { $id: 'GovernmentIdDocumentBackImageCredential', additionalProperties: false });
+
+export const ssnFormatted = {
+  type: 'object',
+  properties: {
+    ssn: {
+      type: 'ssn',
+      format: 'ssnCustom'
+    }
+  },
+  required: ['ssn']
+};

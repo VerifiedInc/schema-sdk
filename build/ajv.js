@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ajv = void 0;
 const ajv_1 = __importDefault(require("ajv"));
 const logger_1 = __importDefault(require("./logger"));
+const ajv_formats_1 = __importDefault(require("ajv-formats"));
 const schemas_1 = require("./schemas");
 const schemas = [
     schemas_1.ssnCredentialSchema,
@@ -40,5 +41,13 @@ exports.ajv = new ajv_1.default({
     logger: // ref: https://ajv.js.org/guide/modifying-data.html#coercing-data-types
     logger_1.default,
     schemas
+});
+(0, ajv_formats_1.default)(exports.ajv);
+exports.ajv.addFormat('ssn', {
+    type: 'string',
+    validate: (ssn) => {
+        const ssnRegex = /^\d{3}-?\d{2}-?\d{4}$/;
+        return ssnRegex.test(ssn);
+    }
 });
 //# sourceMappingURL=ajv.js.map

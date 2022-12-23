@@ -1,5 +1,6 @@
 import Ajv, { } from 'ajv';
 import logger from './logger';
+import addFormats from 'ajv-formats';
 import { addressCredentialSchema, birthDateCredentialSchema, countryResidenceCredentialSchema, emailCredentialSchema, facialImageCredentialSchema, facialMatchConfidenceCredentialSchema, facialMatchCredentialSchema, firstNameCredentialSchema, fullNameCredentialSchema, genderCredential, governmentIdDocumentBackImageCredentialSchema, governmentIdDocumentImageCredentialSchema, governmentIdTypeCredentialSchema, lastNameCredentialSchema, livelinessConfidenceCredentialSchema, livelinessCredentialSchema, phoneCredentialSchema, ssnCredentialSchema } from './schemas';
 
 const schemas = [
@@ -35,4 +36,14 @@ export const ajv = new Ajv({
   coerceTypes: true, // ref: https://ajv.js.org/guide/modifying-data.html#coercing-data-types
   logger,
   schemas
+});
+
+addFormats(ajv);
+
+ajv.addFormat('ssn', {
+  type: 'string',
+  validate: (ssn: string) => {
+    const ssnRegex = /^\d{3}-?\d{2}-?\d{4}$/;
+    return ssnRegex.test(ssn);
+  }
 });

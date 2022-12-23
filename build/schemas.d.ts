@@ -3,7 +3,7 @@ export declare const emailCredentialSchema: TObject<{
     email: import("@sinclair/typebox").TString<string>;
 }>;
 export declare const ssnCredentialSchema: TObject<{
-    ssn: import("@sinclair/typebox").TString<string>;
+    ssn: import("@sinclair/typebox").TString<"ssn">;
 }>;
 export declare const countryResidenceCredentialSchema: TObject<{
     country: import("@sinclair/typebox").TString<string>;
@@ -53,4 +53,14 @@ export declare const governmentIdTypeCredentialSchema: TObject<{
 export declare const governmentIdDocumentBackImageCredentialSchema: TObject<{
     image: import("@sinclair/typebox").TString<string>;
 }>;
+export declare const ssnFormatted: {
+    type: string;
+    properties: {
+        ssn: {
+            type: string;
+            format: string;
+        };
+    };
+    required: string[];
+};
 //# sourceMappingURL=schemas.d.ts.map
