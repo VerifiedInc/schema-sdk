@@ -5,7 +5,7 @@ type AjvErrorObject = ErrorObject[] | null | undefined;
  */
 export declare class SchemaError extends Error {
     errors?: AjvErrorObject;
-    constructor(errors: AjvErrorObject);
+    constructor(errors: AjvErrorObject, message?: string);
 }
 export {};
 //# sourceMappingURL=error.d.ts.map

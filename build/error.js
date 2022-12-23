@@ -5,8 +5,7 @@ exports.SchemaError = void 0;
  * Class to encapsulate schema errors.
  */
 class SchemaError extends Error {
-    constructor(errors) {
-        let message = 'Schema validation error';
+    constructor(errors, message = 'Schema validation error') {
         if (errors) {
             message = errors.map((error) => error.message).join(', ');
         }

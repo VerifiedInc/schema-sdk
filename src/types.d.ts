@@ -1,3 +1,21 @@
-import { TObject, Type, Static } from '@sinclair/typebox';
+import { Static } from '@sinclair/typebox';
+import { addressCredentialSchema, birthDateCredentialSchema, countryResidenceCredentialSchema, emailCredentialSchema, facialImageCredentialSchema, facialMatchConfidenceCredentialSchema, facialMatchCredentialSchema, firstNameCredentialSchema, fullNameCredentialSchema, genderCredentialSchema, governmentIdDocumentBackImageCredentialSchema, governmentIdDocumentImageCredentialSchema, governmentIdTypeCredentialSchema, lastNameCredentialSchema, livelinessConfidenceCredentialSchema, livelinessCredentialSchema, phoneCredentialSchema, ssnCredentialSchema } from './schemas';
 
+export type SsnCredentialSchemaType = Static<typeof ssnCredentialSchema>;
 export type EmailCredentialSchemaType = Static<typeof emailCredentialSchema>;
+export type CountryResidenceCredentialSchemaType = Static<typeof countryResidenceCredentialSchema>;
+export type FacialImageCredentialSchemaType = Static<typeof facialImageCredentialSchema>;
+export type LivelinessCredentialSchemaType = Static<typeof livelinessCredentialSchema>;
+export type AddressCredentialSchemaType = Static<typeof addressCredentialSchema>;
+export type LastNameCredentialSchemaType = Static<typeof lastNameCredentialSchema>;
+export type FirstNameCredentialSchemaType = Static<typeof firstNameCredentialSchema>;
+export type BirthDateCredentialSchemaType = Static<typeof birthDateCredentialSchema>;
+export type PhoneCredentialSchemaType = Static<typeof phoneCredentialSchema>;
+export type FullNameCredentialSchemaType = Static<typeof fullNameCredentialSchema>;
+export type GenderCredentialSchemaType = Static<typeof genderCredentialSchema>;
+export type GovernmentIdDocumentImageCredentialSchemaType = Static<typeof governmentIdDocumentImageCredentialSchema>;
+export type LivelinessConfidenceCredentialSchemaType = Static<typeof livelinessConfidenceCredentialSchema>;
+export type FacialMatchCredentialSchemaType = Static<typeof facialMatchCredentialSchema>;
+export type FacialMatchConfidenceCredentialSchemaType = Static<typeof facialMatchConfidenceCredentialSchema>;
+export type GovernmentIdTypeCredentialSchemaType = Static<typeof governmentIdTypeCredentialSchema>;
+export type GovernmentIdDocumentBackImageCredentialSchemaType = Static<typeof governmentIdDocumentBackImageCredentialSchema>;
