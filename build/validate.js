@@ -1,22 +1,21 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validate = void 0;
-const ajv_1 = __importDefault(require("ajv"));
+exports.validateOld = exports.validate = void 0;
+const ajv_1 = require("./ajv");
 const error_1 = require("./error");
-const ajv = new ajv_1.default(); // options can be passed, e.g. {allErrors: true}
 /**
  * Function to validate the jsonSchema against the data.
- * @param jsonSchema
- * @param data
+ * @param type: string
+ * @param data: any
  * @returns boolean
  */
-function validate(jsonSchema, data) {
+function validate(type, data) {
     // adding schemas on demand instead of having to preload all of them.
     // ref: https://ajv.js.org/guide/managing-schemas.html#pre-adding-all-schemas-vs-adding-on-demand
-    const validator = ajv.getSchema(jsonSchema.$id) || ajv.compile(jsonSchema);
+    const validator = ajv_1.ajv.getSchema(type);
+    if (!validator) {
+        throw new error_1.SchemaError(undefined, `Schema not found for type: ${type}`);
+    }
     const valid = validator(data);
     if (!valid) {
         console.error(validator.errors);
@@ -25,4 +24,22 @@ function validate(jsonSchema, data) {
     return true;
 }
 exports.validate = validate;
+/**
+ * Function to validate the jsonSchema against the data.
+ * @param jsonSchema
+ * @param data
+ * @returns boolean
+ */
+function validateOld(jsonSchema, data) {
+    // adding schemas on demand instead of having to preload all of them.
+    // ref: https://ajv.js.org/guide/managing-schemas.html#pre-adding-all-schemas-vs-adding-on-demand
+    const validator = ajv_1.ajv.getSchema(jsonSchema.$id) || ajv_1.ajv.compile(jsonSchema);
+    const valid = validator(data);
+    if (!valid) {
+        console.error(validator.errors);
+        throw new error_1.SchemaError(validator.errors);
+    }
+    return true;
+}
+exports.validateOld = validateOld;
 //# sourceMappingURL=validate.js.map

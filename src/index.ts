@@ -1,19 +1,18 @@
-import { getSchema, jsonSchemasMap } from './schemas';
-import { EmailCredentialSchemaType } from './types';
+import { emailCredentialSchema, ssnCredentialSchema } from './schemas';
+import { EmailCredentialSchemaType, SsnCredentialSchemaType } from './types';
 // import types from './types';
-import { UnumSchemaObject, validate } from './validate';
+import { validate } from './validate';
 
 export {
-  // types
-  UnumSchemaObject,
 
   // functions
   validate,
-  getSchema,
 
-  // credential schemas map
-  jsonSchemasMap,
+  // credential schemas
+  emailCredentialSchema,
+  ssnCredentialSchema,
 
   // credential types
-  EmailCredentialSchemaType
+  EmailCredentialSchemaType,
+  SsnCredentialSchemaType
 };
