@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ssnFormatted = exports.governmentIdDocumentBackImageCredentialSchema = exports.governmentIdTypeCredentialSchema = exports.facialMatchConfidenceCredentialSchema = exports.facialMatchCredentialSchema = exports.livelinessConfidenceCredentialSchema = exports.governmentIdDocumentImageCredentialSchema = exports.genderCredential = exports.fullNameCredentialSchema = exports.phoneCredentialSchema = exports.birthDateCredentialSchema = exports.firstNameCredentialSchema = exports.lastNameCredentialSchema = exports.addressCredentialSchema = exports.livelinessCredentialSchema = exports.facialImageCredentialSchema = exports.countryResidenceCredentialSchema = exports.ssnCredentialSchema = exports.emailCredentialSchema = void 0;
+exports.governmentIdDocumentBackImageCredentialSchema = exports.governmentIdTypeCredentialSchema = exports.facialMatchConfidenceCredentialSchema = exports.facialMatchCredentialSchema = exports.livelinessConfidenceCredentialSchema = exports.governmentIdDocumentImageCredentialSchema = exports.genderCredential = exports.fullNameCredentialSchema = exports.phoneCredentialSchema = exports.birthDateCredentialSchema = exports.firstNameCredentialSchema = exports.lastNameCredentialSchema = exports.addressCredentialSchema = exports.livelinessCredentialSchema = exports.facialImageCredentialSchema = exports.countryResidenceCredentialSchema = exports.ssnCredentialSchema = exports.emailCredentialSchema = void 0;
 const typebox_1 = require("@sinclair/typebox");
 exports.emailCredentialSchema = typebox_1.Type.Object({
     email: typebox_1.Type.String()
@@ -64,14 +64,4 @@ exports.governmentIdDocumentBackImageCredentialSchema = typebox_1.Type.Object({
         contentEncoding: 'base64'
     })
 }, { $id: 'GovernmentIdDocumentBackImageCredential', additionalProperties: false });
-exports.ssnFormatted = {
-    type: 'object',
-    properties: {
-        ssn: {
-            type: 'ssn',
-            format: 'ssnCustom'
-        }
-    },
-    required: ['ssn']
-};
 //# sourceMappingURL=schemas.js.map

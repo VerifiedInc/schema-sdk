@@ -8,6 +8,7 @@ const ajv_1 = __importDefault(require("ajv"));
 const logger_1 = __importDefault(require("./logger"));
 const ajv_formats_1 = __importDefault(require("ajv-formats"));
 const schemas_1 = require("./schemas");
+// schemas to add to ajv instance options
 const schemas = [
     schemas_1.ssnCredentialSchema,
     schemas_1.emailCredentialSchema,
@@ -42,7 +43,12 @@ exports.ajv = new ajv_1.default({
     logger_1.default,
     schemas
 });
+// Adding formats to ajv
 (0, ajv_formats_1.default)(exports.ajv);
+/*******************************************************************
+ * Add custom formats to ajv below                                 *
+ * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
+ *******************************************************************/
 exports.ajv.addFormat('ssn', {
     type: 'string',
     validate: (ssn) => {

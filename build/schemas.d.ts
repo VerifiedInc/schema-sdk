@@ -53,14 +53,4 @@ export declare const governmentIdTypeCredentialSchema: TObject<{
 export declare const governmentIdDocumentBackImageCredentialSchema: TObject<{
     image: import("@sinclair/typebox").TString<string>;
 }>;
-export declare const ssnFormatted: {
-    type: string;
-    properties: {
-        ssn: {
-            type: string;
-            format: string;
-        };
-    };
-    required: string[];
-};
 //# sourceMappingURL=schemas.d.ts.map
