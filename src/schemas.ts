@@ -6,12 +6,12 @@ import { UnumSchemaObject } from './validate';
 export const emailCredentialSchema = Type.Object({
   email: Type.String()
 },
-{ $id: 'EmailCredentialType', additionalProperties: false });
+{ $id: 'EmailCredential', additionalProperties: false });
 
 export const ssnCredentialSchema = Type.Object({
   ssn: Type.String()
 },
-{ $id: 'SsnCredentialType', additionalProperties: false });
+{ $id: 'SsnCredential', additionalProperties: false });
 
 // /**
 //  * Map of schemas.

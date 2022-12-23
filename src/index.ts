@@ -1,9 +1,11 @@
 import { emailCredentialSchema, ssnCredentialSchema } from './schemas';
 import { EmailCredentialSchemaType, SsnCredentialSchemaType } from './types';
 // import types from './types';
-import { validate } from './validate';
+import { UnumSchemaObject, validate } from './validate';
 
 export {
+  // types
+  UnumSchemaObject,
 
   // functions
   validate,

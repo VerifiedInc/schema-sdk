@@ -4,10 +4,10 @@ exports.ssnCredentialSchema = exports.emailCredentialSchema = void 0;
 const typebox_1 = require("@sinclair/typebox");
 exports.emailCredentialSchema = typebox_1.Type.Object({
     email: typebox_1.Type.String()
-}, { $id: 'EmailCredentialType', additionalProperties: false });
+}, { $id: 'EmailCredential', additionalProperties: false });
 exports.ssnCredentialSchema = typebox_1.Type.Object({
     ssn: typebox_1.Type.String()
-}, { $id: 'SsnCredentialType', additionalProperties: false });
+}, { $id: 'SsnCredential', additionalProperties: false });
 // /**
 //  * Map of schemas.
 //  */
