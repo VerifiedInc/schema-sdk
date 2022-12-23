@@ -1,9 +1,9 @@
-import { Static, TObject, Type } from '@sinclair/typebox';
-import { ajv } from './ajv';
-import { SchemaError } from './error';
+import { Type } from '@sinclair/typebox';
 
 export const emailCredentialSchema = Type.Object({
-  email: Type.String()
+  email: Type.String({
+    format: 'email'
+  })
 },
 { $id: 'EmailCredential', additionalProperties: false });
 
@@ -52,7 +52,9 @@ export const birthDateCredentialSchema = Type.Object({
 { $id: 'BirthDateCredential', additionalProperties: false });
 
 export const phoneCredentialSchema = Type.Object({
-  phone: Type.String()
+  phone: Type.String({
+    format: 'phone'
+  })
 },
 { $id: 'PhoneCredential', additionalProperties: false });
 

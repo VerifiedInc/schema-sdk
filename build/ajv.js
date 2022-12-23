@@ -56,4 +56,18 @@ exports.ajv.addFormat('ssn', {
         return ssnRegex.test(ssn);
     }
 });
+exports.ajv.addFormat('email', {
+    type: 'string',
+    validate: (email) => {
+        const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        return emailRegex.test(email);
+    }
+});
+exports.ajv.addFormat('phone', {
+    type: 'string',
+    validate: (phone) => {
+        const phoneRegex = /^\+(?:[0-9]●?){6,14}[0-9]$/;
+        return phoneRegex.test(phone);
+    }
+});
 //# sourceMappingURL=ajv.js.map

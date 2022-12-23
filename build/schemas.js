@@ -3,7 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.governmentIdDocumentBackImageCredentialSchema = exports.governmentIdTypeCredentialSchema = exports.facialMatchConfidenceCredentialSchema = exports.facialMatchCredentialSchema = exports.livelinessConfidenceCredentialSchema = exports.governmentIdDocumentImageCredentialSchema = exports.genderCredential = exports.fullNameCredentialSchema = exports.phoneCredentialSchema = exports.birthDateCredentialSchema = exports.firstNameCredentialSchema = exports.lastNameCredentialSchema = exports.addressCredentialSchema = exports.livelinessCredentialSchema = exports.facialImageCredentialSchema = exports.countryResidenceCredentialSchema = exports.ssnCredentialSchema = exports.emailCredentialSchema = void 0;
 const typebox_1 = require("@sinclair/typebox");
 exports.emailCredentialSchema = typebox_1.Type.Object({
-    email: typebox_1.Type.String()
+    email: typebox_1.Type.String({
+        format: 'email'
+    })
 }, { $id: 'EmailCredential', additionalProperties: false });
 exports.ssnCredentialSchema = typebox_1.Type.Object({
     ssn: typebox_1.Type.String({
@@ -34,7 +36,9 @@ exports.birthDateCredentialSchema = typebox_1.Type.Object({
     birthDate: typebox_1.Type.String()
 }, { $id: 'BirthDateCredential', additionalProperties: false });
 exports.phoneCredentialSchema = typebox_1.Type.Object({
-    phone: typebox_1.Type.String()
+    phone: typebox_1.Type.String({
+        format: 'phone'
+    })
 }, { $id: 'PhoneCredential', additionalProperties: false });
 exports.fullNameCredentialSchema = typebox_1.Type.Object({
     fullName: typebox_1.Type.String()

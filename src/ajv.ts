@@ -53,3 +53,19 @@ ajv.addFormat('ssn', {
     return ssnRegex.test(ssn);
   }
 });
+
+ajv.addFormat('email', {
+  type: 'string',
+  validate: (email: string) => {
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    return emailRegex.test(email);
+  }
+});
+
+ajv.addFormat('phone', {
+  type: 'string',
+  validate: (phone: string) => {
+    const phoneRegex = /^\+(?:[0-9]●?){6,14}[0-9]$/;
+    return phoneRegex.test(phone);
+  }
+});
