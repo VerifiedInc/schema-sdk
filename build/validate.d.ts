@@ -12,11 +12,4 @@ export interface UnumSchemaObject extends TObject<TProperties> {
  * @returns boolean
  */
 export declare function validate(type: string, data: any): boolean;
-/**
- * Function to validate the jsonSchema against the data.
- * @param jsonSchema
- * @param data
- * @returns boolean
- */
-export declare function validateOld(jsonSchema: UnumSchemaObject, data: any): boolean;
 //# sourceMappingURL=validate.d.ts.map

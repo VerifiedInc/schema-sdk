@@ -33,24 +33,3 @@ export function validate (type: string, data: any): boolean {
 
   return true;
 }
-
-/**
- * Function to validate the jsonSchema against the data.
- * @param jsonSchema
- * @param data
- * @returns boolean
- */
-export function validateOld (jsonSchema: UnumSchemaObject, data: any): boolean {
-  // adding schemas on demand instead of having to preload all of them.
-  // ref: https://ajv.js.org/guide/managing-schemas.html#pre-adding-all-schemas-vs-adding-on-demand
-  const validator = ajv.getSchema(jsonSchema.$id) || ajv.compile(jsonSchema);
-
-  const valid = validator(data);
-
-  if (!valid) {
-    console.error(validator.errors);
-    throw new SchemaError(validator.errors);
-  }
-
-  return true;
-}
