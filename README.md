@@ -8,4 +8,4 @@ SDK for Unum ID credential scheme handling, e.g. definitions and validation.
 Custom ajv [formats](https://ajv.js.org/guide/formats.html#user-defined-formats) are being defined an leveraged to add additional assurances in regard to the credential schema data format in addition to its type. 
 
 ## TypeBox
-[TypeBox](https://github.com/sinclairzx81/typebox) is used to author schemas. It is really just syntactic sugar to author JSON Schemas. Opting to not use TypeBox TypeCompiler because it is a little less flexible than ajv, [ref](https://github.com/sinclairzx81/typebox#typecompiler).
+[TypeBox](https://github.com/sinclairzx81/typebox) is used to author schemas. This means the attribute type and potentially its format. It is really just syntactic sugar to author JSON Schemas. Opting to not use TypeBox TypeCompiler because it is a little less flexible than ajv, [ref](https://github.com/sinclairzx81/typebox#typecompiler).
