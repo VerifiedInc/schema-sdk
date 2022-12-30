@@ -81,7 +81,6 @@ jobs:
       # ref: https://github.com/marketplace/actions/auto-generate-changelog
       - uses: BobAnkh/auto-generate-changelog@v1.2.3
         with:
-          REPO_NAME: '<YourUserName>/<YourRepoName>'
           ACCESS_TOKEN: ${{secrets.GITHUB_TOKEN}}
           PATH: 'CHANGELOG.md'
           COMMIT_MESSAGE: 'docs(changelog): updated with release notes'
@@ -95,7 +94,7 @@ jobs:
           author_name: UnumID Admin
           author_email: devops@unumid.co
           message: '[Release ${{ env.RELEASE_VERSION }}] ${{ env.TAG_MESSAGE }}'
-          add: '["package.json", "docs/", "build/"]'
+          add: '["package.json", "docs/", "build/", "CHANGELOG.md"]'
           branch: main
 
       # # ref: https://github.com/marketplace/actions/gh-release?version=v0.1.14
