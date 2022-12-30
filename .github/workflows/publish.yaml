@@ -68,15 +68,15 @@ jobs:
       #     access: public
       #     registry: https://npm.pkg.github.com
 
-      # ref: https://github.com/marketplace/actions/delete-tag-and-release
-      - name: Delete the v tag
-        uses: dev-drprasad/delete-tag-and-release@v0.2.0
-        with:
-          delete_release: true # default: false
-          tag_name: ${{ env.TAG_VERSION }} # tag name to delete
-          # repo: <owner>/<repoName> # target repo (optional). defaults to repo running this action
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # # ref: https://github.com/marketplace/actions/delete-tag-and-release
+      # - name: Delete the v tag
+      #   uses: dev-drprasad/delete-tag-and-release@v0.2.0
+      #   with:
+      #     delete_release: true # default: false
+      #     tag_name: ${{ env.TAG_VERSION }} # tag name to delete
+      #     # repo: <owner>/<repoName> # target repo (optional). defaults to repo running this action
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # ref: https://github.com/marketplace/actions/auto-generate-changelog
       - uses: BobAnkh/auto-generate-changelog@v1.2.3
