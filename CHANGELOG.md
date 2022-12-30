@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* **husky:** husky added for commit message validatation ([#5](https://github.com/UnumID/schema-sdk/issues/5)) ([93dd76c](https://github.com/mokkapps/changelog-generator-demo/commits/93dd76cdf2172d87852b94abcc7502e29c3c8065))
+* **husky:** husky added for commit message validation ([#5](https://github.com/UnumID/schema-sdk/issues/5)) ([93dd76c](https://github.com/mokkapps/changelog-generator-demo/commits/93dd76cdf2172d87852b94abcc7502e29c3c8065))
 
 
 ### Documentation
