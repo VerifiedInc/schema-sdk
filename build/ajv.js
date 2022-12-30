@@ -59,7 +59,7 @@ exports.ajv.addFormat('ssn', {
 exports.ajv.addFormat('email', {
     type: 'string',
     validate: (email) => {
-        const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+        const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
         return emailRegex.test(email);
     }
 });
