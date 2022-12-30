@@ -2,8 +2,10 @@ name: deployment
 
 on:
   push:
-    tags:
-      - 'v*.*.*'
+    branches:
+      - "release"
+    # tags:
+    #   - 'v*.*.*'
 
 jobs:
   releaseJob:
@@ -34,13 +36,13 @@ jobs:
           echo ${{ env.TAG_VERSION }}
           echo ${{ env.TAG_MESSAGE }}
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 18.x
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v1
+      #   with:
+      #     node-version: 18.x
 
-      - name: Install dependencies
-        run: npm ci
+      # - name: Install dependencies
+      #   run: npm ci
 
       # # ref: https://github.community/t/auto-update-package-json-on-publishing/16894
       # - name: Update package version
@@ -96,15 +98,15 @@ jobs:
           add: '["package.json", "docs/", "build/"]'
           branch: main
 
-      # ref: https://github.com/marketplace/actions/gh-release?version=v0.1.14
-      - name: Create Release
-        uses: softprops/action-gh-release@v0.1.14
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-          tag_name: ${{ env.RELEASE_VERSION }}
-          name: ${{ env.RELEASE_VERSION }}
-          generate_release_notes: true
-          draft: false
-          prerelease: false
-          target_commitish: main
+      # # ref: https://github.com/marketplace/actions/gh-release?version=v0.1.14
+      # - name: Create Release
+      #   uses: softprops/action-gh-release@v0.1.14
+      #   if: startsWith(github.ref, 'refs/tags/')
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      #     tag_name: ${{ env.RELEASE_VERSION }}
+      #     name: ${{ env.RELEASE_VERSION }}
+      #     generate_release_notes: true
+      #     draft: false
+      #     prerelease: false
+      #     target_commitish: main
