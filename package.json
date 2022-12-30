@@ -11,7 +11,7 @@
     "lint": "eslint \"src/**/*.ts\" \"test/**/*.ts\"",
     "compile": "rm -rf build/ && tsc && cp src/types.d.ts build/ && cp package.json build/",
     "jest": "jest --forceExit --runInBand",
-    "test": "yarn run build && yarn run jest",
+    "test": "npm run compile && npm run jest",
     "start": "node build/index.js",
     "debug": "ts-node src/index.ts",
     "prepare": "husky install"
