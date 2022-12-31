@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       # ref: https://stackoverflow.com/questions/58177786/get-the-current-pushed-tag-in-github-actions
       - name: Set version env
@@ -34,6 +36,16 @@ jobs:
           echo ${{ env.TAG_VERSION }}
           echo ${{ env.TAG_MESSAGE }}
 
+      # ref: https://github.com/marketplace/actions/delete-tag-and-release
+      - name: Delete the v tag
+        uses: dev-drprasad/delete-tag-and-release@v0.2.0
+        with:
+          delete_release: true # default: false
+          tag_name: ${{ env.TAG_VERSION }} # tag name to delete
+          # repo: <owner>/<repoName> # target repo (optional). defaults to repo running this action
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -49,7 +61,11 @@ jobs:
 
       - name: Update package version & update changelog.md
         run: |
-          npm run release -- --release-as ${{ env.RELEASE_VERSION }}
+          npx standard-version -- --release-as ${{ env.RELEASE_VERSION }}
+
+      - name: git status
+        run: |
+          git status
 
       - name: Create type docs
         run: |
@@ -70,16 +86,6 @@ jobs:
       #     access: public
       #     registry: https://npm.pkg.github.com
 
-      # ref: https://github.com/marketplace/actions/delete-tag-and-release
-      - name: Delete the v tag
-        uses: dev-drprasad/delete-tag-and-release@v0.2.0
-        with:
-          delete_release: true # default: false
-          tag_name: ${{ env.TAG_VERSION }} # tag name to delete
-          # repo: <owner>/<repoName> # target repo (optional). defaults to repo running this action
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       # ref: https://github.com/marketplace/actions/add-commit
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
@@ -87,7 +93,7 @@ jobs:
           author_name: UnumID Admin
           author_email: devops@unumid.co
           message: 'chore(release): ${{ env.RELEASE_VERSION }} ${{ env.TAG_MESSAGE }}'
-          add: '["package.json", "package-lock.json", "docs/", "build/", "CHANGELOG.md"]'
+          add: '["CHANGELOG.md", "package.json", "package-lock.json", "docs/", "build/"]'
           new_branch: main
 
       # ref: https://github.com/marketplace/actions/gh-release?version=v0.1.14
