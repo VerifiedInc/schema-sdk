@@ -57,6 +57,11 @@ jobs:
       #   run: |
       #     npm run release -- --release-as ${{ env.RELEASE_VERSION }}
 
+      # ref: https://github.com/qzb/standard-version-action#example-usage
+      - name: Configure committer
+        run: |
+          git config user.name "UnumID Admin"
+          git config user.email "devops@unumid.co"
       - name: Update package version & update changelog.md
         uses: qzb/standard-version-action@v1.0.5
 
