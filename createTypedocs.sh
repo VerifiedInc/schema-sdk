@@ -3,4 +3,4 @@
 # Need to remove the build directory otherwise will get a permissions conflict
 rm -rf build/
 npx typedoc src/index.ts
-npm run build
+npm run compile
