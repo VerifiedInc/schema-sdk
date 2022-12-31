@@ -25,6 +25,12 @@
   ],
   "author": "UnumID <devops@unumid.co>",
   "license": "ISC",
+  "standard-version": {
+    "skip": {
+      "tag": true,
+      "commit": true
+    }
+  },
   "devDependencies": {
     "@types/jest": "^26.0.0",
     "@types/supertest": "^2.0.10",
