@@ -61,10 +61,7 @@ jobs:
 
       - name: Update package version & update changelog.md
         run: |
-          npm run release -- --release-as ${{ env.RELEASE_VERSION }}
-      # - name: Update package version & update changelog.md
-      #   run: |
-      #     npx standard-version -- --release-as ${{ env.RELEASE_VERSION }}
+          npx standard-version -- --release-as ${{ env.RELEASE_VERSION }}
 
       - name: git status
         run: |
