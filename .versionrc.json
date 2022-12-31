@@ -11,7 +11,7 @@
       {"type": "ci", "hidden": true},
       {"type": "test", "hidden": true}
     ],
-    "commitUrlFormat": "https://github.com/mokkapps/changelog-generator-demo/commits/{{hash}}",
-    "compareUrlFormat": "https://github.com/mokkapps/changelog-generator-demo/compare/{{previousTag}}...{{currentTag}}"
+    "commitUrlFormat": "https://github.com/UnumID/schema-sdk/commit/{{hash}}",
+    "compareUrlFormat": "https://github.com/UnumID/schema-sdk/compare/{{previousTag}}...{{currentTag}}"
   }
   
