@@ -47,9 +47,9 @@ jobs:
       #   run: |
       #     npm --no-git-tag-version version ${{ env.RELEASE_VERSION }}
 
-      - name: Update package version & update changelog.md
-        run: |
-          npm run release -- --release-as ${{ env.RELEASE_VERSION }}
+      # - name: Update package version & update changelog.md
+      #   run: |
+      #     npm run release -- --release-as ${{ env.RELEASE_VERSION }}
 
       # - name: Create type docs
       #   run: |
@@ -89,6 +89,10 @@ jobs:
           message: 'chore(release): ${{ env.RELEASE_VERSION }} ${{ env.TAG_MESSAGE }}'
           add: '["CHANGELOG.md", "package.json", "package-lock.json", "docs/", "build/"]'
           new_branch: p
+
+      - name: Update package version & update changelog.md
+        run: |
+          npm run release -- --release-as ${{ env.RELEASE_VERSION }}
 
       # # ref: https://github.com/marketplace/actions/gh-release?version=v0.1.14
       # - name: Create Release
