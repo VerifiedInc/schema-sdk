@@ -14,7 +14,7 @@ Custom ajv [formats](https://ajv.js.org/guide/formats.html#user-defined-formats)
 This project uses [Husky](https://github.com/typicode/husky) to manage its git hooks.
 
 ### Commit Message
- Husky is configured to enforce [commitlint](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional)'s [Conventual Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) commit message format. `config-conventional` follows Angular commit convention [guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines).
+ Husky is configured to enforce [commitlint](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional)'s [Conventual Commits](https://www.conventionalcommits.org/en/v1.0.0-beta.2/) commit message format. `config-conventional` follows Angular commit convention [guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines). We are using a slightly modified commitlint [configuration](.commitlintrc.json) [rules](https://commitlint.js.org/#/reference-rules) set to allow for commit messages that end with a `.`.
 
 A message must start with one of the following "types":
 
