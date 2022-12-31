@@ -54,7 +54,7 @@ jobs:
       #     npx standard-version -- --release-as ${{ env.RELEASE_VERSION }}
 
       - name: Update package version & update changelog.md
-        uses: qzb/standard-version@v1
+        uses: qzb/standard-version-action@v1.0.5
 
       - name: git status
         run: |
