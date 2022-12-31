@@ -51,6 +51,10 @@ jobs:
         run: |
           npx standard-version -- --release-as ${{ env.RELEASE_VERSION }}
 
+      - name: Create type docs
+        run: |
+          git status
+
       # - name: Create type docs
       #   run: |
       #     ./createTypedocs.sh
