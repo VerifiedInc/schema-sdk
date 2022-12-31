@@ -14,13 +14,23 @@
     "test": "npm run compile && npm run jest",
     "start": "node build/index.js",
     "debug": "ts-node src/index.ts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major"
   },
   "keywords": [
     "schema"
   ],
   "author": "UnumID <devops@unumid.co>",
   "license": "ISC",
+  "standard-version": {
+    "skip": {
+      "tag": true,
+      "commit": true
+    }
+  },
   "devDependencies": {
     "@types/jest": "^26.0.0",
     "@types/supertest": "^2.0.10",
@@ -38,6 +48,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "husky": "^8.0.0",
     "jest": "^26.1.0",
+    "standard-version": "^9.5.0",
     "supertest": "^4.0.2",
     "ts-jest": "^26.5.4",
     "ts-node": "^10.9.1",
