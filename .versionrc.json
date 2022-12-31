@@ -1,5 +1,5 @@
 {
-    "skip": {"tag": true, "commit": true},
+    "skip": {"tag": false, "commit": false},
     "types": [
       {"type": "feat", "section": "Features"},
       {"type": "fix", "section": "Bug Fixes"},
