@@ -70,7 +70,7 @@
   <h3>Changelog</h3>
 </a>
 <p>The <a href="https://github.com/conventional-changelog/standard-version">Standard Version</a> node module is used to automatically populate <a href="/CHANGELOG.md">changelog.md</a>. It should only ever be trigger the but the Publish Github Actions <a href=".github/workflows/publish.yaml">job</a>. Please do <strong>not</strong> use manually.</p>
-<p>The Publish job uses the <code>npm version</code>-like <a href="https://github.com/conventional-changelog/standard-version#release-as-a-target-type-imperatively-npm-version-like">option</a> to side step its auto version increment logic. Also, <code>package.json</code> has <a href="https://github.com/conventional-changelog/standard-version#skipping-lifecycle-steps">options</a> set to disable the tagging and commit functionality. which is being handled independently by Github Actions.</p>
+<p>The Publish job uses the <code>npm version</code>-like <a href="https://github.com/conventional-changelog/standard-version#release-as-a-target-type-imperatively-npm-version-like">option</a> to side step its auto version increment logic. Also, <code>.versionrc.json</code> has <a href="https://github.com/conventional-changelog/standard-version#skipping-lifecycle-steps">options</a> set to disable the tagging and commit functionality which is being handled independently by Github Actions.</p>
 </div></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
