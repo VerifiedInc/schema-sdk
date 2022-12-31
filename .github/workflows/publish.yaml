@@ -49,9 +49,9 @@ jobs:
 
       - name: Update package version & update changelog.md
         run: |
-          npx standard-version -- --release-as ${{ env.RELEASE_VERSION }}
+          npm standard-version -- --release-as ${{ env.RELEASE_VERSION }}
 
-      - name: Create type docs
+      - name: git status
         run: |
           git status
 
