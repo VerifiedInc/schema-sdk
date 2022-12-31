@@ -36,16 +36,6 @@ jobs:
           echo ${{ env.TAG_VERSION }}
           echo ${{ env.TAG_MESSAGE }}
 
-      # ref: https://github.com/marketplace/actions/delete-tag-and-release
-      - name: Delete the v tag
-        uses: dev-drprasad/delete-tag-and-release@v0.2.0
-        with:
-          delete_release: true # default: false
-          tag_name: ${{ env.TAG_VERSION }} # tag name to delete
-          # repo: <owner>/<repoName> # target repo (optional). defaults to repo running this action
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -59,9 +49,25 @@ jobs:
       #   run: |
       #     npm --no-git-tag-version version ${{ env.RELEASE_VERSION }}
 
+      # - name: Update package version & update changelog.md
+      #   run: |
+      #     npx standard-version -- --release-as ${{ env.RELEASE_VERSION }}
+
+      - name: Configure committer
+        run: |
+          git config user.name "UnumID Admin"
+          git config user.email "devops@unumid.co"
       - name: Update package version & update changelog.md
         run: |
-          npx standard-version -- --release-as ${{ env.RELEASE_VERSION }}
+          npm run release -- --release-as ${{ env.RELEASE_VERSION }}
+
+      # # ref: https://github.com/qzb/standard-version-action#example-usage
+      # - name: Configure committer
+      #   run: |
+      #     git config user.name "UnumID Admin"
+      #     git config user.email "devops@unumid.co"
+      # - name: Update package version & update changelog.md
+      #   uses: qzb/standard-version-action@v1.0.5
 
       - name: git status
         run: |
@@ -86,6 +92,16 @@ jobs:
       #     access: public
       #     registry: https://npm.pkg.github.com
 
+      # ref: https://github.com/marketplace/actions/delete-tag-and-release
+      - name: Delete the v tag
+        uses: dev-drprasad/delete-tag-and-release@v0.2.0
+        with:
+          delete_release: true # default: false
+          tag_name: ${{ env.TAG_VERSION }} # tag name to delete
+          # repo: <owner>/<repoName> # target repo (optional). defaults to repo running this action
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       # ref: https://github.com/marketplace/actions/add-commit
       - name: Commit changes
         uses: EndBug/add-and-commit@v9
@@ -96,7 +112,7 @@ jobs:
           add: '["CHANGELOG.md", "package.json", "package-lock.json", "docs/", "build/"]'
           new_branch: main
 
-      # ref: https://github.com/marketplace/actions/gh-release?version=v0.1.14
+      # ref: https://github.com/marketplace/actions/gh-release?version=v0.1.15
       - name: Create Release
         uses: softprops/action-gh-release@v0.1.15
         if: startsWith(github.ref, 'refs/tags/')
