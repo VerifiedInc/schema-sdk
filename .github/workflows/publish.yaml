@@ -88,17 +88,17 @@ jobs:
           author_email: devops@unumid.co
           message: 'chore(release): ${{ env.RELEASE_VERSION }} ${{ env.TAG_MESSAGE }}'
           add: '["CHANGELOG.md", "package.json", "package-lock.json", "docs/", "build/"]'
-          new_branch: main
+          new_branch: p
 
-      # ref: https://github.com/marketplace/actions/gh-release?version=v0.1.14
-      - name: Create Release
-        uses: softprops/action-gh-release@v0.1.15
-        if: startsWith(github.ref, 'refs/tags/')
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-          tag_name: ${{ env.RELEASE_VERSION }}
-          name: ${{ env.RELEASE_VERSION }}
-          generate_release_notes: true
-          draft: false
-          prerelease: false
-          target_commitish: main
+      # # ref: https://github.com/marketplace/actions/gh-release?version=v0.1.14
+      # - name: Create Release
+      #   uses: softprops/action-gh-release@v0.1.15
+      #   if: startsWith(github.ref, 'refs/tags/')
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      #     tag_name: ${{ env.RELEASE_VERSION }}
+      #     name: ${{ env.RELEASE_VERSION }}
+      #     generate_release_notes: true
+      #     draft: false
+      #     prerelease: false
+      #     target_commitish: main
