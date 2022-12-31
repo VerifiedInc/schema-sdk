@@ -1,7 +1,15 @@
 name: "Lint PR"
 
+# ref: https://github.com/amannn/action-semantic-pull-request#event-triggers
 on:
   pull_request:
+  # ref: https://docs.github.com/en/actions/reference/events-that-trigger-workflows#pull_request
+    types:
+      - opened
+      - edited
+      - synchronize
+  pull_request_target:
+  # ref: https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request_target
     types:
       - opened
       - edited
