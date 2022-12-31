@@ -87,7 +87,7 @@ jobs:
           author_name: UnumID Admin
           author_email: devops@unumid.co
           message: 'chore(release): ${{ env.RELEASE_VERSION }}] ${{ env.TAG_MESSAGE }}'
-          add: '["package.json", "package-lock.json" "docs/", "build/", "CHANGELOG.md"]'
+          add: '["package.json", "package-lock.json", "docs/", "build/", "CHANGELOG.md"]'
           branch: main
 
       # ref: https://github.com/marketplace/actions/gh-release?version=v0.1.14
