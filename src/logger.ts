@@ -34,7 +34,7 @@ const logger = createLogger({
 });
 
 // Printing this info here instead of in ./config to prevent a circular dependency.
-logger.debug(`Schema SDK v3 Log Level: ${configData.logLevel}`);
-logger.debug(`Schema SDK v3 Debug: ${configData.debug}`);
+logger.debug(`Schema SDK v0 Log Level: ${configData.logLevel}`);
+logger.debug(`Schema SDK v0 Debug: ${configData.debug}`);
 
 export default logger;
