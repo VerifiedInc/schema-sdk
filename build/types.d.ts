@@ -1,5 +1,5 @@
 import { Static } from '@sinclair/typebox';
-import { addressCredentialSchema, birthDateCredentialSchema, countryResidenceCredentialSchema, emailCredentialSchema, facialImageCredentialSchema, facialMatchConfidenceCredentialSchema, facialMatchCredentialSchema, firstNameCredentialSchema, fullNameCredentialSchema, genderCredentialSchema, governmentIdDocumentBackImageCredentialSchema, governmentIdDocumentImageCredentialSchema, governmentIdTypeCredentialSchema, lastNameCredentialSchema, livelinessConfidenceCredentialSchema, livelinessCredentialSchema, phoneCredentialSchema, ssnCredentialSchema } from './schemas';
+import { addressCredentialSchema, birthDateCredentialSchema, countryResidenceCredentialSchema, emailCredentialSchema, facialImageCredentialSchema, facialMatchConfidenceCredentialSchema, facialMatchCredentialSchema, firstNameCredentialSchema, fullNameCredentialSchema, genderCredentialSchema, governmentIdDocumentBackImageCredentialSchema, governmentIdDocumentImageCredentialSchema, governmentIdTypeCredentialSchema, lastNameCredentialSchema, livelinessConfidenceCredentialSchema, livelinessCredentialSchema, phoneCredentialSchema, ssnCredentialSchema } from './jsonSchemas';
 
 export type SsnCredentialSchemaType = Static<typeof ssnCredentialSchema>;
 export type EmailCredentialSchemaType = Static<typeof emailCredentialSchema>;

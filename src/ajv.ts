@@ -1,29 +1,11 @@
 import Ajv, { } from 'ajv';
 import logger from './logger';
 import addFormats from 'ajv-formats';
-import { addressCredentialSchema, birthDateCredentialSchema, countryResidenceCredentialSchema, emailCredentialSchema, facialImageCredentialSchema, facialMatchConfidenceCredentialSchema, facialMatchCredentialSchema, firstNameCredentialSchema, fullNameCredentialSchema, genderCredentialSchema, governmentIdDocumentBackImageCredentialSchema, governmentIdDocumentImageCredentialSchema, governmentIdTypeCredentialSchema, lastNameCredentialSchema, livelinessConfidenceCredentialSchema, livelinessCredentialSchema, phoneCredentialSchema, ssnCredentialSchema } from './schemas';
+import { jsonSchemas } from './jsonSchemas';
 
+// get all the values of the jsonSchemas object in an array
 // schemas to add to ajv instance options
-const schemas = [
-  ssnCredentialSchema,
-  emailCredentialSchema,
-  countryResidenceCredentialSchema,
-  facialImageCredentialSchema,
-  livelinessCredentialSchema,
-  addressCredentialSchema,
-  lastNameCredentialSchema,
-  firstNameCredentialSchema,
-  birthDateCredentialSchema,
-  phoneCredentialSchema,
-  fullNameCredentialSchema,
-  genderCredentialSchema,
-  governmentIdDocumentImageCredentialSchema,
-  livelinessConfidenceCredentialSchema,
-  facialMatchCredentialSchema,
-  facialMatchConfidenceCredentialSchema,
-  governmentIdTypeCredentialSchema,
-  governmentIdDocumentBackImageCredentialSchema
-];
+const schemas = Object.values(jsonSchemas);
 
 /**
  * Passing all schemas to Ajv constructor, which internally calls addScehma, instead of adding them on demand
