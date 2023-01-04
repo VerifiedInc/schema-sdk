@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 0.3.0 (2023-01-04)
+
+
+### Features
+
+* **jsonld:** schemas added. ([#17](https://github.com/UnumID/schema-sdk/issues/17)) ([6f4c851](https://github.com/UnumID/schema-sdk/commit/6f4c85111b33c465f998da6fd21c4332ed518e10))
+
+
 ### 0.2.4 (2022-12-31)
 
 
