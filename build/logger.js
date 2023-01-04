@@ -24,7 +24,7 @@ const logger = (0, winston_1.createLogger)({
     silent: process.env.NODE_ENV === 'test'
 });
 // Printing this info here instead of in ./config to prevent a circular dependency.
-logger.debug(`Schema SDK v3 Log Level: ${config_1.configData.logLevel}`);
-logger.debug(`Schema SDK v3 Debug: ${config_1.configData.debug}`);
+logger.debug(`Schema SDK v0 Log Level: ${config_1.configData.logLevel}`);
+logger.debug(`Schema SDK v0 Debug: ${config_1.configData.debug}`);
 exports.default = logger;
 //# sourceMappingURL=logger.js.map
