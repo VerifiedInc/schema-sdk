@@ -1,5 +1,6 @@
 import { ajv } from './ajv';
 import { SchemaError } from './error';
+import logger from './logger';
 
 /**
  * Function to validate the credential schema based on type against the data.
@@ -17,7 +18,7 @@ export function validate (type: string, data: any): boolean {
   const valid = validator(data);
 
   if (!valid) {
-    console.error(validator.errors);
+    logger.error(validator.errors);
     throw new SchemaError(validator.errors);
   }
 
