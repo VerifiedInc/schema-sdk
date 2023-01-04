@@ -1,0 +1,756 @@
+{
+    "@context": {
+        "sorg": "https://schema.org/",
+        "schema": "https://schema.unumid.co/"
+    },
+    "@graph": [
+        {
+            "@id": "schema:Thing",
+            "@type": "rdfs:Class",
+            "rdfs:comment": "The most generic type of item.",
+            "rdfs:label": "Thing"
+        },
+        {
+            "@id": "schema:Intangible",
+            "@type": "rdfs:Class",
+            "rdfs:comment": "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc.",
+            "rdfs:label": "Intangible",
+            "rdfs:subClassOf": {
+                "@id": "schema:Thing"
+            }
+        },
+        {
+            "@id": "schema:Person",
+            "@type": "rdfs:Class",
+            "rdfs:comment": "A person (alive, dead, undead, or fictional).",
+            "rdfs:label": "Person",
+            "rdfs:subClassOf": {
+                "@id": "schema:Thing"
+            }
+        },
+        {
+            "@id": "schema:KYC",
+            "@type": "rdfs:Class",
+            "rdfs:comment": "KYC info.",
+            "rdfs:label": "KYC Information",
+            "rdfs:subClassOf": {
+                "@id": "schema:Intangible"
+            }
+        },
+        {
+            "@id": "schema:Date",
+            "@type": [
+                "schema:DataType",
+                "rdfs:Class"
+            ],
+            "rdfs:comment": "A date value in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).",
+            "rdfs:label": "Date"
+        },
+        {
+            "@id": "schema:contactInfo",
+            "@type": "rdf:Property",
+            "rdfs:comment": "Property representing the contact information for a person or organization.",
+            "rdfs:label": "Contact Info",
+            "rdfs:subPropertyOf": {
+                "@id": "rdfs:label"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                },
+                {
+                    "@id": "schema:KYC"
+                }
+            ],
+            "schema:rangeIncludes": [
+                {
+                    "@id": "schema:email"
+                },
+                {
+                    "@id": "schema:emailDomain"
+                },
+                {
+                    "@id": "schema:phoneNumberCountryCode"
+                },
+                {
+                    "@id": "schema:phoneNumberAreaCode"
+                },
+                {
+                    "@id": "schema:phoneNumber"
+                },
+                {
+                    "@id": "schema:address"
+                },
+                {
+                    "@id": "schema:addressCountry"
+                },
+                {
+                    "@id": "schema:addressState"
+                },
+                {
+                    "@id": "schema:addressCity"
+                },
+                {
+                    "@id": "schema:postalCode"
+                },
+                {
+                    "@id": "schema:streetAddress"
+                }
+            ]
+        },
+        {
+            "@id": "schema:name",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The name of something or someone.",
+            "rdfs:label": "Name",
+            "sorg:equivalentProperty": {
+                "@id": "schema:name"
+            },
+            "rdfs:subPropertyOf": {
+                "@id": "rdfs:label"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                },
+                {
+                    "@id": "schema:KYC"
+                }
+            ],
+            "schema:rangeIncludes": [
+                {
+                    "@id": "schema:firstName"
+                },
+                {
+                    "@id": "schema:middleName"
+                },
+                {
+                    "@id": "schema:middleInitial"
+                },
+                {
+                    "@id": "schema:lastName"
+                },
+                {
+                    "@id": "schema:fullName"
+                }
+            ]
+        },
+        {
+            "@id": "schema:miscellaneous",
+            "@type": "rdf:Property",
+            "rdfs:comment": "Miscellaneous information.",
+            "rdfs:label": "Miscellaneous",
+            "rdfs:subPropertyOf": {
+                "@id": "rdfs:label"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                },
+                {
+                    "@id": "schema:KYC"
+                },
+                {
+                    "@id": "schema:Date"
+                }
+            ],
+            "schema:rangeIncludes": [
+                {
+                    "@id": "schema:birthDate"
+                },
+                {
+                    "@id": "schema:gender"
+                },
+                {
+                    "@id": "schema:ssn"
+                },
+                {
+                    "@id": "schema:faceImage"
+                },
+                {
+                    "@id": "schema:liveliness"
+                },
+                {
+                    "@id": "schema:livelinessConfidence"
+                },
+                {
+                    "@id": "schema:facialMatch"
+                },
+                {
+                    "@id": "schema:facialMatchConfidence"
+                }
+            ]
+        },
+        {
+            "@id": "schema:document",
+            "@type": "rdf:Property",
+            "rdfs:comment": "Identity documents including those that are government issued.",
+            "rdfs:label": "ID Document",
+            "rdfs:subPropertyOf": {
+                "@id": "rdfs:label"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                },
+                {
+                    "@id": "schema:KYC"
+                },
+                {
+                    "@id": "schema:Date"
+                }
+            ],
+            "schema:rangeIncludes": [
+                {
+                    "@id": "schema:documentType"
+                },
+                {
+                    "@id": "schema:documentImage"
+                }
+            ]
+        },
+        {
+            "@id": "schema:PostalAddress",
+            "@type": "rdfs:Class",
+            "rdfs:comment": "The mailing address.",
+            "rdfs:label": "PostalAddress",
+            "rdfs:subClassOf": {
+                "@id": "schema:KYC"
+            }
+        },
+        {
+            "@id": "schema:email",
+            "@type": "rdf:Property",
+            "rdfs:comment": "Email address.",
+            "rdfs:label": "Email Address",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:contactInfo"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:KYC"
+                },
+                {
+                    "@id": "schema:Person"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:emailDomain",
+            "@type": "rdf:Property",
+            "rdfs:comment": "Email address domain.",
+            "rdfs:label": "Email Address - Domain",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:contactInfo"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:KYC"
+                },
+                {
+                    "@id": "schema:Person"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:birthDate",
+            "@type": "rdf:Property",
+            "rdfs:comment": "Date of birth.",
+            "rdfs:label": "Birth Date",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "sorg:equivalentProperty": {
+                "@id": "schema:birthDate"
+            },
+            "schema:domainIncludes": {
+                "@id": "schema:Person"
+            },
+            "schema:rangeIncludes": {
+                "@id": "schema:Date"
+            }
+        },
+        {
+            "@id": "schema:ssn",
+            "@type": "rdf:Property",
+            "rdfs:comment": "A full Social Security Number",
+            "rdfs:label": "Social Security Number",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:KYC"
+                },
+                {
+                    "@id": "schema:Person"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:gender",
+            "@type": "rdf:Property",
+            "rdfs:comment": "Gender of something, typically a person, but possibly also fictional characters, animals, etc.",
+            "rdfs:label": "gender",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                }
+            ],
+            "schema:rangeIncludes": [
+                {
+                    "@id": "schema:Text"
+                }
+            ]
+        },
+        {
+            "@id": "schema:phoneNumber",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The telephone number.",
+            "rdfs:label": "Phone Number",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:contactInfo"
+            },
+            "sorg:equivalentProperty": {
+                "@id": "schema:telephone"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                },
+                {
+                    "@id": "schema:ContactPoint"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:phoneNumberCountryCode",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The telephone number country code.",
+            "rdfs:label": "Phone Number - Country Code",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:contactInfo"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                },
+                {
+                    "@id": "schema:ContactPoint"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:phoneNumberAreaCode",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The telephone number area code.",
+            "rdfs:label": "Phone Number - Area Code",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:contactInfo"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                },
+                {
+                    "@id": "schema:ContactPoint"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:firstName",
+            "@type": "rdf:Property",
+            "rdfs:comment": "Given name. In the U.S., the first name of a Person.",
+            "rdfs:label": "First Name",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:name"
+            },
+            "sorg:equivalentProperty": {
+                "@id": "schema:givenName"
+            },
+            "schema:domainIncludes": {
+                "@id": "schema:Person"
+            },
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:middleName",
+            "@type": "rdf:Property",
+            "rdfs:comment": "An additional name for a Person, can be used for a middle name.",
+            "rdfs:label": "Middle Name",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:name"
+            },
+            "sorg:equivalentProperty": {
+                "@id": "schema:additionalName"
+            },
+            "schema:domainIncludes": {
+                "@id": "schema:Person"
+            },
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:middleInitial",
+            "@type": "rdf:Property",
+            "rdfs:comment": "A middle name initial for a Person.",
+            "rdfs:label": "Middle Initial",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:name"
+            },
+            "schema:domainIncludes": {
+                "@id": "schema:Person"
+            },
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:lastName",
+            "@type": "rdf:Property",
+            "rdfs:comment": "Family name. In the U.S., the last name of a Person.",
+            "rdfs:label": "Last Name",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:name"
+            },
+            "sorg:equivalentProperty": {
+                "@id": "schema:familyName"
+            },
+            "schema:domainIncludes": {
+                "@id": "schema:Person"
+            },
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:fullName",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The full name of a Person. In the US it generally means: first, middle, and last name.",
+            "rdfs:label": "Full Name",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:name"
+            },
+            "schema:domainIncludes": {
+                "@id": "schema:Person"
+            },
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:address",
+            "@type": "rdf:Property",
+            "rdfs:comment": "Physical address.",
+            "rdfs:label": "Address",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:contactInfo"
+            },
+            "sorg:equivalentProperty": {
+                "@id": "schema:address"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                },
+                {
+                    "@id": "schema:KYC"
+                }
+            ],
+            "schema:rangeIncludes": [
+                {
+                    "@id": "schema:Text"
+                },
+                {
+                    "@id": "schema:PostalAddress"
+                }
+            ]
+        },
+        {
+            "@id": "schema:addressCountry",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The country. For example, USA.",
+            "rdfs:label": "Address - Country",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:contactInfo"
+            },
+            "sorg:equivalentProperty": {
+                "@id": "schema:addressCountry"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:PostalAddress"
+                }
+            ],
+            "schema:rangeIncludes": [
+                {
+                    "@id": "schema:Text"
+                }
+            ]
+        },
+        {
+            "@id": "schema:addressState",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country) ",
+            "rdfs:label": "Address - Region",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:contactInfo"
+            },
+            "sorg:equivalentProperty": {
+                "@id": "schema:addressRegion"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:PostalAddress"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:addressCity",
+            "@type": "rdf:Property",
+            "rdfs:comment": "Physical city address. For example, San Francisco.",
+            "rdfs:label": "Address - City",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:contactInfo"
+            },
+            "sorg:equivalentProperty": {
+                "@id": "schema:addressLocality"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:PostalAddress"
+                },
+                {
+                    "@id": "schema:KYC"
+                }
+            ],
+            "schema:rangeIncludes": [
+                {
+                    "@id": "schema:Text"
+                },
+                {
+                    "@id": "schema:PostalAddress"
+                }
+            ]
+        },
+        {
+            "@id": "schema:postalCode",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The postal code. For example, 94043.",
+            "rdfs:label": "postalCode",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:contactInfo"
+            },
+            "sorg:equivalentProperty": {
+                "@id": "schema:postalCode"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:PostalAddress"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:streetAddress",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The street address. For example, 1600 Amphitheatre Pkwy.",
+            "rdfs:label": "streetAddress",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:contactInfo"
+            },
+            "sorg:equivalentProperty": {
+                "@id": "schema:streetAddress"
+            },
+            "schema:domainIncludes": {
+                "@id": "schema:PostalAddress"
+            },
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:faceImage",
+            "@type": "rdf:Property",
+            "rdfs:comment": "",
+            "rdfs:label": "Image",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Thing"
+                },
+                {
+                    "@id": "schema:Person"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:documentImage",
+            "@type": "rdf:Property",
+            "rdfs:comment": "",
+            "rdfs:label": "Image",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:document"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Thing"
+                },
+                {
+                    "@id": "schema:KYC"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:documentType",
+            "@type": "rdf:Property",
+            "rdfs:comment": "",
+            "rdfs:label": "Document Type",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:document"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Thing"
+                },
+                {
+                    "@id": "schema:KYC"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:liveliness",
+            "@type": "rdf:Property",
+            "rdfs:comment": "",
+            "rdfs:label": "Liveliness",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                },
+                {
+                    "@id": "schema:KYC"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:livelinessConfidence",
+            "@type": "rdf:Property",
+            "rdfs:comment": "Confidence level that the liveliness reading is correct.",
+            "rdfs:label": "Liveliness Confidence",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                },
+                {
+                    "@id": "schema:KYC"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:facialMatch",
+            "@type": "rdf:Property",
+            "rdfs:comment": "",
+            "rdfs:label": "Facial Match",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                },
+                {
+                    "@id": "schema:KYC"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:facialMatchConfidence",
+            "@type": "rdf:Property",
+            "rdfs:comment": "Confidence level that the facial match is correct.",
+            "rdfs:label": "Facial Match Confidence",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                },
+                {
+                    "@id": "schema:KYC"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:isAuthorized",
+            "@type": "rdf:Property",
+            "rdfs:label": "isAuthorized",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "schema:domainIncludes": {
+                "@id": "schema:Intangible"
+            },
+            "schema:rangeIncludes": {
+                "@id": "schema:Boolean"
+            }
+        }
+    ]
+}

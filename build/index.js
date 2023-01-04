@@ -1,26 +1,13 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.governmentIdDocumentBackImageCredentialSchema = exports.governmentIdTypeCredentialSchema = exports.facialMatchConfidenceCredentialSchema = exports.facialMatchCredentialSchema = exports.livelinessConfidenceCredentialSchema = exports.governmentIdDocumentImageCredentialSchema = exports.genderCredentialSchema = exports.fullNameCredentialSchema = exports.phoneCredentialSchema = exports.birthDateCredentialSchema = exports.firstNameCredentialSchema = exports.lastNameCredentialSchema = exports.addressCredentialSchema = exports.livelinessCredentialSchema = exports.facialImageCredentialSchema = exports.countryResidenceCredentialSchema = exports.emailCredentialSchema = exports.ssnCredentialSchema = exports.validate = void 0;
-const schemas_1 = require("./schemas");
-Object.defineProperty(exports, "addressCredentialSchema", { enumerable: true, get: function () { return schemas_1.addressCredentialSchema; } });
-Object.defineProperty(exports, "birthDateCredentialSchema", { enumerable: true, get: function () { return schemas_1.birthDateCredentialSchema; } });
-Object.defineProperty(exports, "countryResidenceCredentialSchema", { enumerable: true, get: function () { return schemas_1.countryResidenceCredentialSchema; } });
-Object.defineProperty(exports, "emailCredentialSchema", { enumerable: true, get: function () { return schemas_1.emailCredentialSchema; } });
-Object.defineProperty(exports, "facialImageCredentialSchema", { enumerable: true, get: function () { return schemas_1.facialImageCredentialSchema; } });
-Object.defineProperty(exports, "facialMatchConfidenceCredentialSchema", { enumerable: true, get: function () { return schemas_1.facialMatchConfidenceCredentialSchema; } });
-Object.defineProperty(exports, "facialMatchCredentialSchema", { enumerable: true, get: function () { return schemas_1.facialMatchCredentialSchema; } });
-Object.defineProperty(exports, "firstNameCredentialSchema", { enumerable: true, get: function () { return schemas_1.firstNameCredentialSchema; } });
-Object.defineProperty(exports, "fullNameCredentialSchema", { enumerable: true, get: function () { return schemas_1.fullNameCredentialSchema; } });
-Object.defineProperty(exports, "genderCredentialSchema", { enumerable: true, get: function () { return schemas_1.genderCredentialSchema; } });
-Object.defineProperty(exports, "governmentIdDocumentBackImageCredentialSchema", { enumerable: true, get: function () { return schemas_1.governmentIdDocumentBackImageCredentialSchema; } });
-Object.defineProperty(exports, "governmentIdDocumentImageCredentialSchema", { enumerable: true, get: function () { return schemas_1.governmentIdDocumentImageCredentialSchema; } });
-Object.defineProperty(exports, "governmentIdTypeCredentialSchema", { enumerable: true, get: function () { return schemas_1.governmentIdTypeCredentialSchema; } });
-Object.defineProperty(exports, "lastNameCredentialSchema", { enumerable: true, get: function () { return schemas_1.lastNameCredentialSchema; } });
-Object.defineProperty(exports, "livelinessConfidenceCredentialSchema", { enumerable: true, get: function () { return schemas_1.livelinessConfidenceCredentialSchema; } });
-Object.defineProperty(exports, "livelinessCredentialSchema", { enumerable: true, get: function () { return schemas_1.livelinessCredentialSchema; } });
-Object.defineProperty(exports, "phoneCredentialSchema", { enumerable: true, get: function () { return schemas_1.phoneCredentialSchema; } });
-Object.defineProperty(exports, "ssnCredentialSchema", { enumerable: true, get: function () { return schemas_1.ssnCredentialSchema; } });
-// import types from './types';
+exports.schemas = exports.context = exports.validate = void 0;
 const validate_1 = require("./validate");
 Object.defineProperty(exports, "validate", { enumerable: true, get: function () { return validate_1.validate; } });
+const unum_id_json_1 = __importDefault(require("./context/unum.id.json"));
+exports.context = unum_id_json_1.default;
+const schemas_1 = require("./schemas");
+Object.defineProperty(exports, "schemas", { enumerable: true, get: function () { return schemas_1.schemas; } });
 //# sourceMappingURL=index.js.map

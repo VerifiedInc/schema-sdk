@@ -1,34 +1,24 @@
-import { addressCredentialSchema, birthDateCredentialSchema, countryResidenceCredentialSchema, emailCredentialSchema, facialImageCredentialSchema, facialMatchConfidenceCredentialSchema, facialMatchCredentialSchema, firstNameCredentialSchema, fullNameCredentialSchema, genderCredentialSchema, governmentIdDocumentBackImageCredentialSchema, governmentIdDocumentImageCredentialSchema, governmentIdTypeCredentialSchema, lastNameCredentialSchema, livelinessConfidenceCredentialSchema, livelinessCredentialSchema, phoneCredentialSchema, ssnCredentialSchema } from './schemas';
 import { AddressCredentialSchemaType, BirthDateCredentialSchemaType, CountryResidenceCredentialSchemaType, EmailCredentialSchemaType, FacialImageCredentialSchemaType, FacialMatchConfidenceCredentialSchemaType, FacialMatchCredentialSchemaType, FirstNameCredentialSchemaType, FullNameCredentialSchemaType, GenderCredentialSchemaType, GovernmentIdDocumentBackImageCredentialSchemaType, GovernmentIdDocumentImageCredentialSchemaType, GovernmentIdTypeCredentialSchemaType, LastNameCredentialSchemaType, LivelinessConfidenceCredentialSchemaType, LivelinessCredentialSchemaType, PhoneCredentialSchemaType, SsnCredentialSchemaType } from './types';
-// import types from './types';
-import { UnumSchemaObject, validate } from './validate';
+import { validate } from './validate';
+import context from './context/unum.id.json';
+import { UnumJsonLDSchema } from './jsonLDSchemas';
+import { schemas, UnumSchema } from './schemas';
+import { UnumJsonSchema } from './jsonSchemas';
 
 export {
   // types
-  UnumSchemaObject,
+  UnumJsonSchema,
+  UnumJsonLDSchema,
+  UnumSchema,
 
   // functions
   validate,
 
-  // credential schemas
-  ssnCredentialSchema,
-  emailCredentialSchema,
-  countryResidenceCredentialSchema,
-  facialImageCredentialSchema,
-  livelinessCredentialSchema,
-  addressCredentialSchema,
-  lastNameCredentialSchema,
-  firstNameCredentialSchema,
-  birthDateCredentialSchema,
-  phoneCredentialSchema,
-  fullNameCredentialSchema,
-  genderCredentialSchema,
-  governmentIdDocumentImageCredentialSchema,
-  livelinessConfidenceCredentialSchema,
-  facialMatchCredentialSchema,
-  facialMatchConfidenceCredentialSchema,
-  governmentIdTypeCredentialSchema,
-  governmentIdDocumentBackImageCredentialSchema,
+  // json-ld context file
+  context,
+
+  // credential schemas map
+  schemas,
 
   // credential types
   EmailCredentialSchemaType,
