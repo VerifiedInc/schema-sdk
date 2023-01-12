@@ -40,6 +40,10 @@ exports.schemas = {
         json: jsonSchemas_1.birthDateCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.birthDateCredentialJsonLDSchema
     },
+    DobCredential: {
+        json: jsonSchemas_1.dobCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.dobCredentialJsonLDSchema
+    },
     PhoneCredential: {
         json: jsonSchemas_1.phoneCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.phoneCredentialJsonLDSchema
