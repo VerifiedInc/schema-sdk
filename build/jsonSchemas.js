@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.jsonSchemas = exports.governmentIdDocumentBackImageCredentialJsonSchema = exports.governmentIdTypeCredentialJsonSchema = exports.facialMatchConfidenceCredentialJsonSchema = exports.facialMatchCredentialJsonSchema = exports.livelinessConfidenceCredentialJsonSchema = exports.governmentIdDocumentImageCredentialJsonSchema = exports.genderCredentialJsonSchema = exports.fullNameCredentialJsonSchema = exports.phoneCredentialJsonSchema = exports.birthDateCredentialJsonSchema = exports.firstNameCredentialJsonSchema = exports.lastNameCredentialJsonSchema = exports.addressCredentialJsonSchema = exports.livelinessCredentialJsonSchema = exports.facialImageCredentialJsonSchema = exports.countryResidenceCredentialJsonSchema = exports.ssnCredentialJsonSchema = exports.emailCredentialJsonSchema = void 0;
+exports.jsonSchemas = exports.governmentIdDocumentBackImageCredentialJsonSchema = exports.governmentIdTypeCredentialJsonSchema = exports.facialMatchConfidenceCredentialJsonSchema = exports.facialMatchCredentialJsonSchema = exports.livelinessConfidenceCredentialJsonSchema = exports.governmentIdDocumentImageCredentialJsonSchema = exports.genderCredentialJsonSchema = exports.fullNameCredentialJsonSchema = exports.phoneCredentialJsonSchema = exports.dobCredentialJsonSchema = exports.birthDateCredentialJsonSchema = exports.firstNameCredentialJsonSchema = exports.lastNameCredentialJsonSchema = exports.addressCredentialJsonSchema = exports.livelinessCredentialJsonSchema = exports.facialImageCredentialJsonSchema = exports.countryResidenceCredentialJsonSchema = exports.ssnCredentialJsonSchema = exports.emailCredentialJsonSchema = void 0;
 const typebox_1 = require("@sinclair/typebox");
 exports.emailCredentialJsonSchema = typebox_1.Type.Object({
     email: typebox_1.Type.String({
@@ -35,6 +35,9 @@ exports.firstNameCredentialJsonSchema = typebox_1.Type.Object({
 exports.birthDateCredentialJsonSchema = typebox_1.Type.Object({
     birthDate: typebox_1.Type.String()
 }, { $id: 'BirthDateCredential', additionalProperties: false });
+exports.dobCredentialJsonSchema = typebox_1.Type.Object({
+    dob: typebox_1.Type.String()
+}, { $id: 'DobCredential', additionalProperties: false });
 exports.phoneCredentialJsonSchema = typebox_1.Type.Object({
     phone: typebox_1.Type.String({
         format: 'phone'

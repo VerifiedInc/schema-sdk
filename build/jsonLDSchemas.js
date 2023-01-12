@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.jsonJsonLDSchemas = exports.governmentIdDocumentBackImageCredentialJsonLDSchema = exports.governmentIdTypeCredentialJsonLDSchema = exports.facialMatchConfidenceCredentialJsonLDSchema = exports.facialMatchCredentialJsonLDSchema = exports.livelinessConfidenceCredentialJsonLDSchema = exports.governmentIdDocumentImageCredentialJsonLDSchema = exports.genderCredentialJsonLDSchema = exports.fullNameCredentialJsonLDSchema = exports.phoneCredentialJsonLDSchema = exports.birthDateCredentialJsonLDSchema = exports.firstNameCredentialJsonLDSchema = exports.lastNameCredentialJsonLDSchema = exports.addressCredentialJsonLDSchema = exports.livelinessCredentialJsonLDSchema = exports.facialImageCredentialJsonLDSchema = exports.countryResidenceCredentialJsonLDSchema = exports.ssnCredentialJsonLDSchema = exports.emailCredentialJsonLDSchema = void 0;
+exports.jsonJsonLDSchemas = exports.governmentIdDocumentBackImageCredentialJsonLDSchema = exports.governmentIdTypeCredentialJsonLDSchema = exports.facialMatchConfidenceCredentialJsonLDSchema = exports.facialMatchCredentialJsonLDSchema = exports.livelinessConfidenceCredentialJsonLDSchema = exports.governmentIdDocumentImageCredentialJsonLDSchema = exports.genderCredentialJsonLDSchema = exports.fullNameCredentialJsonLDSchema = exports.phoneCredentialJsonLDSchema = exports.dobCredentialJsonLDSchema = exports.birthDateCredentialJsonLDSchema = exports.firstNameCredentialJsonLDSchema = exports.lastNameCredentialJsonLDSchema = exports.addressCredentialJsonLDSchema = exports.livelinessCredentialJsonLDSchema = exports.facialImageCredentialJsonLDSchema = exports.countryResidenceCredentialJsonLDSchema = exports.ssnCredentialJsonLDSchema = exports.emailCredentialJsonLDSchema = void 0;
 exports.emailCredentialJsonLDSchema = {
     '@type': 'EmailCredential',
     email: 'schema:email',
@@ -45,6 +45,11 @@ exports.birthDateCredentialJsonLDSchema = {
     '@type': 'BirthDateCredential',
     '@context': 'https://schema.dev-unumid.co',
     birthDate: 'schema:birthDate'
+};
+exports.dobCredentialJsonLDSchema = {
+    '@type': 'DobCredential',
+    '@context': 'https://schema.dev-unumid.co',
+    dob: 'schema:birthDate'
 };
 exports.phoneCredentialJsonLDSchema = {
     '@type': 'PhoneCredential',

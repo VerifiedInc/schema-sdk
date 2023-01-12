@@ -58,6 +58,12 @@ export const birthDateCredentialJsonLDSchema: UnumJsonLDSchema = {
   birthDate: 'schema:birthDate'
 };
 
+export const dobCredentialJsonLDSchema: UnumJsonLDSchema = {
+  '@type': 'DobCredential',
+  '@context': 'https://schema.dev-unumid.co',
+  dob: 'schema:birthDate'
+};
+
 export const phoneCredentialJsonLDSchema: UnumJsonLDSchema = {
   '@type': 'PhoneCredential',
   phone: 'schema:phoneNumber',

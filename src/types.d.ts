@@ -10,6 +10,7 @@ export type AddressCredentialSchemaType = Static<typeof addressCredentialSchema>
 export type LastNameCredentialSchemaType = Static<typeof lastNameCredentialSchema>;
 export type FirstNameCredentialSchemaType = Static<typeof firstNameCredentialSchema>;
 export type BirthDateCredentialSchemaType = Static<typeof birthDateCredentialSchema>;
+export type DobCredentialSchemaType = Static<typeof dobCredentialSchema>;
 export type PhoneCredentialSchemaType = Static<typeof phoneCredentialSchema>;
 export type FullNameCredentialSchemaType = Static<typeof fullNameCredentialSchema>;
 export type GenderCredentialSchemaType = Static<typeof genderCredentialSchema>;

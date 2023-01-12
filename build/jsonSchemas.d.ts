@@ -14,6 +14,7 @@ export declare const addressCredentialJsonSchema: UnumJsonSchema;
 export declare const lastNameCredentialJsonSchema: UnumJsonSchema;
 export declare const firstNameCredentialJsonSchema: UnumJsonSchema;
 export declare const birthDateCredentialJsonSchema: UnumJsonSchema;
+export declare const dobCredentialJsonSchema: UnumJsonSchema;
 export declare const phoneCredentialJsonSchema: UnumJsonSchema;
 export declare const fullNameCredentialJsonSchema: UnumJsonSchema;
 export declare const genderCredentialJsonSchema: UnumJsonSchema;
