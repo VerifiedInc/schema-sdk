@@ -10,6 +10,12 @@ export const emailCredentialJsonLDSchema: UnumJsonLDSchema = {
   '@context': 'https://schema.unumid.co'
 };
 
+// special credential that is actually empty
+export const identityCredentialJsonLDSchema: UnumJsonLDSchema = {
+  '@type': 'IdentityCredential',
+  '@context': 'https://schema.unumid.co'
+};
+
 export const ssnCredentialJsonLDSchema: UnumJsonLDSchema = {
   ssn: 'schema:ssn',
   '@type': 'SsnCredential',

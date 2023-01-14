@@ -8,6 +8,10 @@ exports.schemas = {
         json: jsonSchemas_1.emailCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.emailCredentialJsonLDSchema
     },
+    IdentityCredential: {
+        json: jsonSchemas_1.identityCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.identityCredentialJsonLDSchema
+    },
     SsnCredential: {
         json: jsonSchemas_1.emailCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.ssnCredentialJsonLDSchema

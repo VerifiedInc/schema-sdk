@@ -4,6 +4,7 @@
  */
 export type UnumJsonLDSchema = any;
 export declare const emailCredentialJsonLDSchema: UnumJsonLDSchema;
+export declare const identityCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const ssnCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const countryResidenceCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const facialImageCredentialJsonLDSchema: UnumJsonLDSchema;
