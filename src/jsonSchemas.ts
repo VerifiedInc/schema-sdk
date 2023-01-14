@@ -120,6 +120,7 @@ export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object({
 
 export const jsonSchemas: Record<string, UnumJsonSchema> = {
   EmailCredential: emailCredentialJsonSchema,
+  IdentityCredential: identityCredentialJsonSchema,
   SsnCredential: ssnCredentialJsonSchema,
   CountryResidenceCredential: countryResidenceCredentialJsonSchema,
   FacialImageCredential: facialImageCredentialJsonSchema,
