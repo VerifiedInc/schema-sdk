@@ -124,8 +124,9 @@ export const governmentIdDocumentBackImageCredentialJsonLDSchema: UnumJsonLDSche
   '@context': 'https://schema.unumid.co/context'
 };
 
-export const jsonJsonLDSchemas: Record<string, UnumJsonLDSchema> = {
+export const jsonLDSchemas: Record<string, UnumJsonLDSchema> = {
   EmailCredential: emailCredentialJsonLDSchema,
+  IdentityCredential: identityCredentialJsonLDSchema,
   SsnCredential: ssnCredentialJsonLDSchema,
   CountryResidenceCredential: countryResidenceCredentialJsonLDSchema,
   FacialImageCredential: facialImageCredentialJsonLDSchema,

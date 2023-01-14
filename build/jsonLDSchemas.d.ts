@@ -23,5 +23,5 @@ export declare const facialMatchCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const facialMatchConfidenceCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const governmentIdTypeCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const governmentIdDocumentBackImageCredentialJsonLDSchema: UnumJsonLDSchema;
-export declare const jsonJsonLDSchemas: Record<string, UnumJsonLDSchema>;
+export declare const jsonLDSchemas: Record<string, UnumJsonLDSchema>;
 //# sourceMappingURL=jsonLDSchemas.d.ts.map
