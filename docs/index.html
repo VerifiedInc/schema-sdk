@@ -18,6 +18,29 @@
 </a>
 <p>SDK for Unum ID credential scheme handling, e.g. definitions and validation.</p>
 
+<a href="#development" id="development" style="color: inherit; text-decoration: none;">
+  <h2>Development</h2>
+</a>
+
+<a href="#adding-new-schemas" id="adding-new-schemas" style="color: inherit; text-decoration: none;">
+  <h3>Adding New Schemas</h3>
+</a>
+<p>There are a number of spots that need to be updated in order to properly add a new schema definition.</p>
+<ol>
+<li><strong>Create and export the new JsonLDSchema in jsonLDSchemas.ts</strong>, e.g. identityCredentialJsonLDSchema</li>
+<li><strong>Add the newly created JsonLDSchema to the jsonLDSchemas map in jsonLDSchemas.ts</strong> this is easily forgotten as it as the bottom of the file.</li>
+<li><strong>Create and export the new JsonSchema in jsonSchema.ts</strong>, e.g. identityCredentialJsonLDSchema</li>
+<li><strong>Add the newly created JsonSchema to the jsonSchemas map in jsonSchemas.ts</strong> this is easily forgotten as it as the bottom of the file.</li>
+<li><strong>Create a new type definition in types.d.ts using the newly created jsonSchema definition</strong>, e.g. IdentityCredentialSchemaType</li>
+<li><strong>Add the newly create type definition to index.ts exports</strong> under the &quot;credential types&quot; inline comment</li>
+<li><strong>Create a new Jest describe block for validation tests in validate.test.ts</strong> which covers the newly created JsonSchema, e.g. <code>describe(&#39;IdentityCredential Schema&#39;, () =&gt; {...</code></li>
+</ol>
+
+<a href="#e2e-testing" id="e2e-testing" style="color: inherit; text-decoration: none;">
+  <h3>e2e Testing</h3>
+</a>
+<p>Likely you will need to be testing local <code>schema-sdk</code> changes in a dependent project like <a href="https://github.com/UnumID/schema-resolver">schema-resolver</a>. The simplest and recommended way of doing so if via <code>npm link</code> as outlined <a href="https://www.geeksforgeeks.org/how-to-install-a-local-module-using-npm/">here</a>. Just be sure to run <code>npm run compile</code> before running <code>npm link</code> in this directory or <code>npm link @unumid/schema-sdk</code> in the dependent directory.</p>
+
 <a href="#ajv" id="ajv" style="color: inherit; text-decoration: none;">
   <h2>AJV</h2>
 </a>
@@ -112,6 +135,7 @@
 <li class="tsd-kind-type-alias"><a href="types/GovernmentIdDocumentBackImageCredentialSchemaType.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Government<wbr/>Id<wbr/>Document<wbr/>Back<wbr/>Image<wbr/>Credential<wbr/>Schema<wbr/>Type</a></li>
 <li class="tsd-kind-type-alias"><a href="types/GovernmentIdDocumentImageCredentialSchemaType.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Government<wbr/>Id<wbr/>Document<wbr/>Image<wbr/>Credential<wbr/>Schema<wbr/>Type</a></li>
 <li class="tsd-kind-type-alias"><a href="types/GovernmentIdTypeCredentialSchemaType.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Government<wbr/>Id<wbr/>Type<wbr/>Credential<wbr/>Schema<wbr/>Type</a></li>
+<li class="tsd-kind-type-alias"><a href="types/IdentityCredentialSchemaType.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Identity<wbr/>Credential<wbr/>Schema<wbr/>Type</a></li>
 <li class="tsd-kind-type-alias"><a href="types/LastNameCredentialSchemaType.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Last<wbr/>Name<wbr/>Credential<wbr/>Schema<wbr/>Type</a></li>
 <li class="tsd-kind-type-alias"><a href="types/LivelinessConfidenceCredentialSchemaType.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Liveliness<wbr/>Confidence<wbr/>Credential<wbr/>Schema<wbr/>Type</a></li>
 <li class="tsd-kind-type-alias"><a href="types/LivelinessCredentialSchemaType.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><use href="#icon-4194304-path"></use><use href="#icon-4194304-text"></use></svg>Liveliness<wbr/>Credential<wbr/>Schema<wbr/>Type</a></li>
