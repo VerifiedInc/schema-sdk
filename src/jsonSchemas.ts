@@ -14,6 +14,10 @@ export const emailCredentialJsonSchema = Type.Object({
 },
 { $id: 'EmailCredential', additionalProperties: false }) as UnumJsonSchema;
 
+// special credential that is actually empty
+export const identityCredentialJsonSchema = Type.Object({},
+  { $id: 'IdentityCredential', additionalProperties: false }) as UnumJsonSchema;
+
 export const ssnCredentialJsonSchema = Type.Object({
   ssn: Type.String({
     format: 'ssn'
@@ -116,6 +120,7 @@ export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object({
 
 export const jsonSchemas: Record<string, UnumJsonSchema> = {
   EmailCredential: emailCredentialJsonSchema,
+  IdentityCredential: identityCredentialJsonSchema,
   SsnCredential: ssnCredentialJsonSchema,
   CountryResidenceCredential: countryResidenceCredentialJsonSchema,
   FacialImageCredential: facialImageCredentialJsonSchema,

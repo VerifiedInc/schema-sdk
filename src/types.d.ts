@@ -3,6 +3,7 @@ import { addressCredentialSchema, birthDateCredentialSchema, countryResidenceCre
 
 export type SsnCredentialSchemaType = Static<typeof ssnCredentialSchema>;
 export type EmailCredentialSchemaType = Static<typeof emailCredentialSchema>;
+export type IdentityCredentialSchemaType = Static<typeof identityCredentialSchema>;
 export type CountryResidenceCredentialSchemaType = Static<typeof countryResidenceCredentialSchema>;
 export type FacialImageCredentialSchemaType = Static<typeof facialImageCredentialSchema>;
 export type LivelinessCredentialSchemaType = Static<typeof livelinessCredentialSchema>;
