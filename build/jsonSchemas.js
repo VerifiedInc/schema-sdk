@@ -75,6 +75,7 @@ exports.governmentIdDocumentBackImageCredentialJsonSchema = typebox_1.Type.Objec
 }, { $id: 'GovernmentIdDocumentBackImageCredential', additionalProperties: false });
 exports.jsonSchemas = {
     EmailCredential: exports.emailCredentialJsonSchema,
+    IdentityCredential: exports.identityCredentialJsonSchema,
     SsnCredential: exports.ssnCredentialJsonSchema,
     CountryResidenceCredential: exports.countryResidenceCredentialJsonSchema,
     FacialImageCredential: exports.facialImageCredentialJsonSchema,
