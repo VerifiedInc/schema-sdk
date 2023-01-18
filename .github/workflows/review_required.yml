@@ -1,5 +1,4 @@
 # Enforces that at least on review from the Github Developers team has completed a code review with an "Approved" status.
-# **Note**:  also added an experimental github actions [workflow](https://github.com/marketplace/actions/required-review) to enforce a review before every merge. Ideally will move this to the .github repo and enforce via org wide [default actions](https://github.blog/changelog/2023-01-10-github-actions-support-for-organization-wide-required-workflows-public-beta/). This will make it easier to enforce required reviews at the org level vs in every individual repo. 
 name: Required review check
 on:
   pull_request_review:
