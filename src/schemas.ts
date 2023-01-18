@@ -1,5 +1,5 @@
 import { addressCredentialJsonLDSchema, birthDateCredentialJsonLDSchema, countryResidenceCredentialJsonLDSchema, dobCredentialJsonLDSchema, emailCredentialJsonLDSchema, facialImageCredentialJsonLDSchema, facialMatchConfidenceCredentialJsonLDSchema, facialMatchCredentialJsonLDSchema, firstNameCredentialJsonLDSchema, fullNameCredentialJsonLDSchema, genderCredentialJsonLDSchema, governmentIdDocumentImageCredentialJsonLDSchema, governmentIdTypeCredentialJsonLDSchema, identityCredentialJsonLDSchema, lastNameCredentialJsonLDSchema, livelinessConfidenceCredentialJsonLDSchema, livelinessCredentialJsonLDSchema, phoneCredentialJsonLDSchema, ssnCredentialJsonLDSchema, UnumJsonLDSchema } from './jsonLDSchemas';
-import { addressCredentialJsonSchema, birthDateCredentialJsonSchema, countryResidenceCredentialJsonSchema, dobCredentialJsonSchema, emailCredentialJsonSchema, facialImageCredentialJsonSchema, facialMatchConfidenceCredentialJsonSchema, facialMatchCredentialJsonSchema, firstNameCredentialJsonSchema, fullNameCredentialJsonSchema, genderCredentialJsonSchema, governmentIdDocumentImageCredentialJsonSchema, governmentIdTypeCredentialJsonSchema, identityCredentialJsonSchema, lastNameCredentialJsonSchema, livelinessConfidenceCredentialJsonSchema, livelinessCredentialJsonSchema, phoneCredentialJsonSchema, UnumJsonSchema } from './jsonSchemas';
+import { addressCredentialJsonSchema, birthDateCredentialJsonSchema, countryResidenceCredentialJsonSchema, dobCredentialJsonSchema, emailCredentialJsonSchema, facialImageCredentialJsonSchema, facialMatchConfidenceCredentialJsonSchema, facialMatchCredentialJsonSchema, firstNameCredentialJsonSchema, fullNameCredentialJsonSchema, genderCredentialJsonSchema, governmentIdDocumentImageCredentialJsonSchema, governmentIdTypeCredentialJsonSchema, identityCredentialJsonSchema, lastNameCredentialJsonSchema, livelinessConfidenceCredentialJsonSchema, livelinessCredentialJsonSchema, phoneCredentialJsonSchema, ssnCredentialJsonSchema, UnumJsonSchema } from './jsonSchemas';
 
 export interface UnumSchema {
     json: UnumJsonSchema;
@@ -16,7 +16,7 @@ export const schemas: Record<string, UnumSchema> = {
     jsonLD: identityCredentialJsonLDSchema
   },
   SsnCredential: {
-    json: emailCredentialJsonSchema,
+    json: ssnCredentialJsonSchema,
     jsonLD: ssnCredentialJsonLDSchema
   },
   CountryResidenceCredential: {
