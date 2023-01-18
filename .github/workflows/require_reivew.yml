@@ -1,3 +1,4 @@
+# Enforces that at least on review from the Github Developers team has completed a code review with an "Approved" status.
 name: Required review check
 on:
   pull_request_review:
