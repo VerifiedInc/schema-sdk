@@ -21,4 +21,6 @@ jobs:
           requirements: |
             - paths: unmatched
               teams:
-                - Developers
+                - any-of:
+                  - @rsmets
+                  - Developers
