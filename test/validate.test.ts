@@ -2,22 +2,32 @@ import { validate } from '../src/validate';
 
 describe('Validate Schemas', () => {
   describe('EmailCredential Schema', () => {
-    it('valid email', async () => {
-      const valid = validate('EmailCredential', {
-        email: 'test@abc.co'
+    const evalInvalid = ['test@gmail.com mail@test.org', 'hello@', '@test', 'email@gmail', 'theproblem@test@gmail.com', 'mail with@space.com', 'mail@testing.com$', 'mail@testing.c+m', 'mail@test$ng.com'];
+    const evalValid = ['geon@ihateregex.io', 'mail@testing.com', 'mail+1@testing.com', 'mail_lastmail@testing.com', 'mail@testing.com', 'mail@testing.uk.com'];
+    describe('Valid Emails', () => {
+      evalValid.forEach(email => {
+        it(`valid email: ${email}`, async () => {
+          const valid = validate('EmailCredential', {
+            email
+          });
+          expect(valid).toEqual(true);
+        });
       });
-      expect(valid).toEqual(true);
     });
 
-    it('invalid email', async () => {
-      try {
-        const valid = validate('EmailCredential', {
-          email: 'test@abc.computer$'
+    describe('Invalid Emails', () => {
+      evalInvalid.forEach(email => {
+        it(`invalid email: ${email}`, async () => {
+          try {
+            const valid = validate('EmailCredential', {
+              email
+            });
+            fail();
+          } catch (error) {
+            expect(error);
+          }
         });
-        fail();
-      } catch (error) {
-        expect(error);
-      }
+      });
     });
   });
 

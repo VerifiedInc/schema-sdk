@@ -39,7 +39,7 @@ ajv.addFormat('ssn', {
 ajv.addFormat('email', {
   type: 'string',
   validate: (email: string) => {
-    const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/; // source: https://www.w3resource.com/javascript/form/email-validation.php#
     return emailRegex.test(email);
   }
 });
