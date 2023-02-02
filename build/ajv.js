@@ -8,6 +8,7 @@ const ajv_1 = __importDefault(require("ajv"));
 const logger_1 = __importDefault(require("./logger"));
 const ajv_formats_1 = __importDefault(require("ajv-formats"));
 const jsonSchemas_1 = require("./jsonSchemas");
+const formats_1 = require("./formats");
 // get all the values of the jsonSchemas object in an array
 // schemas to add to ajv instance options
 const schemas = Object.values(jsonSchemas_1.jsonSchemas);
@@ -31,25 +32,8 @@ exports.ajv = new ajv_1.default({
  * Add custom formats to ajv below                                 *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
  *******************************************************************/
-exports.ajv.addFormat('ssn', {
-    type: 'string',
-    validate: (ssn) => {
-        const ssnRegex = /^\d{3}-?\d{2}-?\d{4}$/;
-        return ssnRegex.test(ssn);
-    }
-});
-exports.ajv.addFormat('email', {
-    type: 'string',
-    validate: (email) => {
-        const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/; // source: https://www.w3resource.com/javascript/form/email-validation.php#
-        return emailRegex.test(email);
-    }
-});
-exports.ajv.addFormat('phone', {
-    type: 'string',
-    validate: (phone) => {
-        const phoneRegex = /^\+(?:[0-9]●?){6,14}[0-9]$/;
-        return phoneRegex.test(phone);
-    }
-});
+exports.ajv.addFormat('email', formats_1.emailFormat);
+exports.ajv.addFormat('phone', formats_1.phoneFormat);
+exports.ajv.addFormat('ssn', formats_1.ssnFormat);
+exports.ajv.addFormat('unixMsExpirationDate', formats_1.unixMsExpirationDateFormat);
 //# sourceMappingURL=ajv.js.map
