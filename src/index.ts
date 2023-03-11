@@ -12,6 +12,10 @@ import {
   GenderCredentialSchemaType,
   GovernmentIdDocumentBackImageCredentialSchemaType,
   GovernmentIdDocumentImageCredentialSchemaType,
+  GovernmentIdExpirationDateCredentialSchemaType,
+  GovernmentIdIssuanceDateCredentialSchemaType,
+  GovernmentIdNumberCredentialSchemaType,
+  GovernmentIdStateCredentialSchemaType,
   GovernmentIdTypeCredentialSchemaType,
   IdentityCredentialSchemaType,
   LastNameCredentialSchemaType,
@@ -72,5 +76,9 @@ export {
   FacialMatchConfidenceCredentialSchemaType,
   GovernmentIdTypeCredentialSchemaType,
   GovernmentIdDocumentBackImageCredentialSchemaType,
-  NationalityCredentialSchemaType
+  NationalityCredentialSchemaType,
+  GovernmentIdStateCredentialSchemaType,
+  GovernmentIdNumberCredentialSchemaType,
+  GovernmentIdExpirationDateCredentialSchemaType,
+  GovernmentIdIssuanceDateCredentialSchemaType
 };
