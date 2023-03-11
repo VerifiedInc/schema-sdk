@@ -1,4 +1,26 @@
-import { AddressCredentialSchemaType, BirthDateCredentialSchemaType, CountryResidenceCredentialSchemaType, DobCredentialSchemaType, EmailCredentialSchemaType, FacialImageCredentialSchemaType, FacialMatchConfidenceCredentialSchemaType, FacialMatchCredentialSchemaType, FirstNameCredentialSchemaType, FullNameCredentialSchemaType, GenderCredentialSchemaType, GovernmentIdDocumentBackImageCredentialSchemaType, GovernmentIdDocumentImageCredentialSchemaType, GovernmentIdTypeCredentialSchemaType, IdentityCredentialSchemaType, LastNameCredentialSchemaType, LivelinessConfidenceCredentialSchemaType, LivelinessCredentialSchemaType, PhoneCredentialSchemaType, SsnCredentialSchemaType } from './types';
+import {
+  AddressCredentialSchemaType,
+  BirthDateCredentialSchemaType,
+  CountryResidenceCredentialSchemaType,
+  DobCredentialSchemaType,
+  EmailCredentialSchemaType,
+  FacialImageCredentialSchemaType,
+  FacialMatchConfidenceCredentialSchemaType,
+  FacialMatchCredentialSchemaType,
+  FirstNameCredentialSchemaType,
+  FullNameCredentialSchemaType,
+  GenderCredentialSchemaType,
+  GovernmentIdDocumentBackImageCredentialSchemaType,
+  GovernmentIdDocumentImageCredentialSchemaType,
+  GovernmentIdTypeCredentialSchemaType,
+  IdentityCredentialSchemaType,
+  LastNameCredentialSchemaType,
+  LivelinessConfidenceCredentialSchemaType,
+  LivelinessCredentialSchemaType,
+  NationalityCredentialSchemaType,
+  PhoneCredentialSchemaType,
+  SsnCredentialSchemaType
+} from './types';
 import { validate } from './validate';
 import context from './context/unum.id.json';
 import { UnumJsonLDSchema } from './jsonLDSchemas';
@@ -47,6 +69,6 @@ export {
   FacialMatchCredentialSchemaType,
   FacialMatchConfidenceCredentialSchemaType,
   GovernmentIdTypeCredentialSchemaType,
-  GovernmentIdDocumentBackImageCredentialSchemaType
-
+  GovernmentIdDocumentBackImageCredentialSchemaType,
+  NationalityCredentialSchemaType
 };

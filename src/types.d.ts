@@ -1,5 +1,24 @@
 import { Static } from '@sinclair/typebox';
-import { addressCredentialSchema, birthDateCredentialSchema, countryResidenceCredentialSchema, emailCredentialSchema, facialImageCredentialSchema, facialMatchConfidenceCredentialSchema, facialMatchCredentialSchema, firstNameCredentialSchema, fullNameCredentialSchema, genderCredentialSchema, governmentIdDocumentBackImageCredentialSchema, governmentIdDocumentImageCredentialSchema, governmentIdTypeCredentialSchema, lastNameCredentialSchema, livelinessConfidenceCredentialSchema, livelinessCredentialSchema, phoneCredentialSchema, ssnCredentialSchema } from './jsonSchemas';
+import {
+  addressCredentialSchema,
+  birthDateCredentialSchema,
+  countryResidenceCredentialSchema,
+  emailCredentialSchema,
+  facialImageCredentialSchema,
+  facialMatchConfidenceCredentialSchema,
+  facialMatchCredentialSchema,
+  firstNameCredentialSchema,
+  fullNameCredentialSchema,
+  genderCredentialSchema,
+  governmentIdDocumentBackImageCredentialSchema,
+  governmentIdDocumentImageCredentialSchema,
+  governmentIdTypeCredentialSchema,
+  lastNameCredentialSchema,
+  livelinessConfidenceCredentialSchema,
+  livelinessCredentialSchema,
+  phoneCredentialSchema,
+  ssnCredentialSchema
+} from './jsonSchemas';
 
 export type SsnCredentialSchemaType = Static<typeof ssnCredentialSchema>;
 export type EmailCredentialSchemaType = Static<typeof emailCredentialSchema>;
@@ -15,9 +34,14 @@ export type DobCredentialSchemaType = Static<typeof dobCredentialSchema>;
 export type PhoneCredentialSchemaType = Static<typeof phoneCredentialSchema>;
 export type FullNameCredentialSchemaType = Static<typeof fullNameCredentialSchema>;
 export type GenderCredentialSchemaType = Static<typeof genderCredentialSchema>;
-export type GovernmentIdDocumentImageCredentialSchemaType = Static<typeof governmentIdDocumentImageCredentialSchema>;
+export type GovernmentIdDocumentImageCredentialSchemaType = Static<
+  typeof governmentIdDocumentImageCredentialSchema
+>;
 export type LivelinessConfidenceCredentialSchemaType = Static<typeof livelinessConfidenceCredentialSchema>;
 export type FacialMatchCredentialSchemaType = Static<typeof facialMatchCredentialSchema>;
 export type FacialMatchConfidenceCredentialSchemaType = Static<typeof facialMatchConfidenceCredentialSchema>;
 export type GovernmentIdTypeCredentialSchemaType = Static<typeof governmentIdTypeCredentialSchema>;
-export type GovernmentIdDocumentBackImageCredentialSchemaType = Static<typeof governmentIdDocumentBackImageCredentialSchema>;
+export type GovernmentIdDocumentBackImageCredentialSchemaType = Static<
+  typeof governmentIdDocumentBackImageCredentialSchema
+>;
+export type NationalityCredentialSchemaType = Static<typeof nationalityCredentialSchema>;
