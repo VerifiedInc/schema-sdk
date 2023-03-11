@@ -17,7 +17,12 @@ import {
   livelinessConfidenceCredentialSchema,
   livelinessCredentialSchema,
   phoneCredentialSchema,
-  ssnCredentialSchema
+  ssnCredentialSchema,
+  nationalityCredentialSchema,
+  governmentIdStateCredentialSchema,
+  governmentIdNumberCredentialSchema,
+  governmentIdExpirationDateCredentialSchema,
+  governmentIdIssuanceDateCredentialSchema
 } from './jsonSchemas';
 
 export type SsnCredentialSchemaType = Static<typeof ssnCredentialSchema>;
@@ -45,3 +50,11 @@ export type GovernmentIdDocumentBackImageCredentialSchemaType = Static<
   typeof governmentIdDocumentBackImageCredentialSchema
 >;
 export type NationalityCredentialSchemaType = Static<typeof nationalityCredentialSchema>;
+export type GovernmentIdStateCredentialSchemaType = Static<typeof governmentIdStateCredentialSchema>;
+export type GovernmentIdNumberCredentialSchemaType = Static<typeof governmentIdNumberCredentialSchema>;
+export type GovernmentIdExpirationDateCredentialSchemaType = Static<
+  typeof governmentIdExpirationDateCredentialSchema
+>;
+export type GovernmentIdIssuanceDateCredentialSchemaType = Static<
+  typeof governmentIdIssuanceDateCredentialSchema
+>;

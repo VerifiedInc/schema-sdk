@@ -206,6 +206,18 @@
           },
           {
             "@id": "schema:documentImage"
+          },
+          {
+            "@id": "schema:documentIdNumber"
+          },
+          {
+            "@id": "schema:documentIssanceDate"
+          },
+          {
+            "@id": "schema:documentExpirationDate"
+          },
+          {
+            "@id": "schema:documentIssuingState"
           }
         ]
       },
@@ -668,6 +680,86 @@
           ],
         "schema:rangeIncludes": {
           "@id": "schema:Text"
+        }
+      },
+      {
+        "@id": "schema:documentIdNumber",
+        "@type": "rdf:Property",
+        "rdfs:comment": "The ID number of the document.",
+        "rdfs:label": "Document ID Number",
+        "rdfs:subPropertyOf": {
+          "@id": "schema:document"
+        },
+        "schema:domainIncludes": [
+          {
+            "@id": "schema:KYC"
+          },
+          {
+            "@id": "schema:Thing"
+          }
+        ],
+        "schema:rangeIncludes": {
+          "@id": "schema:Text"
+        }
+      },
+      {
+        "@id": "schema:documentIssuingState",
+        "@type": "rdf:Property",
+        "rdfs:comment": "The state that issued the document.",
+        "rdfs:label": "Document Issuing State",
+        "rdfs:subPropertyOf": {
+          "@id": "schema:document"
+        },
+        "schema:domainIncludes": [
+          {
+            "@id": "schema:KYC"
+          },
+          {
+            "@id": "schema:Thing"
+          }
+        ],
+        "schema:rangeIncludes": {
+          "@id": "schema:Text"
+        }
+      },
+      {
+        "@id": "schema:documentIssanceDate",
+        "@type": "rdf:Property",
+        "rdfs:comment": "The date the document was issued.",
+        "rdfs:label": "Document Issance Date",
+        "rdfs:subPropertyOf": {
+          "@id": "schema:document"
+        },
+        "schema:domainIncludes": [
+          {
+            "@id": "schema:KYC"
+          },
+          {
+            "@id": "schema:Thing"
+          }
+        ],
+        "schema:rangeIncludes": {
+          "@id": "schema:Date"
+        }
+      },
+      {
+        "@id": "schema:documentExpirationDate",
+        "@type": "rdf:Property",
+        "rdfs:comment": "The date the document expires.",
+        "rdfs:label": "Document Expiration Date",
+        "rdfs:subPropertyOf": {
+          "@id": "schema:document"
+        },
+        "schema:domainIncludes": [
+          {
+            "@id": "schema:KYC"
+          },
+          {
+            "@id": "schema:Thing"
+          }
+        ],
+        "schema:rangeIncludes": {
+          "@id": "schema:Date"
         }
       },
       {

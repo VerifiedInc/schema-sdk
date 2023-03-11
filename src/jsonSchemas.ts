@@ -168,6 +168,34 @@ export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object(
   }
 ) as UnumJsonSchema;
 
+export const governmentIdStateCredentialJsonSchema = Type.Object(
+  {
+    state: Type.String()
+  },
+  { $id: 'GovernmentIdStateCredential', additionalProperties: false }
+) as UnumJsonSchema;
+
+export const governmentIdNumberCredentialJsonSchema = Type.Object(
+  {
+    idNumber: Type.String()
+  },
+  { $id: 'GovernmentIdNumberCredential', additionalProperties: false }
+) as UnumJsonSchema;
+
+export const governmentIdIssuanceDateCredentialJsonSchema = Type.Object(
+  {
+    issuanceDate: Type.String() // setting this to string for now because that's what schema:Date uses, but not sure if that's what we want
+  },
+  { $id: 'GovernmentIdIssuanceDateCredential', additionalProperties: false }
+) as UnumJsonSchema;
+
+export const governmentIdExpirationDateCredentialJsonSchema = Type.Object(
+  {
+    expirationDate: Type.String() // setting this to string for now because that's what schema:Date uses, but not sure if that's what we want
+  },
+  { $id: 'GovernmentIdExpirationDateCredential', additionalProperties: false }
+) as UnumJsonSchema;
+
 export const jsonSchemas: Record<string, UnumJsonSchema> = {
   EmailCredential: emailCredentialJsonSchema,
   IdentityCredential: identityCredentialJsonSchema,
@@ -188,5 +216,9 @@ export const jsonSchemas: Record<string, UnumJsonSchema> = {
   FacialMatchCredential: facialMatchCredentialJsonSchema,
   FacialMatchConfidenceCredential: facialMatchConfidenceCredentialJsonSchema,
   GovernmentIdTypeCredential: governmentIdTypeCredentialJsonSchema,
-  GovernmentIdDocumentBackImageCredential: governmentIdDocumentBackImageCredentialJsonSchema
+  GovernmentIdDocumentBackImageCredential: governmentIdDocumentBackImageCredentialJsonSchema,
+  GovernmentIdStateCredential: governmentIdStateCredentialJsonSchema,
+  GovernmentIdNumberCredential: governmentIdNumberCredentialJsonSchema,
+  GovernmentIdIssuanceDateCredential: governmentIdIssuanceDateCredentialJsonSchema,
+  GovernmentIdExpirationDateCredential: governmentIdExpirationDateCredentialJsonSchema
 };
