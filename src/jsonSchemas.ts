@@ -84,6 +84,11 @@ export const genderCredentialJsonSchema = Type.Object({
 },
 { $id: 'GenderCredential', additionalProperties: false }) as UnumJsonSchema;
 
+export const sexCredentialJsonSchema = Type.Object({
+  sex: Type.String()
+},
+{ $id: 'SexCredential', additionalProperties: false }) as UnumJsonSchema;
+
 export const governmentIdDocumentImageCredentialJsonSchema = Type.Object({
   image: Type.String({
     contentEncoding: 'base64'
@@ -137,5 +142,7 @@ export const jsonSchemas: Record<string, UnumJsonSchema> = {
   FacialMatchCredential: facialMatchCredentialJsonSchema,
   FacialMatchConfidenceCredential: facialMatchConfidenceCredentialJsonSchema,
   GovernmentIdTypeCredential: governmentIdTypeCredentialJsonSchema,
-  GovernmentIdDocumentBackImageCredential: governmentIdDocumentBackImageCredentialJsonSchema
+  GovernmentIdDocumentBackImageCredential: governmentIdDocumentBackImageCredentialJsonSchema,
+  SexCredential: sexCredentialJsonSchema,
+  DobCredential: dobCredentialJsonSchema
 };

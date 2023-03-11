@@ -6,6 +6,7 @@ SDK for Unum ID credential scheme handling, e.g. definitions and validation.
 There are a number of spots that need to be updated in order to properly add a new schema definition.
 
 1. **Create and export the new JsonLDSchema in jsonLDSchemas.ts**, e.g. identityCredentialJsonLDSchema
+    a. **Update the `unum.id.json` JsonLD context file** if necessary with credential property schemas
 2. **Add the newly created JsonLDSchema to the jsonLDSchemas map in jsonLDSchemas.ts** this is easily forgotten as it as the bottom of the file.
 3. **Create and export the new JsonSchema in jsonSchema.ts**, e.g. identityCredentialJsonLDSchema
 4. **Add the newly created JsonSchema to the jsonSchemas map in jsonSchemas.ts** this is easily forgotten as it as the bottom of the file.
