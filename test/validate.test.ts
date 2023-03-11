@@ -48,4 +48,24 @@ describe('Validate Schemas', () => {
       }
     });
   });
+
+  describe('SexCredential Schema', () => {
+    it('valid', async () => {
+      const valid = validate('SexCredential', {
+        sex: 'male'
+      });
+      expect(valid).toEqual(true);
+    });
+
+    it('invalid', async () => {
+      try {
+        const valid = validate('SexCredential', {
+          gender: 'female'
+        });
+        fail();
+      } catch (error) {
+        expect(error);
+      }
+    });
+  });
 });

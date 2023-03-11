@@ -88,6 +88,12 @@ export const genderCredentialJsonLDSchema: UnumJsonLDSchema = {
   '@context': 'https://schema.dev-unumid.co'
 };
 
+export const sexCredentialJsonLDSchema: UnumJsonLDSchema = {
+  '@type': 'SexCredential',
+  sex: 'schema:sex',
+  '@context': 'https://schema.dev-unumid.co'
+};
+
 export const governmentIdDocumentImageCredentialJsonLDSchema: UnumJsonLDSchema = {
   '@type': 'GovernmentIdDocumentImageCredential',
   image: 'schema:documentImage',
@@ -143,5 +149,7 @@ export const jsonLDSchemas: Record<string, UnumJsonLDSchema> = {
   FacialMatchCredential: facialMatchCredentialJsonLDSchema,
   FacialMatchConfidenceCredential: facialMatchConfidenceCredentialJsonLDSchema,
   GovernmentIdTypeCredential: governmentIdTypeCredentialJsonLDSchema,
-  GovernmentIdDocumentBackImageCredential: governmentIdDocumentBackImageCredentialJsonLDSchema
+  GovernmentIdDocumentBackImageCredential: governmentIdDocumentBackImageCredentialJsonLDSchema,
+  DobCredential: dobCredentialJsonLDSchema,
+  SexCredential: sexCredentialJsonLDSchema
 };
