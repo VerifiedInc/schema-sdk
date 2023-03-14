@@ -38,7 +38,7 @@ exports.firstNameCredentialJsonSchema = typebox_1.Type.Object({
     firstName: typebox_1.Type.String()
 }, { $id: 'FirstNameCredential', additionalProperties: false });
 exports.birthDateCredentialJsonSchema = typebox_1.Type.Object({
-    birthDate: typebox_1.Type.String()
+    birthDate: typebox_1.Type.Number() // ms since unix epoch
 }, { $id: 'BirthDateCredential', additionalProperties: false });
 exports.dobCredentialJsonSchema = typebox_1.Type.Object({
     dob: typebox_1.Type.String()
@@ -86,10 +86,10 @@ exports.governmentIdNumberCredentialJsonSchema = typebox_1.Type.Object({
     idNumber: typebox_1.Type.String()
 }, { $id: 'GovernmentIdNumberCredential', additionalProperties: false });
 exports.governmentIdIssuanceDateCredentialJsonSchema = typebox_1.Type.Object({
-    issuanceDate: typebox_1.Type.String() // setting this to string for now because that's what schema:Date uses, but not sure if that's what we want
+    issuanceDate: typebox_1.Type.Number() // ms since unix epoch
 }, { $id: 'GovernmentIdIssuanceDateCredential', additionalProperties: false });
 exports.governmentIdExpirationDateCredentialJsonSchema = typebox_1.Type.Object({
-    expirationDate: typebox_1.Type.String() // setting this to string for now because that's what schema:Date uses, but not sure if that's what we want
+    expirationDate: typebox_1.Type.Number({ format: 'unixMsExpirationDate' }) // ms since unix epoch
 }, { $id: 'GovernmentIdExpirationDateCredential', additionalProperties: false });
 exports.jsonSchemas = {
     EmailCredential: exports.emailCredentialJsonSchema,
