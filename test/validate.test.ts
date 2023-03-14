@@ -135,7 +135,7 @@ describe('Validate Schemas', () => {
   describe('GovernmentIdIssuanceDateCredential Schema', () => {
     test('valid', () => {
       const valid = validate('GovernmentIdIssuanceDateCredential', {
-        issuanceDate: new Date().toISOString()
+        issuanceDate: new Date().getTime()
       });
 
       expect(valid).toEqual(true);
@@ -157,7 +157,7 @@ describe('Validate Schemas', () => {
   describe('GovernmentIdExpirationDateCredential Schema', () => {
     test('valid', () => {
       const valid = validate('GovernmentIdExpirationDateCredential', {
-        expirationDate: new Date().toISOString()
+        expirationDate: new Date().getTime() + 100000
       });
 
       expect(valid).toEqual(true);
