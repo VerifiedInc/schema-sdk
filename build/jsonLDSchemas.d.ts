@@ -18,6 +18,7 @@ export declare const dobCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const phoneCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const fullNameCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const genderCredentialJsonLDSchema: UnumJsonLDSchema;
+export declare const sexCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const governmentIdDocumentImageCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const livelinessConfidenceCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const facialMatchCredentialJsonLDSchema: UnumJsonLDSchema;

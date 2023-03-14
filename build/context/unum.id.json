@@ -328,6 +328,25 @@
             ]
         },
         {
+            "@id": "schema:sex",
+            "@type": "rdf:Property",
+            "rdfs:comment": "Born sex of something, typically a person, but possibly also fictional characters, animals, etc.",
+            "rdfs:label": "sex",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                }
+            ],
+            "schema:rangeIncludes": [
+                {
+                    "@id": "schema:Text"
+                }
+            ]
+        },
+        {
             "@id": "schema:phoneNumber",
             "@type": "rdf:Property",
             "rdfs:comment": "The telephone number.",

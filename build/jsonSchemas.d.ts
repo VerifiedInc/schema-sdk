@@ -7,6 +7,7 @@ export interface UnumJsonSchema extends TObject<TProperties> {
 }
 export declare const emailCredentialJsonSchema: UnumJsonSchema;
 export declare const identityCredentialJsonSchema: UnumJsonSchema;
+export declare const sexCredentialJsonSchema: UnumJsonSchema;
 export declare const ssnCredentialJsonSchema: UnumJsonSchema;
 export declare const countryResidenceCredentialJsonSchema: UnumJsonSchema;
 export declare const nationalityCredentialJsonSchema: UnumJsonSchema;

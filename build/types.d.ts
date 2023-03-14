@@ -46,6 +46,7 @@ export type LivelinessConfidenceCredentialSchemaType = Static<typeof livelinessC
 export type FacialMatchCredentialSchemaType = Static<typeof facialMatchCredentialSchema>;
 export type FacialMatchConfidenceCredentialSchemaType = Static<typeof facialMatchConfidenceCredentialSchema>;
 export type GovernmentIdTypeCredentialSchemaType = Static<typeof governmentIdTypeCredentialSchema>;
+export type SexCredentialSchemaType = Static<typeof sexCredentialSchema>;
 export type GovernmentIdDocumentBackImageCredentialSchemaType = Static<
   typeof governmentIdDocumentBackImageCredentialSchema
 >;
