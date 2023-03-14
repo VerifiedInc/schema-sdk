@@ -91,14 +91,14 @@ export const firstNameCredentialJsonSchema = Type.Object(
 
 export const birthDateCredentialJsonSchema = Type.Object(
   {
-    birthDate: Type.Number() // ms since unix epoch
+    birthDate: Type.String({ format: 'digits' }) // ms since unix epoch
   },
   { $id: 'BirthDateCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const dobCredentialJsonSchema = Type.Object(
   {
-    dob: Type.String()
+    dob: Type.String({ format: 'digits' })
   },
   { $id: 'DobCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -191,14 +191,14 @@ export const governmentIdNumberCredentialJsonSchema = Type.Object(
 
 export const governmentIdIssuanceDateCredentialJsonSchema = Type.Object(
   {
-    issuanceDate: Type.Number() // ms since unix epoch
+    issuanceDate: Type.String({ format: 'digits' }) // ms since unix epoch
   },
   { $id: 'GovernmentIdIssuanceDateCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const governmentIdExpirationDateCredentialJsonSchema = Type.Object(
   {
-    expirationDate: Type.Number({ format: 'unixMsExpirationDate' }) // ms since unix epoch
+    expirationDate: Type.String({ format: 'unixMsExpirationDate' }) // ms since unix epoch
   },
   { $id: 'GovernmentIdExpirationDateCredential', additionalProperties: false }
 ) as UnumJsonSchema;

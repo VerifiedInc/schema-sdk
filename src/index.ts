@@ -31,7 +31,7 @@ import context from './context/unum.id.json';
 import { UnumJsonLDSchema } from './jsonLDSchemas';
 import { schemas, UnumSchema } from './schemas';
 import { UnumJsonSchema } from './jsonSchemas';
-import { emailFormat, phoneFormat, ssnFormat, unixMsExpirationDateFormat } from './formats';
+import { emailFormat, phoneFormat, ssnFormat, unixMsExpirationDateFormat, digitsFormat } from './formats';
 
 export {
   // types
@@ -47,6 +47,7 @@ export {
   ssnFormat,
   phoneFormat,
   unixMsExpirationDateFormat,
+  digitsFormat,
 
   // json-ld context file
   context,

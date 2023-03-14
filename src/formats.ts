@@ -31,11 +31,27 @@ export const phoneFormat: Format = {
   }
 };
 
+export const digitsFormat: Format = {
+  type: 'string',
+  validate: (digits: string) => {
+    // matches a string of digits
+    const digitsRegex = /^\d+$/;
+    return digitsRegex.test(digits);
+  }
+};
+
 export const unixMsExpirationDateFormat: Format = {
-  type: 'number',
-  validate: (expirationDate: number) => {
+  type: 'string',
+  validate: (expirationDate: string) => {
     // validates the inputted number is a unix timestamp in milliseconds great than the current time
     // Note: need to handle this as a format validator instead of using TypeBox's minimum validator because using that option value is static upon initialization
-    return expirationDate > Date.now();
+    const digitsRegex = /^\d+$/;
+    const isDigits = digitsRegex.test(expirationDate);
+
+    if (!isDigits) {
+      return false;
+    }
+
+    return parseInt(expirationDate) > Date.now();
   }
 };

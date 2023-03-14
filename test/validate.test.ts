@@ -155,7 +155,7 @@ describe('Validate Schemas', () => {
   describe('GovernmentIdIssuanceDateCredential Schema', () => {
     test('valid', () => {
       const valid = validate('GovernmentIdIssuanceDateCredential', {
-        issuanceDate: new Date().getTime()
+        issuanceDate: new Date().getTime().toString()
       });
 
       expect(valid).toEqual(true);
@@ -177,17 +177,41 @@ describe('Validate Schemas', () => {
   describe('GovernmentIdExpirationDateCredential Schema', () => {
     test('valid', () => {
       const valid = validate('GovernmentIdExpirationDateCredential', {
-        expirationDate: new Date().getTime() + 100000
+        expirationDate: (new Date().getTime() + 100000).toString()
       });
 
       expect(valid).toEqual(true);
     });
 
-    test('invalid', async () => {
+    test('invalid - wrong key', async () => {
       expect.assertions(1);
       try {
         validate('GovernmentIdExpirationDateCredential', {
           email: 'therealboris@draper.vc'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong format (not digits)', async () => {
+      expect.assertions(1);
+      try {
+        validate('GovernmentIdExpirationDateCredential', {
+          expirationDate: 'asdf'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong format (not in future)', async () => {
+      expect.assertions(1);
+      try {
+        validate('GovernmentIdExpirationDateCredential', {
+          expirationDate: '1'
         });
         fail();
       } catch (e) {

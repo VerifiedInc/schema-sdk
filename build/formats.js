@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.unixMsExpirationDateFormat = exports.phoneFormat = exports.ssnFormat = exports.emailFormat = void 0;
+exports.unixMsExpirationDateFormat = exports.digitsFormat = exports.phoneFormat = exports.ssnFormat = exports.emailFormat = void 0;
 /*******************************************************************
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
@@ -28,12 +28,25 @@ exports.phoneFormat = {
         return phoneRegex.test(phone);
     }
 };
+exports.digitsFormat = {
+    type: 'string',
+    validate: (digits) => {
+        // matches a string of digits
+        const digitsRegex = /^\d+$/;
+        return digitsRegex.test(digits);
+    }
+};
 exports.unixMsExpirationDateFormat = {
-    type: 'number',
+    type: 'string',
     validate: (expirationDate) => {
         // validates the inputted number is a unix timestamp in milliseconds great than the current time
         // Note: need to handle this as a format validator instead of using TypeBox's minimum validator because using that option value is static upon initialization
-        return expirationDate > Date.now();
+        const digitsRegex = /^\d+$/;
+        const isDigits = digitsRegex.test(expirationDate);
+        if (!isDigits) {
+            return false;
+        }
+        return parseInt(expirationDate) > Date.now();
     }
 };
 //# sourceMappingURL=formats.js.map

@@ -1,8 +1,8 @@
-import Ajv, { } from 'ajv';
+import Ajv from 'ajv';
 import logger from './logger';
 import addFormats from 'ajv-formats';
 import { jsonSchemas } from './jsonSchemas';
-import { emailFormat, phoneFormat, ssnFormat, unixMsExpirationDateFormat } from './formats';
+import { emailFormat, phoneFormat, ssnFormat, unixMsExpirationDateFormat, digitsFormat } from './formats';
 
 // get all the values of the jsonSchemas object in an array
 // schemas to add to ajv instance options
@@ -14,7 +14,7 @@ const schemas = Object.values(jsonSchemas);
  *
  * Note: Although addSchema does not compile schemas, explicit compilation is not required - the schema will be compiled when it is used first time.
  * ref: https://ajv.js.org/api.html#ajv-addschema-schema-object-object-key-string-ajv
-*/
+ */
 export const ajv = new Ajv({
   allErrors: true,
   coerceTypes: true, // ref: https://ajv.js.org/guide/modifying-data.html#coercing-data-types
@@ -33,3 +33,4 @@ ajv.addFormat('email', emailFormat);
 ajv.addFormat('phone', phoneFormat);
 ajv.addFormat('ssn', ssnFormat);
 ajv.addFormat('unixMsExpirationDate', unixMsExpirationDateFormat);
+ajv.addFormat('digits', digitsFormat);
