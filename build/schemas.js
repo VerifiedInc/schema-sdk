@@ -45,6 +45,7 @@ exports.schemas = {
         jsonLD: jsonLDSchemas_1.birthDateCredentialJsonLDSchema
     },
     DobCredential: {
+        // TODO: remove this in favor of BirthDateCredential, however the old Hyperverge creds issued dobCredentials so keeping for backwards compatibility
         json: jsonSchemas_1.dobCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.dobCredentialJsonLDSchema
     },
@@ -83,6 +84,30 @@ exports.schemas = {
     GovernmentIdDocumentBackImageCredential: {
         json: jsonSchemas_1.governmentIdDocumentImageCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.governmentIdDocumentImageCredentialJsonLDSchema
+    },
+    SexCredential: {
+        json: jsonSchemas_1.sexCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.genderCredentialJsonLDSchema
+    },
+    NationalityCredential: {
+        json: jsonSchemas_1.nationalityCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.nationalityCredentialJsonLDSchema
+    },
+    GovernmentIdStateCredential: {
+        json: jsonSchemas_1.governmentIdStateCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.governmentIdStateCredentialJsonLDSchema
+    },
+    GovernmentIdNumberCredential: {
+        json: jsonSchemas_1.governmentIdNumberCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.governmentIdNumberCredentialJsonLDSchema
+    },
+    GovernmentIdIssuanceDateCredential: {
+        json: jsonSchemas_1.governmentIdIssuanceDateCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.governmentIdIssuanceDateCredentialJsonLDSchema
+    },
+    GovernmentIdExpirationDateCredential: {
+        json: jsonSchemas_1.governmentIdExpirationDateCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.governmentIdExpirationDateCredentialJsonLDSchema
     }
 };
 //# sourceMappingURL=schemas.js.map

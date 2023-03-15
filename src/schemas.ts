@@ -1,10 +1,63 @@
-import { addressCredentialJsonLDSchema, birthDateCredentialJsonLDSchema, countryResidenceCredentialJsonLDSchema, dobCredentialJsonLDSchema, emailCredentialJsonLDSchema, facialImageCredentialJsonLDSchema, facialMatchConfidenceCredentialJsonLDSchema, facialMatchCredentialJsonLDSchema, firstNameCredentialJsonLDSchema, fullNameCredentialJsonLDSchema, genderCredentialJsonLDSchema, governmentIdDocumentImageCredentialJsonLDSchema, governmentIdTypeCredentialJsonLDSchema, identityCredentialJsonLDSchema, lastNameCredentialJsonLDSchema, livelinessConfidenceCredentialJsonLDSchema, livelinessCredentialJsonLDSchema, phoneCredentialJsonLDSchema, ssnCredentialJsonLDSchema, UnumJsonLDSchema } from './jsonLDSchemas';
-import { addressCredentialJsonSchema, birthDateCredentialJsonSchema, countryResidenceCredentialJsonSchema, dobCredentialJsonSchema, emailCredentialJsonSchema, facialImageCredentialJsonSchema, facialMatchConfidenceCredentialJsonSchema, facialMatchCredentialJsonSchema, firstNameCredentialJsonSchema, fullNameCredentialJsonSchema, genderCredentialJsonSchema, governmentIdDocumentImageCredentialJsonSchema, governmentIdTypeCredentialJsonSchema, identityCredentialJsonSchema, lastNameCredentialJsonSchema, livelinessConfidenceCredentialJsonSchema, livelinessCredentialJsonSchema, phoneCredentialJsonSchema, ssnCredentialJsonSchema, UnumJsonSchema } from './jsonSchemas';
+import {
+  addressCredentialJsonLDSchema,
+  birthDateCredentialJsonLDSchema,
+  countryResidenceCredentialJsonLDSchema,
+  dobCredentialJsonLDSchema,
+  emailCredentialJsonLDSchema,
+  facialImageCredentialJsonLDSchema,
+  facialMatchConfidenceCredentialJsonLDSchema,
+  facialMatchCredentialJsonLDSchema,
+  firstNameCredentialJsonLDSchema,
+  fullNameCredentialJsonLDSchema,
+  genderCredentialJsonLDSchema,
+  governmentIdDocumentImageCredentialJsonLDSchema,
+  governmentIdExpirationDateCredentialJsonLDSchema,
+  governmentIdIssuanceDateCredentialJsonLDSchema,
+  governmentIdNumberCredentialJsonLDSchema,
+  governmentIdStateCredentialJsonLDSchema,
+  governmentIdTypeCredentialJsonLDSchema,
+  identityCredentialJsonLDSchema,
+  lastNameCredentialJsonLDSchema,
+  livelinessConfidenceCredentialJsonLDSchema,
+  livelinessCredentialJsonLDSchema,
+  nationalityCredentialJsonLDSchema,
+  phoneCredentialJsonLDSchema,
+  ssnCredentialJsonLDSchema,
+  UnumJsonLDSchema
+} from './jsonLDSchemas';
+import {
+  addressCredentialJsonSchema,
+  birthDateCredentialJsonSchema,
+  countryResidenceCredentialJsonSchema,
+  dobCredentialJsonSchema,
+  emailCredentialJsonSchema,
+  facialImageCredentialJsonSchema,
+  facialMatchConfidenceCredentialJsonSchema,
+  facialMatchCredentialJsonSchema,
+  firstNameCredentialJsonSchema,
+  fullNameCredentialJsonSchema,
+  genderCredentialJsonSchema,
+  governmentIdDocumentImageCredentialJsonSchema,
+  governmentIdExpirationDateCredentialJsonSchema,
+  governmentIdIssuanceDateCredentialJsonSchema,
+  governmentIdNumberCredentialJsonSchema,
+  governmentIdStateCredentialJsonSchema,
+  governmentIdTypeCredentialJsonSchema,
+  identityCredentialJsonSchema,
+  lastNameCredentialJsonSchema,
+  livelinessConfidenceCredentialJsonSchema,
+  livelinessCredentialJsonSchema,
+  nationalityCredentialJsonSchema,
+  phoneCredentialJsonSchema,
+  sexCredentialJsonSchema,
+  ssnCredentialJsonSchema,
+  UnumJsonSchema
+} from './jsonSchemas';
 
 export interface UnumSchema {
-    json: UnumJsonSchema;
-    jsonLD: UnumJsonLDSchema;
-  }
+  json: UnumJsonSchema;
+  jsonLD: UnumJsonLDSchema;
+}
 
 export const schemas: Record<string, UnumSchema> = {
   EmailCredential: {
@@ -47,7 +100,8 @@ export const schemas: Record<string, UnumSchema> = {
     json: birthDateCredentialJsonSchema,
     jsonLD: birthDateCredentialJsonLDSchema
   },
-  DobCredential: { // TODO: remove this in favor of BirthDateCredential, however the old Hyperverge creds issued dobCredentials so keeping for backwards compatibility
+  DobCredential: {
+    // TODO: remove this in favor of BirthDateCredential, however the old Hyperverge creds issued dobCredentials so keeping for backwards compatibility
     json: dobCredentialJsonSchema,
     jsonLD: dobCredentialJsonLDSchema
   },
@@ -86,5 +140,29 @@ export const schemas: Record<string, UnumSchema> = {
   GovernmentIdDocumentBackImageCredential: {
     json: governmentIdDocumentImageCredentialJsonSchema,
     jsonLD: governmentIdDocumentImageCredentialJsonLDSchema
+  },
+  SexCredential: {
+    json: sexCredentialJsonSchema,
+    jsonLD: genderCredentialJsonLDSchema
+  },
+  NationalityCredential: {
+    json: nationalityCredentialJsonSchema,
+    jsonLD: nationalityCredentialJsonLDSchema
+  },
+  GovernmentIdStateCredential: {
+    json: governmentIdStateCredentialJsonSchema,
+    jsonLD: governmentIdStateCredentialJsonLDSchema
+  },
+  GovernmentIdNumberCredential: {
+    json: governmentIdNumberCredentialJsonSchema,
+    jsonLD: governmentIdNumberCredentialJsonLDSchema
+  },
+  GovernmentIdIssuanceDateCredential: {
+    json: governmentIdIssuanceDateCredentialJsonSchema,
+    jsonLD: governmentIdIssuanceDateCredentialJsonLDSchema
+  },
+  GovernmentIdExpirationDateCredential: {
+    json: governmentIdExpirationDateCredentialJsonSchema,
+    jsonLD: governmentIdExpirationDateCredentialJsonLDSchema
   }
 };
