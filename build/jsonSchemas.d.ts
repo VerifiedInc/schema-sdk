@@ -7,8 +7,10 @@ export interface UnumJsonSchema extends TObject<TProperties> {
 }
 export declare const emailCredentialJsonSchema: UnumJsonSchema;
 export declare const identityCredentialJsonSchema: UnumJsonSchema;
+export declare const sexCredentialJsonSchema: UnumJsonSchema;
 export declare const ssnCredentialJsonSchema: UnumJsonSchema;
 export declare const countryResidenceCredentialJsonSchema: UnumJsonSchema;
+export declare const nationalityCredentialJsonSchema: UnumJsonSchema;
 export declare const facialImageCredentialJsonSchema: UnumJsonSchema;
 export declare const livelinessCredentialJsonSchema: UnumJsonSchema;
 export declare const addressCredentialJsonSchema: UnumJsonSchema;
@@ -25,5 +27,9 @@ export declare const facialMatchCredentialJsonSchema: UnumJsonSchema;
 export declare const facialMatchConfidenceCredentialJsonSchema: UnumJsonSchema;
 export declare const governmentIdTypeCredentialJsonSchema: UnumJsonSchema;
 export declare const governmentIdDocumentBackImageCredentialJsonSchema: UnumJsonSchema;
+export declare const governmentIdStateCredentialJsonSchema: UnumJsonSchema;
+export declare const governmentIdNumberCredentialJsonSchema: UnumJsonSchema;
+export declare const governmentIdIssuanceDateCredentialJsonSchema: UnumJsonSchema;
+export declare const governmentIdExpirationDateCredentialJsonSchema: UnumJsonSchema;
 export declare const jsonSchemas: Record<string, UnumJsonSchema>;
 //# sourceMappingURL=jsonSchemas.d.ts.map

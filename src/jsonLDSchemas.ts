@@ -28,6 +28,12 @@ export const countryResidenceCredentialJsonLDSchema: UnumJsonLDSchema = {
   '@context': 'https://schema.dev-unumid.co'
 };
 
+export const nationalityCredentialJsonLDSchema: UnumJsonLDSchema = {
+  '@type': 'NationalityCredential',
+  nationality: 'schema:nationality',
+  '@context': 'https://schema.dev-unumid.co'
+};
+
 export const facialImageCredentialJsonLDSchema: UnumJsonLDSchema = {
   '@type': 'FacialImageCredential',
   image: 'schema:faceImage',
@@ -130,11 +136,36 @@ export const governmentIdDocumentBackImageCredentialJsonLDSchema: UnumJsonLDSche
   '@context': 'https://schema.unumid.co/context'
 };
 
+export const governmentIdStateCredentialJsonLDSchema: UnumJsonLDSchema = {
+  '@type': 'GovernmentIdStateCredential',
+  '@context': 'https://schema.dev-unumid.co',
+  state: 'schema:documentIssuingState'
+};
+
+export const governmentIdIssuanceDateCredentialJsonLDSchema: UnumJsonLDSchema = {
+  '@type': 'GovernmentIdIssuanceDateCredential',
+  '@context': 'https://schema.dev-unumid.co',
+  issuanceDate: 'schema:documentIssuanceDate'
+};
+
+export const governmentIdExpirationDateCredentialJsonLDSchema: UnumJsonLDSchema = {
+  '@type': 'GovernmentIdExpirationDateCredential',
+  '@context': 'https://schema.dev-unumid.co',
+  expirationDate: 'schema:documentExpirationDate'
+};
+
+export const governmentIdNumberCredentialJsonLDSchema: UnumJsonLDSchema = {
+  '@type': 'GovernmentIdNumberCredential',
+  '@context': 'https://schema.dev-unumid.co',
+  idNumber: 'schema:documentIdNumber'
+};
+
 export const jsonLDSchemas: Record<string, UnumJsonLDSchema> = {
   EmailCredential: emailCredentialJsonLDSchema,
   IdentityCredential: identityCredentialJsonLDSchema,
   SsnCredential: ssnCredentialJsonLDSchema,
   CountryResidenceCredential: countryResidenceCredentialJsonLDSchema,
+  NationalityCredential: nationalityCredentialJsonLDSchema,
   FacialImageCredential: facialImageCredentialJsonLDSchema,
   LivelinessCredential: livelinessCredentialJsonLDSchema,
   AddressCredential: addressCredentialJsonLDSchema,
@@ -151,5 +182,9 @@ export const jsonLDSchemas: Record<string, UnumJsonLDSchema> = {
   GovernmentIdTypeCredential: governmentIdTypeCredentialJsonLDSchema,
   GovernmentIdDocumentBackImageCredential: governmentIdDocumentBackImageCredentialJsonLDSchema,
   DobCredential: dobCredentialJsonLDSchema,
-  SexCredential: sexCredentialJsonLDSchema
+  SexCredential: sexCredentialJsonLDSchema,
+  GovernmentIdStateCredential: governmentIdStateCredentialJsonLDSchema,
+  GovernmentIdIssuanceDateCredential: governmentIdIssuanceDateCredentialJsonLDSchema,
+  GovernmentIdExpirationDateCredential: governmentIdExpirationDateCredentialJsonLDSchema,
+  GovernmentIdNumberCredential: governmentIdNumberCredentialJsonLDSchema
 };

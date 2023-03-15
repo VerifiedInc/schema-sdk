@@ -18,7 +18,7 @@ const schemas = Object.values(jsonSchemas_1.jsonSchemas);
  *
  * Note: Although addSchema does not compile schemas, explicit compilation is not required - the schema will be compiled when it is used first time.
  * ref: https://ajv.js.org/api.html#ajv-addschema-schema-object-object-key-string-ajv
-*/
+ */
 exports.ajv = new ajv_1.default({
     allErrors: true,
     coerceTypes: true,
@@ -36,4 +36,5 @@ exports.ajv.addFormat('email', formats_1.emailFormat);
 exports.ajv.addFormat('phone', formats_1.phoneFormat);
 exports.ajv.addFormat('ssn', formats_1.ssnFormat);
 exports.ajv.addFormat('unixMsExpirationDate', formats_1.unixMsExpirationDateFormat);
+exports.ajv.addFormat('digits', formats_1.digitsFormat);
 //# sourceMappingURL=ajv.js.map

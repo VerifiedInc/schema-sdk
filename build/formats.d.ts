@@ -6,5 +6,6 @@ import { Format } from 'ajv';
 export declare const emailFormat: Format;
 export declare const ssnFormat: Format;
 export declare const phoneFormat: Format;
+export declare const digitsFormat: Format;
 export declare const unixMsExpirationDateFormat: Format;
 //# sourceMappingURL=formats.d.ts.map

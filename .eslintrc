@@ -6,6 +6,9 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
+  "rules": {
+    "space-before-function-paren": "off"
+  },
   "settings": {
     "import/extensions": [".js", ".ts"],
     "import/parsers": {

@@ -43,7 +43,7 @@
           "schema:DataType",
           "rdfs:Class"
         ],
-        "rdfs:comment": "A date value in [ISO 8601 date format](http://en.wikipedia.org/wiki/ISO_8601).",
+        "rdfs:comment": "A date value expressed as milliseconds since the Unix epoch.",
         "rdfs:label": "Date"
       },
       {
@@ -206,6 +206,18 @@
           },
           {
             "@id": "schema:documentImage"
+          },
+          {
+            "@id": "schema:documentIdNumber"
+          },
+          {
+            "@id": "schema:documentIssanceDate"
+          },
+          {
+            "@id": "schema:documentExpirationDate"
+          },
+          {
+            "@id": "schema:documentIssuingState"
           }
         ]
       },
@@ -532,6 +544,18 @@
         ]
       },
       {
+        "@id": "schema:nationality",
+        "@type": "rdf:Property",
+        "rdfs:comment": "Nationality of the person.",
+        "rdfs:label": "Nationality",
+        "schema:domainIncludes": {
+          "@id": "schema:Person"
+        },
+        "schema:rangeIncludes": {
+          "@id": "schema:Country"
+        }
+      },
+      {
         "@id": "schema:addressState",
         "@type": "rdf:Property",
         "rdfs:comment": "The region in which the locality is, and which is in the country. For example, California or another appropriate first-level [Administrative division](https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country) ",
@@ -675,6 +699,86 @@
           ],
         "schema:rangeIncludes": {
           "@id": "schema:Text"
+        }
+      },
+      {
+        "@id": "schema:documentIdNumber",
+        "@type": "rdf:Property",
+        "rdfs:comment": "The ID number of the document.",
+        "rdfs:label": "Document ID Number",
+        "rdfs:subPropertyOf": {
+          "@id": "schema:document"
+        },
+        "schema:domainIncludes": [
+          {
+            "@id": "schema:KYC"
+          },
+          {
+            "@id": "schema:Thing"
+          }
+        ],
+        "schema:rangeIncludes": {
+          "@id": "schema:Text"
+        }
+      },
+      {
+        "@id": "schema:documentIssuingState",
+        "@type": "rdf:Property",
+        "rdfs:comment": "The state that issued the document.",
+        "rdfs:label": "Document Issuing State",
+        "rdfs:subPropertyOf": {
+          "@id": "schema:document"
+        },
+        "schema:domainIncludes": [
+          {
+            "@id": "schema:KYC"
+          },
+          {
+            "@id": "schema:Thing"
+          }
+        ],
+        "schema:rangeIncludes": {
+          "@id": "schema:Text"
+        }
+      },
+      {
+        "@id": "schema:documentIssanceDate",
+        "@type": "rdf:Property",
+        "rdfs:comment": "The date the document was issued.",
+        "rdfs:label": "Document Issance Date",
+        "rdfs:subPropertyOf": {
+          "@id": "schema:document"
+        },
+        "schema:domainIncludes": [
+          {
+            "@id": "schema:KYC"
+          },
+          {
+            "@id": "schema:Thing"
+          }
+        ],
+        "schema:rangeIncludes": {
+          "@id": "schema:Date"
+        }
+      },
+      {
+        "@id": "schema:documentExpirationDate",
+        "@type": "rdf:Property",
+        "rdfs:comment": "The date the document expires.",
+        "rdfs:label": "Document Expiration Date",
+        "rdfs:subPropertyOf": {
+          "@id": "schema:document"
+        },
+        "schema:domainIncludes": [
+          {
+            "@id": "schema:KYC"
+          },
+          {
+            "@id": "schema:Thing"
+          }
+        ],
+        "schema:rangeIncludes": {
+          "@id": "schema:Date"
         }
       },
       {

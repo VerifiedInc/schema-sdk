@@ -1,10 +1,37 @@
-import { AddressCredentialSchemaType, BirthDateCredentialSchemaType, CountryResidenceCredentialSchemaType, DobCredentialSchemaType, EmailCredentialSchemaType, FacialImageCredentialSchemaType, FacialMatchConfidenceCredentialSchemaType, FacialMatchCredentialSchemaType, FirstNameCredentialSchemaType, FullNameCredentialSchemaType, GenderCredentialSchemaType, GovernmentIdDocumentBackImageCredentialSchemaType, GovernmentIdDocumentImageCredentialSchemaType, GovernmentIdTypeCredentialSchemaType, IdentityCredentialSchemaType, LastNameCredentialSchemaType, LivelinessConfidenceCredentialSchemaType, LivelinessCredentialSchemaType, PhoneCredentialSchemaType, SexCredentialSchemaType, SsnCredentialSchemaType } from './types';
+import {
+  AddressCredentialSchemaType,
+  BirthDateCredentialSchemaType,
+  CountryResidenceCredentialSchemaType,
+  DobCredentialSchemaType,
+  EmailCredentialSchemaType,
+  FacialImageCredentialSchemaType,
+  FacialMatchConfidenceCredentialSchemaType,
+  FacialMatchCredentialSchemaType,
+  FirstNameCredentialSchemaType,
+  FullNameCredentialSchemaType,
+  GenderCredentialSchemaType,
+  GovernmentIdDocumentBackImageCredentialSchemaType,
+  GovernmentIdDocumentImageCredentialSchemaType,
+  GovernmentIdExpirationDateCredentialSchemaType,
+  GovernmentIdIssuanceDateCredentialSchemaType,
+  GovernmentIdNumberCredentialSchemaType,
+  GovernmentIdStateCredentialSchemaType,
+  GovernmentIdTypeCredentialSchemaType,
+  IdentityCredentialSchemaType,
+  LastNameCredentialSchemaType,
+  LivelinessConfidenceCredentialSchemaType,
+  LivelinessCredentialSchemaType,
+  NationalityCredentialSchemaType,
+  PhoneCredentialSchemaType,
+  SexCredentialSchemaType,
+  SsnCredentialSchemaType
+} from './types';
 import { validate } from './validate';
 import context from './context/unum.id.json';
 import { UnumJsonLDSchema } from './jsonLDSchemas';
 import { schemas, UnumSchema } from './schemas';
 import { UnumJsonSchema } from './jsonSchemas';
-import { emailFormat, phoneFormat, ssnFormat, unixMsExpirationDateFormat } from './formats';
+import { emailFormat, phoneFormat, ssnFormat, unixMsExpirationDateFormat, digitsFormat } from './formats';
 
 export {
   // types
@@ -20,6 +47,7 @@ export {
   ssnFormat,
   phoneFormat,
   unixMsExpirationDateFormat,
+  digitsFormat,
 
   // json-ld context file
   context,
@@ -48,6 +76,10 @@ export {
   FacialMatchCredentialSchemaType,
   FacialMatchConfidenceCredentialSchemaType,
   GovernmentIdTypeCredentialSchemaType,
-  GovernmentIdDocumentBackImageCredentialSchemaType
-
+  GovernmentIdDocumentBackImageCredentialSchemaType,
+  NationalityCredentialSchemaType,
+  GovernmentIdStateCredentialSchemaType,
+  GovernmentIdNumberCredentialSchemaType,
+  GovernmentIdExpirationDateCredentialSchemaType,
+  GovernmentIdIssuanceDateCredentialSchemaType
 };

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.jsonSchemas = exports.governmentIdDocumentBackImageCredentialJsonSchema = exports.governmentIdTypeCredentialJsonSchema = exports.facialMatchConfidenceCredentialJsonSchema = exports.facialMatchCredentialJsonSchema = exports.livelinessConfidenceCredentialJsonSchema = exports.governmentIdDocumentImageCredentialJsonSchema = exports.genderCredentialJsonSchema = exports.fullNameCredentialJsonSchema = exports.phoneCredentialJsonSchema = exports.dobCredentialJsonSchema = exports.birthDateCredentialJsonSchema = exports.firstNameCredentialJsonSchema = exports.lastNameCredentialJsonSchema = exports.addressCredentialJsonSchema = exports.livelinessCredentialJsonSchema = exports.facialImageCredentialJsonSchema = exports.countryResidenceCredentialJsonSchema = exports.ssnCredentialJsonSchema = exports.identityCredentialJsonSchema = exports.emailCredentialJsonSchema = void 0;
+exports.jsonSchemas = exports.governmentIdExpirationDateCredentialJsonSchema = exports.governmentIdIssuanceDateCredentialJsonSchema = exports.governmentIdNumberCredentialJsonSchema = exports.governmentIdStateCredentialJsonSchema = exports.governmentIdDocumentBackImageCredentialJsonSchema = exports.governmentIdTypeCredentialJsonSchema = exports.facialMatchConfidenceCredentialJsonSchema = exports.facialMatchCredentialJsonSchema = exports.livelinessConfidenceCredentialJsonSchema = exports.governmentIdDocumentImageCredentialJsonSchema = exports.genderCredentialJsonSchema = exports.fullNameCredentialJsonSchema = exports.phoneCredentialJsonSchema = exports.dobCredentialJsonSchema = exports.birthDateCredentialJsonSchema = exports.firstNameCredentialJsonSchema = exports.lastNameCredentialJsonSchema = exports.addressCredentialJsonSchema = exports.livelinessCredentialJsonSchema = exports.facialImageCredentialJsonSchema = exports.nationalityCredentialJsonSchema = exports.countryResidenceCredentialJsonSchema = exports.ssnCredentialJsonSchema = exports.sexCredentialJsonSchema = exports.identityCredentialJsonSchema = exports.emailCredentialJsonSchema = void 0;
 const typebox_1 = require("@sinclair/typebox");
 exports.emailCredentialJsonSchema = typebox_1.Type.Object({
     email: typebox_1.Type.String({
@@ -9,6 +9,9 @@ exports.emailCredentialJsonSchema = typebox_1.Type.Object({
 }, { $id: 'EmailCredential', additionalProperties: false });
 // special credential that is actually empty
 exports.identityCredentialJsonSchema = typebox_1.Type.Object({}, { $id: 'IdentityCredential', additionalProperties: false });
+exports.sexCredentialJsonSchema = typebox_1.Type.Object({
+    sex: typebox_1.Type.String()
+}, { $id: 'SexCredential', additionalProperties: false });
 exports.ssnCredentialJsonSchema = typebox_1.Type.Object({
     ssn: typebox_1.Type.String({
         format: 'ssn'
@@ -17,6 +20,9 @@ exports.ssnCredentialJsonSchema = typebox_1.Type.Object({
 exports.countryResidenceCredentialJsonSchema = typebox_1.Type.Object({
     country: typebox_1.Type.String()
 }, { $id: 'CountryResidenceCredential', additionalProperties: false });
+exports.nationalityCredentialJsonSchema = typebox_1.Type.Object({
+    nationality: typebox_1.Type.String()
+}, { $id: 'NationalityCredential', additionalProperties: false });
 exports.facialImageCredentialJsonSchema = typebox_1.Type.Object({
     image: typebox_1.Type.String({
         contentEncoding: 'base64'
@@ -35,10 +41,10 @@ exports.firstNameCredentialJsonSchema = typebox_1.Type.Object({
     firstName: typebox_1.Type.String()
 }, { $id: 'FirstNameCredential', additionalProperties: false });
 exports.birthDateCredentialJsonSchema = typebox_1.Type.Object({
-    birthDate: typebox_1.Type.String()
+    birthDate: typebox_1.Type.String({ format: 'digits' }) // ms since unix epoch
 }, { $id: 'BirthDateCredential', additionalProperties: false });
 exports.dobCredentialJsonSchema = typebox_1.Type.Object({
-    dob: typebox_1.Type.String()
+    dob: typebox_1.Type.String({ format: 'digits' })
 }, { $id: 'DobCredential', additionalProperties: false });
 exports.phoneCredentialJsonSchema = typebox_1.Type.Object({
     phone: typebox_1.Type.String({
@@ -72,12 +78,28 @@ exports.governmentIdDocumentBackImageCredentialJsonSchema = typebox_1.Type.Objec
     image: typebox_1.Type.String({
         contentEncoding: 'base64'
     })
-}, { $id: 'GovernmentIdDocumentBackImageCredential', additionalProperties: false });
+}, {
+    $id: 'GovernmentIdDocumentBackImageCredential',
+    additionalProperties: false
+});
+exports.governmentIdStateCredentialJsonSchema = typebox_1.Type.Object({
+    state: typebox_1.Type.String()
+}, { $id: 'GovernmentIdStateCredential', additionalProperties: false });
+exports.governmentIdNumberCredentialJsonSchema = typebox_1.Type.Object({
+    idNumber: typebox_1.Type.String()
+}, { $id: 'GovernmentIdNumberCredential', additionalProperties: false });
+exports.governmentIdIssuanceDateCredentialJsonSchema = typebox_1.Type.Object({
+    issuanceDate: typebox_1.Type.String({ format: 'digits' }) // ms since unix epoch
+}, { $id: 'GovernmentIdIssuanceDateCredential', additionalProperties: false });
+exports.governmentIdExpirationDateCredentialJsonSchema = typebox_1.Type.Object({
+    expirationDate: typebox_1.Type.String({ format: 'unixMsExpirationDate' }) // ms since unix epoch
+}, { $id: 'GovernmentIdExpirationDateCredential', additionalProperties: false });
 exports.jsonSchemas = {
     EmailCredential: exports.emailCredentialJsonSchema,
     IdentityCredential: exports.identityCredentialJsonSchema,
     SsnCredential: exports.ssnCredentialJsonSchema,
     CountryResidenceCredential: exports.countryResidenceCredentialJsonSchema,
+    NationalityCredential: exports.nationalityCredentialJsonSchema,
     FacialImageCredential: exports.facialImageCredentialJsonSchema,
     LivelinessCredential: exports.livelinessCredentialJsonSchema,
     AddressCredential: exports.addressCredentialJsonSchema,
@@ -92,6 +114,12 @@ exports.jsonSchemas = {
     FacialMatchCredential: exports.facialMatchCredentialJsonSchema,
     FacialMatchConfidenceCredential: exports.facialMatchConfidenceCredentialJsonSchema,
     GovernmentIdTypeCredential: exports.governmentIdTypeCredentialJsonSchema,
-    GovernmentIdDocumentBackImageCredential: exports.governmentIdDocumentBackImageCredentialJsonSchema
+    GovernmentIdDocumentBackImageCredential: exports.governmentIdDocumentBackImageCredentialJsonSchema,
+    SexCredential: exports.sexCredentialJsonSchema,
+    DobCredential: exports.dobCredentialJsonSchema,
+    GovernmentIdStateCredential: exports.governmentIdStateCredentialJsonSchema,
+    GovernmentIdNumberCredential: exports.governmentIdNumberCredentialJsonSchema,
+    GovernmentIdIssuanceDateCredential: exports.governmentIdIssuanceDateCredentialJsonSchema,
+    GovernmentIdExpirationDateCredential: exports.governmentIdExpirationDateCredentialJsonSchema
 };
 //# sourceMappingURL=jsonSchemas.js.map
