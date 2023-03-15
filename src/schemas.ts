@@ -22,6 +22,7 @@ import {
   livelinessCredentialJsonLDSchema,
   nationalityCredentialJsonLDSchema,
   phoneCredentialJsonLDSchema,
+  sexCredentialJsonLDSchema,
   ssnCredentialJsonLDSchema,
   UnumJsonLDSchema
 } from './jsonLDSchemas';
@@ -143,7 +144,7 @@ export const schemas: Record<string, UnumSchema> = {
   },
   SexCredential: {
     json: sexCredentialJsonSchema,
-    jsonLD: genderCredentialJsonLDSchema
+    jsonLD: sexCredentialJsonLDSchema
   },
   NationalityCredential: {
     json: nationalityCredentialJsonSchema,
