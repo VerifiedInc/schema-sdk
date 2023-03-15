@@ -76,7 +76,7 @@ Releases are automated via Github Actions CI job. In order to trigger a release 
 ```sh
 git tag v1.1.1 -m "Updated the SDK with a new CI job" && push origin v1.1.1
 ```
-
+Note: Certain special characters in the tag message such as parentheses will cause errors in the Github Actions job. Make sure that your tag message does not contain special characters!
 ### Changelog
 The [Standard Version](https://github.com/conventional-changelog/standard-version) node module is used to automatically populate [changelog.md](/CHANGELOG.md). It should only ever be trigger the but the Publish Github Actions [job](.github/workflows/publish.yaml). Please do **not** use manually.
 
