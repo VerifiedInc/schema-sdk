@@ -38,8 +38,9 @@ There are a number of spots that need to be updated in order to properly add a n
 3. **Create and export the new JsonSchema in jsonSchema.ts**, e.g. identityCredentialJsonLDSchema
 4. **Add the newly created JsonSchema to the jsonSchemas map in jsonSchemas.ts** this is easily forgotten as it as the bottom of the file.
 5. **Create a new type definition in types.d.ts using the newly created jsonSchema definition**, e.g. IdentityCredentialSchemaType
-6. **Add the newly create type definition to index.ts exports** under the "credential types" inline comment
-7. **Create a new Jest describe block for validation tests in validate.test.ts** which covers the newly created JsonSchema, e.g. `describe('IdentityCredential Schema', () => {...`
+6. **Add the newly created type definition to index.ts exports** under the "credential types" inline comment
+7. **Add the newly created jsonSchema and jsonLdSchema to the schemas map in `schemas.ts`** **THIS IS NECESSARY FOR THE SCHEMA TO BE RETRIEVED FROM THE SCHEMA RESOLVER**
+8. **Create a new Jest describe block for validation tests in validate.test.ts** which covers the newly created JsonSchema, e.g. `describe('IdentityCredential Schema', () => {...`
 
 ### e2e Testing
 Likely you will need to be testing local `schema-sdk` changes in a dependent project like [schema-resolver](https://github.com/UnumID/schema-resolver). The simplest and recommended way of doing so if via `npm link` as outlined [here](https://www.geeksforgeeks.org/how-to-install-a-local-module-using-npm/). Just be sure to run `npm run compile` before running `npm link` in this directory or `npm link @unumid/schema-sdk` in the dependent directory.
