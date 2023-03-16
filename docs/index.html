@@ -71,7 +71,8 @@
 <li><strong>Create and export the new JsonSchema in jsonSchema.ts</strong>, e.g. identityCredentialJsonLDSchema</li>
 <li><strong>Add the newly created JsonSchema to the jsonSchemas map in jsonSchemas.ts</strong> this is easily forgotten as it as the bottom of the file.</li>
 <li><strong>Create a new type definition in types.d.ts using the newly created jsonSchema definition</strong>, e.g. IdentityCredentialSchemaType</li>
-<li><strong>Add the newly create type definition to index.ts exports</strong> under the &quot;credential types&quot; inline comment</li>
+<li><strong>Add the newly created type definition to index.ts exports</strong> under the &quot;credential types&quot; inline comment</li>
+<li><strong>Add the newly created jsonSchema and jsonLdSchema to the schemas map in <code>schemas.ts</code></strong> <strong>THIS IS NECESSARY FOR THE SCHEMA TO BE RETRIEVED FROM THE SCHEMA RESOLVER</strong></li>
 <li><strong>Create a new Jest describe block for validation tests in validate.test.ts</strong> which covers the newly created JsonSchema, e.g. <code>describe(&#39;IdentityCredential Schema&#39;, () =&gt; {...</code></li>
 </ol>
 

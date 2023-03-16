@@ -87,7 +87,7 @@ exports.schemas = {
     },
     SexCredential: {
         json: jsonSchemas_1.sexCredentialJsonSchema,
-        jsonLD: jsonLDSchemas_1.genderCredentialJsonLDSchema
+        jsonLD: jsonLDSchemas_1.sexCredentialJsonLDSchema
     },
     NationalityCredential: {
         json: jsonSchemas_1.nationalityCredentialJsonSchema,
