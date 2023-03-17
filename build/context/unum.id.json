@@ -211,7 +211,7 @@
                     "@id": "schema:documentIdNumber"
                 },
                 {
-                    "@id": "schema:documentIssanceDate"
+                    "@id": "schema:documentIssuanceDate"
                 },
                 {
                     "@id": "schema:documentExpirationDate"
@@ -745,10 +745,10 @@
             }
         },
         {
-            "@id": "schema:documentIssanceDate",
+            "@id": "schema:documentIssuanceDate",
             "@type": "rdf:Property",
             "rdfs:comment": "The date the document was issued.",
-            "rdfs:label": "Document Issance Date",
+            "rdfs:label": "Document Issuance Date",
             "rdfs:subPropertyOf": {
                 "@id": "schema:document"
             },
