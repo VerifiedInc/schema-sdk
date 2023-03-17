@@ -548,6 +548,9 @@
             "@type": "rdf:Property",
             "rdfs:comment": "Nationality of the person.",
             "rdfs:label": "Nationality",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
             "schema:domainIncludes": {
                 "@id": "schema:Person"
             },
