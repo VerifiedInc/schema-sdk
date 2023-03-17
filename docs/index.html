@@ -66,7 +66,7 @@
 <p>There are a number of spots that need to be updated in order to properly add a new schema definition.</p>
 <ol>
 <li><strong>Create and export the new JsonLDSchema in jsonLDSchemas.ts</strong>, e.g. identityCredentialJsonLDSchema
- a. <strong>Update the <code>unum.id.json</code> JsonLD context file</strong> if necessary with credential property schemas</li>
+ a. <strong>Update the <code>unum.id.json</code> JsonLD context file</strong> if necessary with credential property schemas <strong>NOTE: the schema context MUST include the <code>&quot;rdfs:subPropertyOf&quot;</code> key, among others. Use <code>&quot;@id&quot;: &quot;schema:miscellaneous&quot;</code> if nothing else makes sense</strong></li>
 <li><strong>Add the newly created JsonLDSchema to the jsonLDSchemas map in jsonLDSchemas.ts</strong> this is easily forgotten as it as the bottom of the file.</li>
 <li><strong>Create and export the new JsonSchema in jsonSchema.ts</strong>, e.g. identityCredentialJsonLDSchema</li>
 <li><strong>Add the newly created JsonSchema to the jsonSchemas map in jsonSchemas.ts</strong> this is easily forgotten as it as the bottom of the file.</li>
@@ -74,6 +74,7 @@
 <li><strong>Add the newly created type definition to index.ts exports</strong> under the &quot;credential types&quot; inline comment</li>
 <li><strong>Add the newly created jsonSchema and jsonLdSchema to the schemas map in <code>schemas.ts</code></strong> <strong>THIS IS NECESSARY FOR THE SCHEMA TO BE RETRIEVED FROM THE SCHEMA RESOLVER</strong></li>
 <li><strong>Create a new Jest describe block for validation tests in validate.test.ts</strong> which covers the newly created JsonSchema, e.g. <code>describe(&#39;IdentityCredential Schema&#39;, () =&gt; {...</code></li>
+<li><strong>DON&#39;T FORGET TO BUILD! <code>npm run compile</code></strong></li>
 </ol>
 
 <a href="#e2e-testing" id="e2e-testing" style="color: inherit; text-decoration: none;">
