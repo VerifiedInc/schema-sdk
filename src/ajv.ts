@@ -2,7 +2,14 @@ import Ajv from 'ajv';
 import logger from './logger';
 import addFormats from 'ajv-formats';
 import { jsonSchemas } from './jsonSchemas';
-import { emailFormat, phoneFormat, ssnFormat, unixMsExpirationDateFormat, digitsFormat } from './formats';
+import {
+  emailFormat,
+  phoneFormat,
+  ssnFormat,
+  unixMsExpirationDateFormat,
+  digitsFormat,
+  optionalEmailFormat
+} from './formats';
 
 // get all the values of the jsonSchemas object in an array
 // schemas to add to ajv instance options
@@ -30,6 +37,7 @@ addFormats(ajv);
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
  *******************************************************************/
 ajv.addFormat('email', emailFormat);
+ajv.addFormat('optionalEmail', optionalEmailFormat);
 ajv.addFormat('phone', phoneFormat);
 ajv.addFormat('ssn', ssnFormat);
 ajv.addFormat('unixMsExpirationDate', unixMsExpirationDateFormat);
