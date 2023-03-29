@@ -1,4 +1,5 @@
 import { Format } from 'ajv';
+import { FormatValidator } from 'ajv/dist/types';
 
 /*******************************************************************
  * Creating custom formats                                         *
@@ -10,6 +11,18 @@ export const emailFormat: Format = {
   validate: (email: string) => {
     const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/; // source: https://www.w3resource.com/javascript/form/email-validation.php#
     return emailRegex.test(email);
+  }
+};
+
+export const optionalEmailFormat: Format = {
+  type: 'string',
+  validate: (email: string) => {
+    // because this is a format for an optional email field, we need to allow undefined values
+    if (email === undefined) {
+      return true;
+    }
+
+    return (emailFormat.validate as FormatValidator<string>)(email);
   }
 };
 

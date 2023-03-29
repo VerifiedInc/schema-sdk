@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.unixMsExpirationDateFormat = exports.digitsFormat = exports.phoneFormat = exports.ssnFormat = exports.emailFormat = void 0;
+exports.unixMsExpirationDateFormat = exports.digitsFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
 /*******************************************************************
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
@@ -10,6 +10,16 @@ exports.emailFormat = {
     validate: (email) => {
         const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/; // source: https://www.w3resource.com/javascript/form/email-validation.php#
         return emailRegex.test(email);
+    }
+};
+exports.optionalEmailFormat = {
+    type: 'string',
+    validate: (email) => {
+        // because this is a format for an optional email field, we need to allow undefined values
+        if (email === undefined) {
+            return true;
+        }
+        return exports.emailFormat.validate(email);
     }
 };
 exports.ssnFormat = {
