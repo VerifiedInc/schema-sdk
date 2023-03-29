@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.unixMsExpirationDateFormat = exports.digitsFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
+exports.unixMsExpirationDateFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
 /*******************************************************************
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
@@ -38,6 +38,16 @@ exports.phoneFormat = {
         // ref: https://ihateregex.io/expr/e164-phone/
         const phoneRegex = /^\+[1-9]\d{1,14}$/;
         return phoneRegex.test(phone);
+    }
+};
+exports.optionalPhoneFormat = {
+    type: 'string',
+    validate: (phone) => {
+        // because this is a format for an optional phone field, we need to allow some falsy values
+        if (!phone) {
+            return true;
+        }
+        return exports.phoneFormat.validate(phone);
     }
 };
 exports.digitsFormat = {

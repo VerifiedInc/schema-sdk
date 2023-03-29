@@ -37,7 +37,8 @@ import {
   ssnFormat,
   unixMsExpirationDateFormat,
   digitsFormat,
-  optionalEmailFormat
+  optionalEmailFormat,
+  optionalPhoneFormat
 } from './formats';
 
 export {
@@ -54,6 +55,7 @@ export {
   optionalEmailFormat,
   ssnFormat,
   phoneFormat,
+  optionalPhoneFormat,
   unixMsExpirationDateFormat,
   digitsFormat,
 

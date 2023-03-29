@@ -46,6 +46,18 @@ export const phoneFormat: Format = {
   }
 };
 
+export const optionalPhoneFormat: Format = {
+  type: 'string',
+  validate: (phone: string) => {
+    // because this is a format for an optional phone field, we need to allow some falsy values
+    if (!phone) {
+      return true;
+    }
+
+    return (phoneFormat.validate as FormatValidator<string>)(phone);
+  }
+};
+
 export const digitsFormat: Format = {
   type: 'string',
   validate: (digits: string) => {
