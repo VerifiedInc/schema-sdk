@@ -26,7 +26,8 @@ Schema validation is important to ensure credential data is schema compliant.
 [Ajv](https://ajv.js.org/guide/why-ajv.html) is used for schema validation. Currently defining all schemas at initialization however they still end up being compiled in an on demand fashion. If necessary, we can opt to using the pure on-demand schema compilation [strategy](https://ajv.js.org/guide/managing-schemas.html#pre-adding-all-schemas-vs-adding-on-demand) given we would like to support a large number of credential schemas.
 
 #### Custom Formats
-Custom ajv [formats](https://ajv.js.org/guide/formats.html#user-defined-formats) are being defined an leveraged to add additional assurances in regard to the credential schema data format in addition to its type. 
+Custom ajv [formats](https://ajv.js.org/guide/formats.html#user-defined-formats) are being defined an leveraged to add additional assurances in regard to the credential schema data format in addition to its type.
+Note: custom formats (and some built-in ones as well) do not work well for validating optional fields, even using TypeBox's `Type.Optional`. It is often helpful to add an optional variant (e.g. `optionalEmailFormat`) along with your custom format, which allows `undefined` values.
 
 ## Development
 ### Adding New Schemas
