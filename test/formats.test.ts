@@ -32,17 +32,9 @@ test('optionalEmailFormat returns false for invalid email', () => {
   expect(validate('test')).toBe(false);
 });
 
-test('optionalEmailFormat returns true for undefined email', () => {
+test('optionalEmailFormat returns true for missing email', () => {
   const format = optionalEmailFormat as FormatDefinition<string>;
   const validate = format.validate as FormatValidator<string>;
   expect(validate(undefined as unknown as string)).toBe(true);
-});
-
-test('optionalEmailFormat returns false for other falsy values', () => {
-  const format = optionalEmailFormat as FormatDefinition<string>;
-  const validate = format.validate as FormatValidator<string>;
-  expect(validate(null as unknown as string)).toBe(false);
-  expect(validate('')).toBe(false);
-  expect(validate(0 as unknown as string)).toBe(false);
-  expect(validate(false as unknown as string)).toBe(false);
+  expect(validate('')).toBe(true);
 });

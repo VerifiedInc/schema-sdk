@@ -17,8 +17,10 @@ export const emailFormat: Format = {
 export const optionalEmailFormat: Format = {
   type: 'string',
   validate: (email: string) => {
-    // because this is a format for an optional email field, we need to allow undefined values
-    if (email === undefined) {
+    // because this is a format for an optional email field, we need to allow some falsy values
+    // this could probably be more specific (e.g. only allow '' and undefined?) but I'm not sure what values we want to allow
+    // I know that remix forms, for example, will pass an empty string for an optional field if the user doesn't enter anything
+    if (!email) {
       return true;
     }
 
