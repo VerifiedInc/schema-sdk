@@ -2,76 +2,62 @@ import { FormatDefinition } from 'ajv';
 import { FormatValidator } from 'ajv/dist/types';
 import { emailFormat, optionalEmailFormat, optionalPhoneFormat, phoneFormat } from '../src/formats';
 
-test('emailFormat returns true for valid email', () => {
+test('emailFormat', () => {
   const format = emailFormat as FormatDefinition<string>;
   const validate = format.validate as FormatValidator<string>;
+
+  // valid email address
   expect(validate('test@unumid.co')).toBe(true);
-});
 
-test('emailFormat returns false for invalid email', () => {
-  const format = emailFormat as FormatDefinition<string>;
-  const validate = format.validate as FormatValidator<string>;
+  // invalid email address
   expect(validate('test')).toBe(false);
-});
 
-test('emailFormat returns false for undefined email', () => {
-  const format = emailFormat as FormatDefinition<string>;
-  const validate = format.validate as FormatValidator<string>;
+  // missing email address
   expect(validate(undefined as unknown as string)).toBe(false);
+  expect(validate('')).toBe(false);
 });
 
-test('optionalEmailFormat returns true for valid email', () => {
+test('optionalEmailFormat', () => {
   const format = optionalEmailFormat as FormatDefinition<string>;
   const validate = format.validate as FormatValidator<string>;
+
+  // valid email address
   expect(validate('test@unumid.co')).toBe(true);
-});
 
-test('optionalEmailFormat returns false for invalid email', () => {
-  const format = optionalEmailFormat as FormatDefinition<string>;
-  const validate = format.validate as FormatValidator<string>;
+  // invalid email address
   expect(validate('test')).toBe(false);
-});
 
-test('optionalEmailFormat returns true for missing email', () => {
-  const format = optionalEmailFormat as FormatDefinition<string>;
-  const validate = format.validate as FormatValidator<string>;
+  // missing email address
   expect(validate(undefined as unknown as string)).toBe(true);
   expect(validate('')).toBe(true);
 });
 
-test('phoneFormat returns true for valid phone', () => {
+test('phoneFormat', () => {
   const format = phoneFormat as FormatDefinition<string>;
   const validate = format.validate as FormatValidator<string>;
+
+  // valid phone number
   expect(validate('+15555555555')).toBe(true);
-});
 
-test('phoneFormat returns false for invalid phone', () => {
-  const format = phoneFormat as FormatDefinition<string>;
-  const validate = format.validate as FormatValidator<string>;
-  expect(validate('asdf')).toBe(false);
-});
+  // invalid phone number
+  expect(validate('test')).toBe(false);
 
-test('phoneFormat returns false for undefined phone', () => {
-  const format = phoneFormat as FormatDefinition<string>;
-  const validate = format.validate as FormatValidator<string>;
+  // missing phone number
   expect(validate(undefined as unknown as string)).toBe(false);
+  expect(validate('')).toBe(false);
 });
 
-test('optionalPhoneFormat returns true for valid phone', () => {
+test('optionalPhoneFormat', () => {
   const format = optionalPhoneFormat as FormatDefinition<string>;
   const validate = format.validate as FormatValidator<string>;
+
+  // valid phone number
   expect(validate('+15555555555')).toBe(true);
-});
 
-test('optionalPhoneFormat returns false for invalid phone', () => {
-  const format = optionalPhoneFormat as FormatDefinition<string>;
-  const validate = format.validate as FormatValidator<string>;
-  expect(validate('asdf')).toBe(false);
-});
+  // invalid phone number
+  expect(validate('test')).toBe(false);
 
-test('optionalPhoneFormat returns true for missing phone', () => {
-  const format = optionalPhoneFormat as FormatDefinition<string>;
-  const validate = format.validate as FormatValidator<string>;
+  // missing phone number
   expect(validate(undefined as unknown as string)).toBe(true);
   expect(validate('')).toBe(true);
 });
