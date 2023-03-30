@@ -27,7 +27,7 @@ Schema validation is important to ensure credential data is schema compliant.
 
 #### Custom Formats
 Custom ajv [formats](https://ajv.js.org/guide/formats.html#user-defined-formats) are being defined an leveraged to add additional assurances in regard to the credential schema data format in addition to its type.
-Note: custom formats (and some built-in ones as well) do not work well for validating optional fields, even using TypeBox's `Type.Optional`. It is often helpful to add an optional variant (e.g. `optionalEmailFormat`) along with your custom format, which allows `undefined` values.
+Note: custom formats (and some built-in ones as well) do not work well for validating optional fields, even using TypeBox's `Type.Optional`. It is often helpful to add an optional variant (e.g. `optionalEmailFormat`) along with your custom format, which allows falsey values.
 
 ## Development
 ### Adding New Schemas
