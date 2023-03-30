@@ -33,7 +33,9 @@ exports.ajv = new ajv_1.default({
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
  *******************************************************************/
 exports.ajv.addFormat('email', formats_1.emailFormat);
+exports.ajv.addFormat('optionalEmail', formats_1.optionalEmailFormat);
 exports.ajv.addFormat('phone', formats_1.phoneFormat);
+exports.ajv.addFormat('optionalPhone', formats_1.optionalPhoneFormat);
 exports.ajv.addFormat('ssn', formats_1.ssnFormat);
 exports.ajv.addFormat('unixMsExpirationDate', formats_1.unixMsExpirationDateFormat);
 exports.ajv.addFormat('digits', formats_1.digitsFormat);
