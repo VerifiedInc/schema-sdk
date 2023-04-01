@@ -89,29 +89,29 @@ describe('formats', () => {
     const format = unixMsExpirationDateFormat as FormatDefinition<string>;
     const validate = format.validate as FormatValidator<string>;
 
-    const now = Date.now();
-    const futureTime = now + 10000000;
+    const nowish = Date.now() - 10;
+    const futureTime = nowish + 10000000;
 
     // valid unixMsExpirationDate
     expect(validate(futureTime.toString())).toBe(true);
 
     // invalid unixMsExpirationDate
     expect(validate('test')).toBe(false);
-    expect(validate(now.toString())).toBe(false);
+    expect(validate(nowish.toString())).toBe(false);
   });
 
   test('calendarExpirationDateFormat', () => {
     const format = calendarExpirationDateFormat as FormatDefinition<string>;
     const validate = format.validate as FormatValidator<string>;
 
-    const now = Date.now();
-    const futureTime = now + 10000000;
+    const nowish = Date.now() - 10;
+    const futureTime = nowish + 10000000;
 
     // valid unixMsExpirationDate
     expect(validate(futureTime.toString())).toBe(true);
 
     // invalid unixMsExpirationDate
     expect(validate('test')).toBe(false);
-    expect(validate(now.toString())).toBe(false);
+    expect(validate(nowish.toString())).toBe(false);
   });
 });
