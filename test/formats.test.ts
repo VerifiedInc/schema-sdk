@@ -1,6 +1,6 @@
 import { FormatDefinition } from 'ajv';
 import { FormatValidator } from 'ajv/dist/types';
-import { calendarDateFormat, digitsFormat, emailFormat, optionalEmailFormat, optionalPhoneFormat, phoneFormat, unixMsExpirationDateFormat } from '../src/formats';
+import { calendarDateFormat, calendarExpirationDateFormat, digitsFormat, emailFormat, optionalEmailFormat, optionalPhoneFormat, phoneFormat, unixMsExpirationDateFormat } from '../src/formats';
 
 describe('formats', () => {
   test('emailFormat', () => {
@@ -87,6 +87,21 @@ describe('formats', () => {
 
   test('unixMsExpirationDateFormat', () => {
     const format = unixMsExpirationDateFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    const now = Date.now();
+    const futureTime = now + 10000000;
+
+    // valid unixMsExpirationDate
+    expect(validate(futureTime.toString())).toBe(true);
+
+    // invalid unixMsExpirationDate
+    expect(validate('test')).toBe(false);
+    expect(validate(now.toString())).toBe(false);
+  });
+
+  test('calendarExpirationDateFormat', () => {
+    const format = calendarExpirationDateFormat as FormatDefinition<string>;
     const validate = format.validate as FormatValidator<string>;
 
     const now = Date.now();

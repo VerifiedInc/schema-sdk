@@ -103,12 +103,23 @@ export const unixMsExpirationDateFormat: Format = {
 };
 
 /**
- * Format for validating a date in inputs in the ms since epoch format.
+ * Format for validating a date in inputs in the ms since epoch format, same as digitsFormat.
  * However, the real purpose of this format is to signal to the conversion layers that the date should be converted to a string in the format YYYY-MM-DD
  */
 export const calendarDateFormat: Format = {
   type: 'string',
   validate: (digits: string) => {
     return (digitsFormat.validate as FormatValidator<string>)(digits);
+  }
+};
+
+/**
+ * Calendar expiration date format to ensure a unix timestamp in milliseconds is greater than current time, same as unixMsExpirationDateFormat.
+ * However, the real purpose of this format is to signal to the conversion layers that the date should be converted to a string in the format YYYY-MM-DDa
+ */
+export const calendarExpirationDateFormat: Format = {
+  type: 'string',
+  validate: (expirationDate: string) => {
+    return (calendarDateFormat.validate as FormatValidator<string>)(expirationDate);
   }
 };
