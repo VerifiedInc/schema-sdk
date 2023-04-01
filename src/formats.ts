@@ -6,6 +6,9 @@ import { FormatValidator } from 'ajv/dist/types';
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
  *******************************************************************/
 
+/**
+ * Format to determine if a string is a valid email
+ */
 export const emailFormat: Format = {
   type: 'string',
   validate: (email: string) => {
@@ -14,6 +17,9 @@ export const emailFormat: Format = {
   }
 };
 
+/**
+ * Format to determine if a string is a valid email or an empty string
+ */
 export const optionalEmailFormat: Format = {
   type: 'string',
   validate: (email: string) => {
@@ -28,6 +34,9 @@ export const optionalEmailFormat: Format = {
   }
 };
 
+/**
+ * Format to determine if a string is a valid SSN
+ */
 export const ssnFormat: Format = {
   type: 'string',
   validate: (ssn: string) => {
@@ -36,6 +45,9 @@ export const ssnFormat: Format = {
   }
 };
 
+/**
+ * Format to determine if a string is a valid phone number
+ */
 export const phoneFormat: Format = {
   type: 'string',
   validate: (phone: string) => {
@@ -46,6 +58,9 @@ export const phoneFormat: Format = {
   }
 };
 
+/**
+ * Format to determine if a string is a valid phone number or an empty string
+ */
 export const optionalPhoneFormat: Format = {
   type: 'string',
   validate: (phone: string) => {
@@ -58,6 +73,9 @@ export const optionalPhoneFormat: Format = {
   }
 };
 
+/**
+ * Format to determine if a string containing all digits
+ */
 export const digitsFormat: Format = {
   type: 'string',
   validate: (digits: string) => {
@@ -67,18 +85,30 @@ export const digitsFormat: Format = {
   }
 };
 
+/**
+ * Format to determine if a string is a unix timestamp in milliseconds greater than current time
+ */
 export const unixMsExpirationDateFormat: Format = {
   type: 'string',
   validate: (expirationDate: string) => {
-    // validates the inputted number is a unix timestamp in milliseconds great than the current time
     // Note: need to handle this as a format validator instead of using TypeBox's minimum validator because using that option value is static upon initialization
-    const digitsRegex = /^\d+$/;
-    const isDigits = digitsRegex.test(expirationDate);
+    const valid = (digitsFormat.validate as FormatValidator<string>)(expirationDate);
 
-    if (!isDigits) {
+    if (!valid) {
       return false;
     }
 
     return parseInt(expirationDate) > Date.now();
+  }
+};
+
+/**
+ * Format for validating a date in inputs in the ms since epoch format.
+ * However, the real purpose of this format is to signal to the conversion layers that the date should be converted to a string in the format YYYY-MM-DD
+ */
+export const calendarDateFormat: Format = {
+  type: 'string',
+  validate: (digits: string) => {
+    return (digitsFormat.validate as FormatValidator<string>)(digits);
   }
 };
