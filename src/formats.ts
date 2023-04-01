@@ -120,6 +120,12 @@ export const calendarDateFormat: Format = {
 export const calendarExpirationDateFormat: Format = {
   type: 'string',
   validate: (expirationDate: string) => {
-    return (calendarDateFormat.validate as FormatValidator<string>)(expirationDate);
+    const valid = (calendarDateFormat.validate as FormatValidator<string>)(expirationDate);
+
+    if (!valid) {
+      return false;
+    }
+
+    return parseInt(expirationDate) > Date.now();
   }
 };
