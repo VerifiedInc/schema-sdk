@@ -41,10 +41,10 @@ exports.firstNameCredentialJsonSchema = typebox_1.Type.Object({
     firstName: typebox_1.Type.String()
 }, { $id: 'FirstNameCredential', additionalProperties: false });
 exports.birthDateCredentialJsonSchema = typebox_1.Type.Object({
-    birthDate: typebox_1.Type.String({ format: 'calendarDate' })
+    birthDate: typebox_1.Type.String({ format: 'digits' })
 }, { $id: 'BirthDateCredential', additionalProperties: false });
 exports.dobCredentialJsonSchema = typebox_1.Type.Object({
-    dob: typebox_1.Type.String({ format: 'calendarDate' })
+    dob: typebox_1.Type.String({ format: 'digits' })
 }, { $id: 'DobCredential', additionalProperties: false });
 exports.phoneCredentialJsonSchema = typebox_1.Type.Object({
     phone: typebox_1.Type.String({
@@ -89,10 +89,10 @@ exports.governmentIdNumberCredentialJsonSchema = typebox_1.Type.Object({
     idNumber: typebox_1.Type.String()
 }, { $id: 'GovernmentIdNumberCredential', additionalProperties: false });
 exports.governmentIdIssuanceDateCredentialJsonSchema = typebox_1.Type.Object({
-    issuanceDate: typebox_1.Type.String({ format: 'calendarDate' }) // ms since unix epoch
+    issuanceDate: typebox_1.Type.String({ format: 'digits' }) // ms since unix epoch
 }, { $id: 'GovernmentIdIssuanceDateCredential', additionalProperties: false });
 exports.governmentIdExpirationDateCredentialJsonSchema = typebox_1.Type.Object({
-    expirationDate: typebox_1.Type.String({ format: 'calendarExpirationDate' }) // ms since unix epoch
+    expirationDate: typebox_1.Type.String({ format: 'unixMsExpirationDate' }) // ms since unix epoch
 }, { $id: 'GovernmentIdExpirationDateCredential', additionalProperties: false });
 exports.jsonSchemas = {
     EmailCredential: exports.emailCredentialJsonSchema,
