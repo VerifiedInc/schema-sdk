@@ -47,6 +47,18 @@
             "rdfs:label": "Date"
         },
         {
+            "@id": "schema:Phone",
+            "@type": "schema:DataType",
+            "rdfs:comment": "A phone number.",
+            "rdfs:label": "Phone Number"
+        },
+        {
+            "@id": "schema:Ssn",
+            "@type": "schema:DataType",
+            "rdfs:comment": "A SSN.",
+            "rdfs:label": "SSN"
+        },
+        {
             "@id": "schema:contactInfo",
             "@type": "rdf:Property",
             "rdfs:comment": "Property representing the contact information for a person or organization.",
@@ -305,7 +317,7 @@
                 }
             ],
             "schema:rangeIncludes": {
-                "@id": "schema:Text"
+                "@id": "schema:Ssn"
             }
         },
         {
@@ -321,11 +333,9 @@
                     "@id": "schema:Person"
                 }
             ],
-            "schema:rangeIncludes": [
-                {
-                    "@id": "schema:Text"
-                }
-            ]
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
         },
         {
             "@id": "schema:sex",
@@ -340,11 +350,9 @@
                     "@id": "schema:Person"
                 }
             ],
-            "schema:rangeIncludes": [
-                {
-                    "@id": "schema:Text"
-                }
-            ]
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
         },
         {
             "@id": "schema:phoneNumber",
@@ -359,14 +367,11 @@
             },
             "schema:domainIncludes": [
                 {
-                    "@id": "schema:Person"
-                },
-                {
-                    "@id": "schema:ContactPoint"
+                    "@id": "schema:PhoneNumber"
                 }
             ],
             "schema:rangeIncludes": {
-                "@id": "schema:Text"
+                "@id": "schema:Phone"
             }
         },
         {
@@ -382,7 +387,7 @@
                     "@id": "schema:Person"
                 },
                 {
-                    "@id": "schema:ContactPoint"
+                    "@id": "schema:ContactInfo"
                 }
             ],
             "schema:rangeIncludes": {
@@ -512,14 +517,9 @@
                     "@id": "schema:KYC"
                 }
             ],
-            "schema:rangeIncludes": [
-                {
-                    "@id": "schema:Text"
-                },
-                {
-                    "@id": "schema:PostalAddress"
-                }
-            ]
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
         },
         {
             "@id": "schema:addressCountry",
@@ -537,11 +537,9 @@
                     "@id": "schema:PostalAddress"
                 }
             ],
-            "schema:rangeIncludes": [
-                {
-                    "@id": "schema:Text"
-                }
-            ]
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
         },
         {
             "@id": "schema:nationality",
@@ -597,14 +595,9 @@
                     "@id": "schema:KYC"
                 }
             ],
-            "schema:rangeIncludes": [
-                {
-                    "@id": "schema:Text"
-                },
-                {
-                    "@id": "schema:PostalAddress"
-                }
-            ]
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
         },
         {
             "@id": "schema:postalCode",
@@ -877,6 +870,14 @@
             "schema:rangeIncludes": {
                 "@id": "schema:Boolean"
             }
-        }
+        },
+        {
+            "@id": "schema:Boolean",
+            "@type": [
+                "schema:DataType"
+            ],
+            "rdfs:comment": "Boolean: True or False.",
+            "rdfs:label": "Boolean"
+        },
     ]
 }

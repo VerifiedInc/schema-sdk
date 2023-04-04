@@ -1,6 +1,6 @@
 import { FormatDefinition } from 'ajv';
 import { FormatValidator } from 'ajv/dist/types';
-import { calendarDateFormat, calendarExpirationDateFormat, digitsFormat, emailFormat, optionalEmailFormat, optionalPhoneFormat, phoneFormat, unixMsExpirationDateFormat } from '../src/formats';
+import { digitsFormat, emailFormat, optionalEmailFormat, optionalPhoneFormat, phoneFormat, unixMsExpirationDateFormat } from '../src/formats';
 
 describe('formats', () => {
   test('emailFormat', () => {
@@ -74,34 +74,8 @@ describe('formats', () => {
     expect(validate('test')).toBe(false);
   });
 
-  test('calendarDateFormat', () => {
-    const format = calendarDateFormat as FormatDefinition<string>;
-    const validate = format.validate as FormatValidator<string>;
-
-    // valid calendarDateFormat
-    expect(validate('1680319455')).toBe(true);
-
-    // invalid calendarDateFormat
-    expect(validate('test')).toBe(false);
-  });
-
   test('unixMsExpirationDateFormat', () => {
     const format = unixMsExpirationDateFormat as FormatDefinition<string>;
-    const validate = format.validate as FormatValidator<string>;
-
-    const nowish = Date.now() - 10;
-    const futureTime = nowish + 10000000;
-
-    // valid unixMsExpirationDate
-    expect(validate(futureTime.toString())).toBe(true);
-
-    // invalid unixMsExpirationDate
-    expect(validate('test')).toBe(false);
-    expect(validate(nowish.toString())).toBe(false);
-  });
-
-  test('calendarExpirationDateFormat', () => {
-    const format = calendarExpirationDateFormat as FormatDefinition<string>;
     const validate = format.validate as FormatValidator<string>;
 
     const nowish = Date.now() - 10;

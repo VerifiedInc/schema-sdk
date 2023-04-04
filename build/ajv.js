@@ -39,6 +39,4 @@ exports.ajv.addFormat('optionalPhone', formats_1.optionalPhoneFormat);
 exports.ajv.addFormat('ssn', formats_1.ssnFormat);
 exports.ajv.addFormat('unixMsExpirationDate', formats_1.unixMsExpirationDateFormat);
 exports.ajv.addFormat('digits', formats_1.digitsFormat);
-exports.ajv.addFormat('calendarDate', formats_1.calendarDateFormat);
-exports.ajv.addFormat('calendarExpirationDate', formats_1.calendarExpirationDateFormat);
 //# sourceMappingURL=ajv.js.map

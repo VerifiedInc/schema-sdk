@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.calendarExpirationDateFormat = exports.calendarDateFormat = exports.unixMsExpirationDateFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
+exports.unixMsExpirationDateFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
 /*******************************************************************
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
@@ -88,26 +88,6 @@ exports.unixMsExpirationDateFormat = {
             return false;
         }
         return parseInt(expirationDate) > Date.now();
-    }
-};
-/**
- * Format for validating a date in inputs in the ms since epoch format, same as digitsFormat.
- * However, the real purpose of this format is to signal to the conversion layers that the date should be converted to a string in the format YYYY-MM-DD
- */
-exports.calendarDateFormat = {
-    type: 'string',
-    validate: (digits) => {
-        return exports.digitsFormat.validate(digits);
-    }
-};
-/**
- * Calendar expiration date format to ensure a unix timestamp in milliseconds is greater than current time, same as unixMsExpirationDateFormat.
- * However, the real purpose of this format is to signal to the conversion layers that the date should be converted to a string in the format YYYY-MM-DDa
- */
-exports.calendarExpirationDateFormat = {
-    type: 'string',
-    validate: (expirationDate) => {
-        return exports.calendarDateFormat.validate(expirationDate);
     }
 };
 //# sourceMappingURL=formats.js.map
