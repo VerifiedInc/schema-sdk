@@ -872,6 +872,6 @@
         ],
         "rdfs:comment": "Boolean: True or False.",
         "rdfs:label": "Boolean"
-      },
+      }
   ]
 }
