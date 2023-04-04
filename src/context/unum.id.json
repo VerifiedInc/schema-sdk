@@ -385,9 +385,6 @@
         "schema:domainIncludes": [
           {
             "@id": "schema:Person"
-          },
-          {
-            "@id": "schema:ContactInfo"
           }
         ],
         "schema:rangeIncludes": {
@@ -405,9 +402,6 @@
         "schema:domainIncludes": [
           {
             "@id": "schema:Person"
-          },
-          {
-            "@id": "schema:ContactPoint"
           }
         ],
         "schema:rangeIncludes": {
