@@ -5,6 +5,9 @@ exports.unixMsExpirationDateFormat = exports.digitsFormat = exports.optionalPhon
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
  *******************************************************************/
+/**
+ * Format to determine if a string is a valid email
+ */
 exports.emailFormat = {
     type: 'string',
     validate: (email) => {
@@ -12,6 +15,9 @@ exports.emailFormat = {
         return emailRegex.test(email);
     }
 };
+/**
+ * Format to determine if a string is a valid email or an empty string
+ */
 exports.optionalEmailFormat = {
     type: 'string',
     validate: (email) => {
@@ -24,6 +30,9 @@ exports.optionalEmailFormat = {
         return exports.emailFormat.validate(email);
     }
 };
+/**
+ * Format to determine if a string is a valid SSN
+ */
 exports.ssnFormat = {
     type: 'string',
     validate: (ssn) => {
@@ -31,6 +40,9 @@ exports.ssnFormat = {
         return ssnRegex.test(ssn);
     }
 };
+/**
+ * Format to determine if a string is a valid phone number
+ */
 exports.phoneFormat = {
     type: 'string',
     validate: (phone) => {
@@ -40,6 +52,9 @@ exports.phoneFormat = {
         return phoneRegex.test(phone);
     }
 };
+/**
+ * Format to determine if a string is a valid phone number or an empty string
+ */
 exports.optionalPhoneFormat = {
     type: 'string',
     validate: (phone) => {
@@ -50,6 +65,9 @@ exports.optionalPhoneFormat = {
         return exports.phoneFormat.validate(phone);
     }
 };
+/**
+ * Format to determine if a string containing all digits
+ */
 exports.digitsFormat = {
     type: 'string',
     validate: (digits) => {
@@ -58,14 +76,15 @@ exports.digitsFormat = {
         return digitsRegex.test(digits);
     }
 };
+/**
+ * Format to determine if a string is a unix timestamp in milliseconds greater than current time
+ */
 exports.unixMsExpirationDateFormat = {
     type: 'string',
     validate: (expirationDate) => {
-        // validates the inputted number is a unix timestamp in milliseconds great than the current time
         // Note: need to handle this as a format validator instead of using TypeBox's minimum validator because using that option value is static upon initialization
-        const digitsRegex = /^\d+$/;
-        const isDigits = digitsRegex.test(expirationDate);
-        if (!isDigits) {
+        const valid = exports.digitsFormat.validate(expirationDate);
+        if (!valid) {
             return false;
         }
         return parseInt(expirationDate) > Date.now();

@@ -91,7 +91,7 @@ export const firstNameCredentialJsonSchema = Type.Object(
 
 export const birthDateCredentialJsonSchema = Type.Object(
   {
-    birthDate: Type.String({ format: 'digits' }) // ms since unix epoch
+    birthDate: Type.String({ format: 'digits' })
   },
   { $id: 'BirthDateCredential', additionalProperties: false }
 ) as UnumJsonSchema;

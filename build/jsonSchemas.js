@@ -41,7 +41,7 @@ exports.firstNameCredentialJsonSchema = typebox_1.Type.Object({
     firstName: typebox_1.Type.String()
 }, { $id: 'FirstNameCredential', additionalProperties: false });
 exports.birthDateCredentialJsonSchema = typebox_1.Type.Object({
-    birthDate: typebox_1.Type.String({ format: 'digits' }) // ms since unix epoch
+    birthDate: typebox_1.Type.String({ format: 'digits' })
 }, { $id: 'BirthDateCredential', additionalProperties: false });
 exports.dobCredentialJsonSchema = typebox_1.Type.Object({
     dob: typebox_1.Type.String({ format: 'digits' })
