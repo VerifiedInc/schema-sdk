@@ -333,11 +333,9 @@
             "@id": "schema:Person"
           }
         ],
-        "schema:rangeIncludes": [
-          {
-            "@id": "schema:Text"
-          }
-        ]
+        "schema:rangeIncludes": {
+          "@id": "schema:Text"
+        }
       },
       {
         "@id": "schema:sex",
@@ -352,11 +350,9 @@
             "@id": "schema:Person"
           }
         ],
-        "schema:rangeIncludes": [
-          {
-            "@id": "schema:Text"
-          }
-        ]
+        "schema:rangeIncludes": {
+          "@id": "schema:Text"
+        }
       },
       {
         "@id": "schema:phoneNumber",
@@ -521,14 +517,9 @@
             "@id": "schema:KYC"
           }
         ],
-        "schema:rangeIncludes": [
-          {
-            "@id": "schema:Text"
-          },
-          {
-            "@id": "schema:PostalAddress"
-          }
-        ]
+        "schema:rangeIncludes": {
+          "@id": "schema:Text"
+        }
       },
       {
         "@id": "schema:addressCountry",
@@ -546,11 +537,9 @@
             "@id": "schema:PostalAddress"
           }
         ],
-        "schema:rangeIncludes": [
-          {
-            "@id": "schema:Text"
-          }
-        ]
+        "schema:rangeIncludes": {
+          "@id": "schema:Text"
+        }
       },
       {
         "@id": "schema:nationality",
@@ -606,14 +595,9 @@
             "@id": "schema:KYC"
           }
         ],
-        "schema:rangeIncludes": [
-          {
-            "@id": "schema:Text"
-          },
-          {
-            "@id": "schema:PostalAddress"
-          }
-        ]
+        "schema:rangeIncludes": {
+          "@id": "schema:Text"
+        }
       },
       {
         "@id": "schema:postalCode",
@@ -886,6 +870,14 @@
         "schema:rangeIncludes": {
           "@id": "schema:Boolean"
         }
-      }
+      },
+      {
+        "@id": "schema:Boolean",
+        "@type": [
+          "schema:DataType"
+        ],
+        "rdfs:comment": "Boolean: True or False.",
+        "rdfs:label": "Boolean"
+      },
   ]
 }
