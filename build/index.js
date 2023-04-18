@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.schemas = exports.context = exports.digitsFormat = exports.unixMsExpirationDateFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = exports.validate = void 0;
+exports.schemas = exports.context = exports.otpFormat = exports.digitsFormat = exports.unixMsExpirationDateFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = exports.validate = void 0;
 const validate_1 = require("./validate");
 Object.defineProperty(exports, "validate", { enumerable: true, get: function () { return validate_1.validate; } });
 const unum_id_json_1 = __importDefault(require("./context/unum.id.json"));
@@ -18,4 +18,5 @@ Object.defineProperty(exports, "unixMsExpirationDateFormat", { enumerable: true,
 Object.defineProperty(exports, "digitsFormat", { enumerable: true, get: function () { return formats_1.digitsFormat; } });
 Object.defineProperty(exports, "optionalEmailFormat", { enumerable: true, get: function () { return formats_1.optionalEmailFormat; } });
 Object.defineProperty(exports, "optionalPhoneFormat", { enumerable: true, get: function () { return formats_1.optionalPhoneFormat; } });
+Object.defineProperty(exports, "otpFormat", { enumerable: true, get: function () { return formats_1.otpFormat; } });
 //# sourceMappingURL=index.js.map

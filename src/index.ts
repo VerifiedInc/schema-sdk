@@ -38,7 +38,8 @@ import {
   unixMsExpirationDateFormat,
   digitsFormat,
   optionalEmailFormat,
-  optionalPhoneFormat
+  optionalPhoneFormat,
+  otpFormat
 } from './formats';
 
 export {
@@ -58,6 +59,7 @@ export {
   optionalPhoneFormat,
   unixMsExpirationDateFormat,
   digitsFormat,
+  otpFormat,
 
   // json-ld context file
   context,

@@ -101,3 +101,16 @@ export const unixMsExpirationDateFormat: Format = {
     return parseInt(expirationDate) > Date.now();
   }
 };
+
+/**
+ * Format to determine if a string is a valid OTP (verification code)
+ * validates that the string is six digits
+ */
+export const otpFormat: Format = {
+  type: 'string',
+  validate: (otp: string) => {
+    // matches a string of six digits
+    const otpRegex = /^\d{6}$/;
+    return otpRegex.test(otp);
+  }
+};

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.unixMsExpirationDateFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
+exports.otpFormat = exports.unixMsExpirationDateFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
 /*******************************************************************
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
@@ -88,6 +88,18 @@ exports.unixMsExpirationDateFormat = {
             return false;
         }
         return parseInt(expirationDate) > Date.now();
+    }
+};
+/**
+ * Format to determine if a string is a valid OTP (verification code)
+ * validates that the string is six digits
+ */
+exports.otpFormat = {
+    type: 'string',
+    validate: (otp) => {
+        // matches a string of six digits
+        const otpRegex = /^\d{6}$/;
+        return otpRegex.test(otp);
     }
 };
 //# sourceMappingURL=formats.js.map

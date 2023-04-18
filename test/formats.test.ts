@@ -1,6 +1,14 @@
 import { FormatDefinition } from 'ajv';
 import { FormatValidator } from 'ajv/dist/types';
-import { digitsFormat, emailFormat, optionalEmailFormat, optionalPhoneFormat, phoneFormat, unixMsExpirationDateFormat } from '../src/formats';
+import {
+  digitsFormat,
+  emailFormat,
+  optionalEmailFormat,
+  optionalPhoneFormat,
+  otpFormat,
+  phoneFormat,
+  unixMsExpirationDateFormat
+} from '../src/formats';
 
 describe('formats', () => {
   test('emailFormat', () => {
@@ -87,5 +95,21 @@ describe('formats', () => {
     // invalid unixMsExpirationDate
     expect(validate('test')).toBe(false);
     expect(validate(nowish.toString())).toBe(false);
+  });
+
+  test('otpFormat', () => {
+    const format = otpFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid otp
+    expect(validate('123456')).toBe(true);
+
+    // invalid otp
+    expect(validate('12345')).toBe(false);
+    expect(validate('1234567')).toBe(false);
+    expect(validate('123456a')).toBe(false);
+    expect(validate('a23456')).toBe(false);
+    expect(validate('a23456a')).toBe(false);
+    expect(validate('')).toBe(false);
   });
 });
