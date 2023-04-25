@@ -7,3 +7,7 @@ workflows:
   lint-and-test:
     jobs:
       - unumid/lint-and-test:
+          filters:
+            branches:
+              ignore:
+                - main
