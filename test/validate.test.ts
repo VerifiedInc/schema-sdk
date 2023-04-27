@@ -321,4 +321,38 @@ describe('Validate Schemas', () => {
       }
     });
   });
+
+  describe('IncomeCurrencyCredential Schema', () => {
+    test('valid', () => {
+      const valid = validate('IncomeCurrencyCredential', {
+        currency: 'USD'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong key', async () => {
+      expect.assertions(1);
+      try {
+        validate('IncomeCurrencyCredential', {
+          email: 'USD'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong format (not string)', async () => {
+      expect.assertions(1);
+      try {
+        validate('IncomeCurrencyCredential', {
+          currency: new Date()
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
 });
