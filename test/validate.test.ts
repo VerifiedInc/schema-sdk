@@ -219,4 +219,106 @@ describe('Validate Schemas', () => {
       }
     });
   });
+
+  describe('EmployerCredential Schema', () => {
+    test('valid', () => {
+      const valid = validate('EmployerCredential', {
+        employer: 'Unum ID'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong key', async () => {
+      expect.assertions(1);
+      try {
+        validate('EmployerCredential', {
+          email: 'Unum ID'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong format (not string)', async () => {
+      expect.assertions(1);
+      try {
+        validate('EmployerCredential', {
+          employer: new Date()
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
+  describe('TitleCredential Schema', () => {
+    test('valid', () => {
+      const valid = validate('TitleCredential', {
+        title: 'Unum ID'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong key', async () => {
+      expect.assertions(1);
+      try {
+        validate('TitleCredential', {
+          email: 'Unum ID'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong format (not string)', async () => {
+      expect.assertions(1);
+      try {
+        validate('TitleCredential', {
+          title: new Date()
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
+  describe('IncomeCredential Schema', () => {
+    test('valid', () => {
+      const valid = validate('IncomeCredential', {
+        income: 90000
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong key', async () => {
+      expect.assertions(1);
+      try {
+        validate('IncomeCredential', {
+          email: 90000
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong format (not integer)', async () => {
+      expect.assertions(1);
+      try {
+        validate('IncomeCredential', {
+          income: 'asdf'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
 });
