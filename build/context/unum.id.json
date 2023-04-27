@@ -938,12 +938,12 @@
             "@type": "rdf:Property",
             "rdfs:comment": "The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) ) used for the main salary information in this job posting or for this employee.",
             "rdfs:label": "salaryCurrency",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
             "schema:domainIncludes": [
                 {
-                    "@id": "schema:EmployeeRole"
-                },
-                {
-                    "@id": "schema:JobPosting"
+                    "@id": "schema:Person"
                 }
             ],
             "schema:rangeIncludes": {
@@ -955,6 +955,9 @@
             "@type": "rdf:Property",
             "rdfs:comment": "The base salary of an employee.",
             "rdfs:label": "baseSalary",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
             "schema:domainIncludes": [
                 {
                     "@id": "schema:Person"
