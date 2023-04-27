@@ -101,7 +101,7 @@ exports.titleCredentialJsonSchema = typebox_1.Type.Object({
     title: typebox_1.Type.String()
 }, { $id: 'TitleCredential', additionalProperties: false });
 exports.incomeCredentialJsonSchema = typebox_1.Type.Object({
-    income: typebox_1.Type.Integer()
+    income: typebox_1.Type.String({ format: 'digits' }) // needed thanks to json encoding number as a string
 }, { $id: 'IncomeCredential', additionalProperties: false });
 exports.incomeCurrencyCredentialJsonSchema = typebox_1.Type.Object({
     currency: typebox_1.Type.String()

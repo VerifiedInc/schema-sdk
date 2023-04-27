@@ -219,7 +219,7 @@ export const titleCredentialJsonSchema = Type.Object(
 
 export const incomeCredentialJsonSchema = Type.Object(
   {
-    income: Type.Integer()
+    income: Type.String({ format: 'digits' }) // needed thanks to json encoding number as a string
   },
   { $id: 'IncomeCredential', additionalProperties: false }
 ) as UnumJsonSchema;

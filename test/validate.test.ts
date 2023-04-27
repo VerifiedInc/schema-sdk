@@ -291,7 +291,7 @@ describe('Validate Schemas', () => {
   describe('IncomeCredential Schema', () => {
     test('valid', () => {
       const valid = validate('IncomeCredential', {
-        income: 90000
+        income: '90000'
       });
 
       expect(valid).toEqual(true);
@@ -301,7 +301,7 @@ describe('Validate Schemas', () => {
       expect.assertions(1);
       try {
         validate('IncomeCredential', {
-          email: 90000
+          email: '90000'
         });
         fail();
       } catch (e) {
@@ -313,7 +313,7 @@ describe('Validate Schemas', () => {
       expect.assertions(1);
       try {
         validate('IncomeCredential', {
-          income: 'asdf'
+          income: new Date()
         });
         fail();
       } catch (e) {
