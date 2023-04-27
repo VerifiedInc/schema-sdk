@@ -258,8 +258,8 @@ export const jsonSchemas: Record<string, UnumJsonSchema> = {
   GovernmentIdNumberCredential: governmentIdNumberCredentialJsonSchema,
   GovernmentIdIssuanceDateCredential: governmentIdIssuanceDateCredentialJsonSchema,
   GovernmentIdExpirationDateCredential: governmentIdExpirationDateCredentialJsonSchema,
-  EmployerCredential: EmployerCredentialJsonSchema,
-  TitleCredential: TitleCredentialJsonSchema,
-  IncomeCredential: IncomeCredentialJsonSchema,
-  IncomeCurrencyCredential: IncomeCurrencyCredentialJsonSchema
+  EmployerCredential: employerCredentialJsonSchema,
+  TitleCredential: titleCredentialJsonSchema,
+  IncomeCredential: incomeCredentialJsonSchema,
+  IncomeCurrencyCredential: incomeCurrencyCredentialJsonSchema
 };
