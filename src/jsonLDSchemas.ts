@@ -181,7 +181,7 @@ export const incomeJsonLDSchema: UnumJsonLDSchema = {
 export const incomeCurrencyJsonLDSchema: UnumJsonLDSchema = {
   '@type': 'IncomeCurrencyCredential',
   '@context': 'https://schema.unumid.co',
-  income: 'schema:salaryCurrency'
+  currency: 'schema:salaryCurrency'
 };
 
 export const jsonLDSchemas: Record<string, UnumJsonLDSchema> = {
