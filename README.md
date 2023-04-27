@@ -11,7 +11,7 @@ Partial inspiration for our own context file came from the [Banks and Finance In
 
 Opting to use the RDFS [subPropertyOf](https://www.w3.org/TR/rdf-schema/#ch_subpropertyof) to denote data presentation field headers.
 
-rdfs:Class is not _really_ used in favor of defining per attribute characteristics which fall under rdfs:Properties more naturally. This is thanks to using single attribute atomic credentials for the forseeable future... We do not need to categorize the credentials but can rather use the attributes (rdfs:Properties) for grouping. Our SchemaPresentation definitions play a role akin to rdfs:Class. 
+rdfs:Class is not _really_ used in favor of defining per attribute characteristics which fall under rdfs:Properties more naturally. This is thanks to using single attribute atomic credentials for the forseeable future... We do not need to categorize the credentials but can rather use the attributes (rdfs:Properties) for grouping. _Note: the rdfs:Properties that are being used as group headings have the `schema:isPartOf` attribute set to `unumid:groupHeadings` to denote their special characteristics._ **Any other rdfs:Propertery only ought to have a single value for `schema:rangeIncludes` so that the schema-resolver's display format logic to work as is.** This is a self imposed convention that the examples in schema.org does not follow.
 
 ## JSON Schemas
 JSON schemas are important for programmatically handling credential data. They assist in extracting information as well as data validation.
