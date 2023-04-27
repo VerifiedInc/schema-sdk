@@ -34,7 +34,7 @@ Note: custom formats (and some built-in ones as well) do not work well for valid
 There are a number of spots that need to be updated in order to properly add a new schema definition.
 
 1. **Create and export the new JsonLDSchema in jsonLDSchemas.ts**, e.g. identityCredentialJsonLDSchema
-    a. **Update the `unum.id.json` JsonLD context file** if necessary with credential property schemas **NOTE: the schema context MUST include the `"rdfs:subPropertyOf"` key, among others. Use `"@id": "schema:miscellaneous"` if nothing else makes sense. Also, the `rdfs:rangeIncludes` must a single value.**
+    a. **Update the `unum.id.json` JsonLD context file** if necessary with credential property schemas **NOTE: the schema context MUST include the `"rdfs:subPropertyOf"` key, among others. Use `"@id": "schema:miscellaneous"` if nothing else makes sense. Also, the `rdfs:rangeIncludes` must be a single value.**
 2. **Add the newly created JsonLDSchema to the jsonLDSchemas map in jsonLDSchemas.ts** this is easily forgotten as it as the bottom of the file.
 3. **Create and export the new JsonSchema in jsonSchema.ts**, e.g. identityCredentialJsonLDSchema
 4. **Add the newly created JsonSchema to the jsonSchemas map in jsonSchemas.ts** this is easily forgotten as it as the bottom of the file.
