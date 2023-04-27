@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.jsonLDSchemas = exports.governmentIdNumberCredentialJsonLDSchema = exports.governmentIdExpirationDateCredentialJsonLDSchema = exports.governmentIdIssuanceDateCredentialJsonLDSchema = exports.governmentIdStateCredentialJsonLDSchema = exports.governmentIdDocumentBackImageCredentialJsonLDSchema = exports.governmentIdTypeCredentialJsonLDSchema = exports.facialMatchConfidenceCredentialJsonLDSchema = exports.facialMatchCredentialJsonLDSchema = exports.livelinessConfidenceCredentialJsonLDSchema = exports.governmentIdDocumentImageCredentialJsonLDSchema = exports.sexCredentialJsonLDSchema = exports.genderCredentialJsonLDSchema = exports.fullNameCredentialJsonLDSchema = exports.phoneCredentialJsonLDSchema = exports.dobCredentialJsonLDSchema = exports.birthDateCredentialJsonLDSchema = exports.firstNameCredentialJsonLDSchema = exports.lastNameCredentialJsonLDSchema = exports.addressCredentialJsonLDSchema = exports.livelinessCredentialJsonLDSchema = exports.facialImageCredentialJsonLDSchema = exports.nationalityCredentialJsonLDSchema = exports.countryResidenceCredentialJsonLDSchema = exports.ssnCredentialJsonLDSchema = exports.identityCredentialJsonLDSchema = exports.emailCredentialJsonLDSchema = void 0;
+exports.jsonLDSchemas = exports.incomeCurrencyJsonLDSchema = exports.incomeJsonLDSchema = exports.titleJsonLDSchema = exports.employerJsonLDSchema = exports.governmentIdNumberCredentialJsonLDSchema = exports.governmentIdExpirationDateCredentialJsonLDSchema = exports.governmentIdIssuanceDateCredentialJsonLDSchema = exports.governmentIdStateCredentialJsonLDSchema = exports.governmentIdDocumentBackImageCredentialJsonLDSchema = exports.governmentIdTypeCredentialJsonLDSchema = exports.facialMatchConfidenceCredentialJsonLDSchema = exports.facialMatchCredentialJsonLDSchema = exports.livelinessConfidenceCredentialJsonLDSchema = exports.governmentIdDocumentImageCredentialJsonLDSchema = exports.sexCredentialJsonLDSchema = exports.genderCredentialJsonLDSchema = exports.fullNameCredentialJsonLDSchema = exports.phoneCredentialJsonLDSchema = exports.dobCredentialJsonLDSchema = exports.birthDateCredentialJsonLDSchema = exports.firstNameCredentialJsonLDSchema = exports.lastNameCredentialJsonLDSchema = exports.addressCredentialJsonLDSchema = exports.livelinessCredentialJsonLDSchema = exports.facialImageCredentialJsonLDSchema = exports.nationalityCredentialJsonLDSchema = exports.countryResidenceCredentialJsonLDSchema = exports.ssnCredentialJsonLDSchema = exports.identityCredentialJsonLDSchema = exports.emailCredentialJsonLDSchema = void 0;
 exports.emailCredentialJsonLDSchema = {
     '@type': 'EmailCredential',
     email: 'schema:email',
@@ -19,21 +19,21 @@ exports.ssnCredentialJsonLDSchema = {
 exports.countryResidenceCredentialJsonLDSchema = {
     '@type': 'CountryResidenceCredential',
     country: 'schema:addressCountry',
-    '@context': 'https://schema.dev-unumid.co'
+    '@context': 'https://schema.unumid.co'
 };
 exports.nationalityCredentialJsonLDSchema = {
     '@type': 'NationalityCredential',
     nationality: 'schema:nationality',
-    '@context': 'https://schema.dev-unumid.co'
+    '@context': 'https://schema.unumid.co'
 };
 exports.facialImageCredentialJsonLDSchema = {
     '@type': 'FacialImageCredential',
     image: 'schema:faceImage',
-    '@context': 'https://schema.dev-unumid.co'
+    '@context': 'https://schema.unumid.co'
 };
 exports.livelinessCredentialJsonLDSchema = {
     '@type': 'LivelinessCredential',
-    '@context': 'https://schema.dev-unumid.co',
+    '@context': 'https://schema.unumid.co',
     liveliness: 'schema:liveliness'
 };
 exports.addressCredentialJsonLDSchema = {
@@ -53,57 +53,57 @@ exports.firstNameCredentialJsonLDSchema = {
 };
 exports.birthDateCredentialJsonLDSchema = {
     '@type': 'BirthDateCredential',
-    '@context': 'https://schema.dev-unumid.co',
+    '@context': 'https://schema.unumid.co',
     birthDate: 'schema:birthDate'
 };
 exports.dobCredentialJsonLDSchema = {
     '@type': 'DobCredential',
-    '@context': 'https://schema.dev-unumid.co',
+    '@context': 'https://schema.unumid.co',
     dob: 'schema:birthDate'
 };
 exports.phoneCredentialJsonLDSchema = {
     '@type': 'PhoneCredential',
     phone: 'schema:phoneNumber',
-    '@context': 'https://schema.dev-unumid.co'
+    '@context': 'https://schema.unumid.co'
 };
 exports.fullNameCredentialJsonLDSchema = {
     '@type': 'FullNameCredential',
-    '@context': 'https://schema.dev-unumid.co',
+    '@context': 'https://schema.unumid.co',
     fullName: 'schema:fullName'
 };
 exports.genderCredentialJsonLDSchema = {
     '@type': 'GenderCredential',
     gender: 'schema:gender',
-    '@context': 'https://schema.dev-unumid.co'
+    '@context': 'https://schema.unumid.co'
 };
 exports.sexCredentialJsonLDSchema = {
     '@type': 'SexCredential',
     sex: 'schema:sex',
-    '@context': 'https://schema.dev-unumid.co'
+    '@context': 'https://schema.unumid.co'
 };
 exports.governmentIdDocumentImageCredentialJsonLDSchema = {
     '@type': 'GovernmentIdDocumentImageCredential',
     image: 'schema:documentImage',
-    '@context': 'https://schema.dev-unumid.co'
+    '@context': 'https://schema.unumid.co'
 };
 exports.livelinessConfidenceCredentialJsonLDSchema = {
     '@type': 'LivelinessConfidenceCredential',
-    '@context': 'https://schema.dev-unumid.co',
+    '@context': 'https://schema.unumid.co',
     confidence: 'schema:livelinessConfidence'
 };
 exports.facialMatchCredentialJsonLDSchema = {
     '@type': 'FacialMatchCredential',
     match: 'schema:facialMatch',
-    '@context': 'https://schema.dev-unumid.co'
+    '@context': 'https://schema.unumid.co'
 };
 exports.facialMatchConfidenceCredentialJsonLDSchema = {
     '@type': 'FacialMatchConfidenceCredential',
-    '@context': 'https://schema.dev-unumid.co',
+    '@context': 'https://schema.unumid.co',
     confidence: 'schema:facialMatchConfidence'
 };
 exports.governmentIdTypeCredentialJsonLDSchema = {
     '@type': 'GovernmentIdTypeCredential',
-    '@context': 'https://schema.dev-unumid.co',
+    '@context': 'https://schema.unumid.co',
     documentType: 'schema:documentType'
 };
 exports.governmentIdDocumentBackImageCredentialJsonLDSchema = {
@@ -113,23 +113,43 @@ exports.governmentIdDocumentBackImageCredentialJsonLDSchema = {
 };
 exports.governmentIdStateCredentialJsonLDSchema = {
     '@type': 'GovernmentIdStateCredential',
-    '@context': 'https://schema.dev-unumid.co',
+    '@context': 'https://schema.unumid.co',
     state: 'schema:documentIssuingState'
 };
 exports.governmentIdIssuanceDateCredentialJsonLDSchema = {
     '@type': 'GovernmentIdIssuanceDateCredential',
-    '@context': 'https://schema.dev-unumid.co',
+    '@context': 'https://schema.unumid.co',
     issuanceDate: 'schema:documentIssuanceDate'
 };
 exports.governmentIdExpirationDateCredentialJsonLDSchema = {
     '@type': 'GovernmentIdExpirationDateCredential',
-    '@context': 'https://schema.dev-unumid.co',
+    '@context': 'https://schema.unumid.co',
     expirationDate: 'schema:documentExpirationDate'
 };
 exports.governmentIdNumberCredentialJsonLDSchema = {
     '@type': 'GovernmentIdNumberCredential',
-    '@context': 'https://schema.dev-unumid.co',
+    '@context': 'https://schema.unumid.co',
     idNumber: 'schema:documentIdNumber'
+};
+exports.employerJsonLDSchema = {
+    '@type': 'EmployerCredential',
+    '@context': 'https://schema.unumid.co',
+    employer: 'schema:legalName'
+};
+exports.titleJsonLDSchema = {
+    '@type': 'TitleCredential',
+    '@context': 'https://schema.unumid.co',
+    title: 'schema:jobTitle'
+};
+exports.incomeJsonLDSchema = {
+    '@type': 'IncomeCredential',
+    '@context': 'https://schema.unumid.co',
+    income: 'schema:baseSalary'
+};
+exports.incomeCurrencyJsonLDSchema = {
+    '@type': 'IncomeCurrencyCredential',
+    '@context': 'https://schema.unumid.co',
+    currency: 'schema:salaryCurrency'
 };
 exports.jsonLDSchemas = {
     EmailCredential: exports.emailCredentialJsonLDSchema,
@@ -157,6 +177,10 @@ exports.jsonLDSchemas = {
     GovernmentIdStateCredential: exports.governmentIdStateCredentialJsonLDSchema,
     GovernmentIdIssuanceDateCredential: exports.governmentIdIssuanceDateCredentialJsonLDSchema,
     GovernmentIdExpirationDateCredential: exports.governmentIdExpirationDateCredentialJsonLDSchema,
-    GovernmentIdNumberCredential: exports.governmentIdNumberCredentialJsonLDSchema
+    GovernmentIdNumberCredential: exports.governmentIdNumberCredentialJsonLDSchema,
+    EmployerCredential: exports.employerJsonLDSchema,
+    TitleCredential: exports.titleJsonLDSchema,
+    IncomeCredential: exports.incomeJsonLDSchema,
+    IncomeCurrencyCredential: exports.incomeCurrencyJsonLDSchema
 };
 //# sourceMappingURL=jsonLDSchemas.js.map

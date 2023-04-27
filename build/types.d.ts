@@ -1,6 +1,7 @@
 import { Static } from '@sinclair/typebox';
 import {
   addressCredentialSchema,
+  identityCredentialSchema,
   birthDateCredentialSchema,
   countryResidenceCredentialSchema,
   emailCredentialSchema,
@@ -22,7 +23,11 @@ import {
   governmentIdStateCredentialSchema,
   governmentIdNumberCredentialSchema,
   governmentIdExpirationDateCredentialSchema,
-  governmentIdIssuanceDateCredentialSchema
+  governmentIdIssuanceDateCredentialSchema,
+  employerCredentialSchema,
+  titleCredentialSchema,
+  incomeCredentialSchema,
+  incomeCurrencyCredentialSchema
 } from './jsonSchemas';
 
 export type SsnCredentialSchemaType = Static<typeof ssnCredentialSchema>;
@@ -59,3 +64,7 @@ export type GovernmentIdExpirationDateCredentialSchemaType = Static<
 export type GovernmentIdIssuanceDateCredentialSchemaType = Static<
   typeof governmentIdIssuanceDateCredentialSchema
 >;
+export type EmployerCredentialSchemaType = Static<typeof employerCredentialSchema>;
+export type TitleCredentialSchemaType = Static<typeof titleCredentialSchema>;
+export type IncomeCredentialSchemaType = Static<typeof incomeCredentialSchema>;
+export type IncomeCurrencyCredentialSchemaType = Static<typeof incomeCurrencyCredentialSchema>;

@@ -29,6 +29,15 @@
             }
         },
         {
+            "@id": "schema:Organization",
+            "@type": "rdfs:Class",
+            "rdfs:comment": "An organization such as a school, NGO, corporation, club, etc.",
+            "rdfs:label": "Organization",
+            "rdfs:subClassOf": {
+                "@id": "schema:Thing"
+            }
+        },
+        {
             "@id": "schema:KYC",
             "@type": "rdfs:Class",
             "rdfs:comment": "KYC info.",
@@ -59,10 +68,19 @@
             "rdfs:label": "SSN"
         },
         {
+            "@id": "schema:Integer",
+            "@type": "schema:DataType",
+            "rdfs:comment": "An integer.",
+            "rdfs:label": "Integer"
+        },
+        {
             "@id": "schema:contactInfo",
             "@type": "rdf:Property",
             "rdfs:comment": "Property representing the contact information for a person or organization.",
             "rdfs:label": "Contact Info",
+            "schema:isPartOf": {
+                "@id": "unumid:groupHeadings"
+            },
             "rdfs:subPropertyOf": {
                 "@id": "rdfs:label"
             },
@@ -115,6 +133,9 @@
             "@type": "rdf:Property",
             "rdfs:comment": "The name of something or someone.",
             "rdfs:label": "Name",
+            "schema:isPartOf": {
+                "@id": "unumid:groupHeadings"
+            },
             "sorg:equivalentProperty": {
                 "@id": "schema:name"
             },
@@ -152,6 +173,9 @@
             "@type": "rdf:Property",
             "rdfs:comment": "Miscellaneous information.",
             "rdfs:label": "Miscellaneous",
+            "schema:isPartOf": {
+                "@id": "unumid:groupHeadings"
+            },
             "rdfs:subPropertyOf": {
                 "@id": "rdfs:label"
             },
@@ -198,6 +222,9 @@
             "@type": "rdf:Property",
             "rdfs:comment": "Identity documents including those that are government issued.",
             "rdfs:label": "ID Document",
+            "schema:isPartOf": {
+                "@id": "unumid:groupHeadings"
+            },
             "rdfs:subPropertyOf": {
                 "@id": "rdfs:label"
             },
@@ -872,6 +899,70 @@
             ],
             "rdfs:comment": "Boolean: True or False.",
             "rdfs:label": "Boolean"
+        },
+        {
+            "@id": "schema:jobTitle",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The job title of the person (for example, Financial Manager).",
+            "rdfs:label": "Job Title",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "schema:domainIncludes": {
+                "@id": "schema:Person"
+            },
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:legalName",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The official name of the organization, e.g. the registered company name.",
+            "rdfs:label": "Legal Name",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "schema:domainIncludes": {
+                "@id": "schema:Organization"
+            },
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            },
+            "schema:source": {
+                "@id": "http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms"
+            }
+        },
+        {
+            "@id": "schema:salaryCurrency",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) ) used for the main salary information in this job posting or for this employee.",
+            "rdfs:label": "salaryCurrency",
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:EmployeeRole"
+                },
+                {
+                    "@id": "schema:JobPosting"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:baseSalary",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The base salary of an employee.",
+            "rdfs:label": "baseSalary",
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Integer"
+            }
         }
     ]
 }
