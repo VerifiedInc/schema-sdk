@@ -203,28 +203,28 @@ export const governmentIdExpirationDateCredentialJsonSchema = Type.Object(
   { $id: 'GovernmentIdExpirationDateCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
-export const EmployerCredentialJsonSchema = Type.Object(
+export const employerCredentialJsonSchema = Type.Object(
   {
     employer: Type.String()
   },
   { $id: 'EmployerCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
-export const TitleCredentialJsonSchema = Type.Object(
+export const titleCredentialJsonSchema = Type.Object(
   {
     title: Type.String()
   },
   { $id: 'TitleCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
-export const IncomeCredentialJsonSchema = Type.Object(
+export const incomeCredentialJsonSchema = Type.Object(
   {
     income: Type.Integer()
   },
   { $id: 'IncomeCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
-export const IncomeCurrencyCredentialJsonSchema = Type.Object(
+export const incomeCurrencyCredentialJsonSchema = Type.Object(
   {
     currency: Type.String()
   },
