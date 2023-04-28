@@ -11,7 +11,7 @@ Partial inspiration for our own context file came from the [Banks and Finance In
 
 Opting to use the RDFS [subPropertyOf](https://www.w3.org/TR/rdf-schema/#ch_subpropertyof) to denote data presentation field headers.
 
-rdfs:Class is not _really_ used in favor of defining per attribute characteristics which fall under rdfs:Properties more naturally. This is thanks to using single attribute atomic credentials for the forseeable future... We do not need to categorize the credentials but can rather use the attributes (rdfs:Properties) for grouping. Our SchemaPresentation definitions play a role akin to rdfs:Class. 
+rdfs:Class is not _really_ used in favor of defining per attribute characteristics which fall under rdfs:Properties more naturally. This is thanks to using single attribute atomic credentials for the forseeable future... We do not need to categorize the credentials but can rather use the attributes (rdfs:Properties) for grouping. _Note: the rdfs:Properties that are being used as group headings have the `schema:isPartOf` attribute set to `unumid:groupHeadings` to denote their special characteristics._ **Any other rdfs:Propertery only ought to have a single value for `schema:rangeIncludes` so that the schema-resolver's display format logic to work as is.** This is a self imposed convention that the examples in schema.org does not follow.
 
 ## JSON Schemas
 JSON schemas are important for programmatically handling credential data. They assist in extracting information as well as data validation.
@@ -34,7 +34,7 @@ Note: custom formats (and some built-in ones as well) do not work well for valid
 There are a number of spots that need to be updated in order to properly add a new schema definition.
 
 1. **Create and export the new JsonLDSchema in jsonLDSchemas.ts**, e.g. identityCredentialJsonLDSchema
-    a. **Update the `unum.id.json` JsonLD context file** if necessary with credential property schemas **NOTE: the schema context MUST include the `"rdfs:subPropertyOf"` key, among others. Use `"@id": "schema:miscellaneous"` if nothing else makes sense**
+    a. **Update the `unum.id.json` JsonLD context file** if necessary with credential property schemas **NOTE: the schema context MUST include the `"rdfs:subPropertyOf"` key, among others. Use `"@id": "schema:miscellaneous"` if nothing else makes sense. Also, the `rdfs:rangeIncludes` must be a single value.**
 2. **Add the newly created JsonLDSchema to the jsonLDSchemas map in jsonLDSchemas.ts** this is easily forgotten as it as the bottom of the file.
 3. **Create and export the new JsonSchema in jsonSchema.ts**, e.g. identityCredentialJsonLDSchema
 4. **Add the newly created JsonSchema to the jsonSchemas map in jsonSchemas.ts** this is easily forgotten as it as the bottom of the file.
@@ -42,7 +42,7 @@ There are a number of spots that need to be updated in order to properly add a n
 6. **Add the newly created type definition to index.ts exports** under the "credential types" inline comment
 7. **Add the newly created jsonSchema and jsonLdSchema to the schemas map in `schemas.ts`** **THIS IS NECESSARY FOR THE SCHEMA TO BE RETRIEVED FROM THE SCHEMA RESOLVER**
 8. **Create a new Jest describe block for validation tests in validate.test.ts** which covers the newly created JsonSchema, e.g. `describe('IdentityCredential Schema', () => {...`
-9. **DON'T FORGET TO BUILD! `npm run compile`**
+9. ~~**DON'T FORGET TO BUILD! `npm run compile`**~~ This step is actually now being handling automatically via the husky pre-commit setup.
 
 ### e2e Testing
 Likely you will need to be testing local `schema-sdk` changes in a dependent project like [schema-resolver](https://github.com/UnumID/schema-resolver). The simplest and recommended way of doing so if via `npm link` as outlined [here](https://www.geeksforgeeks.org/how-to-install-a-local-module-using-npm/). Just be sure to run `npm run compile` before running `npm link` in this directory or `npm link @unumid/schema-sdk` in the dependent directory.

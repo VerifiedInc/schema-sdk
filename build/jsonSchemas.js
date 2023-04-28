@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.jsonSchemas = exports.governmentIdExpirationDateCredentialJsonSchema = exports.governmentIdIssuanceDateCredentialJsonSchema = exports.governmentIdNumberCredentialJsonSchema = exports.governmentIdStateCredentialJsonSchema = exports.governmentIdDocumentBackImageCredentialJsonSchema = exports.governmentIdTypeCredentialJsonSchema = exports.facialMatchConfidenceCredentialJsonSchema = exports.facialMatchCredentialJsonSchema = exports.livelinessConfidenceCredentialJsonSchema = exports.governmentIdDocumentImageCredentialJsonSchema = exports.genderCredentialJsonSchema = exports.fullNameCredentialJsonSchema = exports.phoneCredentialJsonSchema = exports.dobCredentialJsonSchema = exports.birthDateCredentialJsonSchema = exports.firstNameCredentialJsonSchema = exports.lastNameCredentialJsonSchema = exports.addressCredentialJsonSchema = exports.livelinessCredentialJsonSchema = exports.facialImageCredentialJsonSchema = exports.nationalityCredentialJsonSchema = exports.countryResidenceCredentialJsonSchema = exports.ssnCredentialJsonSchema = exports.sexCredentialJsonSchema = exports.identityCredentialJsonSchema = exports.emailCredentialJsonSchema = void 0;
+exports.jsonSchemas = exports.incomeCurrencyCredentialJsonSchema = exports.incomeCredentialJsonSchema = exports.titleCredentialJsonSchema = exports.employerCredentialJsonSchema = exports.governmentIdExpirationDateCredentialJsonSchema = exports.governmentIdIssuanceDateCredentialJsonSchema = exports.governmentIdNumberCredentialJsonSchema = exports.governmentIdStateCredentialJsonSchema = exports.governmentIdDocumentBackImageCredentialJsonSchema = exports.governmentIdTypeCredentialJsonSchema = exports.facialMatchConfidenceCredentialJsonSchema = exports.facialMatchCredentialJsonSchema = exports.livelinessConfidenceCredentialJsonSchema = exports.governmentIdDocumentImageCredentialJsonSchema = exports.genderCredentialJsonSchema = exports.fullNameCredentialJsonSchema = exports.phoneCredentialJsonSchema = exports.dobCredentialJsonSchema = exports.birthDateCredentialJsonSchema = exports.firstNameCredentialJsonSchema = exports.lastNameCredentialJsonSchema = exports.addressCredentialJsonSchema = exports.livelinessCredentialJsonSchema = exports.facialImageCredentialJsonSchema = exports.nationalityCredentialJsonSchema = exports.countryResidenceCredentialJsonSchema = exports.ssnCredentialJsonSchema = exports.sexCredentialJsonSchema = exports.identityCredentialJsonSchema = exports.emailCredentialJsonSchema = void 0;
 const typebox_1 = require("@sinclair/typebox");
 exports.emailCredentialJsonSchema = typebox_1.Type.Object({
     email: typebox_1.Type.String({
@@ -94,6 +94,18 @@ exports.governmentIdIssuanceDateCredentialJsonSchema = typebox_1.Type.Object({
 exports.governmentIdExpirationDateCredentialJsonSchema = typebox_1.Type.Object({
     expirationDate: typebox_1.Type.String({ format: 'unixMsExpirationDate' }) // ms since unix epoch
 }, { $id: 'GovernmentIdExpirationDateCredential', additionalProperties: false });
+exports.employerCredentialJsonSchema = typebox_1.Type.Object({
+    employer: typebox_1.Type.String()
+}, { $id: 'EmployerCredential', additionalProperties: false });
+exports.titleCredentialJsonSchema = typebox_1.Type.Object({
+    title: typebox_1.Type.String()
+}, { $id: 'TitleCredential', additionalProperties: false });
+exports.incomeCredentialJsonSchema = typebox_1.Type.Object({
+    income: typebox_1.Type.String({ format: 'digits' }) // needed thanks to json encoding number as a string
+}, { $id: 'IncomeCredential', additionalProperties: false });
+exports.incomeCurrencyCredentialJsonSchema = typebox_1.Type.Object({
+    currency: typebox_1.Type.String()
+}, { $id: 'IncomeCurrencyCredential', additionalProperties: false });
 exports.jsonSchemas = {
     EmailCredential: exports.emailCredentialJsonSchema,
     IdentityCredential: exports.identityCredentialJsonSchema,
@@ -120,6 +132,10 @@ exports.jsonSchemas = {
     GovernmentIdStateCredential: exports.governmentIdStateCredentialJsonSchema,
     GovernmentIdNumberCredential: exports.governmentIdNumberCredentialJsonSchema,
     GovernmentIdIssuanceDateCredential: exports.governmentIdIssuanceDateCredentialJsonSchema,
-    GovernmentIdExpirationDateCredential: exports.governmentIdExpirationDateCredentialJsonSchema
+    GovernmentIdExpirationDateCredential: exports.governmentIdExpirationDateCredentialJsonSchema,
+    EmployerCredential: exports.employerCredentialJsonSchema,
+    TitleCredential: exports.titleCredentialJsonSchema,
+    IncomeCredential: exports.incomeCredentialJsonSchema,
+    IncomeCurrencyCredential: exports.incomeCurrencyCredentialJsonSchema
 };
 //# sourceMappingURL=jsonSchemas.js.map

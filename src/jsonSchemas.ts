@@ -203,6 +203,34 @@ export const governmentIdExpirationDateCredentialJsonSchema = Type.Object(
   { $id: 'GovernmentIdExpirationDateCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
+export const employerCredentialJsonSchema = Type.Object(
+  {
+    employer: Type.String()
+  },
+  { $id: 'EmployerCredential', additionalProperties: false }
+) as UnumJsonSchema;
+
+export const titleCredentialJsonSchema = Type.Object(
+  {
+    title: Type.String()
+  },
+  { $id: 'TitleCredential', additionalProperties: false }
+) as UnumJsonSchema;
+
+export const incomeCredentialJsonSchema = Type.Object(
+  {
+    income: Type.String({ format: 'digits' }) // needed thanks to json encoding number as a string
+  },
+  { $id: 'IncomeCredential', additionalProperties: false }
+) as UnumJsonSchema;
+
+export const incomeCurrencyCredentialJsonSchema = Type.Object(
+  {
+    currency: Type.String()
+  },
+  { $id: 'IncomeCurrencyCredential', additionalProperties: false }
+) as UnumJsonSchema;
+
 export const jsonSchemas: Record<string, UnumJsonSchema> = {
   EmailCredential: emailCredentialJsonSchema,
   IdentityCredential: identityCredentialJsonSchema,
@@ -229,5 +257,9 @@ export const jsonSchemas: Record<string, UnumJsonSchema> = {
   GovernmentIdStateCredential: governmentIdStateCredentialJsonSchema,
   GovernmentIdNumberCredential: governmentIdNumberCredentialJsonSchema,
   GovernmentIdIssuanceDateCredential: governmentIdIssuanceDateCredentialJsonSchema,
-  GovernmentIdExpirationDateCredential: governmentIdExpirationDateCredentialJsonSchema
+  GovernmentIdExpirationDateCredential: governmentIdExpirationDateCredentialJsonSchema,
+  EmployerCredential: employerCredentialJsonSchema,
+  TitleCredential: titleCredentialJsonSchema,
+  IncomeCredential: incomeCredentialJsonSchema,
+  IncomeCurrencyCredential: incomeCurrencyCredentialJsonSchema
 };

@@ -108,6 +108,22 @@ exports.schemas = {
     GovernmentIdExpirationDateCredential: {
         json: jsonSchemas_1.governmentIdExpirationDateCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.governmentIdExpirationDateCredentialJsonLDSchema
+    },
+    EmployerCredential: {
+        json: jsonSchemas_1.employerCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.employerJsonLDSchema
+    },
+    TitleCredential: {
+        json: jsonSchemas_1.titleCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.titleJsonLDSchema
+    },
+    IncomeCredential: {
+        json: jsonSchemas_1.incomeCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.incomeJsonLDSchema
+    },
+    IncomeCurrencyCredential: {
+        json: jsonSchemas_1.incomeCurrencyCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.incomeCurrencyJsonLDSchema
     }
 };
 //# sourceMappingURL=schemas.js.map

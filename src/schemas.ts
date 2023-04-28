@@ -24,7 +24,11 @@ import {
   phoneCredentialJsonLDSchema,
   sexCredentialJsonLDSchema,
   ssnCredentialJsonLDSchema,
-  UnumJsonLDSchema
+  UnumJsonLDSchema,
+  employerJsonLDSchema,
+  incomeJsonLDSchema,
+  incomeCurrencyJsonLDSchema,
+  titleJsonLDSchema
 } from './jsonLDSchemas';
 import {
   addressCredentialJsonSchema,
@@ -52,7 +56,11 @@ import {
   phoneCredentialJsonSchema,
   sexCredentialJsonSchema,
   ssnCredentialJsonSchema,
-  UnumJsonSchema
+  UnumJsonSchema,
+  employerCredentialJsonSchema,
+  incomeCredentialJsonSchema,
+  incomeCurrencyCredentialJsonSchema,
+  titleCredentialJsonSchema
 } from './jsonSchemas';
 
 export interface UnumSchema {
@@ -165,5 +173,21 @@ export const schemas: Record<string, UnumSchema> = {
   GovernmentIdExpirationDateCredential: {
     json: governmentIdExpirationDateCredentialJsonSchema,
     jsonLD: governmentIdExpirationDateCredentialJsonLDSchema
+  },
+  EmployerCredential: {
+    json: employerCredentialJsonSchema,
+    jsonLD: employerJsonLDSchema
+  },
+  TitleCredential: {
+    json: titleCredentialJsonSchema,
+    jsonLD: titleJsonLDSchema
+  },
+  IncomeCredential: {
+    json: incomeCredentialJsonSchema,
+    jsonLD: incomeJsonLDSchema
+  },
+  IncomeCurrencyCredential: {
+    json: incomeCurrencyCredentialJsonSchema,
+    jsonLD: incomeCurrencyJsonLDSchema
   }
 };
