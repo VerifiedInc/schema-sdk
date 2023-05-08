@@ -934,6 +934,21 @@
             }
         },
         {
+            "@id": "schema:CompanyName",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The name of a company.",
+            "rdfs:label": "Company Name",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "schema:domainIncludes": {
+                "@id": "schema:Organization"
+            },
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
+            }
+        },
+        {
             "@id": "schema:salaryCurrency",
             "@type": "rdf:Property",
             "rdfs:comment": "The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) ) used for the main salary information in this job posting or for this employee.",
