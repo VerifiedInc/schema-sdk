@@ -163,7 +163,7 @@ export const governmentIdNumberCredentialJsonLDSchema: UnumJsonLDSchema = {
 export const employerJsonLDSchema: UnumJsonLDSchema = {
   '@type': 'EmployerCredential',
   '@context': 'https://schema.unumid.co',
-  employer: 'schema:legalName'
+  employer: 'schema:CompanyName'
 };
 
 export const titleJsonLDSchema: UnumJsonLDSchema = {

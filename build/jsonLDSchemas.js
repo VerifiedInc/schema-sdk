@@ -134,7 +134,7 @@ exports.governmentIdNumberCredentialJsonLDSchema = {
 exports.employerJsonLDSchema = {
     '@type': 'EmployerCredential',
     '@context': 'https://schema.unumid.co',
-    employer: 'schema:legalName'
+    employer: 'schema:CompanyName'
 };
 exports.titleJsonLDSchema = {
     '@type': 'TitleCredential',
