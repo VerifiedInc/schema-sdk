@@ -36,4 +36,8 @@ export declare const unixMsExpirationDateFormat: Format;
  * validates that the string is six digits
  */
 export declare const otpFormat: Format;
+/**
+ * Format to determine if a string is a data URI with base64 encoded data
+ */
+export declare const dataUriBase64ImageFormat: Format;
 //# sourceMappingURL=formats.d.ts.map

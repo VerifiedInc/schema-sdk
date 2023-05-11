@@ -682,7 +682,7 @@
         "@id": "schema:documentImage",
         "@type": "rdf:Property",
         "rdfs:comment": "",
-        "rdfs:label": "Image",
+        "rdfs:label": "Document Image",
         "rdfs:subPropertyOf": {
           "@id": "schema:document"
           },
@@ -695,7 +695,30 @@
           }
         ],
         "schema:rangeIncludes": {
-          "@id": "schema:Text"
+          "@id": "schema:image"
+        }
+      },
+      {
+        "@id": "schema:governmentIDDocumentImage",
+        "@type": "rdf:Property",
+        "rdfs:comment": "",
+        "rdfs:label": "Government ID Document Image",
+        "rdfs:subPropertyOf": {
+          "@id": "schema:document"
+          },
+        "schema:domainIncludes": [
+          {
+          "@id": "schema:Thing"
+          },
+          {
+            "@id": "schema:KYC"
+          },
+          {
+            "@id": "schema:documentImage"
+          }
+        ],
+        "schema:rangeIncludes": {
+          "@id": "schema:image"
         }
       },
       {

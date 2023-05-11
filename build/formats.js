@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.otpFormat = exports.unixMsExpirationDateFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
+exports.dataUriBase64ImageFormat = exports.otpFormat = exports.unixMsExpirationDateFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
 /*******************************************************************
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
@@ -100,6 +100,17 @@ exports.otpFormat = {
         // matches a string of six digits
         const otpRegex = /^\d{6}$/;
         return otpRegex.test(otp);
+    }
+};
+/**
+ * Format to determine if a string is a data URI with base64 encoded data
+ */
+exports.dataUriBase64ImageFormat = {
+    type: 'string',
+    validate: (dataUri) => {
+        // matches a data URI for an image with base64 encoded data
+        const uriRegex = /^data:image\/[aA-zZ]+;base64,[aA-zZ0-9/+]+[=]*$/;
+        return uriRegex.test(dataUri);
     }
 };
 //# sourceMappingURL=formats.js.map

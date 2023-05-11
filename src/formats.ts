@@ -114,3 +114,15 @@ export const otpFormat: Format = {
     return otpRegex.test(otp);
   }
 };
+
+/**
+ * Format to determine if a string is a data URI with base64 encoded data
+ */
+export const dataUriBase64ImageFormat: Format = {
+  type: 'string',
+  validate: (dataUri: string) => {
+    // matches a data URI for an image with base64 encoded data
+    const uriRegex = /^data:image\/[aA-zZ]+;base64,[aA-zZ0-9/+]+[=]*$/;
+    return uriRegex.test(dataUri);
+  }
+};
