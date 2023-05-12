@@ -83,7 +83,7 @@ exports.sexCredentialJsonLDSchema = {
 };
 exports.governmentIdDocumentImageCredentialJsonLDSchema = {
     '@type': 'GovernmentIdDocumentImageCredential',
-    image: 'schema:documentImage',
+    image: 'schema:governmentIDDocumentImage',
     '@context': 'https://schema.unumid.co'
 };
 exports.livelinessConfidenceCredentialJsonLDSchema = {

@@ -1,6 +1,7 @@
 import { FormatDefinition } from 'ajv';
 import { FormatValidator } from 'ajv/dist/types';
 import {
+  dataUriBase64ImageFormat,
   digitsFormat,
   emailFormat,
   optionalEmailFormat,
@@ -111,5 +112,19 @@ describe('formats', () => {
     expect(validate('a23456')).toBe(false);
     expect(validate('a23456a')).toBe(false);
     expect(validate('')).toBe(false);
+  });
+
+  test('dataUriBase64ImageFormat', () => {
+    const format = dataUriBase64ImageFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid dataUriBase64Image
+    expect(validate('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA')).toBe(true);
+    expect(validate('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA==')).toBe(true); // with = padding
+    expect(validate('data:image/jpeg;base64,/9j/4AAQSkZJRgABAgAAZABkAAD')).toBe(true); // different image format
+
+    // invalid dataUriBase64Image
+    expect(validate('iVBORw0KGgoAAAANSUhEUgAAAAU')).toBe(false); // encoded string without dataUri
+    expect(validate('data:text/plain;charset=UTF-8;page=21,the%20data:1234,5678')).toBe(false); // non encoded uri with wrong data type
   });
 });

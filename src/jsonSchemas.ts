@@ -129,7 +129,7 @@ export const genderCredentialJsonSchema = Type.Object(
 export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(
   {
     image: Type.String({
-      contentEncoding: 'base64'
+      format: 'dataUriBase64Image'
     })
   },
   { $id: 'GovernmentIdDocumentImageCredential', additionalProperties: false }

@@ -59,7 +59,7 @@ exports.genderCredentialJsonSchema = typebox_1.Type.Object({
 }, { $id: 'GenderCredential', additionalProperties: false });
 exports.governmentIdDocumentImageCredentialJsonSchema = typebox_1.Type.Object({
     image: typebox_1.Type.String({
-        contentEncoding: 'base64'
+        format: 'dataUriBase64Image'
     })
 }, { $id: 'GovernmentIdDocumentImageCredential', additionalProperties: false });
 exports.livelinessConfidenceCredentialJsonSchema = typebox_1.Type.Object({

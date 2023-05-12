@@ -102,7 +102,7 @@ export const sexCredentialJsonLDSchema: UnumJsonLDSchema = {
 
 export const governmentIdDocumentImageCredentialJsonLDSchema: UnumJsonLDSchema = {
   '@type': 'GovernmentIdDocumentImageCredential',
-  image: 'schema:documentImage',
+  image: 'schema:governmentIDDocumentImage',
   '@context': 'https://schema.unumid.co'
 };
 
