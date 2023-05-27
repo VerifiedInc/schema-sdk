@@ -991,7 +991,24 @@
         {
             "@id": "schema:baseSalary",
             "@type": "rdf:Property",
-            "rdfs:comment": "The base salary of an employee.",
+            "rdfs:comment": "The annual salary of an individual.",
+            "rdfs:label": "baseSalary",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Integer"
+            }
+        },
+        {
+            "@id": "schema:baseSalaryRangeWithCurrency",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The annual salary range of an individual, prefixed by ISO 4217 currency codes.",
             "rdfs:label": "baseSalary",
             "rdfs:subPropertyOf": {
                 "@id": "schema:miscellaneous"

@@ -19,7 +19,7 @@ import {
   GovernmentIdStateCredentialSchemaType,
   GovernmentIdTypeCredentialSchemaType,
   IdentityCredentialSchemaType,
-  IncomeCredentialSchemaType,
+  AnnualIncomeCredentialSchemaType,
   IncomeCurrencyCredentialSchemaType,
   LastNameCredentialSchemaType,
   LivelinessConfidenceCredentialSchemaType,
@@ -28,7 +28,8 @@ import {
   PhoneCredentialSchemaType,
   SexCredentialSchemaType,
   SsnCredentialSchemaType,
-  TitleCredentialSchemaType
+  TitleCredentialSchemaType,
+  AnnualIncomeRangeCredentialSchemaType
 } from './types';
 import { validate } from './validate';
 import context from './context/unum.id.json';
@@ -102,6 +103,7 @@ export {
   GovernmentIdIssuanceDateCredentialSchemaType,
   EmployerCredentialSchemaType,
   TitleCredentialSchemaType,
-  IncomeCredentialSchemaType,
-  IncomeCurrencyCredentialSchemaType
+  AnnualIncomeCredentialSchemaType,
+  IncomeCurrencyCredentialSchemaType,
+  AnnualIncomeRangeCredentialSchemaType
 };

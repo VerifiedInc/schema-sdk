@@ -33,7 +33,8 @@ export declare const governmentIdIssuanceDateCredentialJsonSchema: UnumJsonSchem
 export declare const governmentIdExpirationDateCredentialJsonSchema: UnumJsonSchema;
 export declare const employerCredentialJsonSchema: UnumJsonSchema;
 export declare const titleCredentialJsonSchema: UnumJsonSchema;
-export declare const incomeCredentialJsonSchema: UnumJsonSchema;
+export declare const annualIncomeCredentialJsonSchema: UnumJsonSchema;
 export declare const incomeCurrencyCredentialJsonSchema: UnumJsonSchema;
+export declare const annualIncomeRangeCredentialJsonSchema: UnumJsonSchema;
 export declare const jsonSchemas: Record<string, UnumJsonSchema>;
 //# sourceMappingURL=jsonSchemas.d.ts.map

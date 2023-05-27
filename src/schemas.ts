@@ -26,8 +26,9 @@ import {
   ssnCredentialJsonLDSchema,
   UnumJsonLDSchema,
   employerJsonLDSchema,
-  incomeJsonLDSchema,
+  annualIncomeJsonLDSchema,
   incomeCurrencyJsonLDSchema,
+  annualIncomeRangeJsonLDSchema,
   titleJsonLDSchema
 } from './jsonLDSchemas';
 import {
@@ -58,8 +59,9 @@ import {
   ssnCredentialJsonSchema,
   UnumJsonSchema,
   employerCredentialJsonSchema,
-  incomeCredentialJsonSchema,
+  annualIncomeCredentialJsonSchema,
   incomeCurrencyCredentialJsonSchema,
+  annualIncomeRangeCredentialJsonSchema,
   titleCredentialJsonSchema
 } from './jsonSchemas';
 
@@ -182,12 +184,16 @@ export const schemas: Record<string, UnumSchema> = {
     json: titleCredentialJsonSchema,
     jsonLD: titleJsonLDSchema
   },
-  IncomeCredential: {
-    json: incomeCredentialJsonSchema,
-    jsonLD: incomeJsonLDSchema
+  AnnualIncomeCredential: {
+    json: annualIncomeCredentialJsonSchema,
+    jsonLD: annualIncomeJsonLDSchema
   },
   IncomeCurrencyCredential: {
     json: incomeCurrencyCredentialJsonSchema,
     jsonLD: incomeCurrencyJsonLDSchema
+  },
+  AnnualIncomeRangeCredential: {
+    json: annualIncomeRangeCredentialJsonSchema,
+    jsonLD: annualIncomeRangeJsonLDSchema
   }
 };

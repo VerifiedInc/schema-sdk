@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.jsonLDSchemas = exports.incomeCurrencyJsonLDSchema = exports.incomeJsonLDSchema = exports.titleJsonLDSchema = exports.employerJsonLDSchema = exports.governmentIdNumberCredentialJsonLDSchema = exports.governmentIdExpirationDateCredentialJsonLDSchema = exports.governmentIdIssuanceDateCredentialJsonLDSchema = exports.governmentIdStateCredentialJsonLDSchema = exports.governmentIdDocumentBackImageCredentialJsonLDSchema = exports.governmentIdTypeCredentialJsonLDSchema = exports.facialMatchConfidenceCredentialJsonLDSchema = exports.facialMatchCredentialJsonLDSchema = exports.livelinessConfidenceCredentialJsonLDSchema = exports.governmentIdDocumentImageCredentialJsonLDSchema = exports.sexCredentialJsonLDSchema = exports.genderCredentialJsonLDSchema = exports.fullNameCredentialJsonLDSchema = exports.phoneCredentialJsonLDSchema = exports.dobCredentialJsonLDSchema = exports.birthDateCredentialJsonLDSchema = exports.firstNameCredentialJsonLDSchema = exports.lastNameCredentialJsonLDSchema = exports.addressCredentialJsonLDSchema = exports.livelinessCredentialJsonLDSchema = exports.facialImageCredentialJsonLDSchema = exports.nationalityCredentialJsonLDSchema = exports.countryResidenceCredentialJsonLDSchema = exports.ssnCredentialJsonLDSchema = exports.identityCredentialJsonLDSchema = exports.emailCredentialJsonLDSchema = void 0;
+exports.jsonLDSchemas = exports.annualIncomeRangeJsonLDSchema = exports.incomeCurrencyJsonLDSchema = exports.annualIncomeJsonLDSchema = exports.titleJsonLDSchema = exports.employerJsonLDSchema = exports.governmentIdNumberCredentialJsonLDSchema = exports.governmentIdExpirationDateCredentialJsonLDSchema = exports.governmentIdIssuanceDateCredentialJsonLDSchema = exports.governmentIdStateCredentialJsonLDSchema = exports.governmentIdDocumentBackImageCredentialJsonLDSchema = exports.governmentIdTypeCredentialJsonLDSchema = exports.facialMatchConfidenceCredentialJsonLDSchema = exports.facialMatchCredentialJsonLDSchema = exports.livelinessConfidenceCredentialJsonLDSchema = exports.governmentIdDocumentImageCredentialJsonLDSchema = exports.sexCredentialJsonLDSchema = exports.genderCredentialJsonLDSchema = exports.fullNameCredentialJsonLDSchema = exports.phoneCredentialJsonLDSchema = exports.dobCredentialJsonLDSchema = exports.birthDateCredentialJsonLDSchema = exports.firstNameCredentialJsonLDSchema = exports.lastNameCredentialJsonLDSchema = exports.addressCredentialJsonLDSchema = exports.livelinessCredentialJsonLDSchema = exports.facialImageCredentialJsonLDSchema = exports.nationalityCredentialJsonLDSchema = exports.countryResidenceCredentialJsonLDSchema = exports.ssnCredentialJsonLDSchema = exports.identityCredentialJsonLDSchema = exports.emailCredentialJsonLDSchema = void 0;
 exports.emailCredentialJsonLDSchema = {
     '@type': 'EmailCredential',
     email: 'schema:email',
@@ -141,8 +141,8 @@ exports.titleJsonLDSchema = {
     '@context': 'https://schema.unumid.co',
     title: 'schema:jobTitle'
 };
-exports.incomeJsonLDSchema = {
-    '@type': 'IncomeCredential',
+exports.annualIncomeJsonLDSchema = {
+    '@type': 'AnnualIncomeCredential',
     '@context': 'https://schema.unumid.co',
     income: 'schema:baseSalary'
 };
@@ -150,6 +150,11 @@ exports.incomeCurrencyJsonLDSchema = {
     '@type': 'IncomeCurrencyCredential',
     '@context': 'https://schema.unumid.co',
     currency: 'schema:salaryCurrency'
+};
+exports.annualIncomeRangeJsonLDSchema = {
+    '@type': 'AnnualIncomeRangeCredential',
+    '@context': 'https://schema.unumid.co',
+    income: 'schema:incomeRangeWithCurrency'
 };
 exports.jsonLDSchemas = {
     EmailCredential: exports.emailCredentialJsonLDSchema,
@@ -180,7 +185,8 @@ exports.jsonLDSchemas = {
     GovernmentIdNumberCredential: exports.governmentIdNumberCredentialJsonLDSchema,
     EmployerCredential: exports.employerJsonLDSchema,
     TitleCredential: exports.titleJsonLDSchema,
-    IncomeCredential: exports.incomeJsonLDSchema,
-    IncomeCurrencyCredential: exports.incomeCurrencyJsonLDSchema
+    AnnualIncomeCredential: exports.annualIncomeJsonLDSchema,
+    IncomeCurrencyCredential: exports.incomeCurrencyJsonLDSchema,
+    AnnualIncomeRangeCredential: exports.annualIncomeJsonLDSchema
 };
 //# sourceMappingURL=jsonLDSchemas.js.map

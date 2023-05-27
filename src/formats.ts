@@ -1,6 +1,11 @@
 import { Format } from 'ajv';
 import { FormatValidator } from 'ajv/dist/types';
 
+// iso4317 codes: https://www.iban.com/currency-codes
+const validISO4217Codes = new Set([
+  'AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BAM', 'BBD', 'BDT', 'BGN', 'BHD', 'BIF', 'BMD', 'BND', 'BOB', 'BRL', 'BSD', 'BTN', 'BWP', 'BYN', 'BZD', 'CAD', 'CDF', 'CHF', 'CLP', 'CNY', 'COP', 'CRC', 'CUC', 'CUP', 'CVE', 'CZK', 'DJF', 'DKK', 'DOP', 'DZD', 'EGP', 'ERN', 'ETB', 'EUR', 'FJD', 'FKP', 'GBP', 'GEL', 'GGP', 'GHS', 'GIP', 'GMD', 'GNF', 'GTQ', 'GYD', 'HKD', 'HNL', 'HRK', 'HTG', 'HUF', 'IDR', 'ILS', 'IMP', 'INR', 'IQD', 'IRR', 'ISK', 'JEP', 'JMD', 'JOD', 'JPY', 'KES', 'KGS', 'KHR', 'KMF', 'KPW', 'KRW', 'KWD', 'KYD', 'KZT', 'LAK', 'LBP', 'LKR', 'LRD', 'LSL', 'LYD', 'MAD', 'MDL', 'MGA', 'MKD', 'MMK', 'MNT', 'MOP', 'MRU', 'MUR', 'MVR', 'MWK', 'MXN', 'MYR', 'MZN', 'NAD', 'NGN', 'NIO', 'NOK', 'NPR', 'NZD', 'OMR', 'PAB', 'PEN', 'PGK', 'PHP', 'PKR', 'PLN', 'PYG', 'QAR', 'RON', 'RSD', 'RUB', 'RWF', 'SAR', 'SBD', 'SCR', 'SDG', 'SEK', 'SGD', 'SHP', 'SLL', 'SOS', 'SPL', 'SRD', 'STN', 'SVC', 'SYP', 'SZL', 'THB', 'TJS', 'TMT', 'TND', 'TOP', 'TRY', 'TTD', 'TVD', 'TWD', 'TZS', 'UAH', 'UGX', 'USD', 'UYU', 'UZS', 'VEF', 'VND', 'VUV', 'WST', 'XAF', 'XCD', 'XDR', 'XOF', 'XPF', 'YER', 'ZAR', 'ZMW', 'ZWD'
+]);
+
 /*******************************************************************
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
@@ -124,5 +129,32 @@ export const dataUriBase64ImageFormat: Format = {
     // matches a data URI for an image with base64 encoded data
     const uriRegex = /^data:image\/[aA-zZ]+;base64,[aA-zZ0-9/+]+[=]*$/;
     return uriRegex.test(dataUri);
+  }
+};
+
+/**
+ * Format to determine if a string containing an ISO 4217 currency code followed by a space then a number
+ */
+export const iso4217: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    return validISO4217Codes.has(input);
+  }
+};
+
+/**
+ * Format to determine if a string containing an ISO 4217 currency code followed by a space then a number
+ */
+export const iso4217AndNumber: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    const parts = input.split(' ');
+    const currencyCode = parts[0];
+    const amount = parts[1];
+
+    if (!validISO4217Codes.has(currencyCode)) return false;
+
+    // check if the amount is a valid number
+    return /^\d+$/.test(amount);
   }
 };
