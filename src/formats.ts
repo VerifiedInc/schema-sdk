@@ -135,7 +135,7 @@ export const dataUriBase64ImageFormat: Format = {
 /**
  * Format to determine if a string containing an ISO 4217 currency code followed by a space then a number
  */
-export const iso4217: Format = {
+export const iso4217Format: Format = {
   type: 'string',
   validate: (input: string) => {
     return validISO4217Codes.has(input);
@@ -145,7 +145,7 @@ export const iso4217: Format = {
 /**
  * Format to determine if a string containing an ISO 4217 currency code followed by a space then a number
  */
-export const iso4217AndNumber: Format = {
+export const iso4217AmountFormat: Format = {
   type: 'string',
   validate: (input: string) => {
     const parts = input.split(' ');

@@ -219,7 +219,7 @@ export const titleCredentialJsonSchema = Type.Object(
 
 export const annualIncomeCredentialJsonSchema = Type.Object(
   {
-    income: Type.String({ format: 'digits' }) // needed thanks to json encoding number as a string
+    income: Type.String({ format: 'iso4217Amount' }) // needed thanks to json encoding number as a string
   },
   { $id: 'AnnualIncomeCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -233,7 +233,7 @@ export const incomeCurrencyCredentialJsonSchema = Type.Object(
 
 export const annualIncomeRangeCredentialJsonSchema = Type.Object(
   {
-    income: Type.String({ format: 'iso4217AndNumber' })
+    income: Type.String({ format: 'iso4217Amount' })
   },
   { $id: 'AnnualIncomeRangeCredential', additionalProperties: false }
 ) as UnumJsonSchema;

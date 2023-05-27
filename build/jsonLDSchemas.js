@@ -144,12 +144,12 @@ exports.titleJsonLDSchema = {
 exports.annualIncomeJsonLDSchema = {
     '@type': 'AnnualIncomeCredential',
     '@context': 'https://schema.unumid.co',
-    income: 'schema:baseSalary'
+    income: 'schema:income'
 };
 exports.incomeCurrencyJsonLDSchema = {
     '@type': 'IncomeCurrencyCredential',
     '@context': 'https://schema.unumid.co',
-    currency: 'schema:salaryCurrency'
+    currency: 'schema:incomeCurrency'
 };
 exports.annualIncomeRangeJsonLDSchema = {
     '@type': 'AnnualIncomeRangeCredential',

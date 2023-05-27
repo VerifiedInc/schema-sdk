@@ -175,13 +175,13 @@ export const titleJsonLDSchema: UnumJsonLDSchema = {
 export const annualIncomeJsonLDSchema: UnumJsonLDSchema = {
   '@type': 'AnnualIncomeCredential',
   '@context': 'https://schema.unumid.co',
-  income: 'schema:baseSalary'
+  income: 'schema:income'
 };
 
 export const incomeCurrencyJsonLDSchema: UnumJsonLDSchema = {
   '@type': 'IncomeCurrencyCredential',
   '@context': 'https://schema.unumid.co',
-  currency: 'schema:salaryCurrency'
+  currency: 'schema:incomeCurrency'
 };
 
 export const annualIncomeRangeJsonLDSchema: UnumJsonLDSchema = {

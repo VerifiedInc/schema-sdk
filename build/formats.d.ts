@@ -43,9 +43,9 @@ export declare const dataUriBase64ImageFormat: Format;
 /**
  * Format to determine if a string containing an ISO 4217 currency code followed by a space then a number
  */
-export declare const iso4217: Format;
+export declare const iso4217Format: Format;
 /**
  * Format to determine if a string containing an ISO 4217 currency code followed by a space then a number
  */
-export declare const iso4217AndNumber: Format;
+export declare const iso4217AmountFormat: Format;
 //# sourceMappingURL=formats.d.ts.map

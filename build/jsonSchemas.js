@@ -101,13 +101,13 @@ exports.titleCredentialJsonSchema = typebox_1.Type.Object({
     title: typebox_1.Type.String()
 }, { $id: 'TitleCredential', additionalProperties: false });
 exports.annualIncomeCredentialJsonSchema = typebox_1.Type.Object({
-    income: typebox_1.Type.String({ format: 'digits' }) // needed thanks to json encoding number as a string
+    income: typebox_1.Type.String({ format: 'iso4217Amount' }) // needed thanks to json encoding number as a string
 }, { $id: 'AnnualIncomeCredential', additionalProperties: false });
 exports.incomeCurrencyCredentialJsonSchema = typebox_1.Type.Object({
     currency: typebox_1.Type.String({ format: 'iso4217' })
 }, { $id: 'IncomeCurrencyCredential', additionalProperties: false });
 exports.annualIncomeRangeCredentialJsonSchema = typebox_1.Type.Object({
-    income: typebox_1.Type.String({ format: 'iso4217AndNumber' })
+    income: typebox_1.Type.String({ format: 'iso4217Amount' })
 }, { $id: 'AnnualIncomeRangeCredential', additionalProperties: false });
 exports.jsonSchemas = {
     EmailCredential: exports.emailCredentialJsonSchema,

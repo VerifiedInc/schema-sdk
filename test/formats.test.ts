@@ -4,6 +4,8 @@ import {
   dataUriBase64ImageFormat,
   digitsFormat,
   emailFormat,
+  iso4217AmountFormat,
+  iso4217Format,
   optionalEmailFormat,
   optionalPhoneFormat,
   otpFormat,
@@ -126,5 +128,36 @@ describe('formats', () => {
     // invalid dataUriBase64Image
     expect(validate('iVBORw0KGgoAAAANSUhEUgAAAAU')).toBe(false); // encoded string without dataUri
     expect(validate('data:text/plain;charset=UTF-8;page=21,the%20data:1234,5678')).toBe(false); // non encoded uri with wrong data type
+  });
+
+  test('iso4217Format', () => {
+    const format = iso4217Format as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid digits
+    expect(validate('USD')).toBe(true);
+    expect(validate('GBP')).toBe(true);
+    expect(validate('EUR')).toBe(true);
+
+    // invalid digits
+    expect(validate('test')).toBe(false);
+    expect(validate('USD 42000')).toBe(false);
+  });
+
+  test('iso4217AmountFormat', () => {
+    const format = iso4217AmountFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid digits
+    expect(validate('USD 1000')).toBe(true);
+    expect(validate('GBP 42390')).toBe(true);
+    expect(validate('EUR 1999000')).toBe(true);
+
+    // invalid digits
+    expect(validate('test')).toBe(false);
+    expect(validate('YOO 42000')).toBe(false);
+    expect(validate('USD42000')).toBe(false);
+    expect(validate('USD 42,000')).toBe(false);
+    expect(validate('GBP')).toBe(false);
   });
 });
