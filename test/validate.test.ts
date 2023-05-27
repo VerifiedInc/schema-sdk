@@ -301,7 +301,7 @@ describe('Validate Schemas', () => {
       expect.assertions(1);
       try {
         validate('AnnualIncomeCredential', {
-          email: '90000'
+          email: 'USD 90000'
         });
         fail();
       } catch (e) {
@@ -359,7 +359,7 @@ describe('Validate Schemas', () => {
   describe('AnnualIncomeRangeCredential Schema', () => {
     test('valid', () => {
       const valid = validate('AnnualIncomeRangeCredential', {
-        currency: 'USD '
+        income: 'EUR min25001_max50000'
       });
 
       expect(valid).toEqual(true);
@@ -369,7 +369,7 @@ describe('Validate Schemas', () => {
       expect.assertions(1);
       try {
         validate('AnnualIncomeRangeCredential', {
-          email: 'USD'
+          currency: 'EUR min25001_max50000'
         });
         fail();
       } catch (e) {

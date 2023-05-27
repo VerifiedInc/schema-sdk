@@ -5,6 +5,7 @@ import {
   digitsFormat,
   emailFormat,
   iso4217AmountFormat,
+  iso4217AmountRangeFormat,
   iso4217Format,
   optionalEmailFormat,
   optionalPhoneFormat,
@@ -134,12 +135,12 @@ describe('formats', () => {
     const format = iso4217Format as FormatDefinition<string>;
     const validate = format.validate as FormatValidator<string>;
 
-    // valid digits
+    // valid
     expect(validate('USD')).toBe(true);
     expect(validate('GBP')).toBe(true);
     expect(validate('EUR')).toBe(true);
 
-    // invalid digits
+    // invalid
     expect(validate('test')).toBe(false);
     expect(validate('USD 42000')).toBe(false);
   });
@@ -148,16 +149,34 @@ describe('formats', () => {
     const format = iso4217AmountFormat as FormatDefinition<string>;
     const validate = format.validate as FormatValidator<string>;
 
-    // valid digits
+    // valid
     expect(validate('USD 1000')).toBe(true);
     expect(validate('GBP 42390')).toBe(true);
     expect(validate('EUR 1999000')).toBe(true);
 
-    // invalid digits
+    // invalid
     expect(validate('test')).toBe(false);
     expect(validate('YOO 42000')).toBe(false);
     expect(validate('USD42000')).toBe(false);
     expect(validate('USD 42,000')).toBe(false);
     expect(validate('GBP')).toBe(false);
+  });
+
+  test('iso4217AmountRangeFormat', () => {
+    const format = iso4217AmountRangeFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('USD min0_max25000')).toBe(true);
+    expect(validate('EUR min25001_max50000')).toBe(true);
+    expect(validate('GBP min1200001_max999999')).toBe(true);
+
+    // invalid
+    expect(validate('test')).toBe(false);
+    expect(validate('YOO 42000')).toBe(false);
+    expect(validate('USD42000')).toBe(false);
+    expect(validate('USD 42,000')).toBe(false);
+    expect(validate('GBP')).toBe(false);
+    expect(validate('EUR 1999000')).toBe(false);
   });
 });

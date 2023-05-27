@@ -133,7 +133,7 @@ export const dataUriBase64ImageFormat: Format = {
 };
 
 /**
- * Format to determine if a string containing an ISO 4217 currency code followed by a space then a number
+ * Format to determine if a string contains an ISO 4217 currency code followed by a space then a number
  */
 export const iso4217Format: Format = {
   type: 'string',
@@ -143,7 +143,7 @@ export const iso4217Format: Format = {
 };
 
 /**
- * Format to determine if a string containing an ISO 4217 currency code followed by a space then a number
+ * Format to determine if a string contains an ISO 4217 currency code followed by a space then a number
  */
 export const iso4217AmountFormat: Format = {
   type: 'string',
@@ -156,5 +156,23 @@ export const iso4217AmountFormat: Format = {
 
     // check if the amount is a valid number
     return /^\d+$/.test(amount);
+  }
+};
+
+/**
+ * Format to determine if a string contains valid range values with an ISO 4217 currency code followed by a space then a number
+ */
+export const iso4217AmountRangeFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    const parts = input.split(' ');
+    const currencyCode = parts[0];
+    const range = parts[1];
+
+    if (!validISO4217Codes.has(currencyCode)) return false;
+
+    // check if the amount is a valid range
+    const rangeRegex = /^min(\d+)_max(\d+)$/;
+    return rangeRegex.test(range);
   }
 };

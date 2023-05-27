@@ -107,7 +107,7 @@ exports.incomeCurrencyCredentialJsonSchema = typebox_1.Type.Object({
     currency: typebox_1.Type.String({ format: 'iso4217' })
 }, { $id: 'IncomeCurrencyCredential', additionalProperties: false });
 exports.annualIncomeRangeCredentialJsonSchema = typebox_1.Type.Object({
-    income: typebox_1.Type.String({ format: 'iso4217Amount' })
+    income: typebox_1.Type.String({ format: 'iso4217AmountRange' })
 }, { $id: 'AnnualIncomeRangeCredential', additionalProperties: false });
 exports.jsonSchemas = {
     EmailCredential: exports.emailCredentialJsonSchema,

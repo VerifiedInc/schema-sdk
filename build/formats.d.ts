@@ -41,11 +41,15 @@ export declare const otpFormat: Format;
  */
 export declare const dataUriBase64ImageFormat: Format;
 /**
- * Format to determine if a string containing an ISO 4217 currency code followed by a space then a number
+ * Format to determine if a string contains an ISO 4217 currency code followed by a space then a number
  */
 export declare const iso4217Format: Format;
 /**
- * Format to determine if a string containing an ISO 4217 currency code followed by a space then a number
+ * Format to determine if a string contains an ISO 4217 currency code followed by a space then a number
  */
 export declare const iso4217AmountFormat: Format;
+/**
+ * Format to determine if a string contains valid range values with an ISO 4217 currency code followed by a space then a number
+ */
+export declare const iso4217AmountRangeFormat: Format;
 //# sourceMappingURL=formats.d.ts.map
