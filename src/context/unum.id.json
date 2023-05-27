@@ -989,9 +989,9 @@
         }
       },
       {
-        "@id": "schema:income",
+        "@id": "schema:incomeWithCurrency",
         "@type": "rdf:Property",
-        "rdfs:comment": "The annual income of an individual.",
+        "rdfs:comment": "The annual income of an individual, including ISO 4217 currency prefix.",
         "rdfs:label": "Income",
         "rdfs:subPropertyOf": {
           "@id": "schema:miscellaneous"
@@ -1002,7 +1002,7 @@
           }
         ],
         "schema:rangeIncludes": {
-          "@id": "schema:Integer"
+          "@id": "schema:Text"
         }
       },
       {
@@ -1019,7 +1019,7 @@
           }
         ],
         "schema:rangeIncludes": {
-          "@id": "schema:Integer"
+          "@id": "schema:Text"
         }
       }
   ]
