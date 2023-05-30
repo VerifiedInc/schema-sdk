@@ -40,4 +40,16 @@ export declare const otpFormat: Format;
  * Format to determine if a string is a data URI with base64 encoded data
  */
 export declare const dataUriBase64ImageFormat: Format;
+/**
+ * Format to determine if a string contains an ISO 4217 currency code followed by a space then a number
+ */
+export declare const iso4217Format: Format;
+/**
+ * Format to determine if a string contains an ISO 4217 currency code followed by a space then a number
+ */
+export declare const iso4217AmountFormat: Format;
+/**
+ * Format to determine if a string contains valid range values with an ISO 4217 currency code followed by a space then a number
+ */
+export declare const iso4217AmountRangeFormat: Format;
 //# sourceMappingURL=formats.d.ts.map

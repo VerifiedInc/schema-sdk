@@ -288,10 +288,10 @@ describe('Validate Schemas', () => {
     });
   });
 
-  describe('IncomeCredential Schema', () => {
+  describe('AnnualIncomeCredential Schema', () => {
     test('valid', () => {
-      const valid = validate('IncomeCredential', {
-        income: '90000'
+      const valid = validate('AnnualIncomeCredential', {
+        income: 'USD 90000'
       });
 
       expect(valid).toEqual(true);
@@ -300,8 +300,8 @@ describe('Validate Schemas', () => {
     test('invalid - wrong key', async () => {
       expect.assertions(1);
       try {
-        validate('IncomeCredential', {
-          email: '90000'
+        validate('AnnualIncomeCredential', {
+          email: 'USD 90000'
         });
         fail();
       } catch (e) {
@@ -347,6 +347,40 @@ describe('Validate Schemas', () => {
       expect.assertions(1);
       try {
         validate('IncomeCurrencyCredential', {
+          currency: new Date()
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
+  describe('AnnualIncomeRangeCredential Schema', () => {
+    test('valid', () => {
+      const valid = validate('AnnualIncomeRangeCredential', {
+        income: 'EUR min25001_max50000'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong key', async () => {
+      expect.assertions(1);
+      try {
+        validate('AnnualIncomeRangeCredential', {
+          currency: 'EUR min25001_max50000'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong format (not string)', async () => {
+      expect.assertions(1);
+      try {
+        validate('AnnualIncomeRangeCredential', {
           currency: new Date()
         });
         fail();

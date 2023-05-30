@@ -972,10 +972,10 @@
             }
         },
         {
-            "@id": "schema:salaryCurrency",
+            "@id": "schema:incomeCurrency",
             "@type": "rdf:Property",
-            "rdfs:comment": "The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) ) used for the main salary information in this job posting or for this employee.",
-            "rdfs:label": "salaryCurrency",
+            "rdfs:comment": "The currency (coded using [ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) ) used for the main income information.",
+            "rdfs:label": "Income Currency",
             "rdfs:subPropertyOf": {
                 "@id": "schema:miscellaneous"
             },
@@ -989,10 +989,10 @@
             }
         },
         {
-            "@id": "schema:baseSalary",
+            "@id": "schema:incomeWithCurrency",
             "@type": "rdf:Property",
-            "rdfs:comment": "The base salary of an employee.",
-            "rdfs:label": "baseSalary",
+            "rdfs:comment": "The annual income of an individual, including ISO 4217 currency prefix.",
+            "rdfs:label": "Income",
             "rdfs:subPropertyOf": {
                 "@id": "schema:miscellaneous"
             },
@@ -1002,7 +1002,24 @@
                 }
             ],
             "schema:rangeIncludes": {
-                "@id": "schema:Integer"
+                "@id": "schema:Text"
+            }
+        },
+        {
+            "@id": "schema:incomeRangeWithCurrency",
+            "@type": "rdf:Property",
+            "rdfs:comment": "The annual income range of an individual, prefixed by ISO 4217 currency codes.",
+            "rdfs:label": "Income Range",
+            "rdfs:subPropertyOf": {
+                "@id": "schema:miscellaneous"
+            },
+            "schema:domainIncludes": [
+                {
+                    "@id": "schema:Person"
+                }
+            ],
+            "schema:rangeIncludes": {
+                "@id": "schema:Text"
             }
         }
     ]

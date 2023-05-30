@@ -10,7 +10,10 @@ import {
   digitsFormat,
   optionalEmailFormat,
   optionalPhoneFormat,
-  dataUriBase64ImageFormat
+  dataUriBase64ImageFormat,
+  iso4217Format,
+  iso4217AmountFormat,
+  iso4217AmountRangeFormat
 } from './formats';
 
 // get all the values of the jsonSchemas object in an array
@@ -46,3 +49,6 @@ ajv.addFormat('ssn', ssnFormat);
 ajv.addFormat('unixMsExpirationDate', unixMsExpirationDateFormat);
 ajv.addFormat('digits', digitsFormat);
 ajv.addFormat('dataUriBase64Image', dataUriBase64ImageFormat);
+ajv.addFormat('iso4217', iso4217Format);
+ajv.addFormat('iso4217Amount', iso4217AmountFormat);
+ajv.addFormat('iso4217AmountRange', iso4217AmountRangeFormat);

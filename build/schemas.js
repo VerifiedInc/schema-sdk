@@ -117,13 +117,17 @@ exports.schemas = {
         json: jsonSchemas_1.titleCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.titleJsonLDSchema
     },
-    IncomeCredential: {
-        json: jsonSchemas_1.incomeCredentialJsonSchema,
-        jsonLD: jsonLDSchemas_1.incomeJsonLDSchema
+    AnnualIncomeCredential: {
+        json: jsonSchemas_1.annualIncomeCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.annualIncomeJsonLDSchema
     },
     IncomeCurrencyCredential: {
         json: jsonSchemas_1.incomeCurrencyCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.incomeCurrencyJsonLDSchema
+    },
+    AnnualIncomeRangeCredential: {
+        json: jsonSchemas_1.annualIncomeRangeCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.annualIncomeRangeJsonLDSchema
     }
 };
 //# sourceMappingURL=schemas.js.map

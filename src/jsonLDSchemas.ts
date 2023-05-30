@@ -172,16 +172,22 @@ export const titleJsonLDSchema: UnumJsonLDSchema = {
   title: 'schema:jobTitle'
 };
 
-export const incomeJsonLDSchema: UnumJsonLDSchema = {
-  '@type': 'IncomeCredential',
+export const annualIncomeJsonLDSchema: UnumJsonLDSchema = {
+  '@type': 'AnnualIncomeCredential',
   '@context': 'https://schema.unumid.co',
-  income: 'schema:baseSalary'
+  income: 'schema:incomeWithCurrency'
 };
 
 export const incomeCurrencyJsonLDSchema: UnumJsonLDSchema = {
   '@type': 'IncomeCurrencyCredential',
   '@context': 'https://schema.unumid.co',
-  currency: 'schema:salaryCurrency'
+  currency: 'schema:incomeCurrency'
+};
+
+export const annualIncomeRangeJsonLDSchema: UnumJsonLDSchema = {
+  '@type': 'AnnualIncomeRangeCredential',
+  '@context': 'https://schema.unumid.co',
+  income: 'schema:incomeRangeWithCurrency'
 };
 
 export const jsonLDSchemas: Record<string, UnumJsonLDSchema> = {
@@ -213,6 +219,7 @@ export const jsonLDSchemas: Record<string, UnumJsonLDSchema> = {
   GovernmentIdNumberCredential: governmentIdNumberCredentialJsonLDSchema,
   EmployerCredential: employerJsonLDSchema,
   TitleCredential: titleJsonLDSchema,
-  IncomeCredential: incomeJsonLDSchema,
-  IncomeCurrencyCredential: incomeCurrencyJsonLDSchema
+  AnnualIncomeCredential: annualIncomeJsonLDSchema,
+  IncomeCurrencyCredential: incomeCurrencyJsonLDSchema,
+  AnnualIncomeRangeCredential: annualIncomeJsonLDSchema
 };
