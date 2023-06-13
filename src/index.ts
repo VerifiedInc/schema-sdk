@@ -29,7 +29,8 @@ import {
   SexCredentialSchemaType,
   SsnCredentialSchemaType,
   TitleCredentialSchemaType,
-  AnnualIncomeRangeCredentialSchemaType
+  AnnualIncomeRangeCredentialSchemaType,
+  EmploymentStartDateCredentialSchemaType
 } from './types';
 import { validate } from './validate';
 import context from './context/unum.id.json';
@@ -105,5 +106,6 @@ export {
   TitleCredentialSchemaType,
   AnnualIncomeCredentialSchemaType,
   IncomeCurrencyCredentialSchemaType,
-  AnnualIncomeRangeCredentialSchemaType
+  AnnualIncomeRangeCredentialSchemaType,
+  EmploymentStartDateCredentialSchemaType
 };

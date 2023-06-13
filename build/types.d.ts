@@ -28,7 +28,8 @@ import {
   titleCredentialJsonSchema,
   annualIncomeCredentialJsonSchema,
   incomeCurrencyCredentialJsonSchema,
-  annualIncomeRangeCredentialJsonSchema
+  annualIncomeRangeCredentialJsonSchema,
+  employmentStartDateJsonSchema
 } from './jsonSchemas';
 
 export type SsnCredentialSchemaType = Static<typeof ssnCredentialJsonSchema>;
@@ -70,3 +71,4 @@ export type TitleCredentialSchemaType = Static<typeof titleCredentialJsonSchema>
 export type AnnualIncomeCredentialSchemaType = Static<typeof annualIncomeCredentialJsonSchema>;
 export type IncomeCurrencyCredentialSchemaType = Static<typeof incomeCurrencyCredentialJsonSchema>;
 export type AnnualIncomeRangeCredentialSchemaType = Static<typeof annualIncomeRangeCredentialJsonSchema>;
+export type EmploymentStartDateCredentialSchemaType = Static<typeof employmentStartDateJsonSchema>;

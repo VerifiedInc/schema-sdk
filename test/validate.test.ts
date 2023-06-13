@@ -389,4 +389,38 @@ describe('Validate Schemas', () => {
       }
     });
   });
+
+  describe('EmploymentStartDateCredential Schema', () => {
+    test('valid', () => {
+      const valid = validate('EmploymentStartDateCredential', {
+        startDate: 1686693430283
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong key', async () => {
+      expect.assertions(1);
+      try {
+        validate('EmploymentStartDateCredential', {
+          currency: '1686693430283'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong format (not digits)', async () => {
+      expect.assertions(1);
+      try {
+        validate('EmploymentStartDateCredential', {
+          currency: new Date()
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
 });

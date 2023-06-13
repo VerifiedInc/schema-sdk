@@ -128,6 +128,10 @@ exports.schemas = {
     AnnualIncomeRangeCredential: {
         json: jsonSchemas_1.annualIncomeRangeCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.annualIncomeRangeJsonLDSchema
+    },
+    EmploymentStartDateCredential: {
+        json: jsonSchemas_1.employmentStartDateCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.annualIncomeRangeJsonLDSchema
     }
 };
 //# sourceMappingURL=schemas.js.map
