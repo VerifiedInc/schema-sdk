@@ -76,7 +76,7 @@ exports.digitsFormat = {
     type: 'string',
     validate: (digits) => {
         // matches a string of digits
-        const digitsRegex = /^\d+$/;
+        const digitsRegex = /^-?\d+$/;
         return digitsRegex.test(digits);
     }
 };

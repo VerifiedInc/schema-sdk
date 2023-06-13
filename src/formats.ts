@@ -85,7 +85,7 @@ export const digitsFormat: Format = {
   type: 'string',
   validate: (digits: string) => {
     // matches a string of digits
-    const digitsRegex = /^\d+$/;
+    const digitsRegex = /^-?\d+$/;
     return digitsRegex.test(digits);
   }
 };
