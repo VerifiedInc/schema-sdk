@@ -81,6 +81,8 @@ describe('formats', () => {
 
     // valid digits
     expect(validate('1680319455')).toBe(true);
+    expect(validate('-1819455')).toBe(true); // pre 1970 date
+    expect(validate('0')).toBe(true);
 
     // invalid digits
     expect(validate('test')).toBe(false);
