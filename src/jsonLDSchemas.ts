@@ -190,6 +190,12 @@ export const annualIncomeRangeJsonLDSchema: UnumJsonLDSchema = {
   income: 'schema:incomeRangeWithCurrency'
 };
 
+export const employmentStartDateJsonLDSchema: UnumJsonLDSchema = {
+  '@type': 'EmploymentStartDateCredential',
+  '@context': 'https://schema.unumid.co',
+  startDate: 'schema:Date'
+};
+
 export const jsonLDSchemas: Record<string, UnumJsonLDSchema> = {
   EmailCredential: emailCredentialJsonLDSchema,
   IdentityCredential: identityCredentialJsonLDSchema,
@@ -221,5 +227,6 @@ export const jsonLDSchemas: Record<string, UnumJsonLDSchema> = {
   TitleCredential: titleJsonLDSchema,
   AnnualIncomeCredential: annualIncomeJsonLDSchema,
   IncomeCurrencyCredential: incomeCurrencyJsonLDSchema,
-  AnnualIncomeRangeCredential: annualIncomeJsonLDSchema
+  AnnualIncomeRangeCredential: annualIncomeJsonLDSchema,
+  EmploymentStartDateCredential: employmentStartDateJsonLDSchema
 };

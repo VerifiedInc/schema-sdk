@@ -238,6 +238,13 @@ export const annualIncomeRangeCredentialJsonSchema = Type.Object(
   { $id: 'AnnualIncomeRangeCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
+export const employmentStartDateCredentialJsonSchema = Type.Object(
+  {
+    startDate: Type.String()
+  },
+  { $id: 'EmploymentStartDateCredential', additionalProperties: false }
+) as UnumJsonSchema;
+
 export const jsonSchemas: Record<string, UnumJsonSchema> = {
   EmailCredential: emailCredentialJsonSchema,
   IdentityCredential: identityCredentialJsonSchema,
@@ -269,5 +276,6 @@ export const jsonSchemas: Record<string, UnumJsonSchema> = {
   TitleCredential: titleCredentialJsonSchema,
   AnnualIncomeCredential: annualIncomeCredentialJsonSchema,
   IncomeCurrencyCredential: incomeCurrencyCredentialJsonSchema,
-  AnnualIncomeRangeCredential: annualIncomeRangeCredentialJsonSchema
+  AnnualIncomeRangeCredential: annualIncomeRangeCredentialJsonSchema,
+  EmploymentStartDateCredential: employmentStartDateCredentialJsonSchema
 };

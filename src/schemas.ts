@@ -29,7 +29,8 @@ import {
   annualIncomeJsonLDSchema,
   incomeCurrencyJsonLDSchema,
   annualIncomeRangeJsonLDSchema,
-  titleJsonLDSchema
+  titleJsonLDSchema,
+  employmentStartDateJsonLDSchema
 } from './jsonLDSchemas';
 import {
   addressCredentialJsonSchema,
@@ -62,7 +63,8 @@ import {
   annualIncomeCredentialJsonSchema,
   incomeCurrencyCredentialJsonSchema,
   annualIncomeRangeCredentialJsonSchema,
-  titleCredentialJsonSchema
+  titleCredentialJsonSchema,
+  employmentStartDateCredentialJsonSchema
 } from './jsonSchemas';
 
 export interface UnumSchema {
@@ -194,6 +196,10 @@ export const schemas: Record<string, UnumSchema> = {
   },
   AnnualIncomeRangeCredential: {
     json: annualIncomeRangeCredentialJsonSchema,
+    jsonLD: annualIncomeRangeJsonLDSchema
+  },
+  EmploymentStartDateCredential: {
+    json: employmentStartDateCredentialJsonSchema,
     jsonLD: annualIncomeRangeJsonLDSchema
   }
 };
