@@ -200,6 +200,6 @@ export const schemas: Record<string, UnumSchema> = {
   },
   EmploymentStartDateCredential: {
     json: employmentStartDateCredentialJsonSchema,
-    jsonLD: annualIncomeRangeJsonLDSchema
+    jsonLD: employmentStartDateJsonLDSchema
   }
 };

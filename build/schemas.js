@@ -131,7 +131,7 @@ exports.schemas = {
     },
     EmploymentStartDateCredential: {
         json: jsonSchemas_1.employmentStartDateCredentialJsonSchema,
-        jsonLD: jsonLDSchemas_1.annualIncomeRangeJsonLDSchema
+        jsonLD: jsonLDSchemas_1.employmentStartDateJsonLDSchema
     }
 };
 //# sourceMappingURL=schemas.js.map
