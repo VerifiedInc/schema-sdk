@@ -159,7 +159,7 @@ exports.annualIncomeRangeJsonLDSchema = {
 exports.employmentStartDateJsonLDSchema = {
     '@type': 'EmploymentStartDateCredential',
     '@context': 'https://schema.unumid.co',
-    startDate: 'schema:Date'
+    startDate: 'schema:startDate'
 };
 exports.jsonLDSchemas = {
     EmailCredential: exports.emailCredentialJsonLDSchema,

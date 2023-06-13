@@ -195,6 +195,9 @@
             "@id": "schema:birthDate"
           },
           {
+            "@id": "schema:startDate"
+          },
+          {
             "@id": "schema:gender"
           },
           {
@@ -307,6 +310,21 @@
         ],
         "schema:rangeIncludes": {
           "@id": "schema:Text"
+        }
+      },
+      {
+        "@id": "schema:startDate",
+        "@type": "rdf:Property",
+        "rdfs:comment": "Start date.",
+        "rdfs:label": "Start Date",
+        "rdfs:subPropertyOf": {
+          "@id": "schema:miscellaneous"
+        },
+        "schema:domainIncludes": {
+          "@id": "schema:Person"
+        },
+        "schema:rangeIncludes": {
+          "@id": "schema:Date"
         }
       },
       {
