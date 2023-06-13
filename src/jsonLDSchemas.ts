@@ -193,7 +193,7 @@ export const annualIncomeRangeJsonLDSchema: UnumJsonLDSchema = {
 export const employmentStartDateJsonLDSchema: UnumJsonLDSchema = {
   '@type': 'EmploymentStartDateCredential',
   '@context': 'https://schema.unumid.co',
-  startDate: 'schema:Date'
+  startDate: 'schema:startDate'
 };
 
 export const jsonLDSchemas: Record<string, UnumJsonLDSchema> = {
