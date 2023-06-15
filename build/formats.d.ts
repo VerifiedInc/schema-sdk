@@ -12,7 +12,7 @@ export declare const emailFormat: Format;
  */
 export declare const optionalEmailFormat: Format;
 /**
- * Format to determine if a string is a valid SSN
+ * Format to determine if a string is a valid SSN (9 digits with no dashes)
  */
 export declare const ssnFormat: Format;
 /**
