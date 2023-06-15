@@ -199,7 +199,7 @@ exports.addressFormat = {
         if (parts.length < 2)
             return false;
         // address part can include commas, so we need to join the first parts back together
-        const addressLine = parts.slice(0, parts.length - 3).join(',').trim();
+        const addressLine = parts.slice(0, parts.length - 2).join(',').trim();
         const city = parts[parts.length - 2].trim();
         const iso3166CodeAndZip = parts[parts.length - 1].trim();
         // Check that address isn't empty
@@ -213,7 +213,7 @@ exports.addressFormat = {
             return false;
         // split the iso3166 code and zip
         const iso3166Code = iso3166CodeAndZip.split(' ')[0];
-        const zip = iso3166CodeAndZip.split(' ')[1];
+        const zip = iso3166CodeAndZip.split(' ').slice(1, iso3166CodeAndZip.length - 1).join(' ').trim(); // handling case where zip code has spaces in it
         // Check that iso3166Code isn't empty
         if (!iso3166Code)
             return false;
@@ -237,6 +237,12 @@ exports.addressFormat = {
             // Check that zip follows expected pattern. Assuming US zip codes, we can expect 5 digits or 9
             const usZipRegex = /^\d{5}(-\d{4})?$/;
             if (!usZipRegex.test(zip))
+                return false;
+        }
+        else {
+            // Check that region is a valid ISO 3166-2 code region code (just a string with up to three alphanumeric characters)
+            const isoRegionRegex = /^[a-zA-Z0-9]{1,3}$/;
+            if (!isoRegionRegex.test(isoRegionCode))
                 return false;
         }
         return true;

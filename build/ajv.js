@@ -43,4 +43,5 @@ exports.ajv.addFormat('dataUriBase64Image', formats_1.dataUriBase64ImageFormat);
 exports.ajv.addFormat('iso4217', formats_1.iso4217Format);
 exports.ajv.addFormat('iso4217Amount', formats_1.iso4217AmountFormat);
 exports.ajv.addFormat('iso4217AmountRange', formats_1.iso4217AmountRangeFormat);
+exports.ajv.addFormat('address', formats_1.addressFormat);
 //# sourceMappingURL=ajv.js.map
