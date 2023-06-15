@@ -1,6 +1,7 @@
 import { FormatDefinition } from 'ajv';
 import { FormatValidator } from 'ajv/dist/types';
 import {
+  addressFormat,
   dataUriBase64ImageFormat,
   digitsFormat,
   emailFormat,
@@ -197,5 +198,25 @@ describe('formats', () => {
     expect(validate('USD 42,000')).toBe(false);
     expect(validate('GBP')).toBe(false);
     expect(validate('EUR 1999000')).toBe(false);
+  });
+
+  test('AddressFormat', () => {
+    const format = addressFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('107 Ross Khaledi Rd, Laredo, US-TX 78045')).toBe(true);
+    expect(validate('107 Ross Khaledi Rd, Suite 500, Laredo, US-TX 78045')).toBe(true);
+    expect(validate('307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876')).toBe(true);
+    expect(validate('307 3rd Ave, Apt #4, c/o Henry, San Austin, US-GA 18025-9876')).toBe(true);
+    expect(validate('10 Downing Street, London, GB-ENG SW1A 2AA')).toBe(true);
+
+    // invalid
+    expect(validate('test')).toBe(false);
+    expect(validate('123 Main st.')).toBe(false);
+    expect(validate('123 Main St, Atlanta, GA')).toBe(false);
+    expect(validate('107 Ross Khaledi Rd, Laredo, TX 78045 US')).toBe(false);
+    expect(validate('307 3rd Ave, Apt #4, San Austin, US-GA 185-9876')).toBe(false);
+    expect(validate('307 3rd Ave, Apt #4,, US-GA 185-9876')).toBe(false);
   });
 });

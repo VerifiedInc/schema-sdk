@@ -52,4 +52,12 @@ export declare const iso4217AmountFormat: Format;
  * Format to determine if a string contains valid range values with an ISO 4217 currency code followed by a space then a number
  */
 export declare const iso4217AmountRangeFormat: Format;
+/**
+ * Format to validate an address string.
+ * Must use iso 3166-2 codes for country and region information.
+ * Valid examples:
+ * 107 Ross Khaledi Rd, Laredo, US-TX 78045
+ * 107 Ross Khaledi Rd, Apt #4, Laredo, US-TX 78045-1234
+ */
+export declare const addressFormat: Format;
 //# sourceMappingURL=formats.d.ts.map

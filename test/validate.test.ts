@@ -491,4 +491,38 @@ describe('Validate Schemas', () => {
       }
     });
   });
+
+  describe('AddressCredential Schema', () => {
+    test('valid', () => {
+      const valid = validate('AddressCredential', {
+        address: '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong key', async () => {
+      expect.assertions(1);
+      try {
+        validate('AddressCredential', {
+          fullAddress: '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong format', async () => {
+      expect.assertions(1);
+      try {
+        validate('AddressCredential', {
+          address: new Date()
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
 });
