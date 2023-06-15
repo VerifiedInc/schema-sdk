@@ -42,7 +42,6 @@ export type AddressCredentialSchemaType = Static<typeof addressCredentialJsonSch
 export type LastNameCredentialSchemaType = Static<typeof lastNameCredentialJsonSchema>;
 export type FirstNameCredentialSchemaType = Static<typeof firstNameCredentialJsonSchema>;
 export type BirthDateCredentialSchemaType = Static<typeof birthDateCredentialJsonSchema>;
-export type DobCredentialSchemaType = Static<typeof dobCredentialJsonSchema>;
 export type PhoneCredentialSchemaType = Static<typeof phoneCredentialJsonSchema>;
 export type FullNameCredentialSchemaType = Static<typeof fullNameCredentialJsonSchema>;
 export type GenderCredentialSchemaType = Static<typeof genderCredentialJsonSchema>;
