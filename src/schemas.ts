@@ -2,7 +2,6 @@ import {
   addressCredentialJsonLDSchema,
   birthDateCredentialJsonLDSchema,
   countryResidenceCredentialJsonLDSchema,
-  dobCredentialJsonLDSchema,
   emailCredentialJsonLDSchema,
   facialImageCredentialJsonLDSchema,
   facialMatchConfidenceCredentialJsonLDSchema,
@@ -36,7 +35,6 @@ import {
   addressCredentialJsonSchema,
   birthDateCredentialJsonSchema,
   countryResidenceCredentialJsonSchema,
-  dobCredentialJsonSchema,
   emailCredentialJsonSchema,
   facialImageCredentialJsonSchema,
   facialMatchConfidenceCredentialJsonSchema,
@@ -112,11 +110,6 @@ export const schemas: Record<string, UnumSchema> = {
   BirthDateCredential: {
     json: birthDateCredentialJsonSchema,
     jsonLD: birthDateCredentialJsonLDSchema
-  },
-  DobCredential: {
-    // TODO: remove this in favor of BirthDateCredential, however the old Hyperverge creds issued dobCredentials so keeping for backwards compatibility
-    json: dobCredentialJsonSchema,
-    jsonLD: dobCredentialJsonLDSchema
   },
   PhoneCredential: {
     json: phoneCredentialJsonSchema,

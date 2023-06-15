@@ -63,12 +63,12 @@ exports.optionalEmailFormat = {
     }
 };
 /**
- * Format to determine if a string is a valid SSN
+ * Format to determine if a string is a valid SSN (9 digits with no dashes)
  */
 exports.ssnFormat = {
     type: 'string',
     validate: (ssn) => {
-        const ssnRegex = /^\d{3}-?\d{2}-?\d{4}$/;
+        const ssnRegex = /^\d{9}$/;
         return ssnRegex.test(ssn);
     }
 };

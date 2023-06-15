@@ -12,6 +12,7 @@ import {
   optionalPhoneFormat,
   otpFormat,
   phoneFormat,
+  ssnFormat,
   unixMsExpirationDateFormat
 } from '../src/formats';
 
@@ -74,6 +75,22 @@ describe('formats', () => {
     // missing phone number
     expect(validate(undefined as unknown as string)).toBe(true);
     expect(validate('')).toBe(true);
+  });
+
+  test('ssnFormat', () => {
+    const format = ssnFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid ssn
+    expect(validate('111223333')).toBe(true);
+
+    // invalid ssn
+    expect(validate('test')).toBe(false);
+    expect(validate('111-22-3333')).toBe(false);
+
+    // missing ssn
+    expect(validate(undefined as unknown as string)).toBe(false);
+    expect(validate('')).toBe(false);
   });
 
   test('digitsFormat', () => {

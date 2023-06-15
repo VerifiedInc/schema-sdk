@@ -96,13 +96,6 @@ export const birthDateCredentialJsonSchema = Type.Object(
   { $id: 'BirthDateCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
-export const dobCredentialJsonSchema = Type.Object(
-  {
-    dob: Type.String({ format: 'digits' })
-  },
-  { $id: 'DobCredential', additionalProperties: false }
-) as UnumJsonSchema;
-
 export const phoneCredentialJsonSchema = Type.Object(
   {
     phone: Type.String({
@@ -267,7 +260,6 @@ export const jsonSchemas: Record<string, UnumJsonSchema> = {
   GovernmentIdTypeCredential: governmentIdTypeCredentialJsonSchema,
   GovernmentIdDocumentBackImageCredential: governmentIdDocumentBackImageCredentialJsonSchema,
   SexCredential: sexCredentialJsonSchema,
-  DobCredential: dobCredentialJsonSchema,
   GovernmentIdStateCredential: governmentIdStateCredentialJsonSchema,
   GovernmentIdNumberCredential: governmentIdNumberCredentialJsonSchema,
   GovernmentIdIssuanceDateCredential: governmentIdIssuanceDateCredentialJsonSchema,

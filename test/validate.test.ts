@@ -48,6 +48,74 @@ describe('Validate Schemas', () => {
     });
   });
 
+  describe('PhoneCredential Schema', () => {
+    test('valid', () => {
+      const valid = validate('PhoneCredential', {
+        phone: '+10123456789'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong key', async () => {
+      expect.assertions(1);
+      try {
+        validate('PhoneCredential', {
+          number: '+10123456789'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong format (with dashes)', async () => {
+      expect.assertions(1);
+      try {
+        validate('PhoneCredential', {
+          number: '+1(012)345-6789'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
+  describe('SsnCredential Schema', () => {
+    test('valid', () => {
+      const valid = validate('SsnCredential', {
+        ssn: '111224444'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong key', async () => {
+      expect.assertions(1);
+      try {
+        validate('SsnCredential', {
+          SSN: '111224444'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong format (with dashes)', async () => {
+      expect.assertions(1);
+      try {
+        validate('SsnCredential', {
+          ssn: '111-22-4444'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
   describe('IdentityCredential Schema', () => {
     it('valid', async () => {
       const valid = validate('IdentityCredential', {});

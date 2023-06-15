@@ -44,11 +44,6 @@ exports.schemas = {
         json: jsonSchemas_1.birthDateCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.birthDateCredentialJsonLDSchema
     },
-    DobCredential: {
-        // TODO: remove this in favor of BirthDateCredential, however the old Hyperverge creds issued dobCredentials so keeping for backwards compatibility
-        json: jsonSchemas_1.dobCredentialJsonSchema,
-        jsonLD: jsonLDSchemas_1.dobCredentialJsonLDSchema
-    },
     PhoneCredential: {
         json: jsonSchemas_1.phoneCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.phoneCredentialJsonLDSchema
