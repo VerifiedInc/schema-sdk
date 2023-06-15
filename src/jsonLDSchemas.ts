@@ -70,12 +70,6 @@ export const birthDateCredentialJsonLDSchema: UnumJsonLDSchema = {
   birthDate: 'schema:birthDate'
 };
 
-export const dobCredentialJsonLDSchema: UnumJsonLDSchema = {
-  '@type': 'DobCredential',
-  '@context': 'https://schema.unumid.co',
-  dob: 'schema:birthDate'
-};
-
 export const phoneCredentialJsonLDSchema: UnumJsonLDSchema = {
   '@type': 'PhoneCredential',
   phone: 'schema:phoneNumber',
@@ -217,7 +211,6 @@ export const jsonLDSchemas: Record<string, UnumJsonLDSchema> = {
   FacialMatchConfidenceCredential: facialMatchConfidenceCredentialJsonLDSchema,
   GovernmentIdTypeCredential: governmentIdTypeCredentialJsonLDSchema,
   GovernmentIdDocumentBackImageCredential: governmentIdDocumentBackImageCredentialJsonLDSchema,
-  DobCredential: dobCredentialJsonLDSchema,
   SexCredential: sexCredentialJsonLDSchema,
   GovernmentIdStateCredential: governmentIdStateCredentialJsonLDSchema,
   GovernmentIdIssuanceDateCredential: governmentIdIssuanceDateCredentialJsonLDSchema,
