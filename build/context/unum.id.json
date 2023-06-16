@@ -80,6 +80,12 @@
             "rdfs:label": "Integer"
         },
         {
+            "@id": "schema:CurrencyRange",
+            "@type": "schema:DataType",
+            "rdfs:comment": "A range currency values, e.g. for an income or price range.",
+            "rdfs:label": "Currency Range"
+        },
+        {
             "@id": "schema:contactInfo",
             "@type": "rdf:Property",
             "rdfs:comment": "Property representing the contact information for a person or organization.",
@@ -1043,7 +1049,7 @@
                 }
             ],
             "schema:rangeIncludes": {
-                "@id": "schema:Text"
+                "@id": "schema:CurrencyRange"
             }
         }
     ]
