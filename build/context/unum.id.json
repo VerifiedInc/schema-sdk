@@ -82,7 +82,7 @@
         {
             "@id": "schema:CurrencyRange",
             "@type": "schema:DataType",
-            "rdfs:comment": "A range currency values, e.g. for an income or price range.",
+            "rdfs:comment": "A range of currency values, e.g. for an income or price range.",
             "rdfs:label": "Currency Range"
         },
         {
