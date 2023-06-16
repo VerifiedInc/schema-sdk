@@ -68,6 +68,12 @@
             "rdfs:label": "SSN"
         },
         {
+            "@id": "schema:Address",
+            "@type": "schema:DataType",
+            "rdfs:comment": "An address.",
+            "rdfs:label": "Address"
+        },
+        {
             "@id": "schema:Integer",
             "@type": "schema:DataType",
             "rdfs:comment": "An integer.",
@@ -557,7 +563,7 @@
                 }
             ],
             "schema:rangeIncludes": {
-                "@id": "schema:Text"
+                "@id": "schema:Address"
             }
         },
         {
