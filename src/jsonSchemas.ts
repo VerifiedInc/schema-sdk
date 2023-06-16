@@ -70,7 +70,9 @@ export const livelinessCredentialJsonSchema = Type.Object(
 
 export const addressCredentialJsonSchema = Type.Object(
   {
-    address: Type.String()
+    address: Type.String({
+      format: 'address'
+    })
   },
   { $id: 'AddressCredential', additionalProperties: false }
 ) as UnumJsonSchema;
