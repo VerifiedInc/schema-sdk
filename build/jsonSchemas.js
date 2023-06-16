@@ -32,7 +32,9 @@ exports.livelinessCredentialJsonSchema = typebox_1.Type.Object({
     liveness: typebox_1.Type.String()
 }, { $id: 'LivelinessCredential', additionalProperties: false });
 exports.addressCredentialJsonSchema = typebox_1.Type.Object({
-    address: typebox_1.Type.String()
+    address: typebox_1.Type.String({
+        format: 'address'
+    })
 }, { $id: 'AddressCredential', additionalProperties: false });
 exports.lastNameCredentialJsonSchema = typebox_1.Type.Object({
     lastName: typebox_1.Type.String()
