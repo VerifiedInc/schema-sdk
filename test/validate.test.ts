@@ -524,5 +524,17 @@ describe('Validate Schemas', () => {
         expect(e).toBeDefined();
       }
     });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('AddressCredential', {
+          fullAddress: '307 3rd Ave, Apt #4'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
   });
 });
