@@ -1,4 +1,5 @@
 import { ErrorObject } from 'ajv';
+import { BadRequest } from '@feathersjs/errors/lib';
 
 // type from ajv's ValidateFunction errors interface.
 type AjvErrorObject = ErrorObject[] | null | undefined;
@@ -6,8 +7,8 @@ type AjvErrorObject = ErrorObject[] | null | undefined;
 /**
  * Class to encapsulate schema errors.
  */
-export class SchemaError extends Error {
-  errors?: AjvErrorObject
+export class SchemaError extends BadRequest {
+  errors: AjvErrorObject
 
   constructor (errors: AjvErrorObject, message = 'Schema validation error') {
     if (errors) {

@@ -185,15 +185,9 @@ exports.iso4217AmountRangeFormat = {
         return rangeRegex.test(range);
     }
 };
-/**
- * Format to validate an address string.
- * Must use iso 3166-2 codes for country and region information.
- * Valid examples:
- * 107 Ross Khaledi Rd, Laredo, US-TX 78045
- * 107 Ross Khaledi Rd, Apt #4, Laredo, US-TX 78045-1234
- */
 exports.addressFormat = {
     type: 'string',
+    description: 'Address string in the format: address, city, iso3166CodeAndZip',
     validate: (input) => {
         const parts = input.split(',');
         if (parts.length < 2)
@@ -217,7 +211,7 @@ exports.addressFormat = {
         // Check that iso3166Code isn't empty
         if (!iso3166Code)
             return false;
-        // Check that iso3166Code isn't empty
+        // Check that zip isn't empty
         if (!zip)
             return false;
         // split the iso3166-2 code

@@ -59,5 +59,9 @@ export declare const iso4217AmountRangeFormat: Format;
  * 107 Ross Khaledi Rd, Laredo, US-TX 78045
  * 107 Ross Khaledi Rd, Apt #4, Laredo, US-TX 78045-1234
  */
-export declare const addressFormat: Format;
+type FormatD = Format & {
+    description: string;
+};
+export declare const addressFormat: FormatD;
+export {};
 //# sourceMappingURL=formats.d.ts.map
