@@ -72,6 +72,7 @@ export const addressCredentialJsonSchema = Type.Object(
   {
     address: Type.String({
       format: 'address',
+      description: 'Address in the format of: street, city, iso3166-code postal-code',
       examples: [
         '10 Downing Street, London, GB-ENG SW1A 2AA',
         '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
