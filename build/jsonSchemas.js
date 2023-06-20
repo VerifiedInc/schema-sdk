@@ -33,7 +33,11 @@ exports.livelinessCredentialJsonSchema = typebox_1.Type.Object({
 }, { $id: 'LivelinessCredential', additionalProperties: false });
 exports.addressCredentialJsonSchema = typebox_1.Type.Object({
     address: typebox_1.Type.String({
-        format: 'address'
+        format: 'address',
+        examples: [
+            '10 Downing Street, London, GB-ENG SW1A 2AA',
+            '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
+        ]
     })
 }, { $id: 'AddressCredential', additionalProperties: false });
 exports.lastNameCredentialJsonSchema = typebox_1.Type.Object({

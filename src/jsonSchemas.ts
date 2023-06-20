@@ -71,7 +71,11 @@ export const livelinessCredentialJsonSchema = Type.Object(
 export const addressCredentialJsonSchema = Type.Object(
   {
     address: Type.String({
-      format: 'address'
+      format: 'address',
+      examples: [
+        '10 Downing Street, London, GB-ENG SW1A 2AA',
+        '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
+      ]
     })
   },
   { $id: 'AddressCredential', additionalProperties: false }
