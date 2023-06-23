@@ -4,7 +4,12 @@ exports.jsonSchemas = exports.employmentStartDateCredentialJsonSchema = exports.
 const typebox_1 = require("@sinclair/typebox");
 exports.emailCredentialJsonSchema = typebox_1.Type.Object({
     email: typebox_1.Type.String({
-        format: 'email'
+        format: 'email',
+        description: 'Standard, valid email address format.',
+        examples: [
+            'test@verified.inc',
+            'you+me@piedpiper.net'
+        ]
     })
 }, { $id: 'EmailCredential', additionalProperties: false });
 // special credential that is actually empty
@@ -14,7 +19,12 @@ exports.sexCredentialJsonSchema = typebox_1.Type.Object({
 }, { $id: 'SexCredential', additionalProperties: false });
 exports.ssnCredentialJsonSchema = typebox_1.Type.Object({
     ssn: typebox_1.Type.String({
-        format: 'ssn'
+        format: 'ssn',
+        description: '9 digit social security number, with no dashes, in the format of: 123456789',
+        examples: [
+            '123456789',
+            '333224444'
+        ]
     })
 }, { $id: 'SsnCredential', additionalProperties: false });
 exports.countryResidenceCredentialJsonSchema = typebox_1.Type.Object({
@@ -25,7 +35,11 @@ exports.nationalityCredentialJsonSchema = typebox_1.Type.Object({
 }, { $id: 'NationalityCredential', additionalProperties: false });
 exports.facialImageCredentialJsonSchema = typebox_1.Type.Object({
     image: typebox_1.Type.String({
-        contentEncoding: 'base64'
+        contentEncoding: 'base64',
+        description: 'Base64 encoded image.',
+        examples: [
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
+        ]
     })
 }, { $id: 'FacialImageCredential', additionalProperties: false });
 exports.livelinessCredentialJsonSchema = typebox_1.Type.Object({
@@ -48,7 +62,14 @@ exports.firstNameCredentialJsonSchema = typebox_1.Type.Object({
     firstName: typebox_1.Type.String()
 }, { $id: 'FirstNameCredential', additionalProperties: false });
 exports.birthDateCredentialJsonSchema = typebox_1.Type.Object({
-    birthDate: typebox_1.Type.String({ format: 'digits' })
+    birthDate: typebox_1.Type.String({
+        format: 'digits',
+        description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
+        examples: [
+            '1687488596000',
+            '-45709'
+        ]
+    })
 }, { $id: 'BirthDateCredential', additionalProperties: false });
 exports.phoneCredentialJsonSchema = typebox_1.Type.Object({
     phone: typebox_1.Type.String({

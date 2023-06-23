@@ -10,7 +10,12 @@ export interface UnumJsonSchema extends TObject<TProperties> {
 export const emailCredentialJsonSchema = Type.Object(
   {
     email: Type.String({
-      format: 'email'
+      format: 'email',
+      description: 'Standard, valid email address format.',
+      examples: [
+        'test@verified.inc',
+        'you+me@piedpiper.net'
+      ]
     })
   },
   { $id: 'EmailCredential', additionalProperties: false }
@@ -32,7 +37,12 @@ export const sexCredentialJsonSchema = Type.Object(
 export const ssnCredentialJsonSchema = Type.Object(
   {
     ssn: Type.String({
-      format: 'ssn'
+      format: 'ssn',
+      description: '9 digit social security number, with no dashes, in the format of: 123456789',
+      examples: [
+        '123456789',
+        '333224444'
+      ]
     })
   },
   { $id: 'SsnCredential', additionalProperties: false }
@@ -55,7 +65,11 @@ export const nationalityCredentialJsonSchema = Type.Object(
 export const facialImageCredentialJsonSchema = Type.Object(
   {
     image: Type.String({
-      contentEncoding: 'base64'
+      contentEncoding: 'base64',
+      description: 'Base64 encoded image.',
+      examples: [
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
+      ]
     })
   },
   { $id: 'FacialImageCredential', additionalProperties: false }
@@ -98,7 +112,14 @@ export const firstNameCredentialJsonSchema = Type.Object(
 
 export const birthDateCredentialJsonSchema = Type.Object(
   {
-    birthDate: Type.String({ format: 'digits' })
+    birthDate: Type.String({
+      format: 'digits',
+      description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
+      examples: [
+        '1687488596000',
+        '-45709'
+      ]
+    })
   },
   { $id: 'BirthDateCredential', additionalProperties: false }
 ) as UnumJsonSchema;
