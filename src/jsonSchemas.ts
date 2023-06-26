@@ -65,8 +65,8 @@ export const nationalityCredentialJsonSchema = Type.Object(
 export const facialImageCredentialJsonSchema = Type.Object(
   {
     image: Type.String({
-      contentEncoding: 'base64',
-      description: 'Base64 encoded image.',
+      format: 'dataUriBase64Image',
+      description: 'Base64 encoded facial image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
       examples: [
         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
       ]
@@ -127,7 +127,12 @@ export const birthDateCredentialJsonSchema = Type.Object(
 export const phoneCredentialJsonSchema = Type.Object(
   {
     phone: Type.String({
-      format: 'phone'
+      format: 'phone',
+      description: 'A phone number in the E.164 format, [+][country code][number].',
+      examples: [
+        '+16175551212',
+        '+14041238686'
+      ]
     })
   },
   { $id: 'PhoneCredential', additionalProperties: false }
@@ -150,7 +155,11 @@ export const genderCredentialJsonSchema = Type.Object(
 export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(
   {
     image: Type.String({
-      format: 'dataUriBase64Image'
+      format: 'dataUriBase64Image',
+      description: 'Base64 encoded government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
+      examples: [
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
+      ]
     })
   },
   { $id: 'GovernmentIdDocumentImageCredential', additionalProperties: false }
@@ -187,7 +196,11 @@ export const governmentIdTypeCredentialJsonSchema = Type.Object(
 export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object(
   {
     image: Type.String({
-      contentEncoding: 'base64'
+      format: 'dataUriBase64Image',
+      description: 'Base64 encoded back of government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
+      examples: [
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
+      ]
     })
   },
   {

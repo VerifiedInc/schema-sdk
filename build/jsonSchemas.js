@@ -35,8 +35,8 @@ exports.nationalityCredentialJsonSchema = typebox_1.Type.Object({
 }, { $id: 'NationalityCredential', additionalProperties: false });
 exports.facialImageCredentialJsonSchema = typebox_1.Type.Object({
     image: typebox_1.Type.String({
-        contentEncoding: 'base64',
-        description: 'Base64 encoded image.',
+        format: 'dataUriBase64Image',
+        description: 'Base64 encoded facial image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
         examples: [
             'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
         ]
@@ -73,7 +73,12 @@ exports.birthDateCredentialJsonSchema = typebox_1.Type.Object({
 }, { $id: 'BirthDateCredential', additionalProperties: false });
 exports.phoneCredentialJsonSchema = typebox_1.Type.Object({
     phone: typebox_1.Type.String({
-        format: 'phone'
+        format: 'phone',
+        description: 'A phone number in the E.164 format, [+][country code][number].',
+        examples: [
+            '+16175551212',
+            '+14041238686'
+        ]
     })
 }, { $id: 'PhoneCredential', additionalProperties: false });
 exports.fullNameCredentialJsonSchema = typebox_1.Type.Object({
@@ -84,7 +89,11 @@ exports.genderCredentialJsonSchema = typebox_1.Type.Object({
 }, { $id: 'GenderCredential', additionalProperties: false });
 exports.governmentIdDocumentImageCredentialJsonSchema = typebox_1.Type.Object({
     image: typebox_1.Type.String({
-        format: 'dataUriBase64Image'
+        format: 'dataUriBase64Image',
+        description: 'Base64 encoded government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
+        examples: [
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
+        ]
     })
 }, { $id: 'GovernmentIdDocumentImageCredential', additionalProperties: false });
 exports.livelinessConfidenceCredentialJsonSchema = typebox_1.Type.Object({
@@ -101,7 +110,11 @@ exports.governmentIdTypeCredentialJsonSchema = typebox_1.Type.Object({
 }, { $id: 'GovernmentIdTypeCredential', additionalProperties: false });
 exports.governmentIdDocumentBackImageCredentialJsonSchema = typebox_1.Type.Object({
     image: typebox_1.Type.String({
-        contentEncoding: 'base64'
+        format: 'dataUriBase64Image',
+        description: 'Base64 encoded back of government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
+        examples: [
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
+        ]
     })
 }, {
     $id: 'GovernmentIdDocumentBackImageCredential',
