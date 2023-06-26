@@ -29,7 +29,13 @@ export const identityCredentialJsonSchema = Type.Object(
 
 export const sexCredentialJsonSchema = Type.Object(
   {
-    sex: Type.String()
+    sex: Type.String({
+      description: 'A person\'s sex',
+      examples: [
+        'Male',
+        'Female'
+      ]
+    }) // TODO add the gender format
   },
   { $id: 'SexCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -50,14 +56,28 @@ export const ssnCredentialJsonSchema = Type.Object(
 
 export const countryResidenceCredentialJsonSchema = Type.Object(
   {
-    country: Type.String()
+    country: Type.String({
+      description: 'A person\'s country of residence',
+      examples: [
+        'US',
+        'CA',
+        'MX'
+      ]
+    }) // TODO using an iso3166-code format? or create another one
   },
   { $id: 'CountryResidenceCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const nationalityCredentialJsonSchema = Type.Object(
   {
-    nationality: Type.String()
+    nationality: Type.String({
+      description: 'A person\'s birth country or country of citizenship',
+      examples: [
+        'US',
+        'CA',
+        'MX'
+      ]
+    }) // TODO using an iso3166-code format? or create another one
   },
   { $id: 'NationalityCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -77,7 +97,14 @@ export const facialImageCredentialJsonSchema = Type.Object(
 
 export const livelinessCredentialJsonSchema = Type.Object(
   {
-    liveness: Type.String()
+    liveness: Type.String({
+      description: 'A person\'s liveliness score during an IDV session',
+      examples: [
+        '99',
+        'High',
+        'Low'
+      ]
+    }) // TODO create a liveliness format
   },
   { $id: 'LivelinessCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -98,14 +125,26 @@ export const addressCredentialJsonSchema = Type.Object(
 
 export const lastNameCredentialJsonSchema = Type.Object(
   {
-    lastName: Type.String()
+    lastName: Type.String({
+      description: 'A person\'s last name',
+      examples: [
+        'Smith',
+        'Garcia-Tony'
+      ]
+    })
   },
   { $id: 'LastNameCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const firstNameCredentialJsonSchema = Type.Object(
   {
-    firstName: Type.String()
+    firstName: Type.String({
+      description: 'A person\'s first name',
+      examples: [
+        'John',
+        'Mary Kate'
+      ]
+    })
   },
   { $id: 'FirstNameCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -140,14 +179,27 @@ export const phoneCredentialJsonSchema = Type.Object(
 
 export const fullNameCredentialJsonSchema = Type.Object(
   {
-    fullName: Type.String()
+    fullName: Type.String({
+      description: 'A person\'s full name',
+      examples: [
+        'John Smith',
+        'John Michael Smith',
+        'Mary Kate Sierra Garcia-Tony'
+      ]
+    })
   },
   { $id: 'FullNameCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const genderCredentialJsonSchema = Type.Object(
   {
-    gender: Type.String()
+    gender: Type.String({
+      description: 'A person\'s gender',
+      examples: [
+        'Male',
+        'Female'
+      ]
+    }) // TODO add the gender format
   },
   { $id: 'GenderCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -167,28 +219,48 @@ export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(
 
 export const livelinessConfidenceCredentialJsonSchema = Type.Object(
   {
-    confidence: Type.String()
+    confidence: Type.String({
+      description: 'A person\'s liveliness confidence score during an IDV session',
+      examples: [
+        '99',
+        'High',
+        'Low'
+      ]
+    }) // TODO create a confidence format
   },
   { $id: 'LivelinessConfidenceCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const facialMatchCredentialJsonSchema = Type.Object(
   {
-    match: Type.String()
+    match: Type.String({
+      description: 'A person\'s facial match score during an IDV session',
+      examples: [
+        'true',
+        'false'
+      ]
+    }) // TODO create a boolean format
   },
   { $id: 'FacialMatchCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const facialMatchConfidenceCredentialJsonSchema = Type.Object(
   {
-    confidence: Type.String()
+    confidence: Type.String({
+      description: 'A person\'s facial match confidence score during an IDV session',
+      examples: [
+        '99',
+        'High',
+        'Low'
+      ]
+    }) // TODO create a confidence format
   },
   { $id: 'FacialMatchConfidenceCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const governmentIdTypeCredentialJsonSchema = Type.Object(
   {
-    documentType: Type.String()
+    documentType: Type.String() // TODO create a document type format
   },
   { $id: 'GovernmentIdTypeCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -213,6 +285,13 @@ export const governmentIdStateCredentialJsonSchema = Type.Object(
   {
     state: Type.String({
       // format: 'iso3166-2', // TODO: add format
+      description: 'The state or province of the government identification document',
+      examples: [
+        'US-CA',
+        'US-NY',
+        'US-TX',
+        'GB-ENG'
+      ]
     })
   },
   { $id: 'GovernmentIdStateCredential', additionalProperties: false }
@@ -261,14 +340,28 @@ export const governmentIdExpirationDateCredentialJsonSchema = Type.Object(
 
 export const employerCredentialJsonSchema = Type.Object(
   {
-    employer: Type.String()
+    employer: Type.String({
+      description: 'Employer name',
+      examples: [
+        'Acme Corp',
+        'Piped Piper',
+        'Hooli'
+      ]
+    })
   },
   { $id: 'EmployerCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const titleCredentialJsonSchema = Type.Object(
   {
-    title: Type.String()
+    title: Type.String({
+      description: 'Job title',
+      examples: [
+        'Software Engineer',
+        'Designer',
+        'Construction Worker'
+      ]
+    })
   },
   { $id: 'TitleCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -318,7 +411,14 @@ export const annualIncomeRangeCredentialJsonSchema = Type.Object(
 
 export const employmentStartDateCredentialJsonSchema = Type.Object(
   {
-    startDate: Type.String()
+    startDate: Type.String({
+      format: 'digits',
+      description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
+      examples: [
+        '1687488596000',
+        '-45709'
+      ]
+    })
   },
   { $id: 'EmploymentStartDateCredential', additionalProperties: false }
 ) as UnumJsonSchema;

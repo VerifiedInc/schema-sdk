@@ -15,7 +15,13 @@ exports.emailCredentialJsonSchema = typebox_1.Type.Object({
 // special credential that is actually empty
 exports.identityCredentialJsonSchema = typebox_1.Type.Object({}, { $id: 'IdentityCredential', additionalProperties: false });
 exports.sexCredentialJsonSchema = typebox_1.Type.Object({
-    sex: typebox_1.Type.String()
+    sex: typebox_1.Type.String({
+        description: 'A person\'s sex',
+        examples: [
+            'Male',
+            'Female'
+        ]
+    }) // TODO add the gender format
 }, { $id: 'SexCredential', additionalProperties: false });
 exports.ssnCredentialJsonSchema = typebox_1.Type.Object({
     ssn: typebox_1.Type.String({
@@ -28,10 +34,24 @@ exports.ssnCredentialJsonSchema = typebox_1.Type.Object({
     })
 }, { $id: 'SsnCredential', additionalProperties: false });
 exports.countryResidenceCredentialJsonSchema = typebox_1.Type.Object({
-    country: typebox_1.Type.String()
+    country: typebox_1.Type.String({
+        description: 'A person\'s country of residence',
+        examples: [
+            'US',
+            'CA',
+            'MX'
+        ]
+    }) // TODO using an iso3166-code format? or create another one
 }, { $id: 'CountryResidenceCredential', additionalProperties: false });
 exports.nationalityCredentialJsonSchema = typebox_1.Type.Object({
-    nationality: typebox_1.Type.String()
+    nationality: typebox_1.Type.String({
+        description: 'A person\'s birth country or country of citizenship',
+        examples: [
+            'US',
+            'CA',
+            'MX'
+        ]
+    }) // TODO using an iso3166-code format? or create another one
 }, { $id: 'NationalityCredential', additionalProperties: false });
 exports.facialImageCredentialJsonSchema = typebox_1.Type.Object({
     image: typebox_1.Type.String({
@@ -43,7 +63,14 @@ exports.facialImageCredentialJsonSchema = typebox_1.Type.Object({
     })
 }, { $id: 'FacialImageCredential', additionalProperties: false });
 exports.livelinessCredentialJsonSchema = typebox_1.Type.Object({
-    liveness: typebox_1.Type.String()
+    liveness: typebox_1.Type.String({
+        description: 'A person\'s liveliness score during an IDV session',
+        examples: [
+            '99',
+            'High',
+            'Low'
+        ]
+    }) // TODO create a liveliness format
 }, { $id: 'LivelinessCredential', additionalProperties: false });
 exports.addressCredentialJsonSchema = typebox_1.Type.Object({
     address: typebox_1.Type.String({
@@ -56,10 +83,22 @@ exports.addressCredentialJsonSchema = typebox_1.Type.Object({
     })
 }, { $id: 'AddressCredential', additionalProperties: false });
 exports.lastNameCredentialJsonSchema = typebox_1.Type.Object({
-    lastName: typebox_1.Type.String()
+    lastName: typebox_1.Type.String({
+        description: 'A person\'s last name',
+        examples: [
+            'Smith',
+            'Garcia-Tony'
+        ]
+    })
 }, { $id: 'LastNameCredential', additionalProperties: false });
 exports.firstNameCredentialJsonSchema = typebox_1.Type.Object({
-    firstName: typebox_1.Type.String()
+    firstName: typebox_1.Type.String({
+        description: 'A person\'s first name',
+        examples: [
+            'John',
+            'Mary Kate'
+        ]
+    })
 }, { $id: 'FirstNameCredential', additionalProperties: false });
 exports.birthDateCredentialJsonSchema = typebox_1.Type.Object({
     birthDate: typebox_1.Type.String({
@@ -82,10 +121,23 @@ exports.phoneCredentialJsonSchema = typebox_1.Type.Object({
     })
 }, { $id: 'PhoneCredential', additionalProperties: false });
 exports.fullNameCredentialJsonSchema = typebox_1.Type.Object({
-    fullName: typebox_1.Type.String()
+    fullName: typebox_1.Type.String({
+        description: 'A person\'s full name',
+        examples: [
+            'John Smith',
+            'John Michael Smith',
+            'Mary Kate Sierra Garcia-Tony'
+        ]
+    })
 }, { $id: 'FullNameCredential', additionalProperties: false });
 exports.genderCredentialJsonSchema = typebox_1.Type.Object({
-    gender: typebox_1.Type.String()
+    gender: typebox_1.Type.String({
+        description: 'A person\'s gender',
+        examples: [
+            'Male',
+            'Female'
+        ]
+    }) // TODO add the gender format
 }, { $id: 'GenderCredential', additionalProperties: false });
 exports.governmentIdDocumentImageCredentialJsonSchema = typebox_1.Type.Object({
     image: typebox_1.Type.String({
@@ -97,16 +149,36 @@ exports.governmentIdDocumentImageCredentialJsonSchema = typebox_1.Type.Object({
     })
 }, { $id: 'GovernmentIdDocumentImageCredential', additionalProperties: false });
 exports.livelinessConfidenceCredentialJsonSchema = typebox_1.Type.Object({
-    confidence: typebox_1.Type.String()
+    confidence: typebox_1.Type.String({
+        description: 'A person\'s liveliness confidence score during an IDV session',
+        examples: [
+            '99',
+            'High',
+            'Low'
+        ]
+    }) // TODO create a confidence format
 }, { $id: 'LivelinessConfidenceCredential', additionalProperties: false });
 exports.facialMatchCredentialJsonSchema = typebox_1.Type.Object({
-    match: typebox_1.Type.String()
+    match: typebox_1.Type.String({
+        description: 'A person\'s facial match score during an IDV session',
+        examples: [
+            'true',
+            'false'
+        ]
+    }) // TODO create a boolean format
 }, { $id: 'FacialMatchCredential', additionalProperties: false });
 exports.facialMatchConfidenceCredentialJsonSchema = typebox_1.Type.Object({
-    confidence: typebox_1.Type.String()
+    confidence: typebox_1.Type.String({
+        description: 'A person\'s facial match confidence score during an IDV session',
+        examples: [
+            '99',
+            'High',
+            'Low'
+        ]
+    }) // TODO create a confidence format
 }, { $id: 'FacialMatchConfidenceCredential', additionalProperties: false });
 exports.governmentIdTypeCredentialJsonSchema = typebox_1.Type.Object({
-    documentType: typebox_1.Type.String()
+    documentType: typebox_1.Type.String() // TODO create a document type format
 }, { $id: 'GovernmentIdTypeCredential', additionalProperties: false });
 exports.governmentIdDocumentBackImageCredentialJsonSchema = typebox_1.Type.Object({
     image: typebox_1.Type.String({
@@ -122,7 +194,14 @@ exports.governmentIdDocumentBackImageCredentialJsonSchema = typebox_1.Type.Objec
 });
 exports.governmentIdStateCredentialJsonSchema = typebox_1.Type.Object({
     state: typebox_1.Type.String({
-    // format: 'iso3166-2', // TODO: add format
+        // format: 'iso3166-2', // TODO: add format
+        description: 'The state or province of the government identification document',
+        examples: [
+            'US-CA',
+            'US-NY',
+            'US-TX',
+            'GB-ENG'
+        ]
     })
 }, { $id: 'GovernmentIdStateCredential', additionalProperties: false });
 exports.governmentIdNumberCredentialJsonSchema = typebox_1.Type.Object({
@@ -155,10 +234,24 @@ exports.governmentIdExpirationDateCredentialJsonSchema = typebox_1.Type.Object({
     })
 }, { $id: 'GovernmentIdExpirationDateCredential', additionalProperties: false });
 exports.employerCredentialJsonSchema = typebox_1.Type.Object({
-    employer: typebox_1.Type.String()
+    employer: typebox_1.Type.String({
+        description: 'Employer name',
+        examples: [
+            'Acme Corp',
+            'Piped Piper',
+            'Hooli'
+        ]
+    })
 }, { $id: 'EmployerCredential', additionalProperties: false });
 exports.titleCredentialJsonSchema = typebox_1.Type.Object({
-    title: typebox_1.Type.String()
+    title: typebox_1.Type.String({
+        description: 'Job title',
+        examples: [
+            'Software Engineer',
+            'Designer',
+            'Construction Worker'
+        ]
+    })
 }, { $id: 'TitleCredential', additionalProperties: false });
 exports.annualIncomeCredentialJsonSchema = typebox_1.Type.Object({
     income: typebox_1.Type.String({
@@ -192,7 +285,14 @@ exports.annualIncomeRangeCredentialJsonSchema = typebox_1.Type.Object({
     })
 }, { $id: 'AnnualIncomeRangeCredential', additionalProperties: false });
 exports.employmentStartDateCredentialJsonSchema = typebox_1.Type.Object({
-    startDate: typebox_1.Type.String()
+    startDate: typebox_1.Type.String({
+        format: 'digits',
+        description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
+        examples: [
+            '1687488596000',
+            '-45709'
+        ]
+    })
 }, { $id: 'EmploymentStartDateCredential', additionalProperties: false });
 exports.jsonSchemas = {
     EmailCredential: exports.emailCredentialJsonSchema,
