@@ -171,10 +171,25 @@ exports.annualIncomeCredentialJsonSchema = typebox_1.Type.Object({
     })
 }, { $id: 'AnnualIncomeCredential', additionalProperties: false });
 exports.incomeCurrencyCredentialJsonSchema = typebox_1.Type.Object({
-    currency: typebox_1.Type.String({ format: 'iso4217' })
+    currency: typebox_1.Type.String({
+        format: 'iso4217',
+        description: 'ISO4217 currency format.',
+        examples: [
+            'USD',
+            'GBP',
+            'EUR'
+        ]
+    })
 }, { $id: 'IncomeCurrencyCredential', additionalProperties: false });
 exports.annualIncomeRangeCredentialJsonSchema = typebox_1.Type.Object({
-    income: typebox_1.Type.String({ format: 'iso4217AmountRange' })
+    income: typebox_1.Type.String({
+        format: 'iso4217AmountRange',
+        description: 'Annual income range with the preceding ISO4217 currency code followed by min<value>_max<value>.',
+        examples: [
+            'USD min100000_max200000',
+            'GBP min40000_max50000'
+        ]
+    })
 }, { $id: 'AnnualIncomeRangeCredential', additionalProperties: false });
 exports.employmentStartDateCredentialJsonSchema = typebox_1.Type.Object({
     startDate: typebox_1.Type.String()

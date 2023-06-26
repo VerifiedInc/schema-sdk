@@ -289,14 +289,29 @@ export const annualIncomeCredentialJsonSchema = Type.Object(
 
 export const incomeCurrencyCredentialJsonSchema = Type.Object(
   {
-    currency: Type.String({ format: 'iso4217' })
+    currency: Type.String({
+      format: 'iso4217',
+      description: 'ISO4217 currency format.',
+      examples: [
+        'USD',
+        'GBP',
+        'EUR'
+      ]
+    })
   },
   { $id: 'IncomeCurrencyCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const annualIncomeRangeCredentialJsonSchema = Type.Object(
   {
-    income: Type.String({ format: 'iso4217AmountRange' })
+    income: Type.String({
+      format: 'iso4217AmountRange',
+      description: 'Annual income range with the preceding ISO4217 currency code followed by min<value>_max<value>.',
+      examples: [
+        'USD min100000_max200000',
+        'GBP min40000_max50000'
+      ]
+    })
   },
   { $id: 'AnnualIncomeRangeCredential', additionalProperties: false }
 ) as UnumJsonSchema;
