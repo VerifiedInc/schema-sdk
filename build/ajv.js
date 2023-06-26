@@ -37,7 +37,6 @@ exports.ajv.addFormat('optionalEmail', formats_1.optionalEmailFormat);
 exports.ajv.addFormat('phone', formats_1.phoneFormat);
 exports.ajv.addFormat('optionalPhone', formats_1.optionalPhoneFormat);
 exports.ajv.addFormat('ssn', formats_1.ssnFormat);
-exports.ajv.addFormat('unixMsExpirationDate', formats_1.unixMsExpirationDateFormat);
 exports.ajv.addFormat('digits', formats_1.digitsFormat);
 exports.ajv.addFormat('dataUriBase64Image', formats_1.dataUriBase64ImageFormat);
 exports.ajv.addFormat('iso4217', formats_1.iso4217Format);

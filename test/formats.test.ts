@@ -106,21 +106,6 @@ describe('formats', () => {
     expect(validate('test')).toBe(false);
   });
 
-  test('unixMsExpirationDateFormat', () => {
-    const format = unixMsExpirationDateFormat as FormatDefinition<string>;
-    const validate = format.validate as FormatValidator<string>;
-
-    const nowish = Date.now() - 10;
-    const futureTime = nowish + 10000000;
-
-    // valid unixMsExpirationDate
-    expect(validate(futureTime.toString())).toBe(true);
-
-    // invalid unixMsExpirationDate
-    expect(validate('test')).toBe(false);
-    expect(validate(nowish.toString())).toBe(false);
-  });
-
   test('otpFormat', () => {
     const format = otpFormat as FormatDefinition<string>;
     const validate = format.validate as FormatValidator<string>;

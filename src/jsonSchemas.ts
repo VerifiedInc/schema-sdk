@@ -211,28 +211,50 @@ export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object(
 
 export const governmentIdStateCredentialJsonSchema = Type.Object(
   {
-    state: Type.String()
+    state: Type.String({
+      // format: 'iso3166-2', // TODO: add format
+    })
   },
   { $id: 'GovernmentIdStateCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const governmentIdNumberCredentialJsonSchema = Type.Object(
   {
-    idNumber: Type.String()
+    idNumber: Type.String({
+      description: 'Government identification document number. Note, it can be alphanumeric.',
+      examples: [
+        '801322-1117621',
+        'F4698E1'
+      ]
+    })
   },
   { $id: 'GovernmentIdNumberCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const governmentIdIssuanceDateCredentialJsonSchema = Type.Object(
   {
-    issuanceDate: Type.String({ format: 'digits' }) // ms since unix epoch
+    issuanceDate: Type.String({
+      format: 'digits',
+      description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
+      examples: [
+        '1687488596000',
+        '-45709'
+      ]
+    })
   },
   { $id: 'GovernmentIdIssuanceDateCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const governmentIdExpirationDateCredentialJsonSchema = Type.Object(
   {
-    expirationDate: Type.String({ format: 'unixMsExpirationDate' }) // ms since unix epoch
+    expirationDate: Type.String({
+      format: 'digits',
+      description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
+      examples: [
+        '1687488596000',
+        '-45709'
+      ]
+    })
   },
   { $id: 'GovernmentIdExpirationDateCredential', additionalProperties: false }
 ) as UnumJsonSchema;

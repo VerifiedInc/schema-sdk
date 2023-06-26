@@ -121,23 +121,6 @@ export const digitsFormat: Format = {
 };
 
 /**
- * Format to determine if a string is a unix timestamp in milliseconds greater than current time
- */
-export const unixMsExpirationDateFormat: Format = {
-  type: 'string',
-  validate: (expirationDate: string) => {
-    // Note: need to handle this as a format validator instead of using TypeBox's minimum validator because using that option value is static upon initialization
-    const valid = (digitsFormat.validate as FormatValidator<string>)(expirationDate);
-
-    if (!valid) {
-      return false;
-    }
-
-    return parseInt(expirationDate) > Date.now();
-  }
-};
-
-/**
  * Format to determine if a string is a valid OTP (verification code)
  * validates that the string is six digits
  */

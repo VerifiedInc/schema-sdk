@@ -6,7 +6,6 @@ import {
   emailFormat,
   phoneFormat,
   ssnFormat,
-  unixMsExpirationDateFormat,
   digitsFormat,
   optionalEmailFormat,
   optionalPhoneFormat,
@@ -47,7 +46,6 @@ ajv.addFormat('optionalEmail', optionalEmailFormat);
 ajv.addFormat('phone', phoneFormat);
 ajv.addFormat('optionalPhone', optionalPhoneFormat);
 ajv.addFormat('ssn', ssnFormat);
-ajv.addFormat('unixMsExpirationDate', unixMsExpirationDateFormat);
 ajv.addFormat('digits', digitsFormat);
 ajv.addFormat('dataUriBase64Image', dataUriBase64ImageFormat);
 ajv.addFormat('iso4217', iso4217Format);

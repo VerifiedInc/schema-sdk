@@ -121,16 +121,38 @@ exports.governmentIdDocumentBackImageCredentialJsonSchema = typebox_1.Type.Objec
     additionalProperties: false
 });
 exports.governmentIdStateCredentialJsonSchema = typebox_1.Type.Object({
-    state: typebox_1.Type.String()
+    state: typebox_1.Type.String({
+    // format: 'iso3166-2', // TODO: add format
+    })
 }, { $id: 'GovernmentIdStateCredential', additionalProperties: false });
 exports.governmentIdNumberCredentialJsonSchema = typebox_1.Type.Object({
-    idNumber: typebox_1.Type.String()
+    idNumber: typebox_1.Type.String({
+        description: 'Government identification document number. Note, it can be alphanumeric.',
+        examples: [
+            '801322-1117621',
+            'F4698E1'
+        ]
+    })
 }, { $id: 'GovernmentIdNumberCredential', additionalProperties: false });
 exports.governmentIdIssuanceDateCredentialJsonSchema = typebox_1.Type.Object({
-    issuanceDate: typebox_1.Type.String({ format: 'digits' }) // ms since unix epoch
+    issuanceDate: typebox_1.Type.String({
+        format: 'digits',
+        description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
+        examples: [
+            '1687488596000',
+            '-45709'
+        ]
+    })
 }, { $id: 'GovernmentIdIssuanceDateCredential', additionalProperties: false });
 exports.governmentIdExpirationDateCredentialJsonSchema = typebox_1.Type.Object({
-    expirationDate: typebox_1.Type.String({ format: 'unixMsExpirationDate' }) // ms since unix epoch
+    expirationDate: typebox_1.Type.String({
+        format: 'digits',
+        description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
+        examples: [
+            '1687488596000',
+            '-45709'
+        ]
+    })
 }, { $id: 'GovernmentIdExpirationDateCredential', additionalProperties: false });
 exports.employerCredentialJsonSchema = typebox_1.Type.Object({
     employer: typebox_1.Type.String()

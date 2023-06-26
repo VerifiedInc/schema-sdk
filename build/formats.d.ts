@@ -28,10 +28,6 @@ export declare const optionalPhoneFormat: Format;
  */
 export declare const digitsFormat: Format;
 /**
- * Format to determine if a string is a unix timestamp in milliseconds greater than current time
- */
-export declare const unixMsExpirationDateFormat: Format;
-/**
  * Format to determine if a string is a valid OTP (verification code)
  * validates that the string is six digits
  */
