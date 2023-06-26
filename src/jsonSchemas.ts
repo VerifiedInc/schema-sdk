@@ -30,12 +30,13 @@ export const identityCredentialJsonSchema = Type.Object(
 export const sexCredentialJsonSchema = Type.Object(
   {
     sex: Type.String({
+      format: 'gender',
       description: 'A person\'s sex',
       examples: [
         'Male',
         'Female'
       ]
-    }) // TODO add the gender format
+    })
   },
   { $id: 'SexCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -194,12 +195,13 @@ export const fullNameCredentialJsonSchema = Type.Object(
 export const genderCredentialJsonSchema = Type.Object(
   {
     gender: Type.String({
+      format: 'gender',
       description: 'A person\'s gender',
       examples: [
         'Male',
         'Female'
       ]
-    }) // TODO add the gender format
+    })
   },
   { $id: 'GenderCredential', additionalProperties: false }
 ) as UnumJsonSchema;

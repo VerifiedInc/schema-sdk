@@ -36,6 +36,8 @@ const validISO31662USCodes = new Set([
   'DC', 'AS', 'GU', 'MP', 'PR', 'UM', 'VI'
 ]);
 
+const genders = new Set(['male', 'female']);
+
 /*******************************************************************
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
@@ -255,6 +257,18 @@ export const addressFormat: FormatD = {
       const isoRegionRegex = /^[a-zA-Z0-9]{1,3}$/;
       if (!isoRegionRegex.test(isoRegionCode)) return false;
     }
+
+    return true;
+  }
+};
+
+/**
+ * Format to determine if a string contains valid range values with an ISO 4217 currency code followed by a space then a number
+ */
+export const genderFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    if (!genders.has(input)) return false;
 
     return true;
   }

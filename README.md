@@ -44,6 +44,12 @@ There are a number of spots that need to be updated in order to properly add a n
 8. **Create a new Jest describe block for validation tests in validate.test.ts** which covers the newly created JsonSchema, e.g. `describe('IdentityCredential Schema', () => {...`
 9. ~~**DON'T FORGET TO BUILD! `npm run compile`**~~ This step is actually now being handling automatically via the husky pre-commit setup.
 
+### Adding New Formats
+1. **Create the format validator in formats.ts**
+2. **Add the format to ajv in ajv.ts**
+3. **Export the format in index.ts**
+4. **Author unit test in formats.test.ts**
+
 ### e2e Testing
 Likely you will need to be testing local `schema-sdk` changes in a dependent project like [schema-resolver](https://github.com/UnumID/schema-resolver). The simplest and recommended way of doing so if via `npm link` as outlined [here](https://www.geeksforgeeks.org/how-to-install-a-local-module-using-npm/). Just be sure to run `npm run compile` before running `npm link` in this directory or `npm link @unumid/schema-sdk` in the dependent directory.
 

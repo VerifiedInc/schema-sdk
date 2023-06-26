@@ -16,12 +16,13 @@ exports.emailCredentialJsonSchema = typebox_1.Type.Object({
 exports.identityCredentialJsonSchema = typebox_1.Type.Object({}, { $id: 'IdentityCredential', additionalProperties: false });
 exports.sexCredentialJsonSchema = typebox_1.Type.Object({
     sex: typebox_1.Type.String({
+        format: 'gender',
         description: 'A person\'s sex',
         examples: [
             'Male',
             'Female'
         ]
-    }) // TODO add the gender format
+    })
 }, { $id: 'SexCredential', additionalProperties: false });
 exports.ssnCredentialJsonSchema = typebox_1.Type.Object({
     ssn: typebox_1.Type.String({
@@ -132,12 +133,13 @@ exports.fullNameCredentialJsonSchema = typebox_1.Type.Object({
 }, { $id: 'FullNameCredential', additionalProperties: false });
 exports.genderCredentialJsonSchema = typebox_1.Type.Object({
     gender: typebox_1.Type.String({
+        format: 'gender',
         description: 'A person\'s gender',
         examples: [
             'Male',
             'Female'
         ]
-    }) // TODO add the gender format
+    })
 }, { $id: 'GenderCredential', additionalProperties: false });
 exports.governmentIdDocumentImageCredentialJsonSchema = typebox_1.Type.Object({
     image: typebox_1.Type.String({

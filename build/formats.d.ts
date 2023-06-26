@@ -59,5 +59,9 @@ type FormatD = Format & {
     description: string;
 };
 export declare const addressFormat: FormatD;
+/**
+ * Format to determine if a string contains valid range values with an ISO 4217 currency code followed by a space then a number
+ */
+export declare const genderFormat: Format;
 export {};
 //# sourceMappingURL=formats.d.ts.map
