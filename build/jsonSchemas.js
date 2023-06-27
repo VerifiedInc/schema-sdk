@@ -43,7 +43,7 @@ exports.countryResidenceCredentialJsonSchema = typebox_1.Type.Object({
             'CA',
             'MX'
         ]
-    }) // TODO using an iso3166-code format? or create another one
+    })
 }, { $id: 'CountryResidenceCredential', additionalProperties: false });
 exports.nationalityCredentialJsonSchema = typebox_1.Type.Object({
     nationality: typebox_1.Type.String({
@@ -54,7 +54,7 @@ exports.nationalityCredentialJsonSchema = typebox_1.Type.Object({
             'CA',
             'MX'
         ]
-    }) // TODO using an iso3166-code format? or create another one
+    })
 }, { $id: 'NationalityCredential', additionalProperties: false });
 exports.facialImageCredentialJsonSchema = typebox_1.Type.Object({
     image: typebox_1.Type.String({
@@ -198,7 +198,7 @@ exports.governmentIdDocumentBackImageCredentialJsonSchema = typebox_1.Type.Objec
 });
 exports.governmentIdStateCredentialJsonSchema = typebox_1.Type.Object({
     state: typebox_1.Type.String({
-        // format: 'iso3166-2', // TODO: add format
+        format: 'iso3166',
         description: 'The state or province of the government identification document',
         examples: [
             'US-CA',

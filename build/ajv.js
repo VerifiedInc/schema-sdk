@@ -45,4 +45,5 @@ exports.ajv.addFormat('iso4217AmountRange', formats_1.iso4217AmountRangeFormat);
 exports.ajv.addFormat('address', formats_1.addressFormat);
 exports.ajv.addFormat('gender', formats_1.genderFormat);
 exports.ajv.addFormat('iso3361Alpha2', formats_1.iso3166Alpha2CountryCodeFormat);
+exports.ajv.addFormat('iso3166', formats_1.iso3166CodeFormat);
 //# sourceMappingURL=ajv.js.map

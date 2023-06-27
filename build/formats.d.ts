@@ -60,7 +60,11 @@ type FormatD = Format & {
 };
 export declare const addressFormat: FormatD;
 /**
- * Format to determine if a string contains valid gender
+ * Format to determine if a string is a valid iso3166 code
+ */
+export declare const iso3166CodeFormat: Format;
+/**
+ * Format to determine if a string is a valid iso3166-1 alpha-2 country code
  */
 export declare const iso3166Alpha2CountryCodeFormat: Format;
 /**

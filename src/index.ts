@@ -46,7 +46,8 @@ import {
   otpFormat,
   dataUriBase64ImageFormat,
   genderFormat,
-  iso3166Alpha2CountryCodeFormat
+  iso3166Alpha2CountryCodeFormat,
+  iso3166CodeFormat
 } from './formats';
 
 export {
@@ -69,6 +70,7 @@ export {
   dataUriBase64ImageFormat,
   genderFormat,
   iso3166Alpha2CountryCodeFormat,
+  iso3166CodeFormat,
 
   // json-ld context file
   context,

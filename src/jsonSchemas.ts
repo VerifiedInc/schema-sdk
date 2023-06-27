@@ -65,7 +65,7 @@ export const countryResidenceCredentialJsonSchema = Type.Object(
         'CA',
         'MX'
       ]
-    }) // TODO using an iso3166-code format? or create another one
+    })
   },
   { $id: 'CountryResidenceCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -80,7 +80,7 @@ export const nationalityCredentialJsonSchema = Type.Object(
         'CA',
         'MX'
       ]
-    }) // TODO using an iso3166-code format? or create another one
+    })
   },
   { $id: 'NationalityCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -288,7 +288,7 @@ export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object(
 export const governmentIdStateCredentialJsonSchema = Type.Object(
   {
     state: Type.String({
-      // format: 'iso3166-2', // TODO: add format
+      format: 'iso3166',
       description: 'The state or province of the government identification document',
       examples: [
         'US-CA',
