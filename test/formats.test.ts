@@ -6,6 +6,7 @@ import {
   digitsFormat,
   emailFormat,
   genderFormat,
+  iso3166Alpha2CountryCodeFormat,
   iso4217AmountFormat,
   iso4217AmountRangeFormat,
   iso4217Format,
@@ -204,6 +205,21 @@ describe('formats', () => {
     expect(validate('107 Ross Khaledi Rd, Laredo, TX 78045 US')).toBe(false);
     expect(validate('307 3rd Ave, Apt #4, San Austin, US-GA 185-9876')).toBe(false);
     expect(validate('307 3rd Ave, Apt #4,, US-GA 185-9876')).toBe(false);
+  });
+
+  test('iso3166Alpha2CountryCodeFormat', () => {
+    const format = iso3166Alpha2CountryCodeFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('US')).toBe(true);
+    expect(validate('GB')).toBe(true);
+    expect(validate('MX')).toBe(true);
+
+    // invalid
+    expect(validate('test')).toBe(false);
+    expect(validate('ENG')).toBe(false);
+    expect(validate('AUS')).toBe(false);
   });
 
   test('GenderFormat', () => {

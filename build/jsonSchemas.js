@@ -36,7 +36,8 @@ exports.ssnCredentialJsonSchema = typebox_1.Type.Object({
 }, { $id: 'SsnCredential', additionalProperties: false });
 exports.countryResidenceCredentialJsonSchema = typebox_1.Type.Object({
     country: typebox_1.Type.String({
-        description: 'A person\'s country of residence',
+        format: 'iso3361Alpha2',
+        description: 'A person\'s country of residence in ISO 3166-1 alpha-2 format.',
         examples: [
             'US',
             'CA',
@@ -46,7 +47,8 @@ exports.countryResidenceCredentialJsonSchema = typebox_1.Type.Object({
 }, { $id: 'CountryResidenceCredential', additionalProperties: false });
 exports.nationalityCredentialJsonSchema = typebox_1.Type.Object({
     nationality: typebox_1.Type.String({
-        description: 'A person\'s birth country or country of citizenship',
+        format: 'iso3361Alpha2',
+        description: 'A person\'s birth country or country of citizenship in ISO 3166-1 alpha-2 format.',
         examples: [
             'US',
             'CA',

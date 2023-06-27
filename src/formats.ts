@@ -7,7 +7,7 @@ const validISO4217Codes = new Set([
 ]);
 
 // iso3166-1 alpha-2 Country codes: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-const validISO31661CountryCodes = new Set([
+const validISO31661Alpha2CountryCodes = new Set([
   'AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'AO', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AW', 'AX', 'AZ',
   'BA', 'BB', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BL', 'BM', 'BN', 'BO', 'BQ', 'BR', 'BS',
   'BT', 'BV', 'BW', 'BY', 'BZ', 'CA', 'CC', 'CD', 'CF', 'CG', 'CH', 'CI', 'CK', 'CL', 'CM', 'CN',
@@ -243,7 +243,7 @@ export const addressFormat: FormatD = {
     const isoRegionCode = iso3166Parts[1]; // aka state or territory code
 
     // Check that country is a valid ISO 3166-1 alpha-2 code
-    if (!validISO31661CountryCodes.has(isoCountryCode)) return false;
+    if (!validISO31661Alpha2CountryCodes.has(isoCountryCode)) return false;
 
     if (isoCountryCode === 'US') {
       // preform additional validation to check for valid US region codes
@@ -263,7 +263,19 @@ export const addressFormat: FormatD = {
 };
 
 /**
- * Format to determine if a string contains valid range values with an ISO 4217 currency code followed by a space then a number
+ * Format to determine if a string contains valid gender
+ */
+export const iso3166Alpha2CountryCodeFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    if (!validISO31661Alpha2CountryCodes.has(input)) return false;
+
+    return true;
+  }
+};
+
+/**
+ * Format to determine if a string contains valid gender
  */
 export const genderFormat: Format = {
   type: 'string',

@@ -14,7 +14,8 @@ import {
   iso4217AmountFormat,
   iso4217AmountRangeFormat,
   addressFormat,
-  genderFormat
+  genderFormat,
+  iso3166Alpha2CountryCodeFormat
 } from './formats';
 
 // get all the values of the jsonSchemas object in an array
@@ -54,3 +55,4 @@ ajv.addFormat('iso4217Amount', iso4217AmountFormat);
 ajv.addFormat('iso4217AmountRange', iso4217AmountRangeFormat);
 ajv.addFormat('address', addressFormat);
 ajv.addFormat('gender', genderFormat);
+ajv.addFormat('iso3361Alpha2', iso3166Alpha2CountryCodeFormat);

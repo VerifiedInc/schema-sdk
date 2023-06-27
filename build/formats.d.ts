@@ -60,7 +60,11 @@ type FormatD = Format & {
 };
 export declare const addressFormat: FormatD;
 /**
- * Format to determine if a string contains valid range values with an ISO 4217 currency code followed by a space then a number
+ * Format to determine if a string contains valid gender
+ */
+export declare const iso3166Alpha2CountryCodeFormat: Format;
+/**
+ * Format to determine if a string contains valid gender
  */
 export declare const genderFormat: Format;
 export {};
