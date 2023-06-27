@@ -4,6 +4,7 @@ import {
   addressFormat,
   dataUriBase64ImageFormat,
   digitsFormat,
+  documentTypeFormat,
   emailFormat,
   genderFormat,
   iso3166Alpha2CountryCodeFormat,
@@ -15,8 +16,7 @@ import {
   optionalPhoneFormat,
   otpFormat,
   phoneFormat,
-  ssnFormat,
-  unixMsExpirationDateFormat
+  ssnFormat
 } from '../src/formats';
 
 describe('formats', () => {
@@ -252,5 +252,19 @@ describe('formats', () => {
     expect(validate('Male')).toBe(false);
     expect(validate('M')).toBe(false);
     expect(validate('F')).toBe(false);
+  });
+
+  test('DocumentTypeFormat', () => {
+    const format = documentTypeFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('Passport')).toBe(true);
+    expect(validate('Drivers License')).toBe(true);
+
+    // invalid
+    expect(validate('Id')).toBe(false);
+    expect(validate('License')).toBe(false);
+    expect(validate('document')).toBe(false);
   });
 });

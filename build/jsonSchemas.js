@@ -182,7 +182,11 @@ exports.facialMatchConfidenceCredentialJsonSchema = typebox_1.Type.Object({
     }) // TODO create a confidence format
 }, { $id: 'FacialMatchConfidenceCredential', additionalProperties: false });
 exports.governmentIdTypeCredentialJsonSchema = typebox_1.Type.Object({
-    documentType: typebox_1.Type.String() // TODO create a document type format
+    documentType: typebox_1.Type.String({
+        format: 'documentType',
+        description: 'A person\'s government identification document type',
+        examples: ['Drivers License', 'Passport', 'State ID', 'Military ID', 'National ID', 'Birth Certificate', 'Voter Registration Card', 'Other']
+    })
 }, { $id: 'GovernmentIdTypeCredential', additionalProperties: false });
 exports.governmentIdDocumentBackImageCredentialJsonSchema = typebox_1.Type.Object({
     image: typebox_1.Type.String({

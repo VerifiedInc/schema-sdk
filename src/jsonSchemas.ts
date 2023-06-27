@@ -264,7 +264,11 @@ export const facialMatchConfidenceCredentialJsonSchema = Type.Object(
 
 export const governmentIdTypeCredentialJsonSchema = Type.Object(
   {
-    documentType: Type.String() // TODO create a document type format
+    documentType: Type.String({
+      format: 'documentType',
+      description: 'A person\'s government identification document type',
+      examples: ['Drivers License', 'Passport', 'State ID', 'Military ID', 'National ID', 'Birth Certificate', 'Voter Registration Card', 'Other']
+    })
   },
   { $id: 'GovernmentIdTypeCredential', additionalProperties: false }
 ) as UnumJsonSchema;

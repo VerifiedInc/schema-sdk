@@ -38,6 +38,8 @@ const validISO31662USCodes = new Set([
 
 const genders = new Set(['male', 'female']);
 
+const documentTypes = new Set(['Drivers License', 'Passport', 'State ID', 'Military ID', 'National ID', 'Birth Certificate', 'Voter Registration Card', 'Other']);
+
 /*******************************************************************
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
@@ -311,6 +313,18 @@ export const genderFormat: Format = {
   type: 'string',
   validate: (input: string) => {
     if (!genders.has(input)) return false;
+
+    return true;
+  }
+};
+
+/**
+ * Format to determine if a string contains valid gender
+ */
+export const documentTypeFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    if (!documentTypes.has(input)) return false;
 
     return true;
   }

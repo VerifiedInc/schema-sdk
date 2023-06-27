@@ -47,7 +47,8 @@ import {
   dataUriBase64ImageFormat,
   genderFormat,
   iso3166Alpha2CountryCodeFormat,
-  iso3166CodeFormat
+  iso3166CodeFormat,
+  documentTypeFormat
 } from './formats';
 
 export {
@@ -71,6 +72,7 @@ export {
   genderFormat,
   iso3166Alpha2CountryCodeFormat,
   iso3166CodeFormat,
+  documentTypeFormat,
 
   // json-ld context file
   context,

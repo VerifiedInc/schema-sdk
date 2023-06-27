@@ -71,5 +71,9 @@ export declare const iso3166Alpha2CountryCodeFormat: Format;
  * Format to determine if a string contains valid gender
  */
 export declare const genderFormat: Format;
+/**
+ * Format to determine if a string contains valid gender
+ */
+export declare const documentTypeFormat: Format;
 export {};
 //# sourceMappingURL=formats.d.ts.map
