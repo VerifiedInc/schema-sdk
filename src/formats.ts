@@ -7,7 +7,7 @@ const validISO4217Codes = new Set([
 ]);
 
 // iso3166-1 alpha-2 Country codes: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-const validISO31661CountryCodes = new Set([
+const validISO31661Alpha2CountryCodes = new Set([
   'AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'AO', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AW', 'AX', 'AZ',
   'BA', 'BB', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BL', 'BM', 'BN', 'BO', 'BQ', 'BR', 'BS',
   'BT', 'BV', 'BW', 'BY', 'BZ', 'CA', 'CC', 'CD', 'CF', 'CG', 'CH', 'CI', 'CK', 'CL', 'CM', 'CN',
@@ -35,6 +35,14 @@ const validISO31662USCodes = new Set([
   'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY',
   'DC', 'AS', 'GU', 'MP', 'PR', 'UM', 'VI'
 ]);
+
+const sexes = new Set(['Male', 'Female']);
+
+const genders = new Set(['Male', 'Female', 'Non-Binary', 'Other']);
+
+const documentTypes = new Set(['Drivers License', 'Passport', 'State ID', 'Military ID', 'National ID', 'Birth Certificate', 'Voter Registration Card', 'Other']);
+
+const confidenceLevels = new Set(['Very High', 'High', 'Medium', 'Low', 'Very Low']);
 
 /*******************************************************************
  * Creating custom formats                                         *
@@ -117,23 +125,6 @@ export const digitsFormat: Format = {
     // matches a string of digits
     const digitsRegex = /^-?\d+$/;
     return digitsRegex.test(digits);
-  }
-};
-
-/**
- * Format to determine if a string is a unix timestamp in milliseconds greater than current time
- */
-export const unixMsExpirationDateFormat: Format = {
-  type: 'string',
-  validate: (expirationDate: string) => {
-    // Note: need to handle this as a format validator instead of using TypeBox's minimum validator because using that option value is static upon initialization
-    const valid = (digitsFormat.validate as FormatValidator<string>)(expirationDate);
-
-    if (!valid) {
-      return false;
-    }
-
-    return parseInt(expirationDate) > Date.now();
   }
 };
 
@@ -242,7 +233,7 @@ export const addressFormat: Format = {
     // Check that iso3166Code isn't empty
     if (!iso3166Code) return false;
 
-    // Check that iso3166Code isn't empty
+    // Check that zip isn't empty
     if (!zip) return false;
 
     // split the iso3166-2 code
@@ -254,7 +245,7 @@ export const addressFormat: Format = {
     const isoRegionCode = iso3166Parts[1]; // aka state or territory code
 
     // Check that country is a valid ISO 3166-1 alpha-2 code
-    if (!validISO31661CountryCodes.has(isoCountryCode)) return false;
+    if (!validISO31661Alpha2CountryCodes.has(isoCountryCode)) return false;
 
     if (isoCountryCode === 'US') {
       // preform additional validation to check for valid US region codes
@@ -270,5 +261,105 @@ export const addressFormat: Format = {
     }
 
     return true;
+  }
+};
+
+/**
+ * Format to determine if a string is a valid iso3166 code
+ */
+export const iso3166CodeFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    // split the iso3166-2 code
+    const iso3166Parts = input.split('-');
+
+    // Check both parts of the iso3166-2 code are present
+    if (iso3166Parts.length !== 2) return false;
+    const isoCountryCode = iso3166Parts[0];
+    const isoRegionCode = iso3166Parts[1]; // aka state or territory code
+
+    // Check that country is a valid ISO 3166-1 alpha-2 code
+    if (!validISO31661Alpha2CountryCodes.has(isoCountryCode)) return false;
+
+    if (isoCountryCode === 'US') {
+      // preform additional validation to check for valid US region codes
+      if (!validISO31662USCodes.has(isoRegionCode)) return false;
+    } else {
+      // Check that region is a valid ISO 3166-2 code region code (just a string with up to three alphanumeric characters)
+      const isoRegionRegex = /^[a-zA-Z0-9]{1,3}$/;
+      if (!isoRegionRegex.test(isoRegionCode)) return false;
+    }
+
+    return true;
+  }
+};
+
+/**
+ * Format to determine if a string is a valid iso3166-1 alpha-2 country code
+ */
+export const iso3166Alpha2CountryCodeFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    if (!validISO31661Alpha2CountryCodes.has(input)) return false;
+
+    return true;
+  }
+};
+
+/**
+ * Format to determine if a string contains a valid sex
+ */
+export const sexFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    if (!sexes.has(input)) return false;
+
+    return true;
+  }
+};
+
+/**
+ * Format to determine if a string contains a valid gender
+ */
+export const genderFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    if (!genders.has(input)) return false;
+
+    return true;
+  }
+};
+
+/**
+ * Format to determine if a string contains a valid document type
+ */
+export const documentTypeFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    if (!documentTypes.has(input)) return false;
+
+    return true;
+  }
+};
+
+/**
+ * Format to determine if a string contains valid a confidence value
+ */
+export const confidenceLevelFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    if (!confidenceLevels.has(input)) return false;
+
+    return true;
+  }
+};
+
+/**
+ * Format to determine if a string is a valid boolean
+ */
+export const booleanFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    return input === 'true' || input === 'false';
   }
 };

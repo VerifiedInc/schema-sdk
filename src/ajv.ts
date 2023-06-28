@@ -6,7 +6,6 @@ import {
   emailFormat,
   phoneFormat,
   ssnFormat,
-  unixMsExpirationDateFormat,
   digitsFormat,
   optionalEmailFormat,
   optionalPhoneFormat,
@@ -14,7 +13,13 @@ import {
   iso4217Format,
   iso4217AmountFormat,
   iso4217AmountRangeFormat,
-  addressFormat
+  addressFormat,
+  genderFormat,
+  iso3166Alpha2CountryCodeFormat,
+  iso3166CodeFormat,
+  documentTypeFormat,
+  confidenceLevelFormat,
+  booleanFormat
 } from './formats';
 
 // get all the values of the jsonSchemas object in an array
@@ -47,10 +52,15 @@ ajv.addFormat('optionalEmail', optionalEmailFormat);
 ajv.addFormat('phone', phoneFormat);
 ajv.addFormat('optionalPhone', optionalPhoneFormat);
 ajv.addFormat('ssn', ssnFormat);
-ajv.addFormat('unixMsExpirationDate', unixMsExpirationDateFormat);
 ajv.addFormat('digits', digitsFormat);
 ajv.addFormat('dataUriBase64Image', dataUriBase64ImageFormat);
 ajv.addFormat('iso4217', iso4217Format);
 ajv.addFormat('iso4217Amount', iso4217AmountFormat);
 ajv.addFormat('iso4217AmountRange', iso4217AmountRangeFormat);
 ajv.addFormat('address', addressFormat);
+ajv.addFormat('gender', genderFormat);
+ajv.addFormat('iso3361Alpha2', iso3166Alpha2CountryCodeFormat);
+ajv.addFormat('iso3166', iso3166CodeFormat);
+ajv.addFormat('documentType', documentTypeFormat);
+ajv.addFormat('confidenceLevel', confidenceLevelFormat);
+ajv.addFormat('boolean', booleanFormat);

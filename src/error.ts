@@ -7,7 +7,7 @@ type AjvErrorObject = ErrorObject[] | null | undefined;
  * Class to encapsulate schema errors.
  */
 export class SchemaError extends Error {
-  errors?: AjvErrorObject
+  errors: AjvErrorObject
 
   constructor (errors: AjvErrorObject, message = 'Schema validation error') {
     if (errors) {

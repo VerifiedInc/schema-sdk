@@ -40,12 +40,17 @@ import {
   emailFormat,
   phoneFormat,
   ssnFormat,
-  unixMsExpirationDateFormat,
   digitsFormat,
   optionalEmailFormat,
   optionalPhoneFormat,
   otpFormat,
-  dataUriBase64ImageFormat
+  dataUriBase64ImageFormat,
+  genderFormat,
+  iso3166Alpha2CountryCodeFormat,
+  iso3166CodeFormat,
+  documentTypeFormat,
+  confidenceLevelFormat,
+  booleanFormat
 } from './formats';
 
 export {
@@ -63,10 +68,15 @@ export {
   ssnFormat,
   phoneFormat,
   optionalPhoneFormat,
-  unixMsExpirationDateFormat,
   digitsFormat,
   otpFormat,
   dataUriBase64ImageFormat,
+  genderFormat,
+  iso3166Alpha2CountryCodeFormat,
+  iso3166CodeFormat,
+  documentTypeFormat,
+  confidenceLevelFormat,
+  booleanFormat,
 
   // json-ld context file
   context,

@@ -37,11 +37,16 @@ exports.ajv.addFormat('optionalEmail', formats_1.optionalEmailFormat);
 exports.ajv.addFormat('phone', formats_1.phoneFormat);
 exports.ajv.addFormat('optionalPhone', formats_1.optionalPhoneFormat);
 exports.ajv.addFormat('ssn', formats_1.ssnFormat);
-exports.ajv.addFormat('unixMsExpirationDate', formats_1.unixMsExpirationDateFormat);
 exports.ajv.addFormat('digits', formats_1.digitsFormat);
 exports.ajv.addFormat('dataUriBase64Image', formats_1.dataUriBase64ImageFormat);
 exports.ajv.addFormat('iso4217', formats_1.iso4217Format);
 exports.ajv.addFormat('iso4217Amount', formats_1.iso4217AmountFormat);
 exports.ajv.addFormat('iso4217AmountRange', formats_1.iso4217AmountRangeFormat);
 exports.ajv.addFormat('address', formats_1.addressFormat);
+exports.ajv.addFormat('gender', formats_1.genderFormat);
+exports.ajv.addFormat('iso3361Alpha2', formats_1.iso3166Alpha2CountryCodeFormat);
+exports.ajv.addFormat('iso3166', formats_1.iso3166CodeFormat);
+exports.ajv.addFormat('documentType', formats_1.documentTypeFormat);
+exports.ajv.addFormat('confidenceLevel', formats_1.confidenceLevelFormat);
+exports.ajv.addFormat('boolean', formats_1.booleanFormat);
 //# sourceMappingURL=ajv.js.map

@@ -137,7 +137,7 @@ describe('Validate Schemas', () => {
   describe('SexCredential Schema', () => {
     it('valid', async () => {
       const valid = validate('SexCredential', {
-        sex: 'male'
+        sex: 'Male'
       });
       expect(valid).toEqual(true);
     });
@@ -157,13 +157,25 @@ describe('Validate Schemas', () => {
   describe('NationalityCredential Schema', () => {
     test('valid', () => {
       const valid = validate('NationalityCredential', {
-        nationality: 'United States'
+        nationality: 'US'
       });
 
       expect(valid).toEqual(true);
     });
 
-    test('invalid', async () => {
+    test('invalid', () => {
+      expect.assertions(1);
+      try {
+        validate('NationalityCredential', {
+          nationality: 'United States'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong key', async () => {
       expect.assertions(1);
       try {
         validate('NationalityCredential', {
@@ -179,13 +191,25 @@ describe('Validate Schemas', () => {
   describe('GovernmentIdStateCredential Schema', () => {
     test('valid', () => {
       const valid = validate('GovernmentIdStateCredential', {
-        state: 'California'
+        state: 'US-CA'
       });
 
       expect(valid).toEqual(true);
     });
 
-    test('invalid', async () => {
+    test('invalid', () => {
+      expect.assertions(1);
+      try {
+        validate('GovernmentIdStateCredential', {
+          state: 'Florida'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid key', async () => {
       expect.assertions(1);
       try {
         validate('GovernmentIdStateCredential', {
@@ -279,7 +303,7 @@ describe('Validate Schemas', () => {
       expect.assertions(1);
       try {
         validate('GovernmentIdExpirationDateCredential', {
-          expirationDate: '1'
+          expirationDate: '11-2023'
         });
         fail();
       } catch (e) {

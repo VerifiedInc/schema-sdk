@@ -2,9 +2,15 @@ import { FormatDefinition } from 'ajv';
 import { FormatValidator } from 'ajv/dist/types';
 import {
   addressFormat,
+  booleanFormat,
+  confidenceLevelFormat,
   dataUriBase64ImageFormat,
   digitsFormat,
+  documentTypeFormat,
   emailFormat,
+  genderFormat,
+  iso3166Alpha2CountryCodeFormat,
+  iso3166CodeFormat,
   iso4217AmountFormat,
   iso4217AmountRangeFormat,
   iso4217Format,
@@ -12,8 +18,8 @@ import {
   optionalPhoneFormat,
   otpFormat,
   phoneFormat,
-  ssnFormat,
-  unixMsExpirationDateFormat
+  sexFormat,
+  ssnFormat
 } from '../src/formats';
 
 describe('formats', () => {
@@ -104,21 +110,6 @@ describe('formats', () => {
 
     // invalid digits
     expect(validate('test')).toBe(false);
-  });
-
-  test('unixMsExpirationDateFormat', () => {
-    const format = unixMsExpirationDateFormat as FormatDefinition<string>;
-    const validate = format.validate as FormatValidator<string>;
-
-    const nowish = Date.now() - 10;
-    const futureTime = nowish + 10000000;
-
-    // valid unixMsExpirationDate
-    expect(validate(futureTime.toString())).toBe(true);
-
-    // invalid unixMsExpirationDate
-    expect(validate('test')).toBe(false);
-    expect(validate(nowish.toString())).toBe(false);
   });
 
   test('otpFormat', () => {
@@ -218,5 +209,113 @@ describe('formats', () => {
     expect(validate('107 Ross Khaledi Rd, Laredo, TX 78045 US')).toBe(false);
     expect(validate('307 3rd Ave, Apt #4, San Austin, US-GA 185-9876')).toBe(false);
     expect(validate('307 3rd Ave, Apt #4,, US-GA 185-9876')).toBe(false);
+  });
+
+  test('iso3166CodeFormat', () => {
+    const format = iso3166CodeFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('US-TX')).toBe(true);
+    expect(validate('US-GA')).toBe(true);
+    expect(validate('GB-ENG')).toBe(true);
+
+    // invalid
+    expect(validate('test')).toBe(false);
+    expect(validate('United States, Georgia')).toBe(false);
+    expect(validate('Georgia, US')).toBe(false);
+    expect(validate('GA')).toBe(false);
+  });
+
+  test('iso3166Alpha2CountryCodeFormat', () => {
+    const format = iso3166Alpha2CountryCodeFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('US')).toBe(true);
+    expect(validate('GB')).toBe(true);
+    expect(validate('MX')).toBe(true);
+
+    // invalid
+    expect(validate('test')).toBe(false);
+    expect(validate('ENG')).toBe(false);
+    expect(validate('AUS')).toBe(false);
+  });
+
+  test('SexFormat', () => {
+    const format = sexFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('Male')).toBe(true);
+    expect(validate('Female')).toBe(true);
+
+    // invalid
+    expect(validate('test')).toBe(false);
+    expect(validate('male')).toBe(false);
+    expect(validate('M')).toBe(false);
+    expect(validate('F')).toBe(false);
+  });
+
+  test('GenderFormat', () => {
+    const format = genderFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('Male')).toBe(true);
+    expect(validate('Female')).toBe(true);
+    expect(validate('Non-Binary')).toBe(true);
+    expect(validate('Other')).toBe(true);
+
+    // invalid
+    expect(validate('test')).toBe(false);
+    expect(validate('male')).toBe(false);
+    expect(validate('M')).toBe(false);
+    expect(validate('F')).toBe(false);
+  });
+
+  test('DocumentTypeFormat', () => {
+    const format = documentTypeFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('Passport')).toBe(true);
+    expect(validate('Drivers License')).toBe(true);
+
+    // invalid
+    expect(validate('Id')).toBe(false);
+    expect(validate('License')).toBe(false);
+    expect(validate('document')).toBe(false);
+  });
+
+  test('ConfidenceLevelFormat', () => {
+    const format = confidenceLevelFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('Very High')).toBe(true);
+    expect(validate('High')).toBe(true);
+    expect(validate('Medium')).toBe(true);
+    expect(validate('Low')).toBe(true);
+    expect(validate('Very Low')).toBe(true);
+
+    // invalid
+    expect(validate('low')).toBe(false);
+    expect(validate('high')).toBe(false);
+    expect(validate('veryhigh')).toBe(false);
+  });
+
+  test('BooleanFormat', () => {
+    const format = booleanFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('true')).toBe(true);
+    expect(validate('false')).toBe(true);
+
+    // invalid
+    expect(validate('True')).toBe(false);
+    expect(validate('FAlse')).toBe(false);
+    expect(validate('unknown')).toBe(false);
   });
 });

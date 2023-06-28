@@ -28,10 +28,6 @@ export declare const optionalPhoneFormat: Format;
  */
 export declare const digitsFormat: Format;
 /**
- * Format to determine if a string is a unix timestamp in milliseconds greater than current time
- */
-export declare const unixMsExpirationDateFormat: Format;
-/**
  * Format to determine if a string is a valid OTP (verification code)
  * validates that the string is six digits
  */
@@ -60,4 +56,32 @@ export declare const iso4217AmountRangeFormat: Format;
  * 107 Ross Khaledi Rd, Apt #4, Laredo, US-TX 78045-1234
  */
 export declare const addressFormat: Format;
+/**
+ * Format to determine if a string is a valid iso3166 code
+ */
+export declare const iso3166CodeFormat: Format;
+/**
+ * Format to determine if a string is a valid iso3166-1 alpha-2 country code
+ */
+export declare const iso3166Alpha2CountryCodeFormat: Format;
+/**
+ * Format to determine if a string contains a valid sex
+ */
+export declare const sexFormat: Format;
+/**
+ * Format to determine if a string contains a valid gender
+ */
+export declare const genderFormat: Format;
+/**
+ * Format to determine if a string contains a valid document type
+ */
+export declare const documentTypeFormat: Format;
+/**
+ * Format to determine if a string contains valid a confidence value
+ */
+export declare const confidenceLevelFormat: Format;
+/**
+ * Format to determine if a string is a valid boolean
+ */
+export declare const booleanFormat: Format;
 //# sourceMappingURL=formats.d.ts.map

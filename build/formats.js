@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.unixMsExpirationDateFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
+exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.genderFormat = exports.sexFormat = exports.iso3166Alpha2CountryCodeFormat = exports.iso3166CodeFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
 // iso4317 codes: https://www.iban.com/currency-codes
 const validISO4217Codes = new Set([
     'AED', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'ARS', 'AUD', 'AWG', 'AZN', 'BAM', 'BBD', 'BDT', 'BGN', 'BHD', 'BIF', 'BMD', 'BND', 'BOB', 'BRL', 'BSD', 'BTN', 'BWP', 'BYN', 'BZD', 'CAD', 'CDF', 'CHF', 'CLP', 'CNY', 'COP', 'CRC', 'CUC', 'CUP', 'CVE', 'CZK', 'DJF', 'DKK', 'DOP', 'DZD', 'EGP', 'ERN', 'ETB', 'EUR', 'FJD', 'FKP', 'GBP', 'GEL', 'GGP', 'GHS', 'GIP', 'GMD', 'GNF', 'GTQ', 'GYD', 'HKD', 'HNL', 'HRK', 'HTG', 'HUF', 'IDR', 'ILS', 'IMP', 'INR', 'IQD', 'IRR', 'ISK', 'JEP', 'JMD', 'JOD', 'JPY', 'KES', 'KGS', 'KHR', 'KMF', 'KPW', 'KRW', 'KWD', 'KYD', 'KZT', 'LAK', 'LBP', 'LKR', 'LRD', 'LSL', 'LYD', 'MAD', 'MDL', 'MGA', 'MKD', 'MMK', 'MNT', 'MOP', 'MRU', 'MUR', 'MVR', 'MWK', 'MXN', 'MYR', 'MZN', 'NAD', 'NGN', 'NIO', 'NOK', 'NPR', 'NZD', 'OMR', 'PAB', 'PEN', 'PGK', 'PHP', 'PKR', 'PLN', 'PYG', 'QAR', 'RON', 'RSD', 'RUB', 'RWF', 'SAR', 'SBD', 'SCR', 'SDG', 'SEK', 'SGD', 'SHP', 'SLL', 'SOS', 'SPL', 'SRD', 'STN', 'SVC', 'SYP', 'SZL', 'THB', 'TJS', 'TMT', 'TND', 'TOP', 'TRY', 'TTD', 'TVD', 'TWD', 'TZS', 'UAH', 'UGX', 'USD', 'UYU', 'UZS', 'VEF', 'VND', 'VUV', 'WST', 'XAF', 'XCD', 'XDR', 'XOF', 'XPF', 'YER', 'ZAR', 'ZMW', 'ZWD'
 ]);
 // iso3166-1 alpha-2 Country codes: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-const validISO31661CountryCodes = new Set([
+const validISO31661Alpha2CountryCodes = new Set([
     'AD', 'AE', 'AF', 'AG', 'AI', 'AL', 'AM', 'AO', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AW', 'AX', 'AZ',
     'BA', 'BB', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BL', 'BM', 'BN', 'BO', 'BQ', 'BR', 'BS',
     'BT', 'BV', 'BW', 'BY', 'BZ', 'CA', 'CC', 'CD', 'CF', 'CG', 'CH', 'CI', 'CK', 'CL', 'CM', 'CN',
@@ -33,6 +33,10 @@ const validISO31662USCodes = new Set([
     'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY',
     'DC', 'AS', 'GU', 'MP', 'PR', 'UM', 'VI'
 ]);
+const sexes = new Set(['Male', 'Female']);
+const genders = new Set(['Male', 'Female', 'Non-Binary', 'Other']);
+const documentTypes = new Set(['Drivers License', 'Passport', 'State ID', 'Military ID', 'National ID', 'Birth Certificate', 'Voter Registration Card', 'Other']);
+const confidenceLevels = new Set(['Very High', 'High', 'Medium', 'Low', 'Very Low']);
 /*******************************************************************
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
@@ -106,20 +110,6 @@ exports.digitsFormat = {
         // matches a string of digits
         const digitsRegex = /^-?\d+$/;
         return digitsRegex.test(digits);
-    }
-};
-/**
- * Format to determine if a string is a unix timestamp in milliseconds greater than current time
- */
-exports.unixMsExpirationDateFormat = {
-    type: 'string',
-    validate: (expirationDate) => {
-        // Note: need to handle this as a format validator instead of using TypeBox's minimum validator because using that option value is static upon initialization
-        const valid = exports.digitsFormat.validate(expirationDate);
-        if (!valid) {
-            return false;
-        }
-        return parseInt(expirationDate) > Date.now();
     }
 };
 /**
@@ -217,7 +207,7 @@ exports.addressFormat = {
         // Check that iso3166Code isn't empty
         if (!iso3166Code)
             return false;
-        // Check that iso3166Code isn't empty
+        // Check that zip isn't empty
         if (!zip)
             return false;
         // split the iso3166-2 code
@@ -228,7 +218,7 @@ exports.addressFormat = {
         const isoCountryCode = iso3166Parts[0];
         const isoRegionCode = iso3166Parts[1]; // aka state or territory code
         // Check that country is a valid ISO 3166-1 alpha-2 code
-        if (!validISO31661CountryCodes.has(isoCountryCode))
+        if (!validISO31661Alpha2CountryCodes.has(isoCountryCode))
             return false;
         if (isoCountryCode === 'US') {
             // preform additional validation to check for valid US region codes
@@ -246,6 +236,100 @@ exports.addressFormat = {
                 return false;
         }
         return true;
+    }
+};
+/**
+ * Format to determine if a string is a valid iso3166 code
+ */
+exports.iso3166CodeFormat = {
+    type: 'string',
+    validate: (input) => {
+        // split the iso3166-2 code
+        const iso3166Parts = input.split('-');
+        // Check both parts of the iso3166-2 code are present
+        if (iso3166Parts.length !== 2)
+            return false;
+        const isoCountryCode = iso3166Parts[0];
+        const isoRegionCode = iso3166Parts[1]; // aka state or territory code
+        // Check that country is a valid ISO 3166-1 alpha-2 code
+        if (!validISO31661Alpha2CountryCodes.has(isoCountryCode))
+            return false;
+        if (isoCountryCode === 'US') {
+            // preform additional validation to check for valid US region codes
+            if (!validISO31662USCodes.has(isoRegionCode))
+                return false;
+        }
+        else {
+            // Check that region is a valid ISO 3166-2 code region code (just a string with up to three alphanumeric characters)
+            const isoRegionRegex = /^[a-zA-Z0-9]{1,3}$/;
+            if (!isoRegionRegex.test(isoRegionCode))
+                return false;
+        }
+        return true;
+    }
+};
+/**
+ * Format to determine if a string is a valid iso3166-1 alpha-2 country code
+ */
+exports.iso3166Alpha2CountryCodeFormat = {
+    type: 'string',
+    validate: (input) => {
+        if (!validISO31661Alpha2CountryCodes.has(input))
+            return false;
+        return true;
+    }
+};
+/**
+ * Format to determine if a string contains a valid sex
+ */
+exports.sexFormat = {
+    type: 'string',
+    validate: (input) => {
+        if (!sexes.has(input))
+            return false;
+        return true;
+    }
+};
+/**
+ * Format to determine if a string contains a valid gender
+ */
+exports.genderFormat = {
+    type: 'string',
+    validate: (input) => {
+        if (!genders.has(input))
+            return false;
+        return true;
+    }
+};
+/**
+ * Format to determine if a string contains a valid document type
+ */
+exports.documentTypeFormat = {
+    type: 'string',
+    validate: (input) => {
+        if (!documentTypes.has(input))
+            return false;
+        return true;
+    }
+};
+/**
+ * Format to determine if a string contains valid a confidence value
+ */
+exports.confidenceLevelFormat = {
+    type: 'string',
+    validate: (input) => {
+        if (!confidenceLevels.has(input))
+            return false;
+        return true;
+    }
+};
+/**
+ * Format to determine if a string is a valid boolean
+ */
+exports.booleanFormat = {
+    type: 'string',
+    validate: (input) => {
+        return input === 'true' || input === 'false';
     }
 };
 //# sourceMappingURL=formats.js.map
