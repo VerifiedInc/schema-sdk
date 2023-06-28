@@ -205,12 +205,8 @@ export const iso4217AmountRangeFormat: Format = {
  * 107 Ross Khaledi Rd, Laredo, US-TX 78045
  * 107 Ross Khaledi Rd, Apt #4, Laredo, US-TX 78045-1234
  */
-type FormatD = Format & {
-  description: string;
-}
-export const addressFormat: FormatD = {
+export const addressFormat: Format = {
   type: 'string',
-  description: 'Address string in the format: address, city, iso3166CodeAndZip',
   validate: (input: string) => {
     const parts = input.split(',');
 
