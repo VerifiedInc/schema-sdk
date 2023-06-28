@@ -68,6 +68,10 @@ export declare const iso3166CodeFormat: Format;
  */
 export declare const iso3166Alpha2CountryCodeFormat: Format;
 /**
+ * Format to determine if a string contains a valid sex
+ */
+export declare const sexFormat: Format;
+/**
  * Format to determine if a string contains a valid gender
  */
 export declare const genderFormat: Format;
@@ -80,7 +84,7 @@ export declare const documentTypeFormat: Format;
  */
 export declare const confidenceLevelFormat: Format;
 /**
- * Format to determine if a string contains valid a confidence value
+ * Format to determine if a string is a valid boolean
  */
 export declare const booleanFormat: Format;
 export {};

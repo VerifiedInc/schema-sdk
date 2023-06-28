@@ -137,7 +137,7 @@ describe('Validate Schemas', () => {
   describe('SexCredential Schema', () => {
     it('valid', async () => {
       const valid = validate('SexCredential', {
-        sex: 'male'
+        sex: 'Male'
       });
       expect(valid).toEqual(true);
     });

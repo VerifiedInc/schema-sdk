@@ -18,6 +18,7 @@ import {
   optionalPhoneFormat,
   otpFormat,
   phoneFormat,
+  sexFormat,
   ssnFormat
 } from '../src/formats';
 
@@ -241,17 +242,34 @@ describe('formats', () => {
     expect(validate('AUS')).toBe(false);
   });
 
+  test('SexFormat', () => {
+    const format = sexFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('Male')).toBe(true);
+    expect(validate('Female')).toBe(true);
+
+    // invalid
+    expect(validate('test')).toBe(false);
+    expect(validate('male')).toBe(false);
+    expect(validate('M')).toBe(false);
+    expect(validate('F')).toBe(false);
+  });
+
   test('GenderFormat', () => {
     const format = genderFormat as FormatDefinition<string>;
     const validate = format.validate as FormatValidator<string>;
 
     // valid
-    expect(validate('male')).toBe(true);
-    expect(validate('female')).toBe(true);
+    expect(validate('Male')).toBe(true);
+    expect(validate('Female')).toBe(true);
+    expect(validate('Non-Binary')).toBe(true);
+    expect(validate('Other')).toBe(true);
 
     // invalid
     expect(validate('test')).toBe(false);
-    expect(validate('Male')).toBe(false);
+    expect(validate('male')).toBe(false);
     expect(validate('M')).toBe(false);
     expect(validate('F')).toBe(false);
   });

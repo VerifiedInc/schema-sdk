@@ -139,7 +139,9 @@ exports.genderCredentialJsonSchema = typebox_1.Type.Object({
         description: 'A person\'s gender',
         examples: [
             'Male',
-            'Female'
+            'Female',
+            'Other',
+            'Non-Binary'
         ]
     })
 }, { $id: 'GenderCredential', additionalProperties: false });

@@ -36,7 +36,9 @@ const validISO31662USCodes = new Set([
   'DC', 'AS', 'GU', 'MP', 'PR', 'UM', 'VI'
 ]);
 
-const genders = new Set(['male', 'female']);
+const sexes = new Set(['Male', 'Female']);
+
+const genders = new Set(['Male', 'Female', 'Non-Binary', 'Other']);
 
 const documentTypes = new Set(['Drivers License', 'Passport', 'State ID', 'Military ID', 'National ID', 'Birth Certificate', 'Voter Registration Card', 'Other']);
 
@@ -309,6 +311,18 @@ export const iso3166Alpha2CountryCodeFormat: Format = {
 };
 
 /**
+ * Format to determine if a string contains a valid sex
+ */
+export const sexFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    if (!sexes.has(input)) return false;
+
+    return true;
+  }
+};
+
+/**
  * Format to determine if a string contains a valid gender
  */
 export const genderFormat: Format = {
@@ -345,7 +359,7 @@ export const confidenceLevelFormat: Format = {
 };
 
 /**
- * Format to determine if a string contains valid a confidence value
+ * Format to determine if a string is a valid boolean
  */
 export const booleanFormat: Format = {
   type: 'string',

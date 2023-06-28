@@ -201,7 +201,9 @@ export const genderCredentialJsonSchema = Type.Object(
       description: 'A person\'s gender',
       examples: [
         'Male',
-        'Female'
+        'Female',
+        'Other',
+        'Non-Binary'
       ]
     })
   },
