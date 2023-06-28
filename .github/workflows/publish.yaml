@@ -85,12 +85,13 @@ jobs:
           access: public
           registry: https://registry.npmjs.org/
 
-      - name: Github package publish
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          access: public
-          registry: https://npm.pkg.github.com
+      # Can not publish to github package registry since Github org has not been migrated to verified.inc yet.
+      # - name: Github package publish
+      #   uses: JS-DevTools/npm-publish@v1
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     access: public
+      #     registry: https://npm.pkg.github.com
 
       # ref: https://github.com/marketplace/actions/delete-tag-and-release
       - name: Delete the v tag
