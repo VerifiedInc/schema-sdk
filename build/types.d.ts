@@ -15,8 +15,8 @@ import {
   governmentIdDocumentImageCredentialJsonSchema,
   governmentIdTypeCredentialJsonSchema,
   lastNameCredentialJsonSchema,
-  livelinessConfidenceCredentialJsonSchema,
-  livelinessCredentialJsonSchema,
+  livenessConfidenceCredentialJsonSchema,
+  livenessCredentialJsonSchema,
   phoneCredentialJsonSchema,
   ssnCredentialJsonSchema,
   nationalityCredentialJsonSchema,
@@ -37,7 +37,7 @@ export type EmailCredentialSchemaType = Static<typeof emailCredentialJsonSchema>
 export type IdentityCredentialSchemaType = Static<typeof identityCredentialJsonSchema>;
 export type CountryResidenceCredentialSchemaType = Static<typeof countryResidenceCredentialJsonSchema>;
 export type FacialImageCredentialSchemaType = Static<typeof facialImageCredentialJsonSchema>;
-export type LivelinessCredentialSchemaType = Static<typeof livelinessCredentialJsonSchema>;
+export type LivenessCredentialSchemaType = Static<typeof livenessCredentialJsonSchema>;
 export type AddressCredentialSchemaType = Static<typeof addressCredentialJsonSchema>;
 export type LastNameCredentialSchemaType = Static<typeof lastNameCredentialJsonSchema>;
 export type FirstNameCredentialSchemaType = Static<typeof firstNameCredentialJsonSchema>;
@@ -48,7 +48,7 @@ export type GenderCredentialSchemaType = Static<typeof genderCredentialJsonSchem
 export type GovernmentIdDocumentImageCredentialSchemaType = Static<
   typeof governmentIdDocumentImageCredentialJsonSchema
 >;
-export type LivelinessConfidenceCredentialSchemaType = Static<typeof livelinessConfidenceCredentialJsonSchema>;
+export type LivenessConfidenceCredentialSchemaType = Static<typeof livenessConfidenceCredentialJsonSchema>;
 export type FacialMatchCredentialSchemaType = Static<typeof facialMatchCredentialJsonSchema>;
 export type FacialMatchConfidenceCredentialSchemaType = Static<typeof facialMatchConfidenceCredentialJsonSchema>;
 export type GovernmentIdTypeCredentialSchemaType = Static<typeof governmentIdTypeCredentialJsonSchema>;

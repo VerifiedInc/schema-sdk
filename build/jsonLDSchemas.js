@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.jsonLDSchemas = exports.employmentStartDateJsonLDSchema = exports.annualIncomeRangeJsonLDSchema = exports.incomeCurrencyJsonLDSchema = exports.annualIncomeJsonLDSchema = exports.titleJsonLDSchema = exports.employerJsonLDSchema = exports.governmentIdNumberCredentialJsonLDSchema = exports.governmentIdExpirationDateCredentialJsonLDSchema = exports.governmentIdIssuanceDateCredentialJsonLDSchema = exports.governmentIdStateCredentialJsonLDSchema = exports.governmentIdDocumentBackImageCredentialJsonLDSchema = exports.governmentIdTypeCredentialJsonLDSchema = exports.facialMatchCredentialJsonLDSchema = exports.governmentIdDocumentImageCredentialJsonLDSchema = exports.sexCredentialJsonLDSchema = exports.genderCredentialJsonLDSchema = exports.fullNameCredentialJsonLDSchema = exports.phoneCredentialJsonLDSchema = exports.birthDateCredentialJsonLDSchema = exports.firstNameCredentialJsonLDSchema = exports.lastNameCredentialJsonLDSchema = exports.addressCredentialJsonLDSchema = exports.livelinessCredentialJsonLDSchema = exports.facialImageCredentialJsonLDSchema = exports.nationalityCredentialJsonLDSchema = exports.countryResidenceCredentialJsonLDSchema = exports.ssnCredentialJsonLDSchema = exports.identityCredentialJsonLDSchema = exports.emailCredentialJsonLDSchema = void 0;
+exports.jsonLDSchemas = exports.employmentStartDateJsonLDSchema = exports.annualIncomeRangeJsonLDSchema = exports.incomeCurrencyJsonLDSchema = exports.annualIncomeJsonLDSchema = exports.titleJsonLDSchema = exports.employerJsonLDSchema = exports.governmentIdNumberCredentialJsonLDSchema = exports.governmentIdExpirationDateCredentialJsonLDSchema = exports.governmentIdIssuanceDateCredentialJsonLDSchema = exports.governmentIdStateCredentialJsonLDSchema = exports.governmentIdDocumentBackImageCredentialJsonLDSchema = exports.governmentIdTypeCredentialJsonLDSchema = exports.facialMatchCredentialJsonLDSchema = exports.governmentIdDocumentImageCredentialJsonLDSchema = exports.sexCredentialJsonLDSchema = exports.genderCredentialJsonLDSchema = exports.fullNameCredentialJsonLDSchema = exports.phoneCredentialJsonLDSchema = exports.birthDateCredentialJsonLDSchema = exports.firstNameCredentialJsonLDSchema = exports.lastNameCredentialJsonLDSchema = exports.addressCredentialJsonLDSchema = exports.livenessCredentialJsonLDSchema = exports.facialImageCredentialJsonLDSchema = exports.nationalityCredentialJsonLDSchema = exports.countryResidenceCredentialJsonLDSchema = exports.ssnCredentialJsonLDSchema = exports.identityCredentialJsonLDSchema = exports.emailCredentialJsonLDSchema = void 0;
 exports.emailCredentialJsonLDSchema = {
     '@type': 'EmailCredential',
     email: 'schema:email',
@@ -31,8 +31,8 @@ exports.facialImageCredentialJsonLDSchema = {
     image: 'schema:faceImage',
     '@context': 'https://schema.unumid.co'
 };
-exports.livelinessCredentialJsonLDSchema = {
-    '@type': 'LivelinessCredential',
+exports.livenessCredentialJsonLDSchema = {
+    '@type': 'LivenessCredential',
     '@context': 'https://schema.unumid.co',
     confidence: 'schema:livelinessConfidence'
 };
@@ -154,7 +154,7 @@ exports.jsonLDSchemas = {
     NationalityCredential: exports.nationalityCredentialJsonLDSchema,
     FacialImageCredential: exports.facialImageCredentialJsonLDSchema,
     FacialMatchCredential: exports.facialMatchCredentialJsonLDSchema,
-    LivelinessCredential: exports.livelinessCredentialJsonLDSchema,
+    LivenessCredential: exports.livenessCredentialJsonLDSchema,
     AddressCredential: exports.addressCredentialJsonLDSchema,
     LastNameCredential: exports.lastNameCredentialJsonLDSchema,
     FirstNameCredential: exports.firstNameCredentialJsonLDSchema,

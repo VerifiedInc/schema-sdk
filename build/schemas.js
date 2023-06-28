@@ -24,9 +24,9 @@ exports.schemas = {
         json: jsonSchemas_1.facialImageCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.facialImageCredentialJsonLDSchema
     },
-    LivelinessCredential: {
-        json: jsonSchemas_1.livelinessCredentialJsonSchema,
-        jsonLD: jsonLDSchemas_1.livelinessCredentialJsonLDSchema
+    LivenessCredential: {
+        json: jsonSchemas_1.livenessCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.livenessCredentialJsonLDSchema
     },
     AddressCredential: {
         json: jsonSchemas_1.addressCredentialJsonSchema,

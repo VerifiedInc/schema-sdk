@@ -9,7 +9,7 @@ export declare const ssnCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const countryResidenceCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const nationalityCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const facialImageCredentialJsonLDSchema: UnumJsonLDSchema;
-export declare const livelinessCredentialJsonLDSchema: UnumJsonLDSchema;
+export declare const livenessCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const addressCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const lastNameCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const firstNameCredentialJsonLDSchema: UnumJsonLDSchema;

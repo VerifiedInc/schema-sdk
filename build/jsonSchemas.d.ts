@@ -12,7 +12,7 @@ export declare const ssnCredentialJsonSchema: UnumJsonSchema;
 export declare const countryResidenceCredentialJsonSchema: UnumJsonSchema;
 export declare const nationalityCredentialJsonSchema: UnumJsonSchema;
 export declare const facialImageCredentialJsonSchema: UnumJsonSchema;
-export declare const livelinessCredentialJsonSchema: UnumJsonSchema;
+export declare const livenessCredentialJsonSchema: UnumJsonSchema;
 export declare const addressCredentialJsonSchema: UnumJsonSchema;
 export declare const lastNameCredentialJsonSchema: UnumJsonSchema;
 export declare const firstNameCredentialJsonSchema: UnumJsonSchema;

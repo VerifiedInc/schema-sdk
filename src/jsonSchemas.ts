@@ -98,7 +98,7 @@ export const facialImageCredentialJsonSchema = Type.Object(
   { $id: 'FacialImageCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
-export const livelinessCredentialJsonSchema = Type.Object(
+export const livenessCredentialJsonSchema = Type.Object(
   {
     confidence: Type.String({
       format: 'confidenceLevel',
@@ -112,7 +112,7 @@ export const livelinessCredentialJsonSchema = Type.Object(
       ]
     })
   },
-  { $id: 'LivelinessCredential', additionalProperties: false }
+  { $id: 'LivenessCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const addressCredentialJsonSchema = Type.Object(
@@ -420,7 +420,7 @@ export const jsonSchemas: Record<string, UnumJsonSchema> = {
   NationalityCredential: nationalityCredentialJsonSchema,
   FacialImageCredential: facialImageCredentialJsonSchema,
   FacialMatchCredential: facialMatchCredentialJsonSchema,
-  LivelinessCredential: livelinessCredentialJsonSchema,
+  LivenessCredential: livenessCredentialJsonSchema,
   AddressCredential: addressCredentialJsonSchema,
   LastNameCredential: lastNameCredentialJsonSchema,
   FirstNameCredential: firstNameCredentialJsonSchema,

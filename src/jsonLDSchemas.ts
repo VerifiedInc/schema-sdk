@@ -40,8 +40,8 @@ export const facialImageCredentialJsonLDSchema: UnumJsonLDSchema = {
   '@context': 'https://schema.unumid.co'
 };
 
-export const livelinessCredentialJsonLDSchema: UnumJsonLDSchema = {
-  '@type': 'LivelinessCredential',
+export const livenessCredentialJsonLDSchema: UnumJsonLDSchema = {
+  '@type': 'LivenessCredential',
   '@context': 'https://schema.unumid.co',
   confidence: 'schema:livelinessConfidence'
 };
@@ -186,7 +186,7 @@ export const jsonLDSchemas: Record<string, UnumJsonLDSchema> = {
   NationalityCredential: nationalityCredentialJsonLDSchema,
   FacialImageCredential: facialImageCredentialJsonLDSchema,
   FacialMatchCredential: facialMatchCredentialJsonLDSchema,
-  LivelinessCredential: livelinessCredentialJsonLDSchema,
+  LivenessCredential: livenessCredentialJsonLDSchema,
   AddressCredential: addressCredentialJsonLDSchema,
   LastNameCredential: lastNameCredentialJsonLDSchema,
   FirstNameCredential: firstNameCredentialJsonLDSchema,

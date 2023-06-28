@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.jsonSchemas = exports.employmentStartDateCredentialJsonSchema = exports.annualIncomeRangeCredentialJsonSchema = exports.incomeCurrencyCredentialJsonSchema = exports.annualIncomeCredentialJsonSchema = exports.titleCredentialJsonSchema = exports.employerCredentialJsonSchema = exports.governmentIdExpirationDateCredentialJsonSchema = exports.governmentIdIssuanceDateCredentialJsonSchema = exports.governmentIdNumberCredentialJsonSchema = exports.governmentIdStateCredentialJsonSchema = exports.governmentIdDocumentBackImageCredentialJsonSchema = exports.governmentIdTypeCredentialJsonSchema = exports.facialMatchCredentialJsonSchema = exports.governmentIdDocumentImageCredentialJsonSchema = exports.genderCredentialJsonSchema = exports.fullNameCredentialJsonSchema = exports.phoneCredentialJsonSchema = exports.birthDateCredentialJsonSchema = exports.firstNameCredentialJsonSchema = exports.lastNameCredentialJsonSchema = exports.addressCredentialJsonSchema = exports.livelinessCredentialJsonSchema = exports.facialImageCredentialJsonSchema = exports.nationalityCredentialJsonSchema = exports.countryResidenceCredentialJsonSchema = exports.ssnCredentialJsonSchema = exports.sexCredentialJsonSchema = exports.identityCredentialJsonSchema = exports.emailCredentialJsonSchema = void 0;
+exports.jsonSchemas = exports.employmentStartDateCredentialJsonSchema = exports.annualIncomeRangeCredentialJsonSchema = exports.incomeCurrencyCredentialJsonSchema = exports.annualIncomeCredentialJsonSchema = exports.titleCredentialJsonSchema = exports.employerCredentialJsonSchema = exports.governmentIdExpirationDateCredentialJsonSchema = exports.governmentIdIssuanceDateCredentialJsonSchema = exports.governmentIdNumberCredentialJsonSchema = exports.governmentIdStateCredentialJsonSchema = exports.governmentIdDocumentBackImageCredentialJsonSchema = exports.governmentIdTypeCredentialJsonSchema = exports.facialMatchCredentialJsonSchema = exports.governmentIdDocumentImageCredentialJsonSchema = exports.genderCredentialJsonSchema = exports.fullNameCredentialJsonSchema = exports.phoneCredentialJsonSchema = exports.birthDateCredentialJsonSchema = exports.firstNameCredentialJsonSchema = exports.lastNameCredentialJsonSchema = exports.addressCredentialJsonSchema = exports.livenessCredentialJsonSchema = exports.facialImageCredentialJsonSchema = exports.nationalityCredentialJsonSchema = exports.countryResidenceCredentialJsonSchema = exports.ssnCredentialJsonSchema = exports.sexCredentialJsonSchema = exports.identityCredentialJsonSchema = exports.emailCredentialJsonSchema = void 0;
 const typebox_1 = require("@sinclair/typebox");
 exports.emailCredentialJsonSchema = typebox_1.Type.Object({
     email: typebox_1.Type.String({
@@ -65,7 +65,7 @@ exports.facialImageCredentialJsonSchema = typebox_1.Type.Object({
         ]
     })
 }, { $id: 'FacialImageCredential', additionalProperties: false });
-exports.livelinessCredentialJsonSchema = typebox_1.Type.Object({
+exports.livenessCredentialJsonSchema = typebox_1.Type.Object({
     confidence: typebox_1.Type.String({
         format: 'confidenceLevel',
         description: 'A person\'s liveliness confidence level during an IDV session',
@@ -77,7 +77,7 @@ exports.livelinessCredentialJsonSchema = typebox_1.Type.Object({
             'Very Low'
         ]
     })
-}, { $id: 'LivelinessCredential', additionalProperties: false });
+}, { $id: 'LivenessCredential', additionalProperties: false });
 exports.addressCredentialJsonSchema = typebox_1.Type.Object({
     address: typebox_1.Type.String({
         format: 'address',
@@ -299,7 +299,7 @@ exports.jsonSchemas = {
     NationalityCredential: exports.nationalityCredentialJsonSchema,
     FacialImageCredential: exports.facialImageCredentialJsonSchema,
     FacialMatchCredential: exports.facialMatchCredentialJsonSchema,
-    LivelinessCredential: exports.livelinessCredentialJsonSchema,
+    LivenessCredential: exports.livenessCredentialJsonSchema,
     AddressCredential: exports.addressCredentialJsonSchema,
     LastNameCredential: exports.lastNameCredentialJsonSchema,
     FirstNameCredential: exports.firstNameCredentialJsonSchema,
