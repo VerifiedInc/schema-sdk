@@ -1,11 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SchemaError = void 0;
-const lib_1 = require("@feathersjs/errors/lib");
 /**
  * Class to encapsulate schema errors.
  */
-class SchemaError extends lib_1.BadRequest {
+class SchemaError extends Error {
     constructor(errors, message = 'Schema validation error') {
         if (errors) {
             message = errors.map((error) => error.message).join(', ');

@@ -1,10 +1,9 @@
 import { ErrorObject } from 'ajv';
-import { BadRequest } from '@feathersjs/errors/lib';
 type AjvErrorObject = ErrorObject[] | null | undefined;
 /**
  * Class to encapsulate schema errors.
  */
-export declare class SchemaError extends BadRequest {
+export declare class SchemaError extends Error {
     errors: AjvErrorObject;
     constructor(errors: AjvErrorObject, message?: string);
 }
