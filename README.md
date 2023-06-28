@@ -1,5 +1,5 @@
 # Schema SDK
-SDK for Unum ID credential scheme handling, e.g. definitions and validation.
+SDK for Verified.Inc credential scheme handling, e.g. definitions and validation.
 
 ## JSON-LD Schemas
 Json-LD Schemas are integral as a description format for arbitrary data types. We use it to enable enriched UX around credentials, i.e. in the Wallet's Presentation Request for describing the credentials being requested. They are written in W3C [RDFS](https://www.w3.org/TR/rdf-schema/) syntax. Following [schema.org](https://github.com/schemaorg/schemaorg/)'s lead. 
