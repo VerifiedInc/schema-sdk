@@ -43,7 +43,7 @@ export const facialImageCredentialJsonLDSchema: UnumJsonLDSchema = {
 export const livelinessCredentialJsonLDSchema: UnumJsonLDSchema = {
   '@type': 'LivelinessCredential',
   '@context': 'https://schema.unumid.co',
-  liveliness: 'schema:liveliness'
+  confidence: 'schema:livelinessConfidence'
 };
 
 export const addressCredentialJsonLDSchema: UnumJsonLDSchema = {
@@ -100,22 +100,10 @@ export const governmentIdDocumentImageCredentialJsonLDSchema: UnumJsonLDSchema =
   '@context': 'https://schema.unumid.co'
 };
 
-export const livelinessConfidenceCredentialJsonLDSchema: UnumJsonLDSchema = {
-  '@type': 'LivelinessConfidenceCredential',
-  '@context': 'https://schema.unumid.co',
-  confidence: 'schema:livelinessConfidence'
-};
-
 export const facialMatchCredentialJsonLDSchema: UnumJsonLDSchema = {
   '@type': 'FacialMatchCredential',
-  match: 'schema:facialMatch',
+  confidence: 'schema:facialMatchConfidence',
   '@context': 'https://schema.unumid.co'
-};
-
-export const facialMatchConfidenceCredentialJsonLDSchema: UnumJsonLDSchema = {
-  '@type': 'FacialMatchConfidenceCredential',
-  '@context': 'https://schema.unumid.co',
-  confidence: 'schema:facialMatchConfidence'
 };
 
 export const governmentIdTypeCredentialJsonLDSchema: UnumJsonLDSchema = {
@@ -197,6 +185,7 @@ export const jsonLDSchemas: Record<string, UnumJsonLDSchema> = {
   CountryResidenceCredential: countryResidenceCredentialJsonLDSchema,
   NationalityCredential: nationalityCredentialJsonLDSchema,
   FacialImageCredential: facialImageCredentialJsonLDSchema,
+  FacialMatchCredential: facialMatchCredentialJsonLDSchema,
   LivelinessCredential: livelinessCredentialJsonLDSchema,
   AddressCredential: addressCredentialJsonLDSchema,
   LastNameCredential: lastNameCredentialJsonLDSchema,
@@ -206,9 +195,6 @@ export const jsonLDSchemas: Record<string, UnumJsonLDSchema> = {
   FullNameCredential: fullNameCredentialJsonLDSchema,
   GenderCredential: genderCredentialJsonLDSchema,
   GovernmentIdDocumentImageCredential: governmentIdDocumentImageCredentialJsonLDSchema,
-  LivelinessConfidenceCredential: livelinessConfidenceCredentialJsonLDSchema,
-  FacialMatchCredential: facialMatchCredentialJsonLDSchema,
-  FacialMatchConfidenceCredential: facialMatchConfidenceCredentialJsonLDSchema,
   GovernmentIdTypeCredential: governmentIdTypeCredentialJsonLDSchema,
   GovernmentIdDocumentBackImageCredential: governmentIdDocumentBackImageCredentialJsonLDSchema,
   SexCredential: sexCredentialJsonLDSchema,

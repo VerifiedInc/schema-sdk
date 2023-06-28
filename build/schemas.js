@@ -60,17 +60,9 @@ exports.schemas = {
         json: jsonSchemas_1.governmentIdDocumentImageCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.governmentIdDocumentImageCredentialJsonLDSchema
     },
-    LivelinessConfidenceCredential: {
-        json: jsonSchemas_1.livelinessConfidenceCredentialJsonSchema,
-        jsonLD: jsonLDSchemas_1.livelinessConfidenceCredentialJsonLDSchema
-    },
     FacialMatchCredential: {
         json: jsonSchemas_1.facialMatchCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.facialMatchCredentialJsonLDSchema
-    },
-    FacialMatchConfidenceCredential: {
-        json: jsonSchemas_1.facialMatchConfidenceCredentialJsonSchema,
-        jsonLD: jsonLDSchemas_1.facialMatchConfidenceCredentialJsonLDSchema
     },
     GovernmentIdTypeCredential: {
         json: jsonSchemas_1.governmentIdTypeCredentialJsonSchema,

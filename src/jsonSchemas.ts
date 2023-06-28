@@ -100,14 +100,17 @@ export const facialImageCredentialJsonSchema = Type.Object(
 
 export const livelinessCredentialJsonSchema = Type.Object(
   {
-    liveness: Type.String({
-      description: 'A person\'s liveliness score during an IDV session',
+    confidence: Type.String({
+      format: 'confidenceLevel',
+      description: 'A person\'s liveliness confidence level during an IDV session',
       examples: [
-        '99',
+        'Very High',
         'High',
-        'Low'
+        'Medium',
+        'Low',
+        'Very Low'
       ]
-    }) // TODO create a liveliness format
+    })
   },
   { $id: 'LivelinessCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -223,38 +226,7 @@ export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(
   { $id: 'GovernmentIdDocumentImageCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
-export const livelinessConfidenceCredentialJsonSchema = Type.Object(
-  {
-    confidence: Type.String({
-      format: 'confidenceLevel',
-      description: 'A person\'s liveliness confidence level during an IDV session',
-      examples: [
-        'Very High',
-        'High',
-        'Medium',
-        'Low',
-        'Very Low'
-      ]
-    })
-  },
-  { $id: 'LivelinessConfidenceCredential', additionalProperties: false }
-) as UnumJsonSchema;
-
 export const facialMatchCredentialJsonSchema = Type.Object(
-  {
-    match: Type.String({
-      format: 'boolean',
-      description: 'Did a person\'s facial match during an IDV session',
-      examples: [
-        'true',
-        'false'
-      ]
-    })
-  },
-  { $id: 'FacialMatchCredential', additionalProperties: false }
-) as UnumJsonSchema;
-
-export const facialMatchConfidenceCredentialJsonSchema = Type.Object(
   {
     confidence: Type.String({
       format: 'confidenceLevel',
@@ -268,7 +240,7 @@ export const facialMatchConfidenceCredentialJsonSchema = Type.Object(
       ]
     })
   },
-  { $id: 'FacialMatchConfidenceCredential', additionalProperties: false }
+  { $id: 'FacialMatchCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
 export const governmentIdTypeCredentialJsonSchema = Type.Object(
@@ -447,6 +419,7 @@ export const jsonSchemas: Record<string, UnumJsonSchema> = {
   CountryResidenceCredential: countryResidenceCredentialJsonSchema,
   NationalityCredential: nationalityCredentialJsonSchema,
   FacialImageCredential: facialImageCredentialJsonSchema,
+  FacialMatchCredential: facialMatchCredentialJsonSchema,
   LivelinessCredential: livelinessCredentialJsonSchema,
   AddressCredential: addressCredentialJsonSchema,
   LastNameCredential: lastNameCredentialJsonSchema,
@@ -456,9 +429,6 @@ export const jsonSchemas: Record<string, UnumJsonSchema> = {
   FullNameCredential: fullNameCredentialJsonSchema,
   GenderCredential: genderCredentialJsonSchema,
   GovernmentIdDocumentImageCredential: governmentIdDocumentImageCredentialJsonSchema,
-  LivelinessConfidenceCredential: livelinessConfidenceCredentialJsonSchema,
-  FacialMatchCredential: facialMatchCredentialJsonSchema,
-  FacialMatchConfidenceCredential: facialMatchConfidenceCredentialJsonSchema,
   GovernmentIdTypeCredential: governmentIdTypeCredentialJsonSchema,
   GovernmentIdDocumentBackImageCredential: governmentIdDocumentBackImageCredentialJsonSchema,
   SexCredential: sexCredentialJsonSchema,
