@@ -4,7 +4,6 @@ import {
   countryResidenceCredentialJsonLDSchema,
   emailCredentialJsonLDSchema,
   facialImageCredentialJsonLDSchema,
-  facialMatchConfidenceCredentialJsonLDSchema,
   facialMatchCredentialJsonLDSchema,
   firstNameCredentialJsonLDSchema,
   fullNameCredentialJsonLDSchema,
@@ -17,8 +16,7 @@ import {
   governmentIdTypeCredentialJsonLDSchema,
   identityCredentialJsonLDSchema,
   lastNameCredentialJsonLDSchema,
-  livelinessConfidenceCredentialJsonLDSchema,
-  livelinessCredentialJsonLDSchema,
+  livenessCredentialJsonLDSchema,
   nationalityCredentialJsonLDSchema,
   phoneCredentialJsonLDSchema,
   sexCredentialJsonLDSchema,
@@ -37,7 +35,6 @@ import {
   countryResidenceCredentialJsonSchema,
   emailCredentialJsonSchema,
   facialImageCredentialJsonSchema,
-  facialMatchConfidenceCredentialJsonSchema,
   facialMatchCredentialJsonSchema,
   firstNameCredentialJsonSchema,
   fullNameCredentialJsonSchema,
@@ -50,8 +47,7 @@ import {
   governmentIdTypeCredentialJsonSchema,
   identityCredentialJsonSchema,
   lastNameCredentialJsonSchema,
-  livelinessConfidenceCredentialJsonSchema,
-  livelinessCredentialJsonSchema,
+  livenessCredentialJsonSchema,
   nationalityCredentialJsonSchema,
   phoneCredentialJsonSchema,
   sexCredentialJsonSchema,
@@ -91,9 +87,9 @@ export const schemas: Record<string, UnumSchema> = {
     json: facialImageCredentialJsonSchema,
     jsonLD: facialImageCredentialJsonLDSchema
   },
-  LivelinessCredential: {
-    json: livelinessCredentialJsonSchema,
-    jsonLD: livelinessCredentialJsonLDSchema
+  LivenessCredential: {
+    json: livenessCredentialJsonSchema,
+    jsonLD: livenessCredentialJsonLDSchema
   },
   AddressCredential: {
     json: addressCredentialJsonSchema,
@@ -127,17 +123,9 @@ export const schemas: Record<string, UnumSchema> = {
     json: governmentIdDocumentImageCredentialJsonSchema,
     jsonLD: governmentIdDocumentImageCredentialJsonLDSchema
   },
-  LivelinessConfidenceCredential: {
-    json: livelinessConfidenceCredentialJsonSchema,
-    jsonLD: livelinessConfidenceCredentialJsonLDSchema
-  },
   FacialMatchCredential: {
     json: facialMatchCredentialJsonSchema,
     jsonLD: facialMatchCredentialJsonLDSchema
-  },
-  FacialMatchConfidenceCredential: {
-    json: facialMatchConfidenceCredentialJsonSchema,
-    jsonLD: facialMatchConfidenceCredentialJsonLDSchema
   },
   GovernmentIdTypeCredential: {
     json: governmentIdTypeCredentialJsonSchema,

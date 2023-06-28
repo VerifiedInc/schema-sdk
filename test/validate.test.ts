@@ -561,4 +561,50 @@ describe('Validate Schemas', () => {
       }
     });
   });
+
+  describe('LivenessCredential Schema', () => {
+    test('valid', () => {
+      const valid = validate('LivenessCredential', {
+        confidence: 'High'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong key', async () => {
+      expect.assertions(1);
+      try {
+        validate('AddressCredential', {
+          fullAddress: 'High'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong format', async () => {
+      expect.assertions(1);
+      try {
+        validate('AddressCredential', {
+          confidence: new Date()
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('AddressCredential', {
+          confidence: 'low'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
 });

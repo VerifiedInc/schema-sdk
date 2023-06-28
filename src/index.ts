@@ -21,15 +21,15 @@ import {
   AnnualIncomeCredentialSchemaType,
   IncomeCurrencyCredentialSchemaType,
   LastNameCredentialSchemaType,
-  LivelinessConfidenceCredentialSchemaType,
-  LivelinessCredentialSchemaType,
+  LivenessCredentialSchemaType,
   NationalityCredentialSchemaType,
   PhoneCredentialSchemaType,
   SexCredentialSchemaType,
   SsnCredentialSchemaType,
   TitleCredentialSchemaType,
   AnnualIncomeRangeCredentialSchemaType,
-  EmploymentStartDateCredentialSchemaType
+  EmploymentStartDateCredentialSchemaType,
+  LivenessConfidenceCredentialSchemaType
 } from './types';
 import { validate } from './validate';
 import context from './context/unum.id.json';
@@ -90,7 +90,7 @@ export {
   SsnCredentialSchemaType,
   CountryResidenceCredentialSchemaType,
   FacialImageCredentialSchemaType,
-  LivelinessCredentialSchemaType,
+  LivenessCredentialSchemaType,
   AddressCredentialSchemaType,
   LastNameCredentialSchemaType,
   FirstNameCredentialSchemaType,
@@ -100,7 +100,7 @@ export {
   FullNameCredentialSchemaType,
   GenderCredentialSchemaType,
   GovernmentIdDocumentImageCredentialSchemaType,
-  LivelinessConfidenceCredentialSchemaType,
+  LivenessConfidenceCredentialSchemaType,
   FacialMatchCredentialSchemaType,
   FacialMatchConfidenceCredentialSchemaType,
   GovernmentIdTypeCredentialSchemaType,
