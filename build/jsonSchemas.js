@@ -154,32 +154,39 @@ exports.governmentIdDocumentImageCredentialJsonSchema = typebox_1.Type.Object({
 }, { $id: 'GovernmentIdDocumentImageCredential', additionalProperties: false });
 exports.livelinessConfidenceCredentialJsonSchema = typebox_1.Type.Object({
     confidence: typebox_1.Type.String({
-        description: 'A person\'s liveliness confidence score during an IDV session',
+        format: 'confidenceLevel',
+        description: 'A person\'s liveliness confidence level during an IDV session',
         examples: [
-            '99',
+            'Very High',
             'High',
-            'Low'
+            'Medium',
+            'Low',
+            'Very Low'
         ]
-    }) // TODO create a confidence format
+    })
 }, { $id: 'LivelinessConfidenceCredential', additionalProperties: false });
 exports.facialMatchCredentialJsonSchema = typebox_1.Type.Object({
     match: typebox_1.Type.String({
-        description: 'A person\'s facial match score during an IDV session',
+        format: 'boolean',
+        description: 'Did a person\'s facial match during an IDV session',
         examples: [
             'true',
             'false'
         ]
-    }) // TODO create a boolean format
+    })
 }, { $id: 'FacialMatchCredential', additionalProperties: false });
 exports.facialMatchConfidenceCredentialJsonSchema = typebox_1.Type.Object({
     confidence: typebox_1.Type.String({
+        format: 'confidenceLevel',
         description: 'A person\'s facial match confidence score during an IDV session',
         examples: [
-            '99',
+            'Very High',
             'High',
-            'Low'
+            'Medium',
+            'Low',
+            'Very Low'
         ]
-    }) // TODO create a confidence format
+    })
 }, { $id: 'FacialMatchConfidenceCredential', additionalProperties: false });
 exports.governmentIdTypeCredentialJsonSchema = typebox_1.Type.Object({
     documentType: typebox_1.Type.String({

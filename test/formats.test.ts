@@ -2,6 +2,8 @@ import { FormatDefinition } from 'ajv';
 import { FormatValidator } from 'ajv/dist/types';
 import {
   addressFormat,
+  booleanFormat,
+  confidenceLevelFormat,
   dataUriBase64ImageFormat,
   digitsFormat,
   documentTypeFormat,
@@ -266,5 +268,36 @@ describe('formats', () => {
     expect(validate('Id')).toBe(false);
     expect(validate('License')).toBe(false);
     expect(validate('document')).toBe(false);
+  });
+
+  test('ConfidenceLevelFormat', () => {
+    const format = confidenceLevelFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('Very High')).toBe(true);
+    expect(validate('High')).toBe(true);
+    expect(validate('Medium')).toBe(true);
+    expect(validate('Low')).toBe(true);
+    expect(validate('Very Low')).toBe(true);
+
+    // invalid
+    expect(validate('low')).toBe(false);
+    expect(validate('high')).toBe(false);
+    expect(validate('veryhigh')).toBe(false);
+  });
+
+  test('BooleanFormat', () => {
+    const format = booleanFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('true')).toBe(true);
+    expect(validate('false')).toBe(true);
+
+    // invalid
+    expect(validate('True')).toBe(false);
+    expect(validate('FAlse')).toBe(false);
+    expect(validate('unknown')).toBe(false);
   });
 });

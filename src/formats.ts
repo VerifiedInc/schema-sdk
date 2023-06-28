@@ -40,6 +40,8 @@ const genders = new Set(['male', 'female']);
 
 const documentTypes = new Set(['Drivers License', 'Passport', 'State ID', 'Military ID', 'National ID', 'Birth Certificate', 'Voter Registration Card', 'Other']);
 
+const confidenceLevels = new Set(['Very High', 'High', 'Medium', 'Low', 'Very Low']);
+
 /*******************************************************************
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
@@ -307,7 +309,7 @@ export const iso3166Alpha2CountryCodeFormat: Format = {
 };
 
 /**
- * Format to determine if a string contains valid gender
+ * Format to determine if a string contains a valid gender
  */
 export const genderFormat: Format = {
   type: 'string',
@@ -319,7 +321,7 @@ export const genderFormat: Format = {
 };
 
 /**
- * Format to determine if a string contains valid gender
+ * Format to determine if a string contains a valid document type
  */
 export const documentTypeFormat: Format = {
   type: 'string',
@@ -327,5 +329,27 @@ export const documentTypeFormat: Format = {
     if (!documentTypes.has(input)) return false;
 
     return true;
+  }
+};
+
+/**
+ * Format to determine if a string contains valid a confidence value
+ */
+export const confidenceLevelFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    if (!confidenceLevels.has(input)) return false;
+
+    return true;
+  }
+};
+
+/**
+ * Format to determine if a string contains valid a confidence value
+ */
+export const booleanFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    return input === 'true' || input === 'false';
   }
 };

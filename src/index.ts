@@ -48,7 +48,9 @@ import {
   genderFormat,
   iso3166Alpha2CountryCodeFormat,
   iso3166CodeFormat,
-  documentTypeFormat
+  documentTypeFormat,
+  confidenceLevelFormat,
+  booleanFormat
 } from './formats';
 
 export {
@@ -73,6 +75,8 @@ export {
   iso3166Alpha2CountryCodeFormat,
   iso3166CodeFormat,
   documentTypeFormat,
+  confidenceLevelFormat,
+  booleanFormat,
 
   // json-ld context file
   context,

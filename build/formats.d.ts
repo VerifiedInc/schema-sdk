@@ -68,12 +68,20 @@ export declare const iso3166CodeFormat: Format;
  */
 export declare const iso3166Alpha2CountryCodeFormat: Format;
 /**
- * Format to determine if a string contains valid gender
+ * Format to determine if a string contains a valid gender
  */
 export declare const genderFormat: Format;
 /**
- * Format to determine if a string contains valid gender
+ * Format to determine if a string contains a valid document type
  */
 export declare const documentTypeFormat: Format;
+/**
+ * Format to determine if a string contains valid a confidence value
+ */
+export declare const confidenceLevelFormat: Format;
+/**
+ * Format to determine if a string contains valid a confidence value
+ */
+export declare const booleanFormat: Format;
 export {};
 //# sourceMappingURL=formats.d.ts.map

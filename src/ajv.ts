@@ -17,7 +17,9 @@ import {
   genderFormat,
   iso3166Alpha2CountryCodeFormat,
   iso3166CodeFormat,
-  documentTypeFormat
+  documentTypeFormat,
+  confidenceLevelFormat,
+  booleanFormat
 } from './formats';
 
 // get all the values of the jsonSchemas object in an array
@@ -60,3 +62,5 @@ ajv.addFormat('gender', genderFormat);
 ajv.addFormat('iso3361Alpha2', iso3166Alpha2CountryCodeFormat);
 ajv.addFormat('iso3166', iso3166CodeFormat);
 ajv.addFormat('documentType', documentTypeFormat);
+ajv.addFormat('confidenceLevel', confidenceLevelFormat);
+ajv.addFormat('boolean', booleanFormat);

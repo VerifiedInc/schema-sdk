@@ -224,13 +224,16 @@ export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(
 export const livelinessConfidenceCredentialJsonSchema = Type.Object(
   {
     confidence: Type.String({
-      description: 'A person\'s liveliness confidence score during an IDV session',
+      format: 'confidenceLevel',
+      description: 'A person\'s liveliness confidence level during an IDV session',
       examples: [
-        '99',
+        'Very High',
         'High',
-        'Low'
+        'Medium',
+        'Low',
+        'Very Low'
       ]
-    }) // TODO create a confidence format
+    })
   },
   { $id: 'LivelinessConfidenceCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -238,12 +241,13 @@ export const livelinessConfidenceCredentialJsonSchema = Type.Object(
 export const facialMatchCredentialJsonSchema = Type.Object(
   {
     match: Type.String({
-      description: 'A person\'s facial match score during an IDV session',
+      format: 'boolean',
+      description: 'Did a person\'s facial match during an IDV session',
       examples: [
         'true',
         'false'
       ]
-    }) // TODO create a boolean format
+    })
   },
   { $id: 'FacialMatchCredential', additionalProperties: false }
 ) as UnumJsonSchema;
@@ -251,13 +255,16 @@ export const facialMatchCredentialJsonSchema = Type.Object(
 export const facialMatchConfidenceCredentialJsonSchema = Type.Object(
   {
     confidence: Type.String({
+      format: 'confidenceLevel',
       description: 'A person\'s facial match confidence score during an IDV session',
       examples: [
-        '99',
+        'Very High',
         'High',
-        'Low'
+        'Medium',
+        'Low',
+        'Very Low'
       ]
-    }) // TODO create a confidence format
+    })
   },
   { $id: 'FacialMatchConfidenceCredential', additionalProperties: false }
 ) as UnumJsonSchema;
