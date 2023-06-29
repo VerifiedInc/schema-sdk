@@ -50,7 +50,11 @@ import {
   iso3166CodeFormat,
   documentTypeFormat,
   confidenceLevelFormat,
-  booleanFormat
+  booleanFormat,
+  iso4217Format,
+  iso4217AmountFormat,
+  iso4217AmountRangeFormat,
+  addressFormat
 } from './formats';
 
 export {
@@ -71,6 +75,10 @@ export {
   digitsFormat,
   otpFormat,
   dataUriBase64ImageFormat,
+  iso4217Format,
+  iso4217AmountFormat,
+  iso4217AmountRangeFormat,
+  addressFormat,
   genderFormat,
   iso3166Alpha2CountryCodeFormat,
   iso3166CodeFormat,
