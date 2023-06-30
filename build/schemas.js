@@ -69,8 +69,8 @@ exports.schemas = {
         jsonLD: jsonLDSchemas_1.governmentIdTypeCredentialJsonLDSchema
     },
     GovernmentIdDocumentBackImageCredential: {
-        json: jsonSchemas_1.governmentIdDocumentImageCredentialJsonSchema,
-        jsonLD: jsonLDSchemas_1.governmentIdDocumentImageCredentialJsonLDSchema
+        json: jsonSchemas_1.governmentIdDocumentBackImageCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.governmentIdDocumentBackImageCredentialJsonLDSchema
     },
     SexCredential: {
         json: jsonSchemas_1.sexCredentialJsonSchema,
