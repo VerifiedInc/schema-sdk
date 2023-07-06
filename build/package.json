@@ -30,16 +30,13 @@
     "@types/supertest": "^2.0.10",
     "@types/winston": "^2.4.4",
     "@types/winston-syslog": "^2.0.3",
-    "@typescript-eslint/eslint-plugin": "^3.7.0",
-    "@typescript-eslint/parser": "^3.7.0",
-    "eslint": "^7.5.0",
-    "eslint-config-semistandard": "^15.0.1",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-import-resolver-typescript": "^2.0.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.46.1",
+    "@unumid/eslint-config": "github:UnumID/eslint-config#v1.0.3",
+    "eslint": "^8.31.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-standard": "^5.0.0",
     "husky": "^8.0.0",
     "jest": "^26.1.0",
     "standard-version": "^9.5.0",
@@ -59,5 +56,10 @@
     "dotenv": "^16.0.3",
     "winston": "^3.3.3",
     "winston-syslog": "^2.4.4"
+  },
+  "overrides": {
+    "semver": "^7.5.3",
+    "jsonwebtoken": "^9.0.0",
+    "optionator": "^0.9.3"
   }
 }
