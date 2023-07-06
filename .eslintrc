@@ -2,9 +2,7 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "import"],
   "extends": [
-    "semistandard",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "@unumid/eslint-config"
   ],
   "rules": {
     "space-before-function-paren": "off"
