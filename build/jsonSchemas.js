@@ -126,16 +126,10 @@ exports.phoneCredentialJsonSchema = typebox_1.Type.Object({
         ]
     })
 }, { $id: 'PhoneCredential', additionalProperties: false });
-exports.fullNameCredentialJsonSchema = typebox_1.Type.Object({
-    fullName: typebox_1.Type.String({
-        description: 'A person\'s full name',
-        examples: [
-            'John Smith',
-            'John Michael Smith',
-            'Mary Kate Sierra Garcia-Tony'
-        ]
-    })
-}, { $id: 'FullNameCredential', additionalProperties: false });
+exports.fullNameCredentialJsonSchema = typebox_1.Type.Intersect([
+    exports.firstNameCredentialJsonSchema,
+    exports.lastNameCredentialJsonSchema
+], { $id: 'FullNameCredential', additionalProperties: false });
 exports.genderCredentialJsonSchema = typebox_1.Type.Object({
     gender: typebox_1.Type.String({
         format: 'gender',

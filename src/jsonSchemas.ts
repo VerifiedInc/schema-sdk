@@ -183,17 +183,11 @@ export const phoneCredentialJsonSchema = Type.Object(
   { $id: 'PhoneCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 
-export const fullNameCredentialJsonSchema = Type.Object(
-  {
-    fullName: Type.String({
-      description: 'A person\'s full name',
-      examples: [
-        'John Smith',
-        'John Michael Smith',
-        'Mary Kate Sierra Garcia-Tony'
-      ]
-    })
-  },
+export const fullNameCredentialJsonSchema = Type.Intersect(
+  [
+    firstNameCredentialJsonSchema,
+    lastNameCredentialJsonSchema
+  ],
   { $id: 'FullNameCredential', additionalProperties: false }
 ) as UnumJsonSchema;
 

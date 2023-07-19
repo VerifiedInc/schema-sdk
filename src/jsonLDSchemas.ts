@@ -79,7 +79,8 @@ export const phoneCredentialJsonLDSchema: UnumJsonLDSchema = {
 export const fullNameCredentialJsonLDSchema: UnumJsonLDSchema = {
   '@type': 'FullNameCredential',
   '@context': 'https://schema.unumid.co',
-  fullName: 'schema:fullName'
+  firstName: 'schema:firstName',
+  lastName: 'schema:lastName'
 };
 
 export const genderCredentialJsonLDSchema: UnumJsonLDSchema = {

@@ -64,7 +64,8 @@ exports.phoneCredentialJsonLDSchema = {
 exports.fullNameCredentialJsonLDSchema = {
     '@type': 'FullNameCredential',
     '@context': 'https://schema.unumid.co',
-    fullName: 'schema:fullName'
+    firstName: 'schema:firstName',
+    lastName: 'schema:lastName'
 };
 exports.genderCredentialJsonLDSchema = {
     '@type': 'GenderCredential',
