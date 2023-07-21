@@ -5,4 +5,5 @@ import { TObject, TProperties } from '@sinclair/typebox';
  */
 export interface UnumJsonSchema extends TObject<TProperties> {
   $id: string; // UnumID schema definitions will always have a valid $id property
+  customFormat?: string; // UnumID schema definitions may have a customFormat property
 }

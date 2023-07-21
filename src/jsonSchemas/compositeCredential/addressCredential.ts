@@ -6,10 +6,11 @@ import { line2CredentialJsonSchema } from '../addressCredential/line2Credential'
 import { stateCredentialJsonSchema } from '../addressCredential/stateCredential';
 import { countryCredentialJsonSchema } from '../addressCredential/countryCredential';
 import { zipCodeCredentialJsonSchema } from '../addressCredential/zipCodeCredential';
+import { ajv } from '../../ajv';
 
 export const addressCredentialJsonSchema = Type.Union(
   [
-    Type.Composite([
+    Type.Intersect([
       line1CredentialJsonSchema,
       line2CredentialJsonSchema,
       cityCredentialJsonSchema,
@@ -29,6 +30,8 @@ export const addressCredentialJsonSchema = Type.Union(
     })
   ],
   {
-    $id: 'AddressCredential'
+    $id: 'AddressCompositeCredential'
   }
 ) as unknown as UnumJsonSchema;
+
+ajv.addSchema(addressCredentialJsonSchema, addressCredentialJsonSchema.$id);

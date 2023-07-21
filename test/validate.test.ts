@@ -1,5 +1,6 @@
 import { validate } from '../src/validate';
-
+import { zipCodeCredentialJsonSchema } from '../src/jsonSchemas/addressCredential/zipCodeCredential';
+import { addressCredentialJsonSchema } from '../src/jsonSchemas/compositeCredential/addressCredential';
 describe('Validate Schemas', () => {
   describe('EmailCredential Schema', () => {
     const evalInvalid = [
@@ -605,6 +606,25 @@ describe('Validate Schemas', () => {
       } catch (e) {
         expect(e).toBeDefined();
       }
+    });
+  });
+  describe('zipCodeTest Schema', () => {
+    test('valid', () => {
+      console.log(JSON.stringify(zipCodeCredentialJsonSchema, null, 2));
+
+      validate('ZipCodeCredential', {
+        zipCode: '94103'
+      });
+
+      console.log(JSON.stringify(addressCredentialJsonSchema, null, 2));
+      validate('AddressCompositeCredential', {
+        zipCode: '9410223',
+        country: 'US',
+        line1: '10 Downing Street',
+        line2: 'Apt #4',
+        city: 'San Francisco',
+        state: 'CA'
+      });
     });
   });
 });

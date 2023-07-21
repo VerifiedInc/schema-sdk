@@ -8,8 +8,9 @@ const line2Credential_1 = require("../addressCredential/line2Credential");
 const stateCredential_1 = require("../addressCredential/stateCredential");
 const countryCredential_1 = require("../addressCredential/countryCredential");
 const zipCodeCredential_1 = require("../addressCredential/zipCodeCredential");
+const ajv_1 = require("../../ajv");
 exports.addressCredentialJsonSchema = typebox_1.Type.Union([
-    typebox_1.Type.Composite([
+    typebox_1.Type.Intersect([
         line1Credential_1.line1CredentialJsonSchema,
         line2Credential_1.line2CredentialJsonSchema,
         cityCredential_1.cityCredentialJsonSchema,
@@ -28,6 +29,7 @@ exports.addressCredentialJsonSchema = typebox_1.Type.Union([
         })
     })
 ], {
-    $id: 'AddressCredential'
+    $id: 'AddressCompositeCredential'
 });
+ajv_1.ajv.addSchema(exports.addressCredentialJsonSchema, exports.addressCredentialJsonSchema.$id);
 //# sourceMappingURL=addressCredential.js.map

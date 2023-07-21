@@ -58,9 +58,30 @@ ajv.addFormat('iso4217', iso4217Format);
 ajv.addFormat('iso4217Amount', iso4217AmountFormat);
 ajv.addFormat('iso4217AmountRange', iso4217AmountRangeFormat);
 ajv.addFormat('address', addressFormat);
+// ajv.addFormat('addressComposite', addressCompositeFormat);
 ajv.addFormat('gender', genderFormat);
 ajv.addFormat('iso3361Alpha2', iso3166Alpha2CountryCodeFormat);
 ajv.addFormat('iso3166', iso3166CodeFormat);
 ajv.addFormat('documentType', documentTypeFormat);
 ajv.addFormat('confidenceLevel', confidenceLevelFormat);
 ajv.addFormat('boolean', booleanFormat);
+
+/*******************************************************************
+ * Add custom keyword to ajv below                                 *
+ * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
+ *******************************************************************/
+ajv.addKeyword({
+  keyword: 'customFormat',
+  validate: (schema: any, data: any) => {
+    if (schema === 'address') {
+      if (data.country === 'US') {
+        // Check that zip follows expected pattern. Assuming US zip codes, we can expect 5 digits or 9
+        const usZipRegex = /^\d{5}(-\d{4})?$/;
+        if (!usZipRegex.test(data.zipCode)) return false;
+      }
+      return true;
+    }
+    return true;
+  },
+  errors: false
+});

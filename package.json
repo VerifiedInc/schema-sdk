@@ -10,7 +10,7 @@
   "scripts": {
     "lint": "eslint \"src/**/*.ts\" \"test/**/*.ts\"",
     "compile": "rm -rf build/ && tsc && cp src/types.d.ts build/ && cp package.json build/",
-    "jest": "jest --forceExit --runInBand",
+    "jest": "jest --forceExit --runInBand --watch",
     "test": "npm run compile && npm run jest",
     "start": "node build/index.js",
     "debug": "ts-node src/index.ts",

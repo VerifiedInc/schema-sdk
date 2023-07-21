@@ -4,5 +4,6 @@ import { TObject, TProperties } from '@sinclair/typebox';
  */
 export interface UnumJsonSchema extends TObject<TProperties> {
     $id: string;
+    customFormat?: string;
 }
 //# sourceMappingURL=index.d.ts.map
