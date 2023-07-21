@@ -12,10 +12,7 @@ export const emailCredentialJsonSchema = Type.Object(
     email: Type.String({
       format: 'email',
       description: 'Standard, valid email address format.',
-      examples: [
-        'test@verified.inc',
-        'you+me@piedpiper.net'
-      ]
+      examples: ['test@verified.inc', 'you+me@piedpiper.net']
     })
   },
   { $id: 'EmailCredential', additionalProperties: false }
@@ -31,11 +28,8 @@ export const sexCredentialJsonSchema = Type.Object(
   {
     sex: Type.String({
       format: 'gender',
-      description: 'A person\'s sex',
-      examples: [
-        'Male',
-        'Female'
-      ]
+      description: "A person's sex",
+      examples: ['Male', 'Female']
     })
   },
   { $id: 'SexCredential', additionalProperties: false }
@@ -46,10 +40,7 @@ export const ssnCredentialJsonSchema = Type.Object(
     ssn: Type.String({
       format: 'ssn',
       description: '9 digit social security number, with no dashes, in the format of: 123456789',
-      examples: [
-        '123456789',
-        '333224444'
-      ]
+      examples: ['123456789', '333224444']
     })
   },
   { $id: 'SsnCredential', additionalProperties: false }
@@ -59,12 +50,8 @@ export const countryResidenceCredentialJsonSchema = Type.Object(
   {
     country: Type.String({
       format: 'iso3361Alpha2',
-      description: 'A person\'s country of residence in ISO 3166-1 alpha-2 format.',
-      examples: [
-        'US',
-        'CA',
-        'MX'
-      ]
+      description: "A person's country of residence in ISO 3166-1 alpha-2 format.",
+      examples: ['US', 'CA', 'MX']
     })
   },
   { $id: 'CountryResidenceCredential', additionalProperties: false }
@@ -74,12 +61,8 @@ export const nationalityCredentialJsonSchema = Type.Object(
   {
     nationality: Type.String({
       format: 'iso3361Alpha2',
-      description: 'A person\'s birth country or country of citizenship in ISO 3166-1 alpha-2 format.',
-      examples: [
-        'US',
-        'CA',
-        'MX'
-      ]
+      description: "A person's birth country or country of citizenship in ISO 3166-1 alpha-2 format.",
+      examples: ['US', 'CA', 'MX']
     })
   },
   { $id: 'NationalityCredential', additionalProperties: false }
@@ -89,7 +72,8 @@ export const facialImageCredentialJsonSchema = Type.Object(
   {
     image: Type.String({
       format: 'dataUriBase64Image',
-      description: 'Base64 encoded facial image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
+      description:
+        'Base64 encoded facial image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
       examples: [
         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
       ]
@@ -102,14 +86,8 @@ export const livenessCredentialJsonSchema = Type.Object(
   {
     confidence: Type.String({
       format: 'confidenceLevel',
-      description: 'A person\'s liveliness confidence level during an IDV session',
-      examples: [
-        'Very High',
-        'High',
-        'Medium',
-        'Low',
-        'Very Low'
-      ]
+      description: "A person's liveliness confidence level during an IDV session",
+      examples: ['Very High', 'High', 'Medium', 'Low', 'Very Low']
     })
   },
   { $id: 'LivenessCredential', additionalProperties: false }
@@ -132,11 +110,8 @@ export const addressCredentialJsonSchema = Type.Object(
 export const lastNameCredentialJsonSchema = Type.Object(
   {
     lastName: Type.String({
-      description: 'A person\'s last name',
-      examples: [
-        'Smith',
-        'Garcia-Tony'
-      ]
+      description: "A person's last name",
+      examples: ['Smith', 'Garcia-Tony']
     })
   },
   { $id: 'LastNameCredential', additionalProperties: false }
@@ -145,11 +120,8 @@ export const lastNameCredentialJsonSchema = Type.Object(
 export const firstNameCredentialJsonSchema = Type.Object(
   {
     firstName: Type.String({
-      description: 'A person\'s first name',
-      examples: [
-        'John',
-        'Mary Kate'
-      ]
+      description: "A person's first name",
+      examples: ['John', 'Mary Kate']
     })
   },
   { $id: 'FirstNameCredential', additionalProperties: false }
@@ -159,11 +131,9 @@ export const birthDateCredentialJsonSchema = Type.Object(
   {
     birthDate: Type.String({
       format: 'digits',
-      description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
-      examples: [
-        '1687488596000',
-        '-45709'
-      ]
+      description:
+        'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
+      examples: ['1687488596000', '-45709']
     })
   },
   { $id: 'BirthDateCredential', additionalProperties: false }
@@ -174,10 +144,7 @@ export const phoneCredentialJsonSchema = Type.Object(
     phone: Type.String({
       format: 'phone',
       description: 'A phone number in the E.164 format, [+][country code][number].',
-      examples: [
-        '+16175551212',
-        '+14041238686'
-      ]
+      examples: ['+16175551212', '+14041238686']
     })
   },
   { $id: 'PhoneCredential', additionalProperties: false }
@@ -186,12 +153,8 @@ export const phoneCredentialJsonSchema = Type.Object(
 export const fullNameCredentialJsonSchema = Type.Object(
   {
     fullName: Type.String({
-      description: 'A person\'s full name',
-      examples: [
-        'John Smith',
-        'John Michael Smith',
-        'Mary Kate Sierra Garcia-Tony'
-      ]
+      description: "A person's full name",
+      examples: ['John Smith', 'John Michael Smith', 'Mary Kate Sierra Garcia-Tony']
     })
   },
   { $id: 'FullNameCredential', additionalProperties: false }
@@ -201,13 +164,8 @@ export const genderCredentialJsonSchema = Type.Object(
   {
     gender: Type.String({
       format: 'gender',
-      description: 'A person\'s gender',
-      examples: [
-        'Male',
-        'Female',
-        'Other',
-        'Non-Binary'
-      ]
+      description: "A person's gender",
+      examples: ['Male', 'Female', 'Other', 'Non-Binary']
     })
   },
   { $id: 'GenderCredential', additionalProperties: false }
@@ -217,7 +175,8 @@ export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(
   {
     image: Type.String({
       format: 'dataUriBase64Image',
-      description: 'Base64 encoded government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
+      description:
+        'Base64 encoded government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
       examples: [
         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
       ]
@@ -230,14 +189,8 @@ export const facialMatchCredentialJsonSchema = Type.Object(
   {
     confidence: Type.String({
       format: 'confidenceLevel',
-      description: 'A person\'s facial match confidence score during an IDV session',
-      examples: [
-        'Very High',
-        'High',
-        'Medium',
-        'Low',
-        'Very Low'
-      ]
+      description: "A person's facial match confidence score during an IDV session",
+      examples: ['Very High', 'High', 'Medium', 'Low', 'Very Low']
     })
   },
   { $id: 'FacialMatchCredential', additionalProperties: false }
@@ -247,8 +200,17 @@ export const governmentIdTypeCredentialJsonSchema = Type.Object(
   {
     documentType: Type.String({
       format: 'documentType',
-      description: 'A person\'s government identification document type',
-      examples: ['Drivers License', 'Passport', 'State ID', 'Military ID', 'National ID', 'Birth Certificate', 'Voter Registration Card', 'Other']
+      description: "A person's government identification document type",
+      examples: [
+        'Drivers License',
+        'Passport',
+        'State ID',
+        'Military ID',
+        'National ID',
+        'Birth Certificate',
+        'Voter Registration Card',
+        'Other'
+      ]
     })
   },
   { $id: 'GovernmentIdTypeCredential', additionalProperties: false }
@@ -258,7 +220,8 @@ export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object(
   {
     image: Type.String({
       format: 'dataUriBase64Image',
-      description: 'Base64 encoded back of government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
+      description:
+        'Base64 encoded back of government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
       examples: [
         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
       ]
@@ -275,12 +238,7 @@ export const governmentIdStateCredentialJsonSchema = Type.Object(
     state: Type.String({
       format: 'iso3166',
       description: 'The state or province of the government identification document',
-      examples: [
-        'US-CA',
-        'US-NY',
-        'US-TX',
-        'GB-ENG'
-      ]
+      examples: ['US-CA', 'US-NY', 'US-TX', 'GB-ENG']
     })
   },
   { $id: 'GovernmentIdStateCredential', additionalProperties: false }
@@ -290,10 +248,7 @@ export const governmentIdNumberCredentialJsonSchema = Type.Object(
   {
     idNumber: Type.String({
       description: 'Government identification document number. Note, it can be alphanumeric.',
-      examples: [
-        '801322-1117621',
-        'F4698E1'
-      ]
+      examples: ['801322-1117621', 'F4698E1']
     })
   },
   { $id: 'GovernmentIdNumberCredential', additionalProperties: false }
@@ -303,11 +258,9 @@ export const governmentIdIssuanceDateCredentialJsonSchema = Type.Object(
   {
     issuanceDate: Type.String({
       format: 'digits',
-      description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
-      examples: [
-        '1687488596000',
-        '-45709'
-      ]
+      description:
+        'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
+      examples: ['1687488596000', '-45709']
     })
   },
   { $id: 'GovernmentIdIssuanceDateCredential', additionalProperties: false }
@@ -317,11 +270,9 @@ export const governmentIdExpirationDateCredentialJsonSchema = Type.Object(
   {
     expirationDate: Type.String({
       format: 'digits',
-      description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
-      examples: [
-        '1687488596000',
-        '-45709'
-      ]
+      description:
+        'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
+      examples: ['1687488596000', '-45709']
     })
   },
   { $id: 'GovernmentIdExpirationDateCredential', additionalProperties: false }
@@ -331,11 +282,7 @@ export const employerCredentialJsonSchema = Type.Object(
   {
     employer: Type.String({
       description: 'Employer name',
-      examples: [
-        'Acme Corp',
-        'Piped Piper',
-        'Hooli'
-      ]
+      examples: ['Acme Corp', 'Piped Piper', 'Hooli']
     })
   },
   { $id: 'EmployerCredential', additionalProperties: false }
@@ -345,11 +292,7 @@ export const titleCredentialJsonSchema = Type.Object(
   {
     title: Type.String({
       description: 'Job title',
-      examples: [
-        'Software Engineer',
-        'Designer',
-        'Construction Worker'
-      ]
+      examples: ['Software Engineer', 'Designer', 'Construction Worker']
     })
   },
   { $id: 'TitleCredential', additionalProperties: false }
@@ -360,10 +303,7 @@ export const annualIncomeCredentialJsonSchema = Type.Object(
     income: Type.String({
       format: 'iso4217Amount',
       description: 'Annual income with the preceding ISO4217 currency format.',
-      examples: [
-        'USD 101000',
-        'GBP 46000'
-      ]
+      examples: ['USD 101000', 'GBP 46000']
     })
   },
   { $id: 'AnnualIncomeCredential', additionalProperties: false }
@@ -374,11 +314,7 @@ export const incomeCurrencyCredentialJsonSchema = Type.Object(
     currency: Type.String({
       format: 'iso4217',
       description: 'ISO4217 currency format.',
-      examples: [
-        'USD',
-        'GBP',
-        'EUR'
-      ]
+      examples: ['USD', 'GBP', 'EUR']
     })
   },
   { $id: 'IncomeCurrencyCredential', additionalProperties: false }
@@ -388,11 +324,9 @@ export const annualIncomeRangeCredentialJsonSchema = Type.Object(
   {
     income: Type.String({
       format: 'iso4217AmountRange',
-      description: 'Annual income range with the preceding ISO4217 currency code followed by min<value>_max<value>.',
-      examples: [
-        'USD min100000_max200000',
-        'GBP min40000_max50000'
-      ]
+      description:
+        'Annual income range with the preceding ISO4217 currency code followed by min<value>_max<value>.',
+      examples: ['USD min100000_max200000', 'GBP min40000_max50000']
     })
   },
   { $id: 'AnnualIncomeRangeCredential', additionalProperties: false }
@@ -402,11 +336,9 @@ export const employmentStartDateCredentialJsonSchema = Type.Object(
   {
     startDate: Type.String({
       format: 'digits',
-      description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
-      examples: [
-        '1687488596000',
-        '-45709'
-      ]
+      description:
+        'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
+      examples: ['1687488596000', '-45709']
     })
   },
   { $id: 'EmploymentStartDateCredential', additionalProperties: false }
