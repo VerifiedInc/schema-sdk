@@ -1,5 +1,5 @@
-import { Type } from '@sinclair/typebox';
-import { UnumJsonSchema } from '..';
+import { Type } from '../../type';
+import { UnumJsonSchema } from '../..';
 
 export const facialImageCredentialJsonSchema = Type.Object(
   {

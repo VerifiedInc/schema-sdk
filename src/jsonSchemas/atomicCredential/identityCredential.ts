@@ -1,4 +1,4 @@
-import { Type } from '@sinclair/typebox';
+import { Type } from '../../type';
 import { UnumJsonSchema } from '..';
 
 // special credential that is actually empty

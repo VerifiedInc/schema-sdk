@@ -1,4 +1,4 @@
-import { Type } from '@sinclair/typebox';
+import { Type } from '../../type';
 import { UnumJsonSchema } from '..';
 
 export const stateCredentialJsonSchema = Type.Object(
@@ -9,6 +9,7 @@ export const stateCredentialJsonSchema = Type.Object(
     })
   },
   {
-    $id: 'StateCredential'
+    $id: 'StateCredential',
+    additionalProperties: false
   }
 ) as UnumJsonSchema;

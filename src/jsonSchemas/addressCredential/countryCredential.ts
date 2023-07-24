@@ -1,4 +1,4 @@
-import { Type } from '@sinclair/typebox';
+import { Type } from '../../type';
 import { UnumJsonSchema } from '..';
 
 export const countryCredentialJsonSchema = Type.Object(
@@ -9,5 +9,5 @@ export const countryCredentialJsonSchema = Type.Object(
       description: "A country's ISO 3166-1 alpha-2 code."
     })
   },
-  { $id: 'CountryCredential' }
+  { $id: 'CountryCredential', additionalProperties: false }
 ) as UnumJsonSchema;

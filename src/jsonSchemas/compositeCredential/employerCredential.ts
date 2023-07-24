@@ -1,12 +1,25 @@
-import { Type } from '@sinclair/typebox';
+import { Type } from '../../type';
+import { annualIncomeCredentialJsonSchema } from './annualIncomeCredential';
+import { employmentStartDateCredentialJsonSchema } from '../employerCredential/employmentStartDateCredential';
+import { titleCredentialJsonSchema } from '../employerCredential/titleCredential';
+import { incomeRangeCredentialJsonSchema } from '../employerCredential/incomeRangeCredential';
 import { UnumJsonSchema } from '..';
-import { annualIncomeCredentialJsonSchema } from '../employerCredential/annualIncomeCredential';
-import { employmentStartDateCredentialJsonSchema } from '../../jsonSchemas';
 
-export const employerCredentialJsonSchema = Type.Composite(
-  [annualIncomeCredentialJsonSchema, employmentStartDateCredentialJsonSchema],
+export const employerCredentialJsonSchema = Type.Intersect(
+  [
+    employmentStartDateCredentialJsonSchema,
+    titleCredentialJsonSchema,
+    incomeRangeCredentialJsonSchema,
+    annualIncomeCredentialJsonSchema
+  ],
   {
+    unevaluatedProperties: false,
     $id: 'EmployerCredential',
-    additionalProperties: false
+    properties: Type.Object({
+      employer: Type.String({
+        description: 'Employer name',
+        examples: ['Acme Corp', 'Piped Piper', 'Hooli']
+      })
+    })
   }
-) as UnumJsonSchema;
+) as unknown as UnumJsonSchema;

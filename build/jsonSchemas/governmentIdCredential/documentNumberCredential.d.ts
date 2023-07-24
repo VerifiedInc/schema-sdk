@@ -1,3 +1,3 @@
 import { UnumJsonSchema } from '..';
-export declare const numberCredentialJsonSchema: UnumJsonSchema;
+export declare const documentNumberCredentialJsonSchema: UnumJsonSchema;
 //# sourceMappingURL=documentNumberCredential.d.ts.map

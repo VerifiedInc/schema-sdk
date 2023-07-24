@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.documentImageCredentialJsonSchema = void 0;
-const typebox_1 = require("@sinclair/typebox");
-exports.documentImageCredentialJsonSchema = typebox_1.Type.Object({
-    image: typebox_1.Type.String({
+const type_1 = require("../../type");
+exports.documentImageCredentialJsonSchema = type_1.Type.Object({
+    image: type_1.Type.String({
         format: 'dataUriBase64Image',
         description: 'Base64 encoded government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
         examples: [

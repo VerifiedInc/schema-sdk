@@ -1,4 +1,4 @@
-import { Type } from '@sinclair/typebox';
+import { Type } from '../../type';
 import { UnumJsonSchema } from '..';
 
 export const countryResidenceCredentialJsonSchema = Type.Object(

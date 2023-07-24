@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.documentTypeCredentialJsonSchema = void 0;
-const typebox_1 = require("@sinclair/typebox");
-exports.documentTypeCredentialJsonSchema = typebox_1.Type.Object({
-    documentType: typebox_1.Type.String({
+const type_1 = require("../../type");
+exports.documentTypeCredentialJsonSchema = type_1.Type.Object({
+    documentType: type_1.Type.String({
         format: 'documentType',
         description: "A person's government identification document type",
         examples: [

@@ -1,13 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stateCredentialJsonSchema = void 0;
-const typebox_1 = require("@sinclair/typebox");
-exports.stateCredentialJsonSchema = typebox_1.Type.Object({
-    state: typebox_1.Type.String({
+const type_1 = require("../../type");
+exports.stateCredentialJsonSchema = type_1.Type.Object({
+    state: type_1.Type.String({
         description: 'The state of the address.',
         examples: ['CA', 'GA', 'NY']
     })
 }, {
-    $id: 'StateCredential'
+    $id: 'StateCredential',
+    additionalProperties: false
 });
 //# sourceMappingURL=stateCredential.js.map

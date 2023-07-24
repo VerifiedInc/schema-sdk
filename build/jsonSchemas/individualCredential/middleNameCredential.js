@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.middleNameCredentialJsonSchema = void 0;
+const type_1 = require("../../type");
+exports.middleNameCredentialJsonSchema = type_1.Type.Object({
+    middleName: type_1.Type.String({
+        description: "A person's middle name",
+        examples: ['Henry', 'Fitzgerald']
+    })
+}, { additionalProperties: false, $id: 'MiddleNameCredential' });
+//# sourceMappingURL=middleNameCredential.js.map

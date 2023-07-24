@@ -1,4 +1,6 @@
-import Ajv from 'ajv';
+// Using Ajv 2019 Draft for access to new features like $data, $merge, unevaluatedProperties, etc.
+// 100% backwards compatible with Ajv 6
+import Ajv2019 from 'ajv/dist/2019';
 import logger from './logger';
 import addFormats from 'ajv-formats';
 import { jsonSchemas } from './jsonSchemas';
@@ -33,7 +35,8 @@ const schemas = Object.values(jsonSchemas);
  * Note: Although addSchema does not compile schemas, explicit compilation is not required - the schema will be compiled when it is used first time.
  * ref: https://ajv.js.org/api.html#ajv-addschema-schema-object-object-key-string-ajv
  */
-export const ajv = new Ajv({
+
+export const ajv = new Ajv2019({
   allErrors: true,
   coerceTypes: true, // ref: https://ajv.js.org/guide/modifying-data.html#coercing-data-types
   logger,
@@ -58,30 +61,10 @@ ajv.addFormat('iso4217', iso4217Format);
 ajv.addFormat('iso4217Amount', iso4217AmountFormat);
 ajv.addFormat('iso4217AmountRange', iso4217AmountRangeFormat);
 ajv.addFormat('address', addressFormat);
-// ajv.addFormat('addressComposite', addressCompositeFormat);
 ajv.addFormat('gender', genderFormat);
 ajv.addFormat('iso3361Alpha2', iso3166Alpha2CountryCodeFormat);
 ajv.addFormat('iso3166', iso3166CodeFormat);
 ajv.addFormat('documentType', documentTypeFormat);
 ajv.addFormat('confidenceLevel', confidenceLevelFormat);
 ajv.addFormat('boolean', booleanFormat);
-
-/*******************************************************************
- * Add custom keyword to ajv below                                 *
- * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
- *******************************************************************/
-ajv.addKeyword({
-  keyword: 'customFormat',
-  validate: (schema: any, data: any) => {
-    if (schema === 'address') {
-      if (data.country === 'US') {
-        // Check that zip follows expected pattern. Assuming US zip codes, we can expect 5 digits or 9
-        const usZipRegex = /^\d{5}(-\d{4})?$/;
-        if (!usZipRegex.test(data.zipCode)) return false;
-      }
-      return true;
-    }
-    return true;
-  },
-  errors: false
-});
+ajv.addFormat('usZipCode', /^\d{5}(?:[-\s]\d{4})?$/);

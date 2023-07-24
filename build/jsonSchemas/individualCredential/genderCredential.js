@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.genderCredentialJsonSchema = void 0;
-const typebox_1 = require("@sinclair/typebox");
-exports.genderCredentialJsonSchema = typebox_1.Type.Object({
-    gender: typebox_1.Type.String({
+const type_1 = require("../../type");
+exports.genderCredentialJsonSchema = type_1.Type.Object({
+    gender: type_1.Type.String({
         format: 'gender',
         description: "A person's gender",
         examples: ['Male', 'Female', 'Other', 'Non-Binary']

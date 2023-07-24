@@ -1,6 +1,5 @@
-import { Type } from '@sinclair/typebox';
+import { Type } from '../../type';
 import { UnumJsonSchema } from '..';
-import { ajv } from '../../ajv';
 
 export const zipCodeCredentialJsonSchema = Type.Object(
   {
@@ -10,8 +9,19 @@ export const zipCodeCredentialJsonSchema = Type.Object(
     })
   },
   {
-    $id: 'ZipCodeCredential'
+    $id: 'ZipCodeCredential',
+    if: {
+      type: 'object',
+      properties: {
+        country: { const: 'US' }
+      },
+      required: ['country']
+    },
+    then: {
+      properties: {
+        zipCode: { format: 'usZipCode' }
+      }
+    },
+    additionalProperties: false
   }
 ) as UnumJsonSchema;
-
-ajv.addSchema(zipCodeCredentialJsonSchema, zipCodeCredentialJsonSchema.$id);
