@@ -9,5 +9,5 @@ export const ssnCredentialJsonSchema = Type.Object(
       examples: ['123456789', '333224444']
     })
   },
-  { $id: 'SsnCredential', additionalProperties: false }
+  { $id: 'SsnCredential' }
 ) as UnumJsonSchema;

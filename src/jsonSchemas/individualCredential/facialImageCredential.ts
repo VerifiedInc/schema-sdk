@@ -12,5 +12,5 @@ export const facialImageCredentialJsonSchema = Type.Object(
       ]
     })
   },
-  { $id: 'FacialImageCredential', additionalProperties: false }
+  { $id: 'FacialImageCredential' }
 ) as UnumJsonSchema;

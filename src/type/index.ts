@@ -12,29 +12,23 @@ import {
 } from '@sinclair/typebox';
 
 /**
- * TypeBuilder is a subclass of ExtendedTypeBuilder that adds the Intersect method removing the additionalProperties property from all objects in an Intersect.
+ * TypeBuilder is a subclass of ExtendedTypeBuilder that adds the IntersectReferences method which is used to create
+ * Intersect types that reference other types.
  */
 export class TypeBuilder extends ExtendedTypeBuilder {
   /** `[Standard]` Creates a Intersect type */
-  public Intersect(allOf: [], options?: SchemaOptions): TNever;
+  public IntersectReferences(allOf: [], options?: SchemaOptions): TNever;
   /** `[Standard]` Creates a Intersect type */
-  public Intersect<T extends [TSchema]>(allOf: [...T], options?: SchemaOptions): T[0];
+  public IntersectReferences<T extends [TSchema]>(allOf: [...T], options?: SchemaOptions): T[0];
   // /** `[Standard]` Creates a Intersect type */
-  public Intersect<T extends TSchema[]>(allOf: [...T], options?: IntersectOptions): TIntersect<T>;
-  public Intersect(allOf: TSchema[], options: IntersectOptions = {}) {
+  public IntersectReferences<T extends TSchema[]>(allOf: [...T], options?: IntersectOptions): TIntersect<T>;
+  public IntersectReferences(allOf: TSchema[], options: IntersectOptions = {}) {
     if (allOf.length === 0) return TypeStandard.Never();
     if (allOf.length === 1) return TypeClone.Clone(allOf[0], options);
     const objects = allOf.every((schema) => TypeGuard.TObject(schema));
-    // delete additionalProperties property from all objects in an Intersect
     const cloned = allOf.map((schema) => {
       if (TypeGuard.TObject(schema)) {
-        const clonedSchema = TypeClone.Clone(schema, {});
-        // delete clonedSchema.additionalProperties;
-        // return clonedSchema;
-
-        // return TypeStandard.Ref(schema);
-        delete clonedSchema.$id;
-        return clonedSchema;
+        return TypeStandard.Ref(schema);
       } else {
         return schema;
       }

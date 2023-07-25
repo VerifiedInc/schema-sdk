@@ -7,5 +7,5 @@ exports.lastNameCredentialJsonSchema = type_1.Type.Object({
         description: "A person's last name",
         examples: ['Smith', 'Garcia-Tony']
     })
-}, { additionalProperties: false, $id: 'LastNameCredential' });
+}, { $id: 'LastNameCredential' });
 //# sourceMappingURL=lastNameCredential.js.map

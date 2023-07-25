@@ -8,5 +8,5 @@ exports.livenessCredentialJsonSchema = type_1.Type.Object({
         description: "A person's liveliness confidence level during an IDV session",
         examples: ['Very High', 'High', 'Medium', 'Low', 'Very Low']
     })
-}, { $id: 'LivenessCredential', additionalProperties: false });
+}, { $id: 'LivenessCredential' });
 //# sourceMappingURL=livenessCredential.js.map

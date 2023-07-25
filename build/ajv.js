@@ -11,8 +11,6 @@ const logger_1 = __importDefault(require("./logger"));
 const ajv_formats_1 = __importDefault(require("ajv-formats"));
 const jsonSchemas_1 = require("./jsonSchemas");
 const formats_1 = require("./formats");
-const fs_1 = __importDefault(require("fs"));
-const schemas_1 = require("./schemas");
 // get all the values of the jsonSchemas object in an array
 // schemas to add to ajv instance options
 const schemas = Object.values(jsonSchemas_1.jsonSchemas);
@@ -26,8 +24,8 @@ const schemas = Object.values(jsonSchemas_1.jsonSchemas);
 exports.ajv = new _2019_1.default({
     allErrors: true,
     coerceTypes: true,
-    logger: // ref: https://ajv.js.org/guide/modifying-data.html#coercing-data-types
-    logger_1.default,
+    removeAdditional: true,
+    logger: logger_1.default,
     schemas
 });
 // Adding formats to ajv
@@ -54,5 +52,4 @@ exports.ajv.addFormat('documentType', formats_1.documentTypeFormat);
 exports.ajv.addFormat('confidenceLevel', formats_1.confidenceLevelFormat);
 exports.ajv.addFormat('boolean', formats_1.booleanFormat);
 exports.ajv.addFormat('usZipCode', /^\d{5}(?:[-\s]\d{4})?$/);
-fs_1.default.writeFileSync('./../schemas.json', JSON.stringify(schemas_1.schemas, null, 2));
 //# sourceMappingURL=ajv.js.map

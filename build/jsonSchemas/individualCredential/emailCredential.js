@@ -8,5 +8,5 @@ exports.emailCredentialJsonSchema = type_1.Type.Object({
         description: 'Standard, valid email address format.',
         examples: ['test@verified.inc', 'you+me@piedpiper.net']
     })
-}, { $id: 'EmailCredential', additionalProperties: false });
+}, { $id: 'EmailCredential' });
 //# sourceMappingURL=emailCredential.js.map

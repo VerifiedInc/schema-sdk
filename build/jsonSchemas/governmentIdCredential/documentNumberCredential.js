@@ -7,5 +7,5 @@ exports.documentNumberCredentialJsonSchema = type_1.Type.Object({
         description: 'Government identification document number. Note, it can be alphanumeric.',
         examples: ['801322-1117621', 'F4698E1']
     })
-}, { $id: 'DocumentNumberCredential', additionalProperties: false });
+}, { $id: 'DocumentNumberCredential' });
 //# sourceMappingURL=documentNumberCredential.js.map

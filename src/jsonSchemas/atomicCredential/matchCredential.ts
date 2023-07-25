@@ -9,5 +9,5 @@ export const matchCredentialJsonSchema = Type.Object(
       examples: ['Very High', 'High', 'Medium', 'Low', 'Very Low']
     })
   },
-  { $id: 'MatchCredential', additionalProperties: false }
+  { $id: 'MatchCredential' }
 ) as UnumJsonSchema;

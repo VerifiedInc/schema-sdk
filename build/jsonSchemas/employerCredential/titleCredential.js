@@ -7,5 +7,5 @@ exports.titleCredentialJsonSchema = type_1.Type.Object({
         description: 'Job title',
         examples: ['Software Engineer', 'Designer', 'Construction Worker']
     })
-}, { $id: 'TitleCredential', additionalProperties: false });
+}, { $id: 'TitleCredential' });
 //# sourceMappingURL=titleCredential.js.map

@@ -8,5 +8,5 @@ exports.issuanceDateCredentialJsonSchema = type_1.Type.Object({
         description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
         examples: ['1687488596000', '-45709']
     })
-}, { $id: 'IssuanceDateCredential', additionalProperties: false });
+}, { $id: 'IssuanceDateCredential' });
 //# sourceMappingURL=issuanceDateCredential.js.map

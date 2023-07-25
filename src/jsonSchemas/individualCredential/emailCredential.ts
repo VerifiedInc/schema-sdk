@@ -9,5 +9,5 @@ export const emailCredentialJsonSchema = Type.Object(
       examples: ['test@verified.inc', 'you+me@piedpiper.net']
     })
   },
-  { $id: 'EmailCredential', additionalProperties: false }
+  { $id: 'EmailCredential' }
 ) as UnumJsonSchema;

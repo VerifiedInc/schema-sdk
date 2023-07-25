@@ -5,7 +5,7 @@ import { UnumJsonSchema } from '..';
 
 export const annualIncomeCredentialJsonSchema = Type.Union(
   [
-    Type.Intersect([currencyCredentialJsonSchema, amountCredentialJsonSchema]),
+    Type.IntersectReferences([currencyCredentialJsonSchema, amountCredentialJsonSchema]),
     // Allow backward compatibility with the old format
     Type.Object(
       {
@@ -15,7 +15,7 @@ export const annualIncomeCredentialJsonSchema = Type.Union(
           examples: ['USD 101000', 'GBP 46000']
         })
       },
-      { additionalProperties: false }
+      {}
     )
   ],
   {

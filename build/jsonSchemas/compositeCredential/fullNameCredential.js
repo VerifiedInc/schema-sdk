@@ -6,7 +6,7 @@ const firstNameCredential_1 = require("../individualCredential/firstNameCredenti
 const lastNameCredential_1 = require("../individualCredential/lastNameCredential");
 const middleNameCredential_1 = require("../individualCredential/middleNameCredential");
 exports.fullNameCredentialJsonSchema = type_1.Type.Union([
-    type_1.Type.Intersect([
+    type_1.Type.IntersectReferences([
         firstNameCredential_1.firstNameCredentialJsonSchema,
         lastNameCredential_1.lastNameCredentialJsonSchema,
         middleNameCredential_1.middleNameCredentialJsonSchema
@@ -16,7 +16,7 @@ exports.fullNameCredentialJsonSchema = type_1.Type.Union([
             description: "A person's full name",
             examples: ['John Smith', 'John Michael Smith', 'Mary Kate Sierra Garcia-Tony']
         })
-    }, { additionalProperties: false })
+    }, {})
 ], {
     $id: 'FullNameCredential',
     unevaluatedProperties: false

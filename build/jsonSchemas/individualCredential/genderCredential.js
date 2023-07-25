@@ -8,5 +8,5 @@ exports.genderCredentialJsonSchema = type_1.Type.Object({
         description: "A person's gender",
         examples: ['Male', 'Female', 'Other', 'Non-Binary']
     })
-}, { $id: 'GenderCredential', additionalProperties: false });
+}, { $id: 'GenderCredential' });
 //# sourceMappingURL=genderCredential.js.map

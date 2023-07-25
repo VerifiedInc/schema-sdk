@@ -8,5 +8,5 @@ export const lastNameCredentialJsonSchema: UnumJsonSchema = Type.Object(
       examples: ['Smith', 'Garcia-Tony']
     })
   },
-  { additionalProperties: false, $id: 'LastNameCredential' }
+  { $id: 'LastNameCredential' }
 ) as UnumJsonSchema;

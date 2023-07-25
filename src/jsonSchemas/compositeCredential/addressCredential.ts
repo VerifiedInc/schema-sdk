@@ -7,7 +7,7 @@ import { stateCredentialJsonSchema } from '../addressCredential/stateCredential'
 import { countryCredentialJsonSchema } from '../addressCredential/countryCredential';
 import { zipCodeCredentialJsonSchema } from '../addressCredential/zipCodeCredential';
 
-export const addressCredentialIntersect = Type.Intersect([
+export const addressCredentialIntersectReferences = Type.IntersectReferences([
   line1CredentialJsonSchema,
   line2CredentialJsonSchema,
   cityCredentialJsonSchema,
@@ -18,7 +18,7 @@ export const addressCredentialIntersect = Type.Intersect([
 
 export const addressCredentialJsonSchema = Type.Union(
   [
-    addressCredentialIntersect,
+    addressCredentialIntersectReferences,
     // Allow backwards compatibility with the old address format
     Type.Object(
       {
@@ -31,7 +31,7 @@ export const addressCredentialJsonSchema = Type.Union(
           ]
         })
       },
-      { additionalProperties: false }
+      {}
     )
   ],
   {

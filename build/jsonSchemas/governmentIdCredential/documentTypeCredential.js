@@ -17,5 +17,5 @@ exports.documentTypeCredentialJsonSchema = type_1.Type.Object({
             'Other'
         ]
     })
-}, { $id: 'DocumentTypeCredential', additionalProperties: false });
+}, { $id: 'DocumentTypeCredential' });
 //# sourceMappingURL=documentTypeCredential.js.map

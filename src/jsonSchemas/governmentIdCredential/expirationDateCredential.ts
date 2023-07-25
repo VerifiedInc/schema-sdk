@@ -10,5 +10,5 @@ export const expirationDateCredentialJsonSchema = Type.Object(
       examples: ['1687488596000', '-45709']
     })
   },
-  { $id: 'ExpirationDateCredential', additionalProperties: false }
+  { $id: 'ExpirationDateCredential' }
 ) as UnumJsonSchema;

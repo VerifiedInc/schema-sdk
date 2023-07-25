@@ -8,5 +8,5 @@ exports.incomeRangeCredentialJsonSchema = type_1.Type.Object({
         description: 'Annual income range with the preceding ISO4217 currency code followed by min<value>_max<value>.',
         examples: ['USD min100000_max200000', 'GBP min40000_max50000']
     })
-}, { $id: 'IncomeRangeCredential', additionalProperties: false });
+}, { $id: 'IncomeRangeCredential' });
 //# sourceMappingURL=incomeRangeCredential.js.map

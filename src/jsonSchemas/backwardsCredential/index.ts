@@ -18,7 +18,7 @@ export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(
       ]
     })
   },
-  { $id: 'GovernmentIdDocumentImageCredential', additionalProperties: false }
+  { $id: 'GovernmentIdDocumentImageCredential' }
 ) as UnumJsonSchema;
 
 export const governmentIdTypeCredentialJsonSchema = Type.Object(
@@ -38,7 +38,7 @@ export const governmentIdTypeCredentialJsonSchema = Type.Object(
       ]
     })
   },
-  { $id: 'GovernmentIdTypeCredential', additionalProperties: false }
+  { $id: 'GovernmentIdTypeCredential' }
 ) as UnumJsonSchema;
 
 export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object(
@@ -53,8 +53,7 @@ export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object(
     })
   },
   {
-    $id: 'GovernmentIdDocumentBackImageCredential',
-    additionalProperties: false
+    $id: 'GovernmentIdDocumentBackImageCredential'
   }
 ) as UnumJsonSchema;
 
@@ -66,7 +65,7 @@ export const governmentIdStateCredentialJsonSchema = Type.Object(
       examples: ['US-CA', 'US-NY', 'US-TX', 'GB-ENG']
     })
   },
-  { $id: 'GovernmentIdStateCredential', additionalProperties: false }
+  { $id: 'GovernmentIdStateCredential' }
 ) as UnumJsonSchema;
 
 export const governmentIdNumberCredentialJsonSchema = Type.Object(
@@ -76,7 +75,7 @@ export const governmentIdNumberCredentialJsonSchema = Type.Object(
       examples: ['801322-1117621', 'F4698E1']
     })
   },
-  { $id: 'GovernmentIdNumberCredential', additionalProperties: false }
+  { $id: 'GovernmentIdNumberCredential' }
 ) as UnumJsonSchema;
 
 export const governmentIdIssuanceDateCredentialJsonSchema = Type.Object(
@@ -88,7 +87,7 @@ export const governmentIdIssuanceDateCredentialJsonSchema = Type.Object(
       examples: ['1687488596000', '-45709']
     })
   },
-  { $id: 'GovernmentIdIssuanceDateCredential', additionalProperties: false }
+  { $id: 'GovernmentIdIssuanceDateCredential' }
 ) as UnumJsonSchema;
 
 export const governmentIdExpirationDateCredentialJsonSchema = Type.Object(
@@ -100,7 +99,7 @@ export const governmentIdExpirationDateCredentialJsonSchema = Type.Object(
       examples: ['1687488596000', '-45709']
     })
   },
-  { $id: 'GovernmentIdExpirationDateCredential', additionalProperties: false }
+  { $id: 'GovernmentIdExpirationDateCredential' }
 ) as UnumJsonSchema;
 
 export const incomeCurrencyCredentialJsonSchema = Type.Object(
@@ -111,7 +110,7 @@ export const incomeCurrencyCredentialJsonSchema = Type.Object(
       examples: ['USD', 'GBP', 'EUR']
     })
   },
-  { $id: 'IncomeCurrencyCredential', additionalProperties: false }
+  { $id: 'IncomeCurrencyCredential' }
 ) as UnumJsonSchema;
 
 export const annualIncomeRangeCredentialJsonSchema = Type.Object(
@@ -123,5 +122,5 @@ export const annualIncomeRangeCredentialJsonSchema = Type.Object(
       examples: ['USD min100000_max200000', 'GBP min40000_max50000']
     })
   },
-  { $id: 'AnnualIncomeRangeCredential', additionalProperties: false }
+  { $id: 'AnnualIncomeRangeCredential' }
 ) as UnumJsonSchema;

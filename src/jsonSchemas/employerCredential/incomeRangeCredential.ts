@@ -10,5 +10,5 @@ export const incomeRangeCredentialJsonSchema = Type.Object(
       examples: ['USD min100000_max200000', 'GBP min40000_max50000']
     })
   },
-  { $id: 'IncomeRangeCredential', additionalProperties: false }
+  { $id: 'IncomeRangeCredential' }
 ) as UnumJsonSchema;

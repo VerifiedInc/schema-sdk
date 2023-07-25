@@ -8,7 +8,6 @@ exports.line2CredentialJsonSchema = type_1.Type.Object({
         examples: ['Apt #4', 'Suite 200']
     }))
 }, {
-    $id: 'Line2Credential',
-    additionalProperties: false
+    $id: 'Line2Credential'
 });
 //# sourceMappingURL=line2Credential.js.map

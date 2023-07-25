@@ -9,5 +9,5 @@ export const sexCredentialJsonSchema = Type.Object(
       examples: ['Male', 'Female']
     })
   },
-  { $id: 'SexCredential', additionalProperties: false }
+  { $id: 'SexCredential' }
 ) as UnumJsonSchema;

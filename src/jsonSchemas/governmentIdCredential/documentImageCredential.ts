@@ -12,5 +12,5 @@ export const documentImageCredentialJsonSchema = Type.Object(
       ]
     })
   },
-  { $id: 'documentImageCredential', additionalProperties: false }
+  { $id: 'documentImageCredential' }
 ) as UnumJsonSchema;

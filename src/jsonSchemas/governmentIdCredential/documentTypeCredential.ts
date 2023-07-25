@@ -18,5 +18,5 @@ export const documentTypeCredentialJsonSchema = Type.Object(
       ]
     })
   },
-  { $id: 'DocumentTypeCredential', additionalProperties: false }
+  { $id: 'DocumentTypeCredential' }
 ) as UnumJsonSchema;

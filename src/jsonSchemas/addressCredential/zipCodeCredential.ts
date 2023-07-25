@@ -21,7 +21,6 @@ export const zipCodeCredentialJsonSchema = Type.Object(
       properties: {
         zipCode: { format: 'usZipCode' }
       }
-    },
-    additionalProperties: false
+    }
   }
 ) as UnumJsonSchema;

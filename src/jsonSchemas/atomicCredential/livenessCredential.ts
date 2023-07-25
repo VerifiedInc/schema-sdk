@@ -9,5 +9,5 @@ export const livenessCredentialJsonSchema = Type.Object(
       examples: ['Very High', 'High', 'Medium', 'Low', 'Very Low']
     })
   },
-  { $id: 'LivenessCredential', additionalProperties: false }
+  { $id: 'LivenessCredential' }
 ) as UnumJsonSchema;

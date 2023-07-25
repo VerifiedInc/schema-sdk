@@ -6,7 +6,7 @@ import { middleNameCredentialJsonSchema } from '../individualCredential/middleNa
 
 export const fullNameCredentialJsonSchema = Type.Union(
   [
-    Type.Intersect([
+    Type.IntersectReferences([
       firstNameCredentialJsonSchema,
       lastNameCredentialJsonSchema,
       middleNameCredentialJsonSchema
@@ -18,7 +18,7 @@ export const fullNameCredentialJsonSchema = Type.Union(
           examples: ['John Smith', 'John Michael Smith', 'Mary Kate Sierra Garcia-Tony']
         })
       },
-      { additionalProperties: false }
+      {}
     )
   ],
   {

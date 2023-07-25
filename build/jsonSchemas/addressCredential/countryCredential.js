@@ -8,5 +8,5 @@ exports.countryCredentialJsonSchema = type_1.Type.Object({
         examples: ['US', 'CA', 'MX'],
         description: "A country's ISO 3166-1 alpha-2 code."
     })
-}, { $id: 'CountryCredential', additionalProperties: false });
+}, { $id: 'CountryCredential' });
 //# sourceMappingURL=countryCredential.js.map

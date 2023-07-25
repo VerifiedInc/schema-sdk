@@ -9,7 +9,7 @@ const documentNumberCredential_1 = require("../governmentIdCredential/documentNu
 const documentTypeCredential_1 = require("../governmentIdCredential/documentTypeCredential");
 const expirationDateCredential_1 = require("../governmentIdCredential/expirationDateCredential");
 const issuanceDateCredential_1 = require("../governmentIdCredential/issuanceDateCredential");
-exports.governmentIdCredentialJsonSchema = type_1.Type.Intersect([
+exports.governmentIdCredentialJsonSchema = type_1.Type.IntersectReferences([
     documentBackImageCredential_1.documentBackImageCredentialJsonSchema,
     documentImageCredential_1.documentImageCredentialJsonSchema,
     documentTypeCredential_1.documentTypeCredentialJsonSchema,

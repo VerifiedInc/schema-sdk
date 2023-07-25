@@ -8,5 +8,5 @@ exports.countryResidenceCredentialJsonSchema = type_1.Type.Object({
         description: "A person's country of residence in ISO 3166-1 alpha-2 format.",
         examples: ['US', 'CA', 'MX']
     })
-}, { $id: 'CountryResidenceCredential', additionalProperties: false });
+}, { $id: 'CountryResidenceCredential' });
 //# sourceMappingURL=countryResidenceCredential.js.map

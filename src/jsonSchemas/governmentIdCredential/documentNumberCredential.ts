@@ -8,5 +8,5 @@ export const documentNumberCredentialJsonSchema = Type.Object(
       examples: ['801322-1117621', 'F4698E1']
     })
   },
-  { $id: 'DocumentNumberCredential', additionalProperties: false }
+  { $id: 'DocumentNumberCredential' }
 ) as UnumJsonSchema;

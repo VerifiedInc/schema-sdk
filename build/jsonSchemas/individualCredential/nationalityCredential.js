@@ -8,5 +8,5 @@ exports.nationalityCredentialJsonSchema = type_1.Type.Object({
         description: "A person's birth country or country of citizenship in ISO 3166-1 alpha-2 format.",
         examples: ['US', 'CA', 'MX']
     })
-}, { $id: 'NationalityCredential', additionalProperties: false });
+}, { $id: 'NationalityCredential' });
 //# sourceMappingURL=nationalityCredential.js.map

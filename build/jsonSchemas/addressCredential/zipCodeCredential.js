@@ -20,7 +20,6 @@ exports.zipCodeCredentialJsonSchema = type_1.Type.Object({
         properties: {
             zipCode: { format: 'usZipCode' }
         }
-    },
-    additionalProperties: false
+    }
 });
 //# sourceMappingURL=zipCodeCredential.js.map

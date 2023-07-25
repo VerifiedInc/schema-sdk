@@ -10,5 +10,5 @@ export const issuanceDateCredentialJsonSchema = Type.Object(
       examples: ['1687488596000', '-45709']
     })
   },
-  { $id: 'IssuanceDateCredential', additionalProperties: false }
+  { $id: 'IssuanceDateCredential' }
 ) as UnumJsonSchema;

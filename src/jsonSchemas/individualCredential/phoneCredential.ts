@@ -9,5 +9,5 @@ export const phoneCredentialJsonSchema = Type.Object(
       examples: ['+16175551212', '+14041238686']
     })
   },
-  { $id: 'PhoneCredential', additionalProperties: false }
+  { $id: 'PhoneCredential' }
 ) as UnumJsonSchema;

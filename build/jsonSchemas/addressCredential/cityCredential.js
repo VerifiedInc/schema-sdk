@@ -8,7 +8,6 @@ exports.cityCredentialJsonSchema = type_1.Type.Object({
         examples: ['San Francisco', 'New York', 'Atlanta']
     })
 }, {
-    $id: 'CityCredential',
-    additionalProperties: false
+    $id: 'CityCredential'
 });
 //# sourceMappingURL=cityCredential.js.map

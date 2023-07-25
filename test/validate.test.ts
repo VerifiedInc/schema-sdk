@@ -121,17 +121,6 @@ describe('Validate Schemas', () => {
       const valid = validate('IdentityCredential', {});
       expect(valid).toEqual(true);
     });
-
-    it('invalid', async () => {
-      try {
-        const valid = validate('IdentityCredential', {
-          email: 'test@abc.computer$'
-        });
-        fail();
-      } catch (error) {
-        expect(error);
-      }
-    });
   });
 
   describe('SexCredential Schema', () => {

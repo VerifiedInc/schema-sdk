@@ -9,5 +9,5 @@ export const countryCredentialJsonSchema = Type.Object(
       description: "A country's ISO 3166-1 alpha-2 code."
     })
   },
-  { $id: 'CountryCredential', additionalProperties: false }
+  { $id: 'CountryCredential' }
 ) as UnumJsonSchema;

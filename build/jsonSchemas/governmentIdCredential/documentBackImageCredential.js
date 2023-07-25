@@ -11,7 +11,6 @@ exports.documentBackImageCredentialJsonSchema = type_1.Type.Object({
         ]
     })
 }, {
-    $id: 'DocumentBackImageCredential',
-    additionalProperties: false
+    $id: 'DocumentBackImageCredential'
 });
 //# sourceMappingURL=documentBackImageCredential.js.map

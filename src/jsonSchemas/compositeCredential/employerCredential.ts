@@ -7,7 +7,7 @@ import { UnumJsonSchema } from '..';
 
 export const employerCredentialJsonSchema = Type.Union(
   [
-    Type.Intersect([
+    Type.IntersectReferences([
       employmentStartDateCredentialJsonSchema,
       titleCredentialJsonSchema,
       incomeRangeCredentialJsonSchema,

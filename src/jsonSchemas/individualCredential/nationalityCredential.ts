@@ -9,5 +9,5 @@ export const nationalityCredentialJsonSchema = Type.Object(
       examples: ['US', 'CA', 'MX']
     })
   },
-  { $id: 'NationalityCredential', additionalProperties: false }
+  { $id: 'NationalityCredential' }
 ) as UnumJsonSchema;

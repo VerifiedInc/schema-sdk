@@ -38,7 +38,8 @@ const schemas = Object.values(jsonSchemas);
 
 export const ajv = new Ajv2019({
   allErrors: true,
-  coerceTypes: true, // ref: https://ajv.js.org/guide/modifying-data.html#coercing-data-types
+  coerceTypes: true, // ref: https://ajv.js.org/guide/modifying-data.html#coercing-data-types,
+  removeAdditional: true,
   logger,
   schemas
 });

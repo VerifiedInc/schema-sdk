@@ -8,5 +8,5 @@ exports.phoneCredentialJsonSchema = type_1.Type.Object({
         description: 'A phone number in the E.164 format, [+][country code][number].',
         examples: ['+16175551212', '+14041238686']
     })
-}, { $id: 'PhoneCredential', additionalProperties: false });
+}, { $id: 'PhoneCredential' });
 //# sourceMappingURL=phoneCredential.js.map

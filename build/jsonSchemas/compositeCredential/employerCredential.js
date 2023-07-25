@@ -7,7 +7,7 @@ const employmentStartDateCredential_1 = require("../employerCredential/employmen
 const titleCredential_1 = require("../employerCredential/titleCredential");
 const incomeRangeCredential_1 = require("../employerCredential/incomeRangeCredential");
 exports.employerCredentialJsonSchema = type_1.Type.Union([
-    type_1.Type.Intersect([
+    type_1.Type.IntersectReferences([
         employmentStartDateCredential_1.employmentStartDateCredentialJsonSchema,
         titleCredential_1.titleCredentialJsonSchema,
         incomeRangeCredential_1.incomeRangeCredentialJsonSchema,

@@ -8,5 +8,5 @@ exports.birthDateCredentialJsonSchema = type_1.Type.Object({
         description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
         examples: ['1687488596000', '-45709']
     })
-}, { $id: 'BirthDateCredential', additionalProperties: false });
+}, { $id: 'BirthDateCredential' });
 //# sourceMappingURL=birthDateCredential.js.map

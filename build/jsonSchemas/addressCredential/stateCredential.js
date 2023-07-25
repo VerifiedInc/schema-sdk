@@ -8,7 +8,6 @@ exports.stateCredentialJsonSchema = type_1.Type.Object({
         examples: ['CA', 'GA', 'NY']
     })
 }, {
-    $id: 'StateCredential',
-    additionalProperties: false
+    $id: 'StateCredential'
 });
 //# sourceMappingURL=stateCredential.js.map
