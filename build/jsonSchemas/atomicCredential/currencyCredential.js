@@ -6,7 +6,7 @@ exports.currencyCredentialJsonSchema = type_1.Type.Object({
     currency: type_1.Type.String({
         description: 'The currency of the amount.',
         examples: ['USD', 'EUR', 'GBP'],
-        format: 'iso4217Format'
+        format: 'iso4217'
     })
 }, {
     $id: 'CurrencyCredential'

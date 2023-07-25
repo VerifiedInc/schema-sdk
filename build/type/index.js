@@ -18,9 +18,7 @@ class TypeBuilder extends typebox_1.ExtendedTypeBuilder {
                 const clonedSchema = typebox_1.TypeClone.Clone(schema, {});
                 // delete clonedSchema.additionalProperties;
                 // return clonedSchema;
-                // return TypeStandard.Ref(schema);
-                delete clonedSchema.$id;
-                return clonedSchema;
+                return typebox_1.Type.Ref(schema);
             }
             else {
                 return schema;

@@ -5,21 +5,23 @@ import { titleCredentialJsonSchema } from '../employerCredential/titleCredential
 import { incomeRangeCredentialJsonSchema } from '../employerCredential/incomeRangeCredential';
 import { UnumJsonSchema } from '..';
 
-export const employerCredentialJsonSchema = Type.Intersect(
+export const employerCredentialJsonSchema = Type.Union(
   [
-    employmentStartDateCredentialJsonSchema,
-    titleCredentialJsonSchema,
-    incomeRangeCredentialJsonSchema,
-    annualIncomeCredentialJsonSchema
-  ],
-  {
-    unevaluatedProperties: false,
-    $id: 'EmployerCredential',
-    properties: Type.Object({
+    Type.Intersect([
+      employmentStartDateCredentialJsonSchema,
+      titleCredentialJsonSchema,
+      incomeRangeCredentialJsonSchema,
+      annualIncomeCredentialJsonSchema
+    ]),
+    Type.Object({
       employer: Type.String({
         description: 'Employer name',
         examples: ['Acme Corp', 'Piped Piper', 'Hooli']
       })
     })
+  ],
+  {
+    unevaluatedProperties: false,
+    $id: 'EmployerCredential'
   }
 ) as unknown as UnumJsonSchema;
