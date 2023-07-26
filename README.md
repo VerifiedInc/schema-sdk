@@ -75,6 +75,7 @@ There are a number of spots that need to be updated in order to properly add a n
 2. **Add the newly created JsonLDSchema to the jsonLDSchemas map in jsonLDSchemas.ts** this is easily forgotten as it as the bottom of the file.
 3. **Create and export a new file to the new JsonSchema in `src/jsonSchema` folder**, naming the file `{credentialName}Credential.ts`, and add the file to credential related folder, e.g. `src/jsonSchema/addressCredential/stateCredential.ts`, 
    1. if is not related to any existing folder, create a new folder for it. 
+   2. Use `import { Type }` from `./src/type` instead of `import { Type } from '@sinclair/typebox'` to create the schema, this will allow us to create a reference to the atomic credential.
 4. **Add the credential schema to the `src/jsonSchema/index.ts` exports**
 5. **Add the newly created JsonSchema to the jsonSchemas map in `src/jsonSchema/index.ts`** this is easily forgotten as it as the bottom of the file.
 6. **Create a new type definition in types.d.ts using the newly created jsonSchema definition**, e.g. IdentityCredentialSchemaType
