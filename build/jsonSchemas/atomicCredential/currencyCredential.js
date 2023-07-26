@@ -4,7 +4,7 @@ exports.currencyCredentialJsonSchema = void 0;
 const type_1 = require("../../type");
 exports.currencyCredentialJsonSchema = type_1.Type.Object({
     currency: type_1.Type.String({
-        description: 'The currency of the amount.',
+        description: 'The iso4217 currency code',
         examples: ['USD', 'EUR', 'GBP'],
         format: 'iso4217'
     })
