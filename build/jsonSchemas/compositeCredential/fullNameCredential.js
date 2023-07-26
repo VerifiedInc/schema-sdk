@@ -16,7 +16,9 @@ exports.fullNameCredentialJsonSchema = type_1.Type.Union([
             description: "A person's full name",
             examples: ['John Smith', 'John Michael Smith', 'Mary Kate Sierra Garcia-Tony']
         })
-    }, {})
+    }, {
+        additionalProperties: false
+    })
 ], {
     $id: 'FullNameCredential',
     unevaluatedProperties: false

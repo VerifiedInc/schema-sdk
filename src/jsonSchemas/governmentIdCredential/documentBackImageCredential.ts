@@ -3,7 +3,7 @@ import { UnumJsonSchema } from '..';
 
 export const documentBackImageCredentialJsonSchema = Type.Object(
   {
-    image: Type.String({
+    documentBackImage: Type.String({
       format: 'dataUriBase64Image',
       description:
         'Base64 encoded back of government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',

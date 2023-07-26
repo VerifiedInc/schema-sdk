@@ -31,7 +31,9 @@ export const addressCredentialJsonSchema = Type.Union(
           ]
         })
       },
-      {}
+      {
+        additionalProperties: false
+      }
     )
   ],
   {

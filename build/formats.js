@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.genderFormat = exports.sexFormat = exports.iso3166Alpha2CountryCodeFormat = exports.iso3166CodeFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
+exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.genderFormat = exports.sexFormat = exports.usZipCodeFormat = exports.iso3166RegionCodeFormat = exports.iso3166USRegionCodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.iso3166CodeFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
 // iso4317 codes: https://www.iban.com/currency-codes
 const validISO4217Codes = new Set([
     'AED',
@@ -736,6 +736,43 @@ exports.iso3166Alpha2CountryCodeFormat = {
     type: 'string',
     validate: (input) => {
         if (!validISO31661Alpha2CountryCodes.has(input))
+            return false;
+        return true;
+    }
+};
+/**
+ * Format to determine if a string is a valid iso3166-2 region code if the country is US
+ */
+exports.iso3166USRegionCodeFormat = {
+    type: 'string',
+    validate: (input) => {
+        if (!validISO31662USCodes.has(input))
+            return false;
+        return true;
+    }
+};
+/**
+ * Format to determine if a string is a valid iso3166-2 region code
+ */
+exports.iso3166RegionCodeFormat = {
+    type: 'string',
+    validate: (input) => {
+        // Check that region is a valid ISO 3166-2 code region code (just a string with up to three alphanumeric characters)
+        const isoRegionRegex = /^[a-zA-Z0-9]{1,3}$/;
+        if (!isoRegionRegex.test(input))
+            return false;
+        return true;
+    }
+};
+/**
+ * Format to determine if a zip code is a valid US zip code
+ */
+exports.usZipCodeFormat = {
+    type: 'string',
+    validate: (input) => {
+        // Check that zip follows expected pattern. Assuming US zip codes, we can expect 5 digits or 9
+        const usZipRegex = /^\d{5}(-\d{4})?$/;
+        if (!usZipRegex.test(input))
             return false;
         return true;
     }

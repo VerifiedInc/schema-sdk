@@ -768,6 +768,47 @@ export const iso3166Alpha2CountryCodeFormat: Format = {
 };
 
 /**
+ * Format to determine if a string is a valid iso3166-2 region code if the country is US
+ */
+export const iso3166USRegionCodeFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    if (!validISO31662USCodes.has(input)) return false;
+
+    return true;
+  }
+};
+
+/**
+ * Format to determine if a string is a valid iso3166-2 region code
+ */
+export const iso3166RegionCodeFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    // Check that region is a valid ISO 3166-2 code region code (just a string with up to three alphanumeric characters)
+    const isoRegionRegex = /^[a-zA-Z0-9]{1,3}$/;
+    if (!isoRegionRegex.test(input)) return false;
+
+    return true;
+  }
+};
+
+/**
+ * Format to determine if a zip code is a valid US zip code
+ */
+
+export const usZipCodeFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    // Check that zip follows expected pattern. Assuming US zip codes, we can expect 5 digits or 9
+    const usZipRegex = /^\d{5}(-\d{4})?$/;
+    if (!usZipRegex.test(input)) return false;
+
+    return true;
+  }
+};
+
+/**
  * Format to determine if a string contains a valid sex
  */
 export const sexFormat: Format = {

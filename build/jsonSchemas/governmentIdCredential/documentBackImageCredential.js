@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.documentBackImageCredentialJsonSchema = void 0;
 const type_1 = require("../../type");
 exports.documentBackImageCredentialJsonSchema = type_1.Type.Object({
-    image: type_1.Type.String({
+    documentBackImage: type_1.Type.String({
         format: 'dataUriBase64Image',
         description: 'Base64 encoded back of government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
         examples: [

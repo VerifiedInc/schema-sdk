@@ -18,7 +18,9 @@ export const fullNameCredentialJsonSchema = Type.Union(
           examples: ['John Smith', 'John Michael Smith', 'Mary Kate Sierra Garcia-Tony']
         })
       },
-      {}
+      {
+        additionalProperties: false
+      }
     )
   ],
   {

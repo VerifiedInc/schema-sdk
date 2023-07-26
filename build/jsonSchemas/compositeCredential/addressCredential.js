@@ -28,7 +28,9 @@ exports.addressCredentialJsonSchema = type_1.Type.Union([
                 '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
             ]
         })
-    }, {})
+    }, {
+        additionalProperties: false
+    })
 ], {
     $id: 'AddressCredential',
     unevaluatedProperties: false

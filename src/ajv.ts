@@ -21,7 +21,10 @@ import {
   iso3166CodeFormat,
   documentTypeFormat,
   confidenceLevelFormat,
-  booleanFormat
+  booleanFormat,
+  iso3166USRegionCodeFormat,
+  iso3166RegionCodeFormat,
+  usZipCodeFormat
 } from './formats';
 
 // get all the values of the jsonSchemas object in an array
@@ -64,8 +67,10 @@ ajv.addFormat('iso4217AmountRange', iso4217AmountRangeFormat);
 ajv.addFormat('address', addressFormat);
 ajv.addFormat('gender', genderFormat);
 ajv.addFormat('iso3361Alpha2', iso3166Alpha2CountryCodeFormat);
+ajv.addFormat('iso3166USRegionCode', iso3166USRegionCodeFormat);
+ajv.addFormat('iso3166RegionCode', iso3166RegionCodeFormat);
 ajv.addFormat('iso3166', iso3166CodeFormat);
 ajv.addFormat('documentType', documentTypeFormat);
 ajv.addFormat('confidenceLevel', confidenceLevelFormat);
 ajv.addFormat('boolean', booleanFormat);
-ajv.addFormat('usZipCode', /^\d{5}(?:[-\s]\d{4})?$/);
+ajv.addFormat('usZipCode', usZipCodeFormat);

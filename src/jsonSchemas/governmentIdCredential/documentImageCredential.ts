@@ -3,7 +3,7 @@ import { UnumJsonSchema } from '..';
 
 export const documentImageCredentialJsonSchema = Type.Object(
   {
-    image: Type.String({
+    documentImage: Type.String({
       format: 'dataUriBase64Image',
       description:
         'Base64 encoded government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
@@ -12,5 +12,5 @@ export const documentImageCredentialJsonSchema = Type.Object(
       ]
     })
   },
-  { $id: 'documentImageCredential' }
+  { $id: 'DocumentImageCredential' }
 ) as UnumJsonSchema;

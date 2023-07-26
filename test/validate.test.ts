@@ -514,6 +514,16 @@ describe('Validate Schemas', () => {
       expect(valid).toEqual(true);
     });
 
+    test('valid - removing all additionalFields', async () => {
+      expect.assertions(1);
+      const valid = validate('AddressCredential', {
+        address: '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876',
+        fullAddress: '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
     test('invalid - wrong key', async () => {
       expect.assertions(1);
       try {
@@ -589,6 +599,650 @@ describe('Validate Schemas', () => {
       try {
         validate('AddressCredential', {
           confidence: 'low'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
+  // CountryCredential
+  describe('CountryCredential Schema', () => {
+    test('valid', () => {
+      const valid = validate('CountryCredential', {
+        country: 'US'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - removing additional keys', () => {
+      const valid = validate('CountryCredential', {
+        country: 'BR',
+        city: 'San Francisco'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('CountryCredential', {
+          country: 'USA'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
+  // StateCredential
+  describe('StateCredential Schema', () => {
+    test('valid - 1 alphanumeric characters', () => {
+      const valid = validate('StateCredential', {
+        state: 'C'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - 2 alphanumeric characters', () => {
+      const valid = validate('StateCredential', {
+        state: 'CA'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - 3 alphanumeric characters', () => {
+      const valid = validate('StateCredential', {
+        state: 'FI1'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - removing additional keys', () => {
+      const valid = validate('StateCredential', {
+        state: 'CA',
+        city: 'San Francisco'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('StateCredential', {
+          state: 'California'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('StateCredential', {
+          state: '--2'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
+  // AmountCredential
+  describe('AmountCredential Schema', () => {
+    test('valid', () => {
+      const valid = validate('AmountCredential', {
+        amount: '100'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - negative number', () => {
+      const valid = validate('AmountCredential', {
+        amount: '-100'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - removing additional keys', () => {
+      const valid = validate('AmountCredential', {
+        amount: '100',
+        currency: 'USD'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('AmountCredential', {
+          amount: '100.00'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('AmountCredential', {
+          amount: '100,00'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('AmountCredential', {
+          amount: 'abc'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('AmountCredential', {
+          amount: 'USD 100'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
+  // CurrencyCredential
+  describe('CurrencyCredential Schema', () => {
+    test('valid', () => {
+      const valid = validate('CurrencyCredential', {
+        currency: 'USD'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - removing additional keys', () => {
+      const valid = validate('CurrencyCredential', {
+        currency: 'USD',
+        amount: '100'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('CurrencyCredential', {
+          currency: 'US'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
+  // MatchCredential
+  describe('MatchCredential Schema', () => {
+    test('valid', () => {
+      const valid = validate('MatchCredential', {
+        confidence: 'High'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - removing additional keys', () => {
+      const valid = validate('MatchCredential', {
+        confidence: 'Very Low',
+        type: 'Face'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('MatchCredential', {
+          confidence: 'yes'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
+  // AddressCredential
+  describe('AddressCredential Composite Schema', () => {
+    test('valid', () => {
+      const valid = validate('AddressCredential', {
+        city: 'San Francisco',
+        country: 'US',
+        state: 'CA',
+        streetAddress: '307 3rd Ave',
+        line1: '307 3rd Ave',
+        zipCode: '94118'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - US ZipCode 9 digits', () => {
+      const valid = validate('AddressCredential', {
+        city: 'San Francisco',
+        country: 'US',
+        state: 'CA',
+        streetAddress: '307 3rd Ave',
+        line1: '307 3rd Ave',
+        zipCode: '94118-1234'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid', () => {
+      const valid = validate('AddressCredential', {
+        city: 'Curitiba',
+        country: 'BR',
+        state: 'PR',
+        line1: 'Rua 24 de Maio',
+        zipCode: '80010-080'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid', () => {
+      const valid = validate('AddressCredential', {
+        city: 'Curitiba',
+        country: 'BR',
+        state: 'PR',
+        line1: 'Rua 24 de Maio',
+        line2: 'Apt 123',
+        zipCode: '80010-080'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - removing additional keys', () => {
+      const valid = validate('AddressCredential', {
+        city: 'San Francisco',
+        country: 'US',
+        state: 'CA',
+        line1: '307 3rd Ave',
+        zipCode: '94118',
+        randomField: 'random'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - US Country wrong zipCode', async () => {
+      expect.assertions(1);
+      try {
+        validate('AddressCredential', {
+          city: 'San Francisco',
+          country: 'US',
+          state: 'CA',
+          streetAddress: '307 3rd Ave',
+          line1: '307 3rd Ave',
+          zipCode: '9411822'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - US Country wrong Region Code', async () => {
+      expect.assertions(1);
+      try {
+        validate('AddressCredential', {
+          city: 'San Francisco',
+          country: 'US',
+          state: 'XX',
+          streetAddress: '307 3rd Ave',
+          line1: '307 3rd Ave',
+          zipCode: '94118'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - US Country wrong Region Code and ZIP Code', async () => {
+      expect.assertions(1);
+      try {
+        validate('AddressCredential', {
+          city: 'San Francisco',
+          country: 'US',
+          state: 'XX',
+          streetAddress: '307 3rd Ave',
+          line1: '307 3rd Ave',
+          zipCode: '941181'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - Missing Some Properties', async () => {
+      expect.assertions(1);
+      try {
+        validate('AddressCredential', {
+          city: 'San Francisco',
+          country: 'US',
+          state: 'CA',
+          streetAddress: '307 3rd Ave',
+          line1: '307 3rd Ave'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
+  // AnnualIncomeCredential
+  describe('AnnualIncomeCredential Composite Schema', () => {
+    test('valid', () => {
+      const valid = validate('AnnualIncomeCredential', {
+        amount: '100',
+        currency: 'USD'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - removing additional keys', () => {
+      const valid = validate('AnnualIncomeCredential', {
+        amount: '100',
+        currency: 'USD',
+        what: 'CA'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('AnnualIncomeCredential', {
+          income: '100000'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('AnnualIncomeCredential', {
+          amount: '100',
+          currency: 'AZD'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('AnnualIncomeCredential', {
+          amount: '100.00',
+          currency: 'USD'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - missing properties', async () => {
+      expect.assertions(1);
+      try {
+        validate('AnnualIncomeCredential', {
+          amount: '100.00'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
+  // EmployerCredential
+  describe('EmployerCredential Composite Schema', () => {
+    test('valid', () => {
+      const valid = validate('EmployerCredential', {
+        employer: 'Unum ID',
+        title: 'Software Engineer',
+        startDate: 1686693430283,
+        income: 'USD 90000',
+        incomeRange: 'USD min25001_max50000'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - composite annual income', () => {
+      const valid = validate('EmployerCredential', {
+        employer: 'Unum ID',
+        title: 'Software Engineer',
+        startDate: 1686693430283,
+        amount: '90000',
+        currency: 'USD',
+        incomeRange: 'USD min25001_max50000'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - removing additional keys', () => {
+      const valid = validate('EmployerCredential', {
+        employer: 'Unum ID',
+        title: 'Software Engineer',
+        startDate: 1686693430283,
+        income: 'USD 90000',
+        incomeRange: 'USD min25001_max50000',
+        what: 'CA'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('EmployerCredential', {
+          employer: 'Unum ID',
+          title: 'Software Engineer',
+          startDate: 1686693430283,
+          income: 'XAS 90000',
+          incomeRange: 'USD min25001_max100000'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('EmployerCredential', {
+          employer: 'Unum ID',
+          title: 'Software Engineer',
+          startDate: 1686693430283,
+          amount: '90000',
+          currency: 'ZZZ',
+          incomeRange: 'USD min25001_max100000'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('EmployerCredential', {
+          employer: 'Unum ID',
+          title: 'Software Engineer',
+          startDate: 1686693430283,
+          amount: '90000.00',
+          currency: 'USD',
+          incomeRange: 'USD min25001_max100000'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - missing properties', async () => {
+      expect.assertions(1);
+      try {
+        validate('EmployerCredential', {
+          employer: 'Unum ID',
+          title: 'Software Engineer',
+          startDate: 1686693430283
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
+  // FullNameCredential
+  describe('FullNameCredential Composite Schema', () => {
+    test('valid', () => {
+      const valid = validate('FullNameCredential', {
+        firstName: 'John',
+        lastName: 'Doe'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - With middle name', () => {
+      const valid = validate('FullNameCredential', {
+        firstName: 'John',
+        middleName: 'M',
+        lastName: 'Doe'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid - removing additional keys', () => {
+      const valid = validate('FullNameCredential', {
+        firstName: 'John',
+        lastName: 'Doe',
+        what: 'CA'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('FullNameCredential', {
+          firstName: 'John',
+          middleName: 'M'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+  });
+
+  // GovernmentIdCredential
+  describe('GovernmentIdCredential Composite Schema', () => {
+    test('valid', () => {
+      const valid = validate('GovernmentIdCredential', {
+        idNumber: '123456789',
+        state: 'CA',
+        issuanceDate: 1686693430283,
+        expirationDate: 1686693430283,
+        documentType: 'Drivers License',
+        documentImage:
+          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII',
+        documentBackImage:
+          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('valid', () => {
+      const valid = validate('GovernmentIdCredential', {
+        idNumber: '123456789',
+        state: 'CA',
+        issuanceDate: 1686693430283,
+        expirationDate: 1686693430283,
+        documentType: 'Drivers License',
+        documentImage:
+          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII',
+        documentBackImage:
+          'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
+      });
+
+      expect(valid).toEqual(true);
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('GovernmentIdCredential', {
+          idNumber: '123456789',
+          state: 'us-CA',
+          issuanceDate: 1686693430283,
+          expirationDate: 1686693430283,
+          documentType: 'Driver License',
+          documentImage:
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII',
+          documentBackImage:
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII',
+          what: 'CA'
         });
         fail();
       } catch (e) {

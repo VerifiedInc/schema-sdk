@@ -47,9 +47,11 @@ exports.ajv.addFormat('iso4217AmountRange', formats_1.iso4217AmountRangeFormat);
 exports.ajv.addFormat('address', formats_1.addressFormat);
 exports.ajv.addFormat('gender', formats_1.genderFormat);
 exports.ajv.addFormat('iso3361Alpha2', formats_1.iso3166Alpha2CountryCodeFormat);
+exports.ajv.addFormat('iso3166USRegionCode', formats_1.iso3166USRegionCodeFormat);
+exports.ajv.addFormat('iso3166RegionCode', formats_1.iso3166RegionCodeFormat);
 exports.ajv.addFormat('iso3166', formats_1.iso3166CodeFormat);
 exports.ajv.addFormat('documentType', formats_1.documentTypeFormat);
 exports.ajv.addFormat('confidenceLevel', formats_1.confidenceLevelFormat);
 exports.ajv.addFormat('boolean', formats_1.booleanFormat);
-exports.ajv.addFormat('usZipCode', /^\d{5}(?:[-\s]\d{4})?$/);
+exports.ajv.addFormat('usZipCode', formats_1.usZipCodeFormat);
 //# sourceMappingURL=ajv.js.map
