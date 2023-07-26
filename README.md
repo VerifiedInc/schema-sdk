@@ -16,8 +16,43 @@ rdfs:Class is not _really_ used in favor of defining per attribute characteristi
 ## JSON Schemas
 JSON schemas are important for programmatically handling credential data. They assist in extracting information as well as data validation.
 
+For composite credentials, we are opting to use $ref to reference the atomic credential schemas. This is to avoid having to define the same schema multiple times. This is also why we are opting to use JSON Schema Draft 2019-09 over Draft 7.
+
+The main advantage of this JSON Schema version over draft-07 is the ability to spread the definition of records that do not allow additional properties across multiple schemas
+
 ### TypeBox
 [TypeBox](https://github.com/sinclairzx81/typebox) is used to author JSON schemas. This means the attribute type and potentially its format. It is really just syntactic sugar to author JSON Schemas. Opting to not use TypeBox [TypeCompiler](https://github.com/sinclairzx81/typebox#typecompiler) because it is a little less flexible than [AJV](###AJV) for validation.
+
+> We are using a custom TypeBuilder `./src/type`, we do this by extending Extended TypeBuilder (Type Builder's default) to add method creation reference to the atomic credential.
+
+### Folder Structure
+
+This is a brief description about the folder structure and what each one means
+
+```markdown
+jsonSchemas/ 
+├─atomicCredential/  <- Here we put all the credentials that, if created, do not add much information, eg: matchCredential.ts
+│ ├─matchCredential.ts <- matchCredential without other credential don't mean anything
+│ ├─index.ts <- Export all atomic credentials
+├─employerCredential/ <- All credentials relate to employer
+│ ├─index.ts <- Export all employer credentials
+├─compositeCredential/ <- This is where we define the composite credentials, such as eg: fullNameCredential.ts
+│ ├─fullNameCredential.ts <- fullNameCredential which is firstNameCredential + lastNameCredential (optional middleNameCredential)
+│ ├─index.ts <- Export all composite credentials
+│ ├─addressCredential.ts 
+├─addressCredential/ <- Credentials relate to address, for example: stateCredential, cityCredential
+│ ├─line1Credential.ts
+│ ├─index.ts <- Export all address credentials
+├─individualCredential/ <- Credentials relate an individual or a person, for example: firstNameCredential, birthDateCredential
+│ ├─firstNameCredential.ts
+│ ├─index.ts
+├─governmentIdCredential/ <- Credentials relate to government id, for example: ssnCredential, documentTypeCredential
+│ ├─documentTypeCredential.ts
+│ ├─index.ts
+├─backwardsCredential/ <- Old credentials that we use, but will be deprecated
+│ ├─index.ts
+├─index.ts <- Import all credentials and export them to type definition
+```
 
 ## Schema Validation
 Schema validation is important to ensure credential data is schema compliant.
@@ -25,9 +60,11 @@ Schema validation is important to ensure credential data is schema compliant.
 ### AJV
 [Ajv](https://ajv.js.org/guide/why-ajv.html) is used for schema validation. Currently defining all schemas at initialization however they still end up being compiled in an on demand fashion. If necessary, we can opt to using the pure on-demand schema compilation [strategy](https://ajv.js.org/guide/managing-schemas.html#pre-adding-all-schemas-vs-adding-on-demand) given we would like to support a large number of credential schemas.
 
+We are using AJV 2019, to support JSON Schema Draft 2019-09.
+
 #### Custom Formats
 Custom ajv [formats](https://ajv.js.org/guide/formats.html#user-defined-formats) are being defined an leveraged to add additional assurances in regard to the credential schema data format in addition to its type.
-Note: custom formats (and some built-in ones as well) do not work well for validating optional fields, even using TypeBox's `Type.Optional`. It is often helpful to add an optional variant (e.g. `optionalEmailFormat`) along with your custom format, which allows falsey values.
+Note: custom formats (and some built-in ones as well) do not work well for validating optional fields, even using TypeBox's `Type.Optional`. It is often helpful to add an optional variant (e.g. `optionalEmailFormat`) along with your custom format, which allows false values.
 
 ## Development
 ### Adding New Schemas
@@ -36,13 +73,15 @@ There are a number of spots that need to be updated in order to properly add a n
 1. **Create and export the new JsonLDSchema in jsonLDSchemas.ts**, e.g. identityCredentialJsonLDSchema
     a. **Update the `unum.id.json` JsonLD context file** if necessary with credential property schemas **NOTE: the schema context MUST include the `"rdfs:subPropertyOf"` key, among others. Use `"@id": "schema:miscellaneous"` if nothing else makes sense. Also, the `rdfs:rangeIncludes` must be a single value.**
 2. **Add the newly created JsonLDSchema to the jsonLDSchemas map in jsonLDSchemas.ts** this is easily forgotten as it as the bottom of the file.
-3. **Create and export the new JsonSchema in jsonSchema.ts**, e.g. identityCredentialJsonLDSchema
-4. **Add the newly created JsonSchema to the jsonSchemas map in jsonSchemas.ts** this is easily forgotten as it as the bottom of the file.
-5. **Create a new type definition in types.d.ts using the newly created jsonSchema definition**, e.g. IdentityCredentialSchemaType
-6. **Add the newly created type definition to index.ts exports** under the "credential types" inline comment
-7. **Add the newly created jsonSchema and jsonLdSchema to the schemas map in `schemas.ts`** **THIS IS NECESSARY FOR THE SCHEMA TO BE RETRIEVED FROM THE SCHEMA RESOLVER**
-8. **Create a new Jest describe block for validation tests in validate.test.ts** which covers the newly created JsonSchema, e.g. `describe('IdentityCredential Schema', () => {...`
-9. ~~**DON'T FORGET TO BUILD! `npm run compile`**~~ This step is actually now being handling automatically via the husky pre-commit setup.
+3. **Create and export a new file to the new JsonSchema in `src/jsonSchema` folder**, naming the file `{credentialName}Credential.ts`, and add the file to credential related folder, e.g. `src/jsonSchema/addressCredential/stateCredential.ts`, 
+   1. if is not related to any existing folder, create a new folder for it. 
+4. **Add the credential schema to the `src/jsonSchema/index.ts` exports**
+5. **Add the newly created JsonSchema to the jsonSchemas map in `src/jsonSchema/index.ts`** this is easily forgotten as it as the bottom of the file.
+6. **Create a new type definition in types.d.ts using the newly created jsonSchema definition**, e.g. IdentityCredentialSchemaType
+7. **Add the newly created type definition to index.ts exports** under the "credential types" inline comment
+8. **Add the newly created jsonSchema and jsonLdSchema to the schemas map in `schemas.ts`** **THIS IS NECESSARY FOR THE SCHEMA TO BE RETRIEVED FROM THE SCHEMA RESOLVER**
+9.  **Create a new Jest describe block for validation tests in validate.test.ts** which covers the newly created JsonSchema, e.g. `describe('IdentityCredential Schema', () => {...`
+10. ~~**DON'T FORGET TO BUILD! `npm run compile`**~~ This step is actually now being handling automatically via the husky pre-commit setup.
 
 ### Adding New Formats
 1. **Create the format validator in formats.ts**

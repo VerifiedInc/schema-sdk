@@ -5,21 +5,21 @@ const type_1 = require("../../type");
 exports.zipCodeCredentialJsonSchema = type_1.Type.Object({
     zipCode: type_1.Type.String({
         description: 'The zip code of the address.',
-        examples: ['94103', '94103-1234']
+        examples: ['94103', '94103-1234', '82030-040']
     })
 }, {
     $id: 'ZipCodeCredential',
-    if: {
-        type: 'object',
-        properties: {
-            country: { const: 'US' }
-        },
-        required: ['country']
-    },
-    then: {
-        properties: {
-            zipCode: { format: 'usZipCode' }
-        }
-    }
+    if: type_1.Type.Object({
+        country: type_1.Type.String({
+            description: 'If the country from Address Credential is the US.',
+            const: 'US'
+        })
+    }),
+    then: type_1.Type.Object({
+        zipCode: type_1.Type.String({
+            description: 'Then the zip code must be a valid US Zip Code.',
+            format: 'usZipCode'
+        })
+    })
 });
 //# sourceMappingURL=zipCodeCredential.js.map

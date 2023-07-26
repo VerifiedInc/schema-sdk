@@ -1,5 +1,5 @@
-// Using Ajv 2019 Draft for access to new features like $data, $merge, unevaluatedProperties, etc.
-// 100% backwards compatible with Ajv 6
+// Using Ajv 2019 for access to JSON Schema Draft 2019 and the new features like $data, $merge, unevaluatedProperties, etc.
+// 100% backwards compatible with Draft 7.
 import Ajv2019 from 'ajv/dist/2019';
 import logger from './logger';
 import addFormats from 'ajv-formats';
