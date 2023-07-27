@@ -16,14 +16,14 @@ rdfs:Class is not _really_ used in favor of defining per attribute characteristi
 ## JSON Schemas
 JSON schemas are important for programmatically handling credential data. They assist in extracting information as well as data validation.
 
-For composite credentials, we are opting to use $ref to reference the atomic credential schemas. This is to avoid having to define the same schema multiple times. This is also why we are opting to use JSON Schema Draft 2019-09 over Draft 7.
+For composite credentials, we are opting to use [$ref](https://json-schema.org/understanding-json-schema/structuring.html#ref) to reference the atomic credential schemas. This is to avoid having to define the same schema multiple times. This is also why we are opting to use [JSON Schema Draft 2019-09](https://ajv.js.org/guide/schema-language.html#draft-2019-09-and-draft-2020-12) over Draft 7.
 
-The main advantage of this JSON Schema version over draft-07 is the ability to spread the definition of records that do not allow additional properties across multiple schemas
+The main advantage of this JSON Schema version over draft-07 is the ability to use  [unevaluatedproperties](https://ajv.js.org/json-schema.html#unevaluatedproperties) in the [definition of schemas that do not allow additional properties across multiple schemas](https://json-schema.org/understanding-json-schema/reference/object.html#extending)
 
 ### TypeBox
 [TypeBox](https://github.com/sinclairzx81/typebox) is used to author JSON schemas. This means the attribute type and potentially its format. It is really just syntactic sugar to author JSON Schemas. Opting to not use TypeBox [TypeCompiler](https://github.com/sinclairzx81/typebox#typecompiler) because it is a little less flexible than [AJV](###AJV) for validation.
 
-> We are using a custom TypeBuilder `./src/type`, we do this by extending Extended TypeBuilder (Type Builder's default) to add method creation reference to the atomic credential.
+> We are using a custom [TypeBuilder](https://github.com/sinclairzx81/typebox/issues/373#issuecomment-1502287920) `./src/type`, we do this by extending Extended TypeBuilder (Type Builder's default) to add method creation reference to the atomic credential.
 
 ### Folder Structure
 
