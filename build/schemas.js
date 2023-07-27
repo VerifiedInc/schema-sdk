@@ -61,7 +61,7 @@ exports.schemas = {
         jsonLD: jsonLDSchemas_1.governmentIdDocumentImageCredentialJsonLDSchema
     },
     FacialMatchCredential: {
-        json: jsonSchemas_1.facialMatchCredentialJsonSchema,
+        json: jsonSchemas_1.matchCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.facialMatchCredentialJsonLDSchema
     },
     GovernmentIdTypeCredential: {

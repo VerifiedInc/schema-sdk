@@ -36,7 +36,7 @@ import {
   countryResidenceCredentialJsonSchema,
   emailCredentialJsonSchema,
   facialImageCredentialJsonSchema,
-  facialMatchCredentialJsonSchema,
+  matchCredentialJsonSchema,
   firstNameCredentialJsonSchema,
   fullNameCredentialJsonSchema,
   genderCredentialJsonSchema,
@@ -126,7 +126,7 @@ export const schemas: Record<string, UnumSchema> = {
     jsonLD: governmentIdDocumentImageCredentialJsonLDSchema
   },
   FacialMatchCredential: {
-    json: facialMatchCredentialJsonSchema,
+    json: matchCredentialJsonSchema,
     jsonLD: facialMatchCredentialJsonLDSchema
   },
   GovernmentIdTypeCredential: {

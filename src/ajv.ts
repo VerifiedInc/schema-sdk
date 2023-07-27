@@ -1,4 +1,6 @@
-import Ajv from 'ajv';
+// Using Ajv 2019 for access to JSON Schema Draft 2019 and the new features like $data, $merge, unevaluatedProperties, etc.
+// 100% backwards compatible with Draft 7.
+import Ajv2019 from 'ajv/dist/2019';
 import logger from './logger';
 import addFormats from 'ajv-formats';
 import { jsonSchemas } from './jsonSchemas';
@@ -19,7 +21,10 @@ import {
   iso3166CodeFormat,
   documentTypeFormat,
   confidenceLevelFormat,
-  booleanFormat
+  booleanFormat,
+  iso3166USRegionCodeFormat,
+  iso3166RegionCodeFormat,
+  usZipCodeFormat
 } from './formats';
 
 // get all the values of the jsonSchemas object in an array
@@ -33,9 +38,11 @@ const schemas = Object.values(jsonSchemas);
  * Note: Although addSchema does not compile schemas, explicit compilation is not required - the schema will be compiled when it is used first time.
  * ref: https://ajv.js.org/api.html#ajv-addschema-schema-object-object-key-string-ajv
  */
-export const ajv = new Ajv({
+
+export const ajv = new Ajv2019({
   allErrors: true,
-  coerceTypes: true, // ref: https://ajv.js.org/guide/modifying-data.html#coercing-data-types
+  coerceTypes: true, // ref: https://ajv.js.org/guide/modifying-data.html#coercing-data-types,
+  removeAdditional: true,
   logger,
   schemas
 });
@@ -60,7 +67,10 @@ ajv.addFormat('iso4217AmountRange', iso4217AmountRangeFormat);
 ajv.addFormat('address', addressFormat);
 ajv.addFormat('gender', genderFormat);
 ajv.addFormat('iso3361Alpha2', iso3166Alpha2CountryCodeFormat);
+ajv.addFormat('iso3166USRegionCode', iso3166USRegionCodeFormat);
+ajv.addFormat('iso3166RegionCode', iso3166RegionCodeFormat);
 ajv.addFormat('iso3166', iso3166CodeFormat);
 ajv.addFormat('documentType', documentTypeFormat);
 ajv.addFormat('confidenceLevel', confidenceLevelFormat);
 ajv.addFormat('boolean', booleanFormat);
+ajv.addFormat('usZipCode', usZipCodeFormat);

@@ -65,6 +65,18 @@ export declare const iso3166CodeFormat: Format;
  */
 export declare const iso3166Alpha2CountryCodeFormat: Format;
 /**
+ * Format to determine if a string is a valid iso3166-2 region code if the country is US
+ */
+export declare const iso3166USRegionCodeFormat: Format;
+/**
+ * Format to determine if a string is a valid iso3166-2 region code
+ */
+export declare const iso3166RegionCodeFormat: Format;
+/**
+ * Format to determine if a zip code is a valid US zip code
+ */
+export declare const usZipCodeFormat: Format;
+/**
  * Format to determine if a string contains a valid sex
  */
 export declare const sexFormat: Format;

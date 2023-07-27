@@ -11,6 +11,8 @@ import {
   genderFormat,
   iso3166Alpha2CountryCodeFormat,
   iso3166CodeFormat,
+  iso3166RegionCodeFormat,
+  iso3166USRegionCodeFormat,
   iso4217AmountFormat,
   iso4217AmountRangeFormat,
   iso4217Format,
@@ -19,7 +21,8 @@ import {
   otpFormat,
   phoneFormat,
   sexFormat,
-  ssnFormat
+  ssnFormat,
+  usZipCodeFormat
 } from '../src/formats';
 
 describe('formats', () => {
@@ -211,6 +214,20 @@ describe('formats', () => {
     expect(validate('307 3rd Ave, Apt #4,, US-GA 185-9876')).toBe(false);
   });
 
+  test('iso3166USRegionCodeFormat', () => {
+    const format = iso3166USRegionCodeFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('TX')).toBe(true);
+    expect(validate('GA')).toBe(true);
+
+    // invalid
+    expect(validate('test')).toBe(false);
+    expect(validate('US')).toBe(false);
+    expect(validate('SP')).toBe(false);
+  });
+
   test('iso3166CodeFormat', () => {
     const format = iso3166CodeFormat as FormatDefinition<string>;
     const validate = format.validate as FormatValidator<string>;
@@ -272,6 +289,35 @@ describe('formats', () => {
     expect(validate('male')).toBe(false);
     expect(validate('M')).toBe(false);
     expect(validate('F')).toBe(false);
+  });
+
+  test('iso3166RegionCodeFormat', () => {
+    const format = iso3166RegionCodeFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('TX')).toBe(true);
+    expect(validate('GA')).toBe(true);
+    expect(validate('ENG')).toBe(true);
+
+    // invalid
+    expect(validate('test')).toBe(false);
+    expect(validate('USAZ')).toBe(false);
+    expect(validate('')).toBe(false);
+  });
+
+  test('usZipCodeFormat', () => {
+    const format = usZipCodeFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid
+    expect(validate('78045')).toBe(true);
+    expect(validate('18025-9876')).toBe(true);
+
+    // invalid
+    expect(validate('test')).toBe(false);
+    expect(validate('7845')).toBe(false);
+    expect(validate('83508-566')).toBe(false);
   });
 
   test('DocumentTypeFormat', () => {

@@ -4,7 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ajv = void 0;
-const ajv_1 = __importDefault(require("ajv"));
+// Using Ajv 2019 for access to JSON Schema Draft 2019 and the new features like $data, $merge, unevaluatedProperties, etc.
+// 100% backwards compatible with Draft 7.
+const _2019_1 = __importDefault(require("ajv/dist/2019"));
 const logger_1 = __importDefault(require("./logger"));
 const ajv_formats_1 = __importDefault(require("ajv-formats"));
 const jsonSchemas_1 = require("./jsonSchemas");
@@ -19,11 +21,11 @@ const schemas = Object.values(jsonSchemas_1.jsonSchemas);
  * Note: Although addSchema does not compile schemas, explicit compilation is not required - the schema will be compiled when it is used first time.
  * ref: https://ajv.js.org/api.html#ajv-addschema-schema-object-object-key-string-ajv
  */
-exports.ajv = new ajv_1.default({
+exports.ajv = new _2019_1.default({
     allErrors: true,
     coerceTypes: true,
-    logger: // ref: https://ajv.js.org/guide/modifying-data.html#coercing-data-types
-    logger_1.default,
+    removeAdditional: true,
+    logger: logger_1.default,
     schemas
 });
 // Adding formats to ajv
@@ -45,8 +47,11 @@ exports.ajv.addFormat('iso4217AmountRange', formats_1.iso4217AmountRangeFormat);
 exports.ajv.addFormat('address', formats_1.addressFormat);
 exports.ajv.addFormat('gender', formats_1.genderFormat);
 exports.ajv.addFormat('iso3361Alpha2', formats_1.iso3166Alpha2CountryCodeFormat);
+exports.ajv.addFormat('iso3166USRegionCode', formats_1.iso3166USRegionCodeFormat);
+exports.ajv.addFormat('iso3166RegionCode', formats_1.iso3166RegionCodeFormat);
 exports.ajv.addFormat('iso3166', formats_1.iso3166CodeFormat);
 exports.ajv.addFormat('documentType', formats_1.documentTypeFormat);
 exports.ajv.addFormat('confidenceLevel', formats_1.confidenceLevelFormat);
 exports.ajv.addFormat('boolean', formats_1.booleanFormat);
+exports.ajv.addFormat('usZipCode', formats_1.usZipCodeFormat);
 //# sourceMappingURL=ajv.js.map
