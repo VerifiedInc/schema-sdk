@@ -6,7 +6,9 @@ export const stateCredentialJsonSchema = Type.Object(
     state: Type.String({
       description: "A state's ISO 3166-2 code.",
       examples: ['CA', 'GA', 'SP'],
-      format: 'iso3166RegionCode'
+      format: 'iso3166RegionCode',
+      label: 'State or Region',
+      grouping: 'Address'
     })
   },
   {
