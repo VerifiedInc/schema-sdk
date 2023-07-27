@@ -2,7 +2,11 @@
  * UnumID Json-LD schema type.
  * TODO figure out how to type this.
  */
-export type UnumJsonLDSchema = any;
+export type UnumJsonLDSchema = {
+    '@type': string;
+    '@context': string;
+    [key: string]: string;
+};
 export declare const emailCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const identityCredentialJsonLDSchema: UnumJsonLDSchema;
 export declare const ssnCredentialJsonLDSchema: UnumJsonLDSchema;
