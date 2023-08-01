@@ -1,12 +1,14 @@
 import { Type } from '../../type';
 import { UnumJsonSchema } from '..';
+import { DisplayFormat } from '../../enums/displayFormat';
 
 export const zipCodeCredentialJsonSchema = Type.Object(
   {
     zipCode: Type.String({
       description: 'The zip code of the address.',
       examples: ['94103', '94103-1234', '82030-040'],
-      label: 'Zip Code'
+      label: 'Zip Code',
+      displayFormat: DisplayFormat.String
     })
   },
   {

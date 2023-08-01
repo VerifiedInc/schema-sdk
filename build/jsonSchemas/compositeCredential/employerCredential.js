@@ -6,6 +6,7 @@ const annualIncomeCredential_1 = require("./annualIncomeCredential");
 const employmentStartDateCredential_1 = require("../employerCredential/employmentStartDateCredential");
 const titleCredential_1 = require("../employerCredential/titleCredential");
 const incomeRangeCredential_1 = require("../employerCredential/incomeRangeCredential");
+const displayFormat_1 = require("../../enums/displayFormat");
 exports.employerCredentialJsonSchema = type_1.Type.Union([
     type_1.Type.IntersectReferences([
         employmentStartDateCredential_1.employmentStartDateCredentialJsonSchema,
@@ -17,7 +18,8 @@ exports.employerCredentialJsonSchema = type_1.Type.Union([
         employer: type_1.Type.String({
             description: 'Employer name',
             examples: ['Acme Corp', 'Piped Piper', 'Hooli'],
-            title: 'Employer'
+            title: 'Employer',
+            displayFormat: displayFormat_1.DisplayFormat.String
         })
     })
 ], {

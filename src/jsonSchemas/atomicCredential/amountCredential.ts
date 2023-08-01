@@ -1,5 +1,6 @@
 import { Type } from '../../type';
 import { UnumJsonSchema } from '..';
+import { DisplayFormat } from '../../enums/displayFormat';
 
 export const amountCredentialJsonSchema = Type.Object(
   {
@@ -7,7 +8,8 @@ export const amountCredentialJsonSchema = Type.Object(
       description: 'The amount of the something, i.e. a currency.',
       examples: ['100000', '200000', '300000'],
       title: 'Amount',
-      format: 'digits'
+      format: 'digits',
+      displayFormat: DisplayFormat.Number
     })
   },
   {

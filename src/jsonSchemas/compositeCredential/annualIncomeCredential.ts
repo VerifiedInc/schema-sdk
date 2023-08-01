@@ -2,6 +2,7 @@ import { Type } from '../../type';
 import { currencyCredentialJsonSchema } from '../atomicCredential/currencyCredential';
 import { amountCredentialJsonSchema } from '../atomicCredential/amountCredential';
 import { UnumJsonSchema } from '..';
+import { DisplayFormat } from '../../enums/displayFormat';
 
 export const annualIncomeCredentialJsonSchema = Type.Union(
   [
@@ -12,7 +13,8 @@ export const annualIncomeCredentialJsonSchema = Type.Union(
         format: 'iso4217Amount',
         description: 'Annual income with the preceding ISO4217 currency format.',
         examples: ['USD 101000', 'GBP 46000'],
-        title: 'Annual Income'
+        title: 'Annual Income',
+        displayFormat: DisplayFormat.CurrencyAmount
       })
     })
   ],

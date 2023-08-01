@@ -1,5 +1,6 @@
 import { Type } from '../../type';
 import { UnumJsonSchema } from '../..';
+import { DisplayFormat } from '../../enums/displayFormat';
 
 export const facialImageCredentialJsonSchema = Type.Object(
   {
@@ -10,7 +11,8 @@ export const facialImageCredentialJsonSchema = Type.Object(
       examples: [
         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
       ],
-      title: 'Facial Image'
+      title: 'Facial Image',
+      displayFormat: DisplayFormat.Image
     })
   },
   { $id: 'FacialImageCredential' }

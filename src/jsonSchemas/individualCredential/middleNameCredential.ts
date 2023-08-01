@@ -1,5 +1,6 @@
 import { Type } from '../../type';
 import { UnumJsonSchema } from '..';
+import { DisplayFormat } from '../../enums/displayFormat';
 
 export const middleNameCredentialJsonSchema = Type.Object(
   {
@@ -7,7 +8,8 @@ export const middleNameCredentialJsonSchema = Type.Object(
       Type.String({
         description: "A person's middle name",
         examples: ['Henry', 'Fitzgerald'],
-        title: 'Middle Name'
+        title: 'Middle Name',
+        displayFormat: DisplayFormat.String
       })
     )
   },

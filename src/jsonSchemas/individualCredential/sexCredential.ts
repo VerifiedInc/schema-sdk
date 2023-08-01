@@ -1,5 +1,6 @@
 import { Type } from '../../type';
 import { UnumJsonSchema } from '..';
+import { DisplayFormat } from '../../enums/displayFormat';
 
 export const sexCredentialJsonSchema = Type.Object(
   {
@@ -7,7 +8,8 @@ export const sexCredentialJsonSchema = Type.Object(
       format: 'gender',
       description: "A person's sex",
       examples: ['Male', 'Female'],
-      title: 'Sex'
+      title: 'Sex',
+      displayFormat: DisplayFormat.String
     })
   },
   { $id: 'SexCredential' }

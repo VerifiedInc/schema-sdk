@@ -1,5 +1,6 @@
 import { Type } from '../../type';
 import { UnumJsonSchema } from '..';
+import { DisplayFormat } from '../../enums/displayFormat';
 
 export const phoneCredentialJsonSchema = Type.Object(
   {
@@ -7,7 +8,8 @@ export const phoneCredentialJsonSchema = Type.Object(
       format: 'phone',
       description: 'A phone number in the E.164 format, [+][country code][number].',
       examples: ['+16175551212', '+14041238686'],
-      title: 'Phone'
+      title: 'Phone',
+      displayFormat: DisplayFormat.PhoneNumber
     })
   },
   { $id: 'PhoneCredential' }

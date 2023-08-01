@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fullNameCredentialJsonSchema = void 0;
+const displayFormat_1 = require("../../enums/displayFormat");
 const type_1 = require("../../type");
 const firstNameCredential_1 = require("../individualCredential/firstNameCredential");
 const lastNameCredential_1 = require("../individualCredential/lastNameCredential");
@@ -15,7 +16,8 @@ exports.fullNameCredentialJsonSchema = type_1.Type.Union([
         fullName: type_1.Type.String({
             description: "A person's full name",
             examples: ['John Smith', 'John Michael Smith', 'Mary Kate Sierra Garcia-Tony'],
-            title: 'fullName'
+            title: 'fullName',
+            displayFormat: displayFormat_1.DisplayFormat.String
         })
     }, {
         additionalProperties: false

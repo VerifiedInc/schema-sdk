@@ -1,5 +1,6 @@
 import { Type } from '../../type';
 import { UnumJsonSchema } from '..';
+import { DisplayFormat } from '../../enums/displayFormat';
 
 export const matchCredentialJsonSchema = Type.Object(
   {
@@ -7,7 +8,8 @@ export const matchCredentialJsonSchema = Type.Object(
       format: 'confidenceLevel',
       description: "A person's facial match confidence score during an IDV session",
       examples: ['Very High', 'High', 'Medium', 'Low', 'Very Low'],
-      title: 'Match Confidence'
+      title: 'Match Confidence',
+      displayFormat: DisplayFormat.String
     })
   },
   { $id: 'MatchCredential' }

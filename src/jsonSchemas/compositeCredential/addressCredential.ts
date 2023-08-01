@@ -6,6 +6,7 @@ import { line2CredentialJsonSchema } from '../addressCredential/line2Credential'
 import { stateCredentialJsonSchema } from '../addressCredential/stateCredential';
 import { countryCredentialJsonSchema } from '../addressCredential/countryCredential';
 import { zipCodeCredentialJsonSchema } from '../addressCredential/zipCodeCredential';
+import { DisplayFormat } from '../../enums/displayFormat';
 
 export const addressCredentialIntersectReferences = Type.IntersectReferences([
   line1CredentialJsonSchema,
@@ -29,7 +30,8 @@ export const addressCredentialJsonSchema = Type.Union(
             '10 Downing Street, London, GB-ENG SW1A 2AA',
             '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
           ],
-          title: 'Street Address'
+          title: 'Street Address',
+          displayFormat: DisplayFormat.String
         })
       },
       {

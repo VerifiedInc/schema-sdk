@@ -2,12 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.stateCredentialJsonSchema = void 0;
 const type_1 = require("../../type");
+const displayFormat_1 = require("../../enums/displayFormat");
 exports.stateCredentialJsonSchema = type_1.Type.Object({
     state: type_1.Type.String({
         description: "A state's ISO 3166-2 code.",
         examples: ['CA', 'GA', 'SP'],
         format: 'iso3166RegionCode',
-        title: 'State or Region'
+        title: 'State or Region',
+        displayFormat: displayFormat_1.DisplayFormat.String
     })
 }, {
     $id: 'StateCredential',

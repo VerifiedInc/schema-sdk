@@ -6,8 +6,8 @@ interface UnumJsonSchema extends TObject<TProperties> {
     $id: string;
 }
 export declare const governmentIdDocumentImageCredentialJsonSchema: UnumJsonSchema;
-export declare const governmentIdTypeCredentialJsonSchema: UnumJsonSchema;
 export declare const governmentIdDocumentBackImageCredentialJsonSchema: UnumJsonSchema;
+export declare const governmentIdTypeCredentialJsonSchema: UnumJsonSchema;
 export declare const governmentIdStateCredentialJsonSchema: UnumJsonSchema;
 export declare const governmentIdNumberCredentialJsonSchema: UnumJsonSchema;
 export declare const governmentIdIssuanceDateCredentialJsonSchema: UnumJsonSchema;

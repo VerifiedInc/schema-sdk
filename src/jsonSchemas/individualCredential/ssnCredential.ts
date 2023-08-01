@@ -1,5 +1,6 @@
 import { Type } from '../../type';
 import { UnumJsonSchema } from '..';
+import { DisplayFormat } from '../../enums/displayFormat';
 
 export const ssnCredentialJsonSchema = Type.Object(
   {
@@ -7,7 +8,8 @@ export const ssnCredentialJsonSchema = Type.Object(
       format: 'ssn',
       description: '9 digit social security number, with no dashes, in the format of: 123456789',
       examples: ['123456789', '333224444'],
-      title: 'Social Security Number'
+      title: 'Social Security Number',
+      displayFormat: DisplayFormat.SSN
     })
   },
   { $id: 'SsnCredential' }

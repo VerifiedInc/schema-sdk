@@ -1,5 +1,6 @@
 import { Type } from '../../type';
 import { UnumJsonSchema } from '..';
+import { DisplayFormat } from '../../enums/displayFormat';
 
 export const stateCredentialJsonSchema = Type.Object(
   {
@@ -7,7 +8,8 @@ export const stateCredentialJsonSchema = Type.Object(
       description: "A state's ISO 3166-2 code.",
       examples: ['CA', 'GA', 'SP'],
       format: 'iso3166RegionCode',
-      title: 'State or Region'
+      title: 'State or Region',
+      displayFormat: DisplayFormat.String
     })
   },
   {

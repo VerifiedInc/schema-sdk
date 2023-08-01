@@ -1,5 +1,6 @@
 import { Type } from '../../type';
 import { UnumJsonSchema } from '..';
+import { DisplayFormat } from '../../enums/displayFormat';
 
 export const documentTypeCredentialJsonSchema = Type.Object(
   {
@@ -16,7 +17,8 @@ export const documentTypeCredentialJsonSchema = Type.Object(
         'Voter Registration Card',
         'Other'
       ],
-      title: 'Document Type'
+      title: 'Document Type',
+      displayFormat: DisplayFormat.String
     })
   },
   { $id: 'DocumentTypeCredential' }

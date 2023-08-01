@@ -4,6 +4,7 @@ import { employmentStartDateCredentialJsonSchema } from '../employerCredential/e
 import { titleCredentialJsonSchema } from '../employerCredential/titleCredential';
 import { incomeRangeCredentialJsonSchema } from '../employerCredential/incomeRangeCredential';
 import { UnumJsonSchema } from '..';
+import { DisplayFormat } from '../../enums/displayFormat';
 
 export const employerCredentialJsonSchema = Type.Union(
   [
@@ -17,7 +18,8 @@ export const employerCredentialJsonSchema = Type.Union(
       employer: Type.String({
         description: 'Employer name',
         examples: ['Acme Corp', 'Piped Piper', 'Hooli'],
-        title: 'Employer'
+        title: 'Employer',
+        displayFormat: DisplayFormat.String
       })
     })
   ],

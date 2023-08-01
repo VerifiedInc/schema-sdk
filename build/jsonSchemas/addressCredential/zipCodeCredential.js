@@ -2,11 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.zipCodeCredentialJsonSchema = void 0;
 const type_1 = require("../../type");
+const displayFormat_1 = require("../../enums/displayFormat");
 exports.zipCodeCredentialJsonSchema = type_1.Type.Object({
     zipCode: type_1.Type.String({
         description: 'The zip code of the address.',
         examples: ['94103', '94103-1234', '82030-040'],
-        label: 'Zip Code'
+        label: 'Zip Code',
+        displayFormat: displayFormat_1.DisplayFormat.String
     })
 }, {
     $id: 'ZipCodeCredential',
