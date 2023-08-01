@@ -4,6 +4,30 @@ exports.schemas = void 0;
 const jsonLDSchemas_1 = require("./jsonLDSchemas");
 const jsonSchemas_1 = require("./jsonSchemas");
 exports.schemas = {
+    CityCredential: {
+        json: jsonSchemas_1.cityCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.addressCredentialJsonLDSchema
+    },
+    StateCredential: {
+        json: jsonSchemas_1.stateCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.addressCredentialJsonLDSchema
+    },
+    CountryCredential: {
+        json: jsonSchemas_1.countryCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.addressCredentialJsonLDSchema
+    },
+    line1Credential: {
+        json: jsonSchemas_1.line1CredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.addressCredentialJsonLDSchema
+    },
+    line2Credential: {
+        json: jsonSchemas_1.line2CredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.addressCredentialJsonLDSchema
+    },
+    zipCodeCredential: {
+        json: jsonSchemas_1.zipCodeCredentialJsonSchema,
+        jsonLD: jsonLDSchemas_1.addressCredentialJsonLDSchema
+    },
     EmailCredential: {
         json: jsonSchemas_1.emailCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.emailCredentialJsonLDSchema
@@ -30,30 +54,6 @@ exports.schemas = {
     },
     AddressCredential: {
         json: jsonSchemas_1.addressCredentialJsonSchema,
-        jsonLD: jsonLDSchemas_1.addressCredentialJsonLDSchema
-    },
-    CityCredential: {
-        json: jsonSchemas_1.cityCredentialJsonSchema,
-        jsonLD: jsonLDSchemas_1.addressCredentialJsonLDSchema
-    },
-    StateCredential: {
-        json: jsonSchemas_1.stateCredentialJsonSchema,
-        jsonLD: jsonLDSchemas_1.addressCredentialJsonLDSchema
-    },
-    CountryCredential: {
-        json: jsonSchemas_1.countryCredentialJsonSchema,
-        jsonLD: jsonLDSchemas_1.addressCredentialJsonLDSchema
-    },
-    line1Credential: {
-        json: jsonSchemas_1.line1CredentialJsonSchema,
-        jsonLD: jsonLDSchemas_1.addressCredentialJsonLDSchema
-    },
-    line2Credential: {
-        json: jsonSchemas_1.line2CredentialJsonSchema,
-        jsonLD: jsonLDSchemas_1.addressCredentialJsonLDSchema
-    },
-    zipCodeCredential: {
-        json: jsonSchemas_1.zipCodeCredentialJsonSchema,
         jsonLD: jsonLDSchemas_1.addressCredentialJsonLDSchema
     },
     LastNameCredential: {

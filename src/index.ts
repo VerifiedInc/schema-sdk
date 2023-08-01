@@ -35,7 +35,7 @@ import { validate } from './validate';
 import context from './context/unum.id.json';
 import { UnumJsonLDSchema } from './jsonLDSchemas';
 import { schemas, UnumSchema } from './schemas';
-import { UnumJsonSchema, cityCredentialJsonSchema, countryCredentialJsonSchema, line1CredentialJsonSchema, line2CredentialJsonSchema, stateCredentialJsonSchema, zipCodeCredentialJsonSchema } from './jsonSchemas';
+import { UnumJsonSchema, cityCredentialJsonSchema, countryCredentialJsonSchema, jsonSchemas, line1CredentialJsonSchema, line2CredentialJsonSchema, stateCredentialJsonSchema, zipCodeCredentialJsonSchema } from './jsonSchemas';
 import {
   emailFormat,
   phoneFormat,
@@ -57,7 +57,6 @@ import {
   addressFormat
 } from './formats';
 import { ajv } from './ajv';
-import { getJsonSchema } from './utils/getJsonSchema';
 
 export {
   // ajv instance
@@ -70,7 +69,6 @@ export {
 
   // functions
   validate,
-  getJsonSchema,
 
   // formats
   emailFormat,
@@ -97,6 +95,7 @@ export {
 
   // credential schemas map
   schemas,
+  jsonSchemas,
 
   // json schemas
   cityCredentialJsonSchema,
