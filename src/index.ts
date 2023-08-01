@@ -35,7 +35,7 @@ import { validate } from './validate';
 import context from './context/unum.id.json';
 import { UnumJsonLDSchema } from './jsonLDSchemas';
 import { schemas, UnumSchema } from './schemas';
-import { UnumJsonSchema } from './jsonSchemas';
+import { UnumJsonSchema, cityCredentialJsonSchema, countryCredentialJsonSchema, line1CredentialJsonSchema, line2CredentialJsonSchema, stateCredentialJsonSchema, zipCodeCredentialJsonSchema } from './jsonSchemas';
 import {
   emailFormat,
   phoneFormat,
@@ -97,6 +97,14 @@ export {
 
   // credential schemas map
   schemas,
+
+  // json schemas
+  cityCredentialJsonSchema,
+  countryCredentialJsonSchema,
+  line1CredentialJsonSchema,
+  line2CredentialJsonSchema,
+  stateCredentialJsonSchema,
+  zipCodeCredentialJsonSchema,
 
   // credential types
   EmailCredentialSchemaType,
