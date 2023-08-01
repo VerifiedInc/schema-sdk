@@ -9,6 +9,6 @@ export enum DisplayFormat {
   CurrencyAmount = 'CurrencyAmount', // e.g. GBP 40000
   CurrencyRange = 'CurrencyRange', // e.g. USD min5000_max7500
   Boolean = 'Boolean',
-  USState = 'USState', // e.g. US-TX
+  USState = 'USState', // e.g. TX
   Image = 'Image'
 }

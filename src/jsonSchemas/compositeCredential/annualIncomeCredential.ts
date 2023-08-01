@@ -24,7 +24,9 @@ export const annualIncomeCredentialJsonSchema = Type.Union(
     // Allow backward compatibility with the old format
     if: Type.Object(
       {
-        income: Type.String()
+        income: Type.String({
+          displayFormat: DisplayFormat.CurrencyAmount
+        })
       },
       {
         additionalProperties: false
@@ -32,7 +34,8 @@ export const annualIncomeCredentialJsonSchema = Type.Union(
     ),
     then: Type.Object({
       income: Type.String({
-        format: 'iso4217Amount'
+        format: 'iso4217Amount',
+        displayFormat: DisplayFormat.CurrencyAmount
       })
     })
   }

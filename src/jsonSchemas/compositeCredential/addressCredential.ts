@@ -31,7 +31,7 @@ export const addressCredentialJsonSchema = Type.Union(
             '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
           ],
           title: 'Street Address',
-          displayFormat: DisplayFormat.String
+          displayFormat: DisplayFormat.Address
         })
       },
       {

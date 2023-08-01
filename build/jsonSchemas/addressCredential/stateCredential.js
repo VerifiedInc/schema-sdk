@@ -22,7 +22,9 @@ exports.stateCredentialJsonSchema = type_1.Type.Object({
     then: type_1.Type.Object({
         state: type_1.Type.String({
             description: 'Then the state must be a valid US state.',
-            format: 'iso3166USRegionCode'
+            format: 'iso3166USRegionCode',
+            title: 'State',
+            displayFormat: displayFormat_1.DisplayFormat.USState
         })
     })
 });

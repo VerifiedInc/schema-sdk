@@ -23,7 +23,9 @@ export const stateCredentialJsonSchema = Type.Object(
     then: Type.Object({
       state: Type.String({
         description: 'Then the state must be a valid US state.',
-        format: 'iso3166USRegionCode'
+        format: 'iso3166USRegionCode',
+        title: 'State',
+        displayFormat: DisplayFormat.USState
       })
     })
   }
