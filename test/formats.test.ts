@@ -22,6 +22,7 @@ import {
   phoneFormat,
   sexFormat,
   ssnFormat,
+  unixMsEpochDayFormat,
   usZipCodeFormat
 } from '../src/formats';
 
@@ -113,6 +114,22 @@ describe('formats', () => {
 
     // invalid digits
     expect(validate('test')).toBe(false);
+  });
+
+  test('unixMsEpochDayFormat', () => {
+    const format = unixMsEpochDayFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid unixMsEpochDayFormat
+    expect(validate('1672574400000')).toBe(true);
+    expect(validate('631195200000')).toBe(true);
+    expect(validate('-331560000000')).toBe(true); // pre 1970 date
+
+    // invalid unixMsEpochDayFormat
+    expect(validate('test')).toBe(false);
+    expect(validate('1680319455')).toBe(false); // not 12 hour
+    expect(validate('-1819455')).toBe(false); // not 12th hour
+    expect(validate('0')).toBe(false); // not 12 hour
   });
 
   test('otpFormat', () => {

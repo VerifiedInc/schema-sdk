@@ -28,7 +28,8 @@ export const addressCredentialJsonSchema = Type.Union(
           examples: [
             '10 Downing Street, London, GB-ENG SW1A 2AA',
             '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
-          ]
+          ],
+          title: 'Street Address'
         })
       },
       {

@@ -1,1 +1,0 @@
-{"version":3,"file":"getJsonSchema.js","sourceRoot":"","sources":["../../src/utils/getJsonSchema.ts"],"names":[],"mappings":";;;AACA,gCAA6B;AAE7B;;;;GAIG;AACH,SAAgB,aAAa,CAAC,IAAY;IACxC,MAAM,MAAM,GAAG,SAAG,CAAC,OAAO,CAAC,IAAI,CAAC,CAAC;IAEjC,IAAI,CAAC,MAAM,EAAE;QACX,MAAM,IAAI,KAAK,CAAC,kBAAkB,IAAI,mCAAmC,CAAC,CAAC;KAC5E;IAED,OAAO,MAAM,CAAC;AAChB,CAAC;AARD,sCAQC"}

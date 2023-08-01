@@ -6,7 +6,8 @@ exports.expirationDateCredentialJsonSchema = type_1.Type.Object({
     expirationDate: type_1.Type.String({
         format: 'digits',
         description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
-        examples: ['1687488596000', '-45709']
+        examples: ['1687488596000', '-45709'],
+        title: 'Document Expiration Date'
     })
 }, { $id: 'ExpirationDateCredential' });
 //# sourceMappingURL=expirationDateCredential.js.map

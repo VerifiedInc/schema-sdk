@@ -6,7 +6,8 @@ export const middleNameCredentialJsonSchema = Type.Object(
     middleName: Type.Optional(
       Type.String({
         description: "A person's middle name",
-        examples: ['Henry', 'Fitzgerald']
+        examples: ['Henry', 'Fitzgerald'],
+        title: 'Middle Name'
       })
     )
   },

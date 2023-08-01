@@ -15,7 +15,8 @@ exports.documentTypeCredentialJsonSchema = type_1.Type.Object({
             'Birth Certificate',
             'Voter Registration Card',
             'Other'
-        ]
+        ],
+        title: 'Document Type'
     })
 }, { $id: 'DocumentTypeCredential' });
 //# sourceMappingURL=documentTypeCredential.js.map

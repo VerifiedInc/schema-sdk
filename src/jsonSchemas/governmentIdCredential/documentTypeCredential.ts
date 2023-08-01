@@ -15,7 +15,8 @@ export const documentTypeCredentialJsonSchema = Type.Object(
         'Birth Certificate',
         'Voter Registration Card',
         'Other'
-      ]
+      ],
+      title: 'Document Type'
     })
   },
   { $id: 'DocumentTypeCredential' }

@@ -5,7 +5,8 @@ const type_1 = require("../../type");
 exports.titleCredentialJsonSchema = type_1.Type.Object({
     title: type_1.Type.String({
         description: 'Job title',
-        examples: ['Software Engineer', 'Designer', 'Construction Worker']
+        examples: ['Software Engineer', 'Designer', 'Construction Worker'],
+        title: 'Job Title'
     })
 }, { $id: 'TitleCredential' });
 //# sourceMappingURL=titleCredential.js.map

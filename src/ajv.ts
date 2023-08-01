@@ -24,7 +24,8 @@ import {
   booleanFormat,
   iso3166USRegionCodeFormat,
   iso3166RegionCodeFormat,
-  usZipCodeFormat
+  usZipCodeFormat,
+  unixMsEpochDayFormat
 } from './formats';
 
 // get all the values of the jsonSchemas object in an array
@@ -60,6 +61,7 @@ ajv.addFormat('phone', phoneFormat);
 ajv.addFormat('optionalPhone', optionalPhoneFormat);
 ajv.addFormat('ssn', ssnFormat);
 ajv.addFormat('digits', digitsFormat);
+ajv.addFormat('unixMsEpochDayFormat', unixMsEpochDayFormat);
 ajv.addFormat('dataUriBase64Image', dataUriBase64ImageFormat);
 ajv.addFormat('iso4217', iso4217Format);
 ajv.addFormat('iso4217Amount', iso4217AmountFormat);

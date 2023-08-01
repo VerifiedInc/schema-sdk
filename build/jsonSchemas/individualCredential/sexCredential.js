@@ -6,7 +6,8 @@ exports.sexCredentialJsonSchema = type_1.Type.Object({
     sex: type_1.Type.String({
         format: 'gender',
         description: "A person's sex",
-        examples: ['Male', 'Female']
+        examples: ['Male', 'Female'],
+        title: 'Sex'
     })
 }, { $id: 'SexCredential' });
 //# sourceMappingURL=sexCredential.js.map

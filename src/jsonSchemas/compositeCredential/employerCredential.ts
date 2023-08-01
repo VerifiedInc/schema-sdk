@@ -16,7 +16,8 @@ export const employerCredentialJsonSchema = Type.Union(
     Type.Object({
       employer: Type.String({
         description: 'Employer name',
-        examples: ['Acme Corp', 'Piped Piper', 'Hooli']
+        examples: ['Acme Corp', 'Piped Piper', 'Hooli'],
+        title: 'Employer'
       })
     })
   ],

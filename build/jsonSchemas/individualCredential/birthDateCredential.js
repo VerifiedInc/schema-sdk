@@ -4,9 +4,10 @@ exports.birthDateCredentialJsonSchema = void 0;
 const type_1 = require("../../type");
 exports.birthDateCredentialJsonSchema = type_1.Type.Object({
     birthDate: type_1.Type.String({
-        format: 'digits',
-        description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
-        examples: ['1687488596000', '-45709']
+        format: 'unixMsEpochDayFormat',
+        description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch which is the 12th our of the birth day UTC, GMT+0000',
+        examples: ['631224000', '-331534800'],
+        title: 'Birthday'
     })
 }, { $id: 'BirthDateCredential' });
 //# sourceMappingURL=birthDateCredential.js.map

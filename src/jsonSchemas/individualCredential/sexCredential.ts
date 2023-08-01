@@ -6,7 +6,8 @@ export const sexCredentialJsonSchema = Type.Object(
     sex: Type.String({
       format: 'gender',
       description: "A person's sex",
-      examples: ['Male', 'Female']
+      examples: ['Male', 'Female'],
+      title: 'Sex'
     })
   },
   { $id: 'SexCredential' }

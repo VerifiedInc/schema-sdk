@@ -6,7 +6,8 @@ exports.livenessCredentialJsonSchema = type_1.Type.Object({
     confidence: type_1.Type.String({
         format: 'confidenceLevel',
         description: "A person's liveliness confidence level during an IDV session",
-        examples: ['Very High', 'High', 'Medium', 'Low', 'Very Low']
+        examples: ['Very High', 'High', 'Medium', 'Low', 'Very Low'],
+        title: 'Liveness Confidence'
     })
 }, { $id: 'LivenessCredential' });
 //# sourceMappingURL=livenessCredential.js.map
