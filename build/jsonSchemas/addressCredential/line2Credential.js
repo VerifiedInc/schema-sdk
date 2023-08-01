@@ -11,7 +11,6 @@ exports.line2CredentialJsonSchema = type_1.Type.Object({
         displayFormat: displayFormat_1.DisplayFormat.String
     }))
 }, {
-    $id: 'Line2Credential',
-    grouping: 'Address'
+    $id: 'Line2Credential'
 });
 //# sourceMappingURL=line2Credential.js.map

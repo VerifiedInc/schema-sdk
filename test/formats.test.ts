@@ -127,6 +127,7 @@ describe('formats', () => {
 
     // invalid unixMsEpochDayFormat
     expect(validate('test')).toBe(false);
+    expect(validate('631195200005')).toBe(false); // not 0 ms
     expect(validate('1680319455')).toBe(false); // not 12 hour
     expect(validate('-1819455')).toBe(false); // not 12th hour
     expect(validate('0')).toBe(false); // not 12 hour

@@ -568,7 +568,7 @@ exports.digitsFormat = {
     }
 };
 /**
- * Format to determine if the input is a valid Unix MS since epoch day, must 12:00:00 of the UTC day.
+ * Format to determine if the input is a valid Unix MS since epoch day, must 12:00:00:000 of the UTC day.
  */
 exports.unixMsEpochDayFormat = {
     type: 'string',
@@ -581,8 +581,8 @@ exports.unixMsEpochDayFormat = {
         const timestamp = Number(digits);
         // Convert Unix timestamp (in milliseconds) to a Date object.
         const date = new Date(timestamp);
-        // Check if the hour of the day is 12.
-        return date.getUTCHours() === 12;
+        // Ensure is 12:00:00:000
+        return date.getUTCHours() === 12 && date.getUTCMinutes() === 0 && date.getUTCSeconds() === 0 && date.getUTCMilliseconds() === 0;
     }
 };
 /**

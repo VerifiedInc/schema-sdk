@@ -8,7 +8,7 @@ exports.expirationDateCredentialJsonSchema = type_1.Type.Object({
         format: 'unixMsEpochDayFormat',
         description: 'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch, , which is the 12th hour of the expiration day UTC, GMT+0000',
         examples: ['631195200000', '-331560000000'],
-        title: 'Document Expiration Date',
+        title: 'Expiration Date',
         displayFormat: displayFormat_1.DisplayFormat.Date
     })
 }, { $id: 'ExpirationDateCredential' });

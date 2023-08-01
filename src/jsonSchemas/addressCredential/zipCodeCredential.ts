@@ -7,13 +7,12 @@ export const zipCodeCredentialJsonSchema = Type.Object(
     zipCode: Type.String({
       description: 'The zip code of the address.',
       examples: ['94103', '94103-1234', '82030-040'],
-      label: 'Zip Code',
+      title: 'Zip Code',
       displayFormat: DisplayFormat.String
     })
   },
   {
     $id: 'ZipCodeCredential',
-    grouping: 'Address',
     if: Type.Object({
       country: Type.String({
         description: 'If the country from Address Credential is the US.',

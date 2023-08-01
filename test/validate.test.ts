@@ -236,17 +236,41 @@ describe('Validate Schemas', () => {
   describe('GovernmentIdIssuanceDateCredential Schema', () => {
     test('valid', () => {
       const valid = validate('GovernmentIdIssuanceDateCredential', {
-        issuanceDate: new Date().getTime().toString()
+        issuanceDate: '1672574400000'
       });
 
       expect(valid).toEqual(true);
     });
 
-    test('invalid', async () => {
+    test('invalid - wrong key', async () => {
       expect.assertions(1);
       try {
         validate('GovernmentIdIssuanceDateCredential', {
-          email: 'therealboris@draper.vc'
+          date: '1672574400000'
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong format', async () => {
+      expect.assertions(1);
+      try {
+        validate('GovernmentIdIssuanceDateCredential', {
+          issuanceDate: new Date()
+        });
+        fail();
+      } catch (e) {
+        expect(e).toBeDefined();
+      }
+    });
+
+    test('invalid - wrong value', async () => {
+      expect.assertions(1);
+      try {
+        validate('GovernmentIdIssuanceDateCredential', {
+          issuanceDate: '631195200005'
         });
         fail();
       } catch (e) {
@@ -258,7 +282,7 @@ describe('Validate Schemas', () => {
   describe('GovernmentIdExpirationDateCredential Schema', () => {
     test('valid', () => {
       const valid = validate('GovernmentIdExpirationDateCredential', {
-        expirationDate: (new Date().getTime() + 100000).toString()
+        expirationDate: '1672574400000'
       });
 
       expect(valid).toEqual(true);
@@ -268,7 +292,7 @@ describe('Validate Schemas', () => {
       expect.assertions(1);
       try {
         validate('GovernmentIdExpirationDateCredential', {
-          email: 'therealboris@draper.vc'
+          date: '1672574400000'
         });
         fail();
       } catch (e) {
@@ -276,11 +300,11 @@ describe('Validate Schemas', () => {
       }
     });
 
-    test('invalid - wrong format (not digits)', async () => {
+    test('invalid - wrong format', async () => {
       expect.assertions(1);
       try {
         validate('GovernmentIdExpirationDateCredential', {
-          expirationDate: 'asdf'
+          expirationDate: new Date()
         });
         fail();
       } catch (e) {
@@ -288,11 +312,11 @@ describe('Validate Schemas', () => {
       }
     });
 
-    test('invalid - wrong format (not in future)', async () => {
+    test('invalid - wrong value', async () => {
       expect.assertions(1);
       try {
         validate('GovernmentIdExpirationDateCredential', {
-          expirationDate: '11-2023'
+          expirationDate: '631195200005'
         });
         fail();
       } catch (e) {
@@ -1201,8 +1225,8 @@ describe('Validate Schemas', () => {
       const valid = validate('GovernmentIdCredential', {
         idNumber: '123456789',
         state: 'CA',
-        issuanceDate: 1686693430283,
-        expirationDate: 1686693430283,
+        issuanceDate: 631195200000,
+        expirationDate: 1672574400000,
         documentType: 'Drivers License',
         documentImage:
           'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII',
@@ -1217,8 +1241,8 @@ describe('Validate Schemas', () => {
       const valid = validate('GovernmentIdCredential', {
         idNumber: '123456789',
         state: 'CA',
-        issuanceDate: 1686693430283,
-        expirationDate: 1686693430283,
+        issuanceDate: 631195200000,
+        expirationDate: 1672574400000,
         documentType: 'Drivers License',
         documentImage:
           'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII',

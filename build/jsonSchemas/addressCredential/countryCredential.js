@@ -11,5 +11,5 @@ exports.countryCredentialJsonSchema = type_1.Type.Object({
         title: 'Country',
         displayFormat: displayFormat_1.DisplayFormat.String
     })
-}, { $id: 'CountryCredential', grouping: 'Address' });
+}, { $id: 'CountryCredential' });
 //# sourceMappingURL=countryCredential.js.map

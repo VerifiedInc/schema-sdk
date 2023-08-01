@@ -12,7 +12,6 @@ export const line1CredentialJsonSchema = Type.Object(
     })
   },
   {
-    $id: 'Line1Credential',
-    grouping: 'Address'
+    $id: 'Line1Credential'
   }
 ) as UnumJsonSchema;

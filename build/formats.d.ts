@@ -29,7 +29,7 @@ export declare const optionalPhoneFormat: Format;
  */
 export declare const digitsFormat: Format;
 /**
- * Format to determine if the input is a valid Unix MS since epoch day, must 12:00:00 of the UTC day.
+ * Format to determine if the input is a valid Unix MS since epoch day, must 12:00:00:000 of the UTC day.
  */
 export declare const unixMsEpochDayFormat: Format;
 /**

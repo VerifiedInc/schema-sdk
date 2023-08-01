@@ -1,6 +1,6 @@
 // Using Ajv 2019 for access to JSON Schema Draft 2019 and the new features like $data, $merge, unevaluatedProperties, etc.
 // 100% backwards compatible with Draft 7.
-import Ajv2019 from 'ajv/dist/2019';
+import Ajv2019, { FuncKeywordDefinition } from 'ajv/dist/2019';
 import logger from './logger';
 import addFormats from 'ajv-formats';
 import { jsonSchemas } from './jsonSchemas';
@@ -27,6 +27,7 @@ import {
   usZipCodeFormat,
   unixMsEpochDayFormat
 } from './formats';
+import { DisplayFormat } from './enums/displayFormat';
 
 // get all the values of the jsonSchemas object in an array
 // schemas to add to ajv instance options
@@ -48,7 +49,7 @@ export const ajv = new Ajv2019({
   schemas
 });
 
-// Adding formats to ajv
+// Adding default formats to ajv
 addFormats(ajv);
 
 /*******************************************************************
@@ -76,3 +77,17 @@ ajv.addFormat('documentType', documentTypeFormat);
 ajv.addFormat('confidenceLevel', confidenceLevelFormat);
 ajv.addFormat('boolean', booleanFormat);
 ajv.addFormat('usZipCode', usZipCodeFormat);
+
+/************************************
+ * Add custom keywords to ajv below *
+ ************************************/
+const displayFormatDefinition: FuncKeywordDefinition = {
+  type: 'string',
+  metaSchema: {
+    type: 'string',
+    enum: Object.values(DisplayFormat)
+  },
+  keyword: 'displayFormat'
+};
+
+ajv.addKeyword('displayFormat', displayFormatDefinition);

@@ -14,7 +14,6 @@ export const stateCredentialJsonSchema = Type.Object(
   },
   {
     $id: 'StateCredential',
-    grouping: 'Address',
     if: Type.Object({
       country: Type.String({
         description: 'If the country from Address Credential is the US.',

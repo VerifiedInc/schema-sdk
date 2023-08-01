@@ -12,5 +12,5 @@ export const countryCredentialJsonSchema = Type.Object(
       displayFormat: DisplayFormat.String
     })
   },
-  { $id: 'CountryCredential', grouping: 'Address' }
+  { $id: 'CountryCredential' }
 ) as UnumJsonSchema;
