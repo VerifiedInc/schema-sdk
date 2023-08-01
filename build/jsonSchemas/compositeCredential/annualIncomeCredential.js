@@ -21,6 +21,7 @@ exports.annualIncomeCredentialJsonSchema = type_1.Type.Union([
     $id: 'AnnualIncomeCredential',
     unevaluatedProperties: false,
     // Allow backward compatibility with the old format
+    // ?? What old format? Pretty sure it has always been iso4217Amount
     if: type_1.Type.Object({
         income: type_1.Type.String({
             displayFormat: displayFormat_1.DisplayFormat.CurrencyAmount

@@ -22,6 +22,7 @@ export const annualIncomeCredentialJsonSchema = Type.Union(
     $id: 'AnnualIncomeCredential',
     unevaluatedProperties: false,
     // Allow backward compatibility with the old format
+    // ?? What old format? Pretty sure it has always been iso4217Amount
     if: Type.Object(
       {
         income: Type.String({
