@@ -60,7 +60,13 @@ import {
   annualIncomeRangeCredentialJsonSchema,
   titleCredentialJsonSchema,
   employmentStartDateCredentialJsonSchema,
-  governmentIdDocumentBackImageCredentialJsonSchema
+  governmentIdDocumentBackImageCredentialJsonSchema,
+  zipCodeCredentialJsonSchema,
+  line2CredentialJsonSchema,
+  line1CredentialJsonSchema,
+  countryCredentialJsonSchema,
+  stateCredentialJsonSchema,
+  cityCredentialJsonSchema
 } from './jsonSchemas';
 
 export interface UnumSchema {
@@ -95,6 +101,30 @@ export const schemas: Record<string, UnumSchema> = {
   },
   AddressCredential: {
     json: addressCredentialJsonSchema,
+    jsonLD: addressCredentialJsonLDSchema
+  },
+  CityCredential: {
+    json: cityCredentialJsonSchema,
+    jsonLD: addressCredentialJsonLDSchema
+  },
+  StateCredential: {
+    json: stateCredentialJsonSchema,
+    jsonLD: addressCredentialJsonLDSchema
+  },
+  CountryCredential: {
+    json: countryCredentialJsonSchema,
+    jsonLD: addressCredentialJsonLDSchema
+  },
+  line1Credential: {
+    json: line1CredentialJsonSchema,
+    jsonLD: addressCredentialJsonLDSchema
+  },
+  line2Credential: {
+    json: line2CredentialJsonSchema,
+    jsonLD: addressCredentialJsonLDSchema
+  },
+  zipCodeCredential: {
+    json: zipCodeCredentialJsonSchema,
     jsonLD: addressCredentialJsonLDSchema
   },
   LastNameCredential: {
