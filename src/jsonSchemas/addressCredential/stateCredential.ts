@@ -7,12 +7,12 @@ export const stateCredentialJsonSchema = Type.Object(
       description: "A state's ISO 3166-2 code.",
       examples: ['CA', 'GA', 'SP'],
       format: 'iso3166RegionCode',
-      label: 'State or Region',
-      grouping: 'Address'
+      title: 'State or Region'
     })
   },
   {
     $id: 'StateCredential',
+    grouping: 'Address',
     if: Type.Object({
       country: Type.String({
         description: 'If the country from Address Credential is the US.',

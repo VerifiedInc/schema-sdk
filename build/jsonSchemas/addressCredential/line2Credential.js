@@ -6,10 +6,10 @@ exports.line2CredentialJsonSchema = type_1.Type.Object({
     line2: type_1.Type.Optional(type_1.Type.String({
         description: 'The second line of the address.',
         examples: ['Apt #4', 'Suite 200'],
-        label: 'Address Line 2',
-        grouping: 'Address'
+        title: 'Address Line 2'
     }))
 }, {
-    $id: 'Line2Credential'
+    $id: 'Line2Credential',
+    grouping: 'Address'
 });
 //# sourceMappingURL=line2Credential.js.map

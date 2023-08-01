@@ -6,10 +6,10 @@ exports.cityCredentialJsonSchema = type_1.Type.Object({
     city: type_1.Type.String({
         description: 'The city of the address.',
         examples: ['San Francisco', 'New York', 'Atlanta'],
-        label: 'City',
-        grouping: 'Address'
+        title: 'City'
     })
 }, {
-    $id: 'CityCredential'
+    $id: 'CityCredential',
+    grouping: 'Address'
 });
 //# sourceMappingURL=cityCredential.js.map

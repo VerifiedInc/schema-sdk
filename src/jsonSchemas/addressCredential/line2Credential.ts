@@ -7,12 +7,12 @@ export const line2CredentialJsonSchema = Type.Object(
       Type.String({
         description: 'The second line of the address.',
         examples: ['Apt #4', 'Suite 200'],
-        label: 'Address Line 2',
-        grouping: 'Address'
+        title: 'Address Line 2'
       })
     )
   },
   {
-    $id: 'Line2Credential'
+    $id: 'Line2Credential',
+    grouping: 'Address'
   }
 ) as UnumJsonSchema;

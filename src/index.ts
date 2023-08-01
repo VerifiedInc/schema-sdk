@@ -56,8 +56,13 @@ import {
   iso4217AmountRangeFormat,
   addressFormat
 } from './formats';
+import { ajv } from './ajv';
+import { getJsonSchema } from './utils/getJsonSchema';
 
 export {
+  // ajv instance
+  ajv,
+
   // types
   UnumJsonSchema,
   UnumJsonLDSchema,
@@ -65,6 +70,7 @@ export {
 
   // functions
   validate,
+  getJsonSchema,
 
   // formats
   emailFormat,

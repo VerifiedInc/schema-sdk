@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.schemas = exports.context = exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.iso3166CodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.genderFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = exports.validate = void 0;
+exports.schemas = exports.context = exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.iso3166CodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.genderFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = exports.getJsonSchema = exports.validate = exports.ajv = void 0;
 const validate_1 = require("./validate");
 Object.defineProperty(exports, "validate", { enumerable: true, get: function () { return validate_1.validate; } });
 const unum_id_json_1 = __importDefault(require("./context/unum.id.json"));
@@ -29,4 +29,8 @@ Object.defineProperty(exports, "iso4217Format", { enumerable: true, get: functio
 Object.defineProperty(exports, "iso4217AmountFormat", { enumerable: true, get: function () { return formats_1.iso4217AmountFormat; } });
 Object.defineProperty(exports, "iso4217AmountRangeFormat", { enumerable: true, get: function () { return formats_1.iso4217AmountRangeFormat; } });
 Object.defineProperty(exports, "addressFormat", { enumerable: true, get: function () { return formats_1.addressFormat; } });
+const ajv_1 = require("./ajv");
+Object.defineProperty(exports, "ajv", { enumerable: true, get: function () { return ajv_1.ajv; } });
+const getJsonSchema_1 = require("./utils/getJsonSchema");
+Object.defineProperty(exports, "getJsonSchema", { enumerable: true, get: function () { return getJsonSchema_1.getJsonSchema; } });
 //# sourceMappingURL=index.js.map
