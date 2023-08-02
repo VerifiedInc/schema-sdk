@@ -23,16 +23,13 @@ exports.annualIncomeCredentialJsonSchema = type_1.Type.Union([
     // Allow backward compatibility with the old format
     // ?? What old format? Pretty sure it has always been iso4217Amount
     if: type_1.Type.Object({
-        income: type_1.Type.String({
-            displayFormat: displayFormat_1.DisplayFormat.CurrencyAmount
-        })
+        income: type_1.Type.String()
     }, {
         additionalProperties: false
     }),
     then: type_1.Type.Object({
         income: type_1.Type.String({
-            format: 'iso4217Amount',
-            displayFormat: displayFormat_1.DisplayFormat.CurrencyAmount
+            format: 'iso4217Amount'
         })
     })
 });

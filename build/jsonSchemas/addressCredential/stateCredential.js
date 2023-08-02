@@ -9,7 +9,7 @@ exports.stateCredentialJsonSchema = type_1.Type.Object({
         examples: ['CA', 'GA', 'SP'],
         format: 'iso3166RegionCode',
         title: 'State or Region',
-        displayFormat: displayFormat_1.DisplayFormat.String
+        displayFormat: displayFormat_1.DisplayFormat.State
     })
 }, {
     $id: 'StateCredential',
@@ -23,8 +23,7 @@ exports.stateCredentialJsonSchema = type_1.Type.Object({
         state: type_1.Type.String({
             description: 'Then the state must be a valid US state.',
             format: 'iso3166USRegionCode',
-            title: 'State',
-            displayFormat: displayFormat_1.DisplayFormat.USState
+            title: 'State'
         })
     })
 });

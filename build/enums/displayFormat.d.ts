@@ -1,3 +1,7 @@
+/**
+ * Enumerated display format values.
+ * These serve as indicators of how the data ought to be displayed to the user
+ */
 export declare enum DisplayFormat {
     Date = "Date",
     DateTime = "DateTime",
@@ -9,7 +13,7 @@ export declare enum DisplayFormat {
     CurrencyAmount = "CurrencyAmount",
     CurrencyRange = "CurrencyRange",
     Boolean = "Boolean",
-    USState = "USState",
+    State = "State",
     Image = "Image"
 }
 //# sourceMappingURL=displayFormat.d.ts.map

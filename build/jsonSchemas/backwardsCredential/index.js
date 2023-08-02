@@ -51,7 +51,7 @@ exports.governmentIdStateCredentialJsonSchema = typebox_1.Type.Object({
         description: 'The state or province of the government identification document',
         examples: ['US-CA', 'US-NY', 'US-TX', 'GB-ENG'],
         title: 'Government Document Region',
-        displayFormat: displayFormat_1.DisplayFormat.USState
+        displayFormat: displayFormat_1.DisplayFormat.State
     })
 }, { $id: 'GovernmentIdStateCredential' });
 exports.governmentIdNumberCredentialJsonSchema = typebox_1.Type.Object({
