@@ -498,7 +498,7 @@ describe('Validate Schemas', () => {
   describe('EmploymentStartDateCredential Schema', () => {
     test('valid', () => {
       const valid = validate('EmploymentStartDateCredential', {
-        startDate: 1686693430283
+        startDate: '631195200000'
       });
 
       expect(valid).toEqual(true);
@@ -1075,7 +1075,7 @@ describe('Validate Schemas', () => {
       const valid = validate('EmployerCredential', {
         employer: 'Unum ID',
         title: 'Software Engineer',
-        startDate: 1686693430283,
+        startDate: 631195200000,
         income: 'USD 90000',
         incomeRange: 'USD min25001_max50000'
       });
@@ -1087,7 +1087,7 @@ describe('Validate Schemas', () => {
       const valid = validate('EmployerCredential', {
         employer: 'Unum ID',
         title: 'Software Engineer',
-        startDate: 1686693430283,
+        startDate: 631195200000,
         amount: '90000',
         currency: 'USD',
         incomeRange: 'USD min25001_max50000'
@@ -1100,7 +1100,7 @@ describe('Validate Schemas', () => {
       const valid = validate('EmployerCredential', {
         employer: 'Unum ID',
         title: 'Software Engineer',
-        startDate: 1686693430283,
+        startDate: 631195200000,
         income: 'USD 90000',
         incomeRange: 'USD min25001_max50000',
         what: 'CA'
@@ -1115,7 +1115,7 @@ describe('Validate Schemas', () => {
         validate('EmployerCredential', {
           employer: 'Unum ID',
           title: 'Software Engineer',
-          startDate: 1686693430283,
+          startDate: 631195200000,
           income: 'XAS 90000',
           incomeRange: 'USD min25001_max100000'
         });
