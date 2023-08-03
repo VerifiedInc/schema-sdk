@@ -14,7 +14,7 @@ class TypeBuilder extends typebox_1.ExtendedTypeBuilder {
             return typebox_1.TypeClone.Clone(allOf[0], options);
         const objects = allOf.every((schema) => typebox_1.TypeGuard.TObject(schema));
         const cloned = allOf.map((schema) => {
-            if (typebox_1.TypeGuard.TObject(schema)) {
+            if (typebox_1.TypeGuard.TSchema(schema)) {
                 return typebox_1.Type.Ref(schema);
             }
             else {
