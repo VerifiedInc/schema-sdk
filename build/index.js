@@ -1,23 +1,10 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.zipCodeCredentialJsonSchema = exports.stateCredentialJsonSchema = exports.line2CredentialJsonSchema = exports.line1CredentialJsonSchema = exports.countryCredentialJsonSchema = exports.cityCredentialJsonSchema = exports.jsonSchemas = exports.schemas = exports.context = exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.iso3166CodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.genderFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = exports.validate = exports.ajv = void 0;
+exports.jsonSchemas = exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.iso3166CodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.genderFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = exports.validate = exports.ajv = void 0;
 const validate_1 = require("./validate");
 Object.defineProperty(exports, "validate", { enumerable: true, get: function () { return validate_1.validate; } });
-const unum_id_json_1 = __importDefault(require("./context/unum.id.json"));
-exports.context = unum_id_json_1.default;
-const schemas_1 = require("./schemas");
-Object.defineProperty(exports, "schemas", { enumerable: true, get: function () { return schemas_1.schemas; } });
 const jsonSchemas_1 = require("./jsonSchemas");
-Object.defineProperty(exports, "cityCredentialJsonSchema", { enumerable: true, get: function () { return jsonSchemas_1.cityCredentialJsonSchema; } });
-Object.defineProperty(exports, "countryCredentialJsonSchema", { enumerable: true, get: function () { return jsonSchemas_1.countryCredentialJsonSchema; } });
 Object.defineProperty(exports, "jsonSchemas", { enumerable: true, get: function () { return jsonSchemas_1.jsonSchemas; } });
-Object.defineProperty(exports, "line1CredentialJsonSchema", { enumerable: true, get: function () { return jsonSchemas_1.line1CredentialJsonSchema; } });
-Object.defineProperty(exports, "line2CredentialJsonSchema", { enumerable: true, get: function () { return jsonSchemas_1.line2CredentialJsonSchema; } });
-Object.defineProperty(exports, "stateCredentialJsonSchema", { enumerable: true, get: function () { return jsonSchemas_1.stateCredentialJsonSchema; } });
-Object.defineProperty(exports, "zipCodeCredentialJsonSchema", { enumerable: true, get: function () { return jsonSchemas_1.zipCodeCredentialJsonSchema; } });
 const formats_1 = require("./formats");
 Object.defineProperty(exports, "emailFormat", { enumerable: true, get: function () { return formats_1.emailFormat; } });
 Object.defineProperty(exports, "phoneFormat", { enumerable: true, get: function () { return formats_1.phoneFormat; } });

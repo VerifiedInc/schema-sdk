@@ -3,8 +3,9 @@ import { annualIncomeCredentialJsonSchema } from './annualIncomeCredential';
 import { employmentStartDateCredentialJsonSchema } from '../employerCredential/employmentStartDateCredential';
 import { titleCredentialJsonSchema } from '../employerCredential/titleCredential';
 import { incomeRangeCredentialJsonSchema } from '../employerCredential/incomeRangeCredential';
-import { UnumJsonSchema } from '..';
+
 import { DisplayFormat } from '../../enums/displayFormat';
+import { Static } from '@sinclair/typebox';
 
 export const employerCredentialJsonSchema = Type.Union(
   [
@@ -27,4 +28,6 @@ export const employerCredentialJsonSchema = Type.Union(
     unevaluatedProperties: false,
     $id: 'EmployerCredential'
   }
-) as unknown as UnumJsonSchema;
+);
+
+export type EmployerCredentialJsonSchemaType = Static<typeof employerCredentialJsonSchema>;

@@ -1,12 +1,5 @@
-import { TObject, TProperties, Type } from '@sinclair/typebox';
+import { Static, TObject, TProperties, Type } from '@sinclair/typebox';
 import { DisplayFormat } from '../../enums/displayFormat';
-
-/**
- * Interface to assist with typings of the UnumID schema definitions, which will always have $id defined.
- */
-interface UnumJsonSchema extends TObject<TProperties> {
-  $id: string; // UnumID schema definitions will always have a valid $id property
-}
 
 export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(
   {
@@ -22,7 +15,8 @@ export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(
     })
   },
   { $id: 'GovernmentIdDocumentImageCredential' }
-) as UnumJsonSchema;
+);
+export type GovernmentIdDocumentImageCredentialJsonSchema = Static<typeof governmentIdDocumentImageCredentialJsonSchema>;
 
 export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object(
   {
@@ -40,7 +34,8 @@ export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object(
   {
     $id: 'GovernmentIdDocumentBackImageCredential'
   }
-) as UnumJsonSchema;
+);
+export type GovernmentIdDocumentBackImageCredentialJsonSchema = Static<typeof governmentIdDocumentBackImageCredentialJsonSchema>;
 
 export const governmentIdTypeCredentialJsonSchema = Type.Object(
   {
@@ -62,7 +57,8 @@ export const governmentIdTypeCredentialJsonSchema = Type.Object(
     })
   },
   { $id: 'GovernmentIdTypeCredential' }
-) as UnumJsonSchema;
+);
+export type GovernmentIdTypeCredentialJsonSchema = Static<typeof governmentIdTypeCredentialJsonSchema>;
 
 export const governmentIdStateCredentialJsonSchema = Type.Object(
   {
@@ -75,7 +71,8 @@ export const governmentIdStateCredentialJsonSchema = Type.Object(
     })
   },
   { $id: 'GovernmentIdStateCredential' }
-) as UnumJsonSchema;
+);
+export type GovernmentIdStateCredentialJsonSchema = Static<typeof governmentIdStateCredentialJsonSchema>;
 
 export const governmentIdNumberCredentialJsonSchema = Type.Object(
   {
@@ -87,7 +84,8 @@ export const governmentIdNumberCredentialJsonSchema = Type.Object(
     })
   },
   { $id: 'GovernmentIdNumberCredential' }
-) as UnumJsonSchema;
+);
+export type GovernmentIdNumberCredentialJsonSchema = Static<typeof governmentIdNumberCredentialJsonSchema>;
 
 export const governmentIdIssuanceDateCredentialJsonSchema = Type.Object(
   {
@@ -101,7 +99,8 @@ export const governmentIdIssuanceDateCredentialJsonSchema = Type.Object(
     })
   },
   { $id: 'GovernmentIdIssuanceDateCredential' }
-) as UnumJsonSchema;
+);
+export type GovernmentIdIssuanceDateCredentialJsonSchema = Static<typeof governmentIdIssuanceDateCredentialJsonSchema>;
 
 export const governmentIdExpirationDateCredentialJsonSchema = Type.Object(
   {
@@ -115,7 +114,8 @@ export const governmentIdExpirationDateCredentialJsonSchema = Type.Object(
     })
   },
   { $id: 'GovernmentIdExpirationDateCredential' }
-) as UnumJsonSchema;
+);
+export type GovernmentIdExpirationDateCredentialJsonSchema = Static<typeof governmentIdExpirationDateCredentialJsonSchema>;
 
 export const incomeCurrencyCredentialJsonSchema = Type.Object(
   {
@@ -128,7 +128,8 @@ export const incomeCurrencyCredentialJsonSchema = Type.Object(
     })
   },
   { $id: 'IncomeCurrencyCredential' }
-) as UnumJsonSchema;
+);
+export type IncomeCurrencyCredentialJsonSchema = Static<typeof incomeCurrencyCredentialJsonSchema>;
 
 export const annualIncomeRangeCredentialJsonSchema = Type.Object(
   {
@@ -142,4 +143,5 @@ export const annualIncomeRangeCredentialJsonSchema = Type.Object(
     })
   },
   { $id: 'AnnualIncomeRangeCredential' }
-) as UnumJsonSchema;
+);
+export type AnnualIncomeRangeCredentialJsonSchema = Static<typeof annualIncomeRangeCredentialJsonSchema>;

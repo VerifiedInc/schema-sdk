@@ -1,3 +1,12 @@
-import { UnumJsonSchema } from '..';
-export declare const fullNameCredentialJsonSchema: UnumJsonSchema;
+import { Static } from '@sinclair/typebox';
+export declare const fullNameCredentialJsonSchema: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
+    firstName: import("@sinclair/typebox").TString;
+}>, import("@sinclair/typebox").TObject<{
+    lastName: import("@sinclair/typebox").TString;
+}>, import("@sinclair/typebox").TObject<{
+    middleName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+}>]>, import("@sinclair/typebox").TObject<{
+    fullName: import("@sinclair/typebox").TString;
+}>]>;
+export type FullNameCredentialJsonSchemaType = Static<typeof fullNameCredentialJsonSchema>;
 //# sourceMappingURL=fullNameCredential.d.ts.map

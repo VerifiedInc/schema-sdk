@@ -1,8 +1,9 @@
 import { Type } from '../../type';
 import { currencyCredentialJsonSchema } from '../atomicCredential/currencyCredential';
 import { amountCredentialJsonSchema } from '../atomicCredential/amountCredential';
-import { UnumJsonSchema } from '..';
+
 import { DisplayFormat } from '../../enums/displayFormat';
+import { Static } from '@sinclair/typebox';
 
 export const annualIncomeCredentialJsonSchema = Type.Union(
   [
@@ -37,4 +38,6 @@ export const annualIncomeCredentialJsonSchema = Type.Union(
       })
     })
   }
-) as unknown as UnumJsonSchema;
+);
+
+export type AnnualIncomeCredentialJsonSchemaType = Static<typeof annualIncomeCredentialJsonSchema>;

@@ -1,4 +1,5 @@
-import { UnumJsonSchema } from '..';
+import { Static } from '@sinclair/typebox';
+
 import { Type } from '../../type';
 import { stateCredentialJsonSchema } from '../addressCredential';
 import { documentBackImageCredentialJsonSchema } from '../governmentIdCredential/documentBackImageCredential';
@@ -22,4 +23,6 @@ export const governmentIdCredentialJsonSchema = Type.IntersectReferences(
     $id: 'GovernmentIdCredential',
     unevaluatedProperties: false
   }
-) as unknown as UnumJsonSchema;
+);
+
+export type GovernmentIdCredentialJsonSchema = Static<typeof governmentIdCredentialJsonSchema>;

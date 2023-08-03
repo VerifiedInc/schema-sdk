@@ -1,6 +1,6 @@
 import { Type } from '../../type';
-import { UnumJsonSchema } from '..';
 import { DisplayFormat } from '../../enums/displayFormat';
+import { Static } from '@sinclair/typebox';
 
 export const documentImageCredentialJsonSchema = Type.Object(
   {
@@ -16,4 +16,6 @@ export const documentImageCredentialJsonSchema = Type.Object(
     })
   },
   { $id: 'DocumentImageCredential' }
-) as UnumJsonSchema;
+);
+
+export type DocumentImageCredentialJsonSchema = Static<typeof documentImageCredentialJsonSchema>;

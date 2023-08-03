@@ -1,6 +1,7 @@
 import { Type } from '../../type';
-import { UnumJsonSchema } from '..';
+
 import { DisplayFormat } from '../../enums/displayFormat';
+import { Static } from '@sinclair/typebox';
 
 export const zipCodeCredentialJsonSchema = Type.Object(
   {
@@ -26,4 +27,6 @@ export const zipCodeCredentialJsonSchema = Type.Object(
       })
     })
   }
-) as UnumJsonSchema;
+);
+
+export type ZipCodeCredentialJsonSchema = Static<typeof zipCodeCredentialJsonSchema>;

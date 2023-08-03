@@ -1,4 +1,5 @@
-import { UnumJsonSchema } from '..';
+import { Static } from '@sinclair/typebox';
+
 import { DisplayFormat } from '../../enums/displayFormat';
 import { Type } from '../../type';
 import { firstNameCredentialJsonSchema } from '../individualCredential/firstNameCredential';
@@ -30,4 +31,6 @@ export const fullNameCredentialJsonSchema = Type.Union(
     $id: 'FullNameCredential',
     unevaluatedProperties: false
   }
-) as unknown as UnumJsonSchema;
+);
+
+export type FullNameCredentialJsonSchemaType = Static<typeof fullNameCredentialJsonSchema>;

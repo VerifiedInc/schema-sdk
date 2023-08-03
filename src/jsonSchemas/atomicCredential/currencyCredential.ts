@@ -1,6 +1,7 @@
 import { Type } from '../../type';
-import { UnumJsonSchema } from '..';
+
 import { DisplayFormat } from '../../enums/displayFormat';
+import { Static } from '@sinclair/typebox';
 
 export const currencyCredentialJsonSchema = Type.Object(
   {
@@ -15,4 +16,6 @@ export const currencyCredentialJsonSchema = Type.Object(
   {
     $id: 'CurrencyCredential'
   }
-) as UnumJsonSchema;
+);
+
+export type CurrencyCredentialJsonSchema = Static<typeof currencyCredentialJsonSchema>;

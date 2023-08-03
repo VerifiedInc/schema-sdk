@@ -17,6 +17,7 @@ import {
   incomeCurrencyCredentialJsonSchema,
   annualIncomeRangeCredentialJsonSchema
 } from './backwardsCredential';
+import { AnySchema } from 'ajv';
 
 /**
  * Interface to assist with typings of the UnumID schema definitions, which will always have $id defined.
@@ -29,7 +30,7 @@ export interface UnumJsonSchema extends TObject<TProperties> {
  * Export all of the UnumID schema definitions.
  */
 
-export const jsonSchemas: Record<string, UnumJsonSchema> = {
+export const jsonSchemas: Record<string, AnySchema> = {
   // Address Credential
   CityCredential: addressCredential.cityCredentialJsonSchema,
   CountryCredential: addressCredential.countryCredentialJsonSchema,

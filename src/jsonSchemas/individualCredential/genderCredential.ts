@@ -1,6 +1,6 @@
 import { Type } from '../../type';
-import { UnumJsonSchema } from '..';
 import { DisplayFormat } from '../../enums/displayFormat';
+import { Static } from '@sinclair/typebox';
 
 export const genderCredentialJsonSchema = Type.Object(
   {
@@ -13,4 +13,6 @@ export const genderCredentialJsonSchema = Type.Object(
     })
   },
   { $id: 'GenderCredential' }
-) as UnumJsonSchema;
+);
+
+export type GenderCredentialJsonSchema = Static<typeof genderCredentialJsonSchema>;

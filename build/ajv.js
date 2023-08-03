@@ -59,6 +59,7 @@ exports.ajv.addFormat('usZipCode', formats_1.usZipCodeFormat);
 /************************************
  * Add custom keywords to ajv below *
  ************************************/
+// Note: not really a "functional" keyword in the sense of affecting ajv validation, but useful for clients displaying the data
 const displayFormatDefinition = {
     type: 'string',
     metaSchema: {

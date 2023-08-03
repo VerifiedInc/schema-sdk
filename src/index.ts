@@ -1,41 +1,5 @@
-import {
-  AddressCredentialSchemaType,
-  BirthDateCredentialSchemaType,
-  CountryResidenceCredentialSchemaType,
-  EmailCredentialSchemaType,
-  EmployerCredentialSchemaType,
-  FacialImageCredentialSchemaType,
-  FacialMatchConfidenceCredentialSchemaType,
-  FacialMatchCredentialSchemaType,
-  FirstNameCredentialSchemaType,
-  FullNameCredentialSchemaType,
-  GenderCredentialSchemaType,
-  GovernmentIdDocumentBackImageCredentialSchemaType,
-  GovernmentIdDocumentImageCredentialSchemaType,
-  GovernmentIdExpirationDateCredentialSchemaType,
-  GovernmentIdIssuanceDateCredentialSchemaType,
-  GovernmentIdNumberCredentialSchemaType,
-  GovernmentIdStateCredentialSchemaType,
-  GovernmentIdTypeCredentialSchemaType,
-  IdentityCredentialSchemaType,
-  AnnualIncomeCredentialSchemaType,
-  IncomeCurrencyCredentialSchemaType,
-  LastNameCredentialSchemaType,
-  LivenessCredentialSchemaType,
-  NationalityCredentialSchemaType,
-  PhoneCredentialSchemaType,
-  SexCredentialSchemaType,
-  SsnCredentialSchemaType,
-  TitleCredentialSchemaType,
-  AnnualIncomeRangeCredentialSchemaType,
-  EmploymentStartDateCredentialSchemaType,
-  LivenessConfidenceCredentialSchemaType
-} from './types';
 import { validate } from './validate';
-import context from './context/unum.id.json';
-import { UnumJsonLDSchema } from './jsonLDSchemas';
-import { schemas, UnumSchema } from './schemas';
-import { UnumJsonSchema, cityCredentialJsonSchema, countryCredentialJsonSchema, jsonSchemas, line1CredentialJsonSchema, line2CredentialJsonSchema, stateCredentialJsonSchema, zipCodeCredentialJsonSchema } from './jsonSchemas';
+import { UnumJsonSchema, jsonSchemas } from './jsonSchemas';
 import {
   emailFormat,
   phoneFormat,
@@ -64,8 +28,6 @@ export {
 
   // types
   UnumJsonSchema,
-  UnumJsonLDSchema,
-  UnumSchema,
 
   // functions
   validate,
@@ -90,51 +52,6 @@ export {
   confidenceLevelFormat,
   booleanFormat,
 
-  // json-ld context file
-  context,
-
   // credential schemas map
-  schemas,
-  jsonSchemas,
-
-  // json schemas
-  cityCredentialJsonSchema,
-  countryCredentialJsonSchema,
-  line1CredentialJsonSchema,
-  line2CredentialJsonSchema,
-  stateCredentialJsonSchema,
-  zipCodeCredentialJsonSchema,
-
-  // credential types
-  EmailCredentialSchemaType,
-  IdentityCredentialSchemaType,
-  SsnCredentialSchemaType,
-  CountryResidenceCredentialSchemaType,
-  FacialImageCredentialSchemaType,
-  LivenessCredentialSchemaType,
-  AddressCredentialSchemaType,
-  LastNameCredentialSchemaType,
-  FirstNameCredentialSchemaType,
-  BirthDateCredentialSchemaType,
-  SexCredentialSchemaType,
-  PhoneCredentialSchemaType,
-  FullNameCredentialSchemaType,
-  GenderCredentialSchemaType,
-  GovernmentIdDocumentImageCredentialSchemaType,
-  LivenessConfidenceCredentialSchemaType,
-  FacialMatchCredentialSchemaType,
-  FacialMatchConfidenceCredentialSchemaType,
-  GovernmentIdTypeCredentialSchemaType,
-  GovernmentIdDocumentBackImageCredentialSchemaType,
-  NationalityCredentialSchemaType,
-  GovernmentIdStateCredentialSchemaType,
-  GovernmentIdNumberCredentialSchemaType,
-  GovernmentIdExpirationDateCredentialSchemaType,
-  GovernmentIdIssuanceDateCredentialSchemaType,
-  EmployerCredentialSchemaType,
-  TitleCredentialSchemaType,
-  AnnualIncomeCredentialSchemaType,
-  IncomeCurrencyCredentialSchemaType,
-  AnnualIncomeRangeCredentialSchemaType,
-  EmploymentStartDateCredentialSchemaType
+  jsonSchemas
 };
