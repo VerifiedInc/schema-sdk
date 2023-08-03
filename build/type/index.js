@@ -14,7 +14,7 @@ class TypeBuilder extends typebox_1.ExtendedTypeBuilder {
             return typebox_1.TypeClone.Clone(allOf[0], options);
         const objects = allOf.every((schema) => typebox_1.TypeGuard.TObject(schema));
         const cloned = allOf.map((schema) => {
-            if (typebox_1.TypeGuard.TSchema(schema)) {
+            if (typebox_1.TypeGuard.TSchema(schema)) { // TSchema instead of TObject so composite credentials "allOf" shows references ever for composite children
                 return typebox_1.Type.Ref(schema);
             }
             else {
