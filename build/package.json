@@ -1,6 +1,6 @@
 {
   "name": "@verifiedinc/schema-sdk",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "SDK for Unum ID credential scheme handling, e.g. definitions and validation.",
   "main": "build/index.js",
   "engines": {
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "lint": "eslint \"src/**/*.ts\" \"test/**/*.ts\"",
-    "compile": "rm -rf build/ && tsc && cp package.json build/",
+    "compile": "rm -rf build/ && tsc && cp src/types.d.ts build/ && cp package.json build/",
     "jest": "jest --forceExit --runInBand",
     "test": "npm run compile && npm run jest",
     "start": "node build/index.js",
