@@ -8,5 +8,5 @@ export declare const fullNameCredentialJsonSchema: import("@sinclair/typebox").T
 }>]>, import("@sinclair/typebox").TObject<{
     fullName: import("@sinclair/typebox").TString;
 }>]>;
-export type FullNameCredentialJsonSchemaType = Static<typeof fullNameCredentialJsonSchema>;
+export type FullNameCredentialJsonSchema = Static<typeof fullNameCredentialJsonSchema>;
 //# sourceMappingURL=fullNameCredential.d.ts.map

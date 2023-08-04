@@ -15,4 +15,4 @@ export const ssnCredentialJsonSchema = Type.Object(
   { $id: 'SsnCredential' }
 );
 
-export type SsnCredentialSchemaType = Static<typeof ssnCredentialJsonSchema>;
+export type SsnCredentialJsonSchema = Static<typeof ssnCredentialJsonSchema>;

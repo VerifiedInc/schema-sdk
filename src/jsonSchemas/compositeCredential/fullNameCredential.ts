@@ -33,4 +33,4 @@ export const fullNameCredentialJsonSchema = Type.Union(
   }
 );
 
-export type FullNameCredentialJsonSchemaType = Static<typeof fullNameCredentialJsonSchema>;
+export type FullNameCredentialJsonSchema = Static<typeof fullNameCredentialJsonSchema>;

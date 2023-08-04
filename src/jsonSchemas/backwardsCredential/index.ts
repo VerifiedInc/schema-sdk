@@ -1,4 +1,4 @@
-import { Static, TObject, TProperties, Type } from '@sinclair/typebox';
+import { Static, Type } from '@sinclair/typebox';
 import { DisplayFormat } from '../../enums/displayFormat';
 
 export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(

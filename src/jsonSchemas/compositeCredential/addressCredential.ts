@@ -46,4 +46,4 @@ export const addressCredentialJsonSchema = Type.Union(
   }
 );
 
-export type AddressCredentialJsonSchemaType = Static<typeof addressCredentialJsonSchema>;
+export type AddressCredentialJsonSchema = Static<typeof addressCredentialJsonSchema>;

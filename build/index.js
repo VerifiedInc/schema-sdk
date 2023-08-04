@@ -3,8 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.jsonSchemas = exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.iso3166CodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.genderFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = exports.validate = exports.ajv = void 0;
 const validate_1 = require("./validate");
 Object.defineProperty(exports, "validate", { enumerable: true, get: function () { return validate_1.validate; } });
-const jsonSchemas_1 = require("./jsonSchemas");
-Object.defineProperty(exports, "jsonSchemas", { enumerable: true, get: function () { return jsonSchemas_1.jsonSchemas; } });
 const formats_1 = require("./formats");
 Object.defineProperty(exports, "emailFormat", { enumerable: true, get: function () { return formats_1.emailFormat; } });
 Object.defineProperty(exports, "phoneFormat", { enumerable: true, get: function () { return formats_1.phoneFormat; } });
@@ -26,4 +24,6 @@ Object.defineProperty(exports, "iso4217AmountRangeFormat", { enumerable: true, g
 Object.defineProperty(exports, "addressFormat", { enumerable: true, get: function () { return formats_1.addressFormat; } });
 const ajv_1 = require("./ajv");
 Object.defineProperty(exports, "ajv", { enumerable: true, get: function () { return ajv_1.ajv; } });
+const jsonSchemas_1 = require("./jsonSchemas");
+Object.defineProperty(exports, "jsonSchemas", { enumerable: true, get: function () { return jsonSchemas_1.jsonSchemas; } });
 //# sourceMappingURL=index.js.map

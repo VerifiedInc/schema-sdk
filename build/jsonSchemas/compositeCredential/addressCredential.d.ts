@@ -27,5 +27,5 @@ export declare const addressCredentialJsonSchema: import("@sinclair/typebox").TU
 }>]>, import("@sinclair/typebox").TObject<{
     address: import("@sinclair/typebox").TString;
 }>]>;
-export type AddressCredentialJsonSchemaType = Static<typeof addressCredentialJsonSchema>;
+export type AddressCredentialJsonSchema = Static<typeof addressCredentialJsonSchema>;
 //# sourceMappingURL=addressCredential.d.ts.map
