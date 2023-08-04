@@ -1,18 +1,6 @@
 # Schema SDK
 SDK for Verified.Inc credential scheme handling, e.g. definitions and validation.
 
-## JSON-LD Schemas
-Json-LD Schemas are integral as a description format for arbitrary data types. We use it to enable enriched UX around credentials, i.e. in the Wallet's Presentation Request for describing the credentials being requested. They are written in W3C [RDFS](https://www.w3.org/TR/rdf-schema/) syntax. Following [schema.org](https://github.com/schemaorg/schemaorg/)'s lead. 
-
-### Context 
-Our JSON-LD context file is [unum.id.json](/src/context/unum.id.json). We decided to also keep a snapshot of schema.org's context file, [schema.org.json](/src/context/schema.org.json), for reference purposes, but not for direct use.
-
-Partial inspiration for our own context file came from the [Banks and Finance Institutions](https://schema.org/docs/financial.html) [extension](https://schema.org/docs/documents.html#:~:text=to%20add%20detail.-,Extensions,-Health%20and%20medical) however as is, the extension doesn't really align with us or our notion of KYC. Generally, we have decided to define all our own context definitions but borrowing heavily from schema.org's context definitions.
-
-Opting to use the RDFS [subPropertyOf](https://www.w3.org/TR/rdf-schema/#ch_subpropertyof) to denote data presentation field headers.
-
-rdfs:Class is not _really_ used in favor of defining per attribute characteristics which fall under rdfs:Properties more naturally. This is thanks to using single attribute atomic credentials for the forseeable future... We do not need to categorize the credentials but can rather use the attributes (rdfs:Properties) for grouping. _Note: the rdfs:Properties that are being used as group headings have the `schema:isPartOf` attribute set to `unumid:groupHeadings` to denote their special characteristics._ **Any other rdfs:Propertery only ought to have a single value for `schema:rangeIncludes` so that the schema-resolver's display format logic to work as is.** This is a self imposed convention that the examples in schema.org does not follow.
-
 ## JSON Schemas
 JSON schemas are important for programmatically handling credential data. They assist in extracting information as well as data validation.
 
@@ -24,6 +12,9 @@ The main advantage of this JSON Schema version over draft-07 is the ability to u
 [TypeBox](https://github.com/sinclairzx81/typebox) is used to author JSON schemas. This means the attribute type and potentially its format. It is really just syntactic sugar to author JSON Schemas. Opting to not use TypeBox [TypeCompiler](https://github.com/sinclairzx81/typebox#typecompiler) because it is a little less flexible than [AJV](###AJV) for validation.
 
 > We are using a custom [TypeBuilder](https://github.com/sinclairzx81/typebox/issues/373#issuecomment-1502287920) `./src/type`, we do this by extending Extended TypeBuilder (Type Builder's default) to add method creation reference to the atomic credential.
+
+### Metadata
+While JSON schemas more purpose is programmatic validation, we are also using some of it's metadata properties to help describe the schemas in human readable formats. The metadata attributes being primarily leveraged are: `description`, `examples`, and `title`. We also have introduced our own metadata attribute and [AJV](#AJV) keyword, `displayFormat` to serve as a more visually descriptive counter part to JSON schemas' data validation `format` property.
 
 ### Folder Structure
 
