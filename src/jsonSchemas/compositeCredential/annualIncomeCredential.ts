@@ -1,7 +1,9 @@
 import { Type } from '../../type';
 import { currencyCredentialJsonSchema } from '../atomicCredential/currencyCredential';
 import { amountCredentialJsonSchema } from '../atomicCredential/amountCredential';
-import { UnumJsonSchema } from '..';
+
+import { DisplayFormat } from '../../enums/displayFormat';
+import { Static } from '@sinclair/typebox';
 
 export const annualIncomeCredentialJsonSchema = Type.Union(
   [
@@ -11,7 +13,9 @@ export const annualIncomeCredentialJsonSchema = Type.Union(
       income: Type.String({
         format: 'iso4217Amount',
         description: 'Annual income with the preceding ISO4217 currency format.',
-        examples: ['USD 101000', 'GBP 46000']
+        examples: ['USD 101000', 'GBP 46000'],
+        title: 'Annual Income',
+        displayFormat: DisplayFormat.CurrencyAmount
       })
     })
   ],
@@ -19,6 +23,7 @@ export const annualIncomeCredentialJsonSchema = Type.Union(
     $id: 'AnnualIncomeCredential',
     unevaluatedProperties: false,
     // Allow backward compatibility with the old format
+    // ?? What old format? Pretty sure it has always been iso4217Amount
     if: Type.Object(
       {
         income: Type.String()
@@ -33,4 +38,6 @@ export const annualIncomeCredentialJsonSchema = Type.Union(
       })
     })
   }
-) as unknown as UnumJsonSchema;
+);
+
+export type AnnualIncomeCredentialJsonSchemaType = Static<typeof annualIncomeCredentialJsonSchema>;

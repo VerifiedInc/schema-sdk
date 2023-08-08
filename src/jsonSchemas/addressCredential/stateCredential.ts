@@ -1,12 +1,16 @@
 import { Type } from '../../type';
-import { UnumJsonSchema } from '..';
+
+import { DisplayFormat } from '../../enums/displayFormat';
+import { Static } from '@sinclair/typebox';
 
 export const stateCredentialJsonSchema = Type.Object(
   {
     state: Type.String({
       description: "A state's ISO 3166-2 code.",
       examples: ['CA', 'GA', 'SP'],
-      format: 'iso3166RegionCode'
+      format: 'iso3166RegionCode',
+      title: 'State or Region',
+      displayFormat: DisplayFormat.State
     })
   },
   {
@@ -20,8 +24,11 @@ export const stateCredentialJsonSchema = Type.Object(
     then: Type.Object({
       state: Type.String({
         description: 'Then the state must be a valid US state.',
-        format: 'iso3166USRegionCode'
+        format: 'iso3166USRegionCode',
+        title: 'State'
       })
     })
   }
-) as UnumJsonSchema;
+);
+
+export type StateCredentialJsonSchema = Static<typeof stateCredentialJsonSchema>;

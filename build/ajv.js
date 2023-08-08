@@ -11,6 +11,7 @@ const logger_1 = __importDefault(require("./logger"));
 const ajv_formats_1 = __importDefault(require("ajv-formats"));
 const jsonSchemas_1 = require("./jsonSchemas");
 const formats_1 = require("./formats");
+const displayFormat_1 = require("./enums/displayFormat");
 // get all the values of the jsonSchemas object in an array
 // schemas to add to ajv instance options
 const schemas = Object.values(jsonSchemas_1.jsonSchemas);
@@ -28,7 +29,7 @@ exports.ajv = new _2019_1.default({
     logger: logger_1.default,
     schemas
 });
-// Adding formats to ajv
+// Adding default formats to ajv
 (0, ajv_formats_1.default)(exports.ajv);
 /*******************************************************************
  * Add custom formats to ajv below                                 *
@@ -40,6 +41,7 @@ exports.ajv.addFormat('phone', formats_1.phoneFormat);
 exports.ajv.addFormat('optionalPhone', formats_1.optionalPhoneFormat);
 exports.ajv.addFormat('ssn', formats_1.ssnFormat);
 exports.ajv.addFormat('digits', formats_1.digitsFormat);
+exports.ajv.addFormat('unixMsEpochDayFormat', formats_1.unixMsEpochDayFormat);
 exports.ajv.addFormat('dataUriBase64Image', formats_1.dataUriBase64ImageFormat);
 exports.ajv.addFormat('iso4217', formats_1.iso4217Format);
 exports.ajv.addFormat('iso4217Amount', formats_1.iso4217AmountFormat);
@@ -54,4 +56,17 @@ exports.ajv.addFormat('documentType', formats_1.documentTypeFormat);
 exports.ajv.addFormat('confidenceLevel', formats_1.confidenceLevelFormat);
 exports.ajv.addFormat('boolean', formats_1.booleanFormat);
 exports.ajv.addFormat('usZipCode', formats_1.usZipCodeFormat);
+/************************************
+ * Add custom keywords to ajv below *
+ ************************************/
+// Note: not really a "functional" keyword in the sense of affecting ajv validation, but useful for clients displaying the data
+const displayFormatDefinition = {
+    type: 'string',
+    metaSchema: {
+        type: 'string',
+        enum: Object.values(displayFormat_1.DisplayFormat)
+    },
+    keyword: 'displayFormat'
+};
+exports.ajv.addKeyword('displayFormat', displayFormatDefinition);
 //# sourceMappingURL=ajv.js.map

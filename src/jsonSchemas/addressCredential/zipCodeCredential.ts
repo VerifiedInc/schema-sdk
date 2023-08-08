@@ -1,11 +1,15 @@
 import { Type } from '../../type';
-import { UnumJsonSchema } from '..';
+
+import { DisplayFormat } from '../../enums/displayFormat';
+import { Static } from '@sinclair/typebox';
 
 export const zipCodeCredentialJsonSchema = Type.Object(
   {
     zipCode: Type.String({
       description: 'The zip code of the address.',
-      examples: ['94103', '94103-1234', '82030-040']
+      examples: ['94103', '94103-1234', '82030-040'],
+      title: 'Zip Code',
+      displayFormat: DisplayFormat.String
     })
   },
   {
@@ -23,4 +27,6 @@ export const zipCodeCredentialJsonSchema = Type.Object(
       })
     })
   }
-) as UnumJsonSchema;
+);
+
+export type ZipCodeCredentialJsonSchema = Static<typeof zipCodeCredentialJsonSchema>;

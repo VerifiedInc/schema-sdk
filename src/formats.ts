@@ -572,6 +572,7 @@ export const optionalPhoneFormat: Format = {
 
 /**
  * Format to determine if a string containing all digits
+ * Note: used instead of number thanks to json serializing as a string.
  */
 export const digitsFormat: Format = {
   type: 'string',
@@ -579,6 +580,28 @@ export const digitsFormat: Format = {
     // matches a string of digits
     const digitsRegex = /^-?\d+$/;
     return digitsRegex.test(digits);
+  }
+};
+
+/**
+ * Format to determine if the input is a valid Unix MS since epoch day, must 12:00:00:000 of the UTC day.
+ */
+export const unixMsEpochDayFormat: Format = {
+  type: 'string',
+  validate: (digits: string) => {
+    // matches the digits format
+    if (!(digitsFormat.validate as FormatValidator<string>)(digits)) {
+      return false;
+    }
+
+    // Convert the string to a number
+    const timestamp = Number(digits);
+
+    // Convert Unix timestamp (in milliseconds) to a Date object.
+    const date = new Date(timestamp);
+
+    // Ensure is 12:00:00:000
+    return date.getUTCHours() === 12 && date.getUTCMinutes() === 0 && date.getUTCSeconds() === 0 && date.getUTCMilliseconds() === 0;
   }
 };
 

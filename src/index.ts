@@ -1,41 +1,4 @@
-import {
-  AddressCredentialSchemaType,
-  BirthDateCredentialSchemaType,
-  CountryResidenceCredentialSchemaType,
-  EmailCredentialSchemaType,
-  EmployerCredentialSchemaType,
-  FacialImageCredentialSchemaType,
-  FacialMatchConfidenceCredentialSchemaType,
-  FacialMatchCredentialSchemaType,
-  FirstNameCredentialSchemaType,
-  FullNameCredentialSchemaType,
-  GenderCredentialSchemaType,
-  GovernmentIdDocumentBackImageCredentialSchemaType,
-  GovernmentIdDocumentImageCredentialSchemaType,
-  GovernmentIdExpirationDateCredentialSchemaType,
-  GovernmentIdIssuanceDateCredentialSchemaType,
-  GovernmentIdNumberCredentialSchemaType,
-  GovernmentIdStateCredentialSchemaType,
-  GovernmentIdTypeCredentialSchemaType,
-  IdentityCredentialSchemaType,
-  AnnualIncomeCredentialSchemaType,
-  IncomeCurrencyCredentialSchemaType,
-  LastNameCredentialSchemaType,
-  LivenessCredentialSchemaType,
-  NationalityCredentialSchemaType,
-  PhoneCredentialSchemaType,
-  SexCredentialSchemaType,
-  SsnCredentialSchemaType,
-  TitleCredentialSchemaType,
-  AnnualIncomeRangeCredentialSchemaType,
-  EmploymentStartDateCredentialSchemaType,
-  LivenessConfidenceCredentialSchemaType
-} from './types';
 import { validate } from './validate';
-import context from './context/unum.id.json';
-import { UnumJsonLDSchema } from './jsonLDSchemas';
-import { schemas, UnumSchema } from './schemas';
-import { UnumJsonSchema } from './jsonSchemas';
 import {
   emailFormat,
   phoneFormat,
@@ -56,12 +19,13 @@ import {
   iso4217AmountRangeFormat,
   addressFormat
 } from './formats';
+import { ajv } from './ajv';
+import { AddressCredentialJsonSchema, AmountCredentialJsonSchema, AnnualIncomeCredentialJsonSchemaType, AnnualIncomeRangeCredentialJsonSchema, BirthDateCredentialJsonSchema, CityCredentialJsonSchema, CountryCredentialJsonSchema, CountryResidenceCredentialJsonSchema, CurrencyCredentialJsonSchema, DocumentBackImageCredentialJsonSchema, DocumentImageCredentialJsonSchema, DocumentNumberCredentialJsonSchema, DocumentTypeCredentialJsonSchema, EmailCredentialJsonSchema, EmployerCredentialJsonSchemaType, EmploymentStartDateCredentialJsonSchema, ExpirationDateCredentialJsonSchema, FacialImageCredentialJsonSchema, FirstNameCredentialJsonSchema, FullNameCredentialJsonSchema, GenderCredentialJsonSchema, GovernmentIdCredentialJsonSchema, GovernmentIdDocumentBackImageCredentialJsonSchema, GovernmentIdDocumentImageCredentialJsonSchema, GovernmentIdExpirationDateCredentialJsonSchema, GovernmentIdIssuanceDateCredentialJsonSchema, GovernmentIdNumberCredentialJsonSchema, GovernmentIdStateCredentialJsonSchema, GovernmentIdTypeCredentialJsonSchema, IdentityCredentialJsonSchema, IncomeCurrencyCredentialJsonSchema, IncomeRangeCredentialJsonSchema, IssuanceDateCredentialJsonSchema, LastNameCredentialJsonSchema, Line1CredentialJsonSchema, Line2CredentialJsonSchema, LivenessCredentialJsonSchema, MatchCredentialJsonSchema, MiddleNameCredentialJsonSchema, NationalityCredentialJsonSchema, PhoneCredentialJsonSchema, SexCredentialJsonSchema, SsnCredentialJsonSchema, StateCredentialJsonSchema, TitleCredentialJsonSchema, ZipCodeCredentialJsonSchema } from './types';
+import { jsonSchemas } from './jsonSchemas';
 
 export {
-  // types
-  UnumJsonSchema,
-  UnumJsonLDSchema,
-  UnumSchema,
+  // ajv instance
+  ajv,
 
   // functions
   validate,
@@ -86,42 +50,69 @@ export {
   confidenceLevelFormat,
   booleanFormat,
 
-  // json-ld context file
-  context,
-
   // credential schemas map
-  schemas,
+  jsonSchemas,
 
-  // credential types
-  EmailCredentialSchemaType,
-  IdentityCredentialSchemaType,
-  SsnCredentialSchemaType,
-  CountryResidenceCredentialSchemaType,
-  FacialImageCredentialSchemaType,
-  LivenessCredentialSchemaType,
-  AddressCredentialSchemaType,
-  LastNameCredentialSchemaType,
-  FirstNameCredentialSchemaType,
-  BirthDateCredentialSchemaType,
-  SexCredentialSchemaType,
-  PhoneCredentialSchemaType,
-  FullNameCredentialSchemaType,
-  GenderCredentialSchemaType,
-  GovernmentIdDocumentImageCredentialSchemaType,
-  LivenessConfidenceCredentialSchemaType,
-  FacialMatchCredentialSchemaType,
-  FacialMatchConfidenceCredentialSchemaType,
-  GovernmentIdTypeCredentialSchemaType,
-  GovernmentIdDocumentBackImageCredentialSchemaType,
-  NationalityCredentialSchemaType,
-  GovernmentIdStateCredentialSchemaType,
-  GovernmentIdNumberCredentialSchemaType,
-  GovernmentIdExpirationDateCredentialSchemaType,
-  GovernmentIdIssuanceDateCredentialSchemaType,
-  EmployerCredentialSchemaType,
-  TitleCredentialSchemaType,
-  AnnualIncomeCredentialSchemaType,
-  IncomeCurrencyCredentialSchemaType,
-  AnnualIncomeRangeCredentialSchemaType,
-  EmploymentStartDateCredentialSchemaType
+  /*********
+   * Types *
+   *********/
+  // Address
+  CityCredentialJsonSchema,
+  CountryCredentialJsonSchema,
+  Line1CredentialJsonSchema,
+  Line2CredentialJsonSchema,
+  StateCredentialJsonSchema,
+  ZipCodeCredentialJsonSchema,
+
+  // Atomic
+  AmountCredentialJsonSchema,
+  CurrencyCredentialJsonSchema,
+  IdentityCredentialJsonSchema,
+  LivenessCredentialJsonSchema,
+  MatchCredentialJsonSchema,
+
+  // Composite
+  AddressCredentialJsonSchema,
+  AnnualIncomeCredentialJsonSchemaType,
+  EmployerCredentialJsonSchemaType,
+  FullNameCredentialJsonSchema,
+  GovernmentIdCredentialJsonSchema,
+
+  // Employer
+  EmploymentStartDateCredentialJsonSchema,
+  IncomeRangeCredentialJsonSchema,
+  TitleCredentialJsonSchema,
+
+  // Government ID
+  DocumentBackImageCredentialJsonSchema,
+  DocumentImageCredentialJsonSchema,
+  DocumentNumberCredentialJsonSchema,
+  DocumentTypeCredentialJsonSchema,
+  ExpirationDateCredentialJsonSchema,
+  IssuanceDateCredentialJsonSchema,
+
+  // Individual
+  BirthDateCredentialJsonSchema,
+  CountryResidenceCredentialJsonSchema,
+  EmailCredentialJsonSchema,
+  FacialImageCredentialJsonSchema,
+  FirstNameCredentialJsonSchema,
+  MiddleNameCredentialJsonSchema,
+  LastNameCredentialJsonSchema,
+  GenderCredentialJsonSchema,
+  NationalityCredentialJsonSchema,
+  PhoneCredentialJsonSchema,
+  SexCredentialJsonSchema,
+  SsnCredentialJsonSchema,
+
+  // Backwards Compatible (Deprecated)
+  GovernmentIdDocumentImageCredentialJsonSchema,
+  GovernmentIdDocumentBackImageCredentialJsonSchema,
+  GovernmentIdTypeCredentialJsonSchema,
+  GovernmentIdStateCredentialJsonSchema,
+  GovernmentIdNumberCredentialJsonSchema,
+  GovernmentIdIssuanceDateCredentialJsonSchema,
+  GovernmentIdExpirationDateCredentialJsonSchema,
+  IncomeCurrencyCredentialJsonSchema,
+  AnnualIncomeRangeCredentialJsonSchema
 };

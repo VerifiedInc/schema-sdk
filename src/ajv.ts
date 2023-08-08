@@ -1,6 +1,6 @@
 // Using Ajv 2019 for access to JSON Schema Draft 2019 and the new features like $data, $merge, unevaluatedProperties, etc.
 // 100% backwards compatible with Draft 7.
-import Ajv2019 from 'ajv/dist/2019';
+import Ajv2019, { FuncKeywordDefinition } from 'ajv/dist/2019';
 import logger from './logger';
 import addFormats from 'ajv-formats';
 import { jsonSchemas } from './jsonSchemas';
@@ -24,8 +24,10 @@ import {
   booleanFormat,
   iso3166USRegionCodeFormat,
   iso3166RegionCodeFormat,
-  usZipCodeFormat
+  usZipCodeFormat,
+  unixMsEpochDayFormat
 } from './formats';
+import { DisplayFormat } from './enums/displayFormat';
 
 // get all the values of the jsonSchemas object in an array
 // schemas to add to ajv instance options
@@ -47,7 +49,7 @@ export const ajv = new Ajv2019({
   schemas
 });
 
-// Adding formats to ajv
+// Adding default formats to ajv
 addFormats(ajv);
 
 /*******************************************************************
@@ -60,6 +62,7 @@ ajv.addFormat('phone', phoneFormat);
 ajv.addFormat('optionalPhone', optionalPhoneFormat);
 ajv.addFormat('ssn', ssnFormat);
 ajv.addFormat('digits', digitsFormat);
+ajv.addFormat('unixMsEpochDayFormat', unixMsEpochDayFormat);
 ajv.addFormat('dataUriBase64Image', dataUriBase64ImageFormat);
 ajv.addFormat('iso4217', iso4217Format);
 ajv.addFormat('iso4217Amount', iso4217AmountFormat);
@@ -74,3 +77,18 @@ ajv.addFormat('documentType', documentTypeFormat);
 ajv.addFormat('confidenceLevel', confidenceLevelFormat);
 ajv.addFormat('boolean', booleanFormat);
 ajv.addFormat('usZipCode', usZipCodeFormat);
+
+/************************************
+ * Add custom keywords to ajv below *
+ ************************************/
+// Note: not really a "functional" keyword in the sense of affecting ajv validation, but useful for clients displaying the data
+const displayFormatDefinition: FuncKeywordDefinition = {
+  type: 'string',
+  metaSchema: {
+    type: 'string',
+    enum: Object.values(DisplayFormat)
+  },
+  keyword: 'displayFormat'
+};
+
+ajv.addKeyword('displayFormat', displayFormatDefinition);

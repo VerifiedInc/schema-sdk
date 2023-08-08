@@ -1,11 +1,13 @@
 import { Type } from '../../type';
-import { UnumJsonSchema } from '..';
+
 import { cityCredentialJsonSchema } from '../addressCredential/cityCredential';
 import { line1CredentialJsonSchema } from '../addressCredential/line1Credential';
 import { line2CredentialJsonSchema } from '../addressCredential/line2Credential';
 import { stateCredentialJsonSchema } from '../addressCredential/stateCredential';
 import { countryCredentialJsonSchema } from '../addressCredential/countryCredential';
 import { zipCodeCredentialJsonSchema } from '../addressCredential/zipCodeCredential';
+import { DisplayFormat } from '../../enums/displayFormat';
+import { Static } from '@sinclair/typebox';
 
 export const addressCredentialIntersectReferences = Type.IntersectReferences([
   line1CredentialJsonSchema,
@@ -28,7 +30,9 @@ export const addressCredentialJsonSchema = Type.Union(
           examples: [
             '10 Downing Street, London, GB-ENG SW1A 2AA',
             '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
-          ]
+          ],
+          title: 'Street Address',
+          displayFormat: DisplayFormat.Address
         })
       },
       {
@@ -40,4 +44,6 @@ export const addressCredentialJsonSchema = Type.Union(
     $id: 'AddressCredential',
     unevaluatedProperties: false
   }
-) as unknown as UnumJsonSchema;
+);
+
+export type AddressCredentialJsonSchema = Static<typeof addressCredentialJsonSchema>;

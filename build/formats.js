@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.genderFormat = exports.sexFormat = exports.usZipCodeFormat = exports.iso3166RegionCodeFormat = exports.iso3166USRegionCodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.iso3166CodeFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
+exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.genderFormat = exports.sexFormat = exports.usZipCodeFormat = exports.iso3166RegionCodeFormat = exports.iso3166USRegionCodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.iso3166CodeFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.unixMsEpochDayFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
 // iso4317 codes: https://www.iban.com/currency-codes
 const validISO4217Codes = new Set([
     'AED',
@@ -557,6 +557,7 @@ exports.optionalPhoneFormat = {
 };
 /**
  * Format to determine if a string containing all digits
+ * Note: used instead of number thanks to json serializing as a string.
  */
 exports.digitsFormat = {
     type: 'string',
@@ -564,6 +565,24 @@ exports.digitsFormat = {
         // matches a string of digits
         const digitsRegex = /^-?\d+$/;
         return digitsRegex.test(digits);
+    }
+};
+/**
+ * Format to determine if the input is a valid Unix MS since epoch day, must 12:00:00:000 of the UTC day.
+ */
+exports.unixMsEpochDayFormat = {
+    type: 'string',
+    validate: (digits) => {
+        // matches the digits format
+        if (!exports.digitsFormat.validate(digits)) {
+            return false;
+        }
+        // Convert the string to a number
+        const timestamp = Number(digits);
+        // Convert Unix timestamp (in milliseconds) to a Date object.
+        const date = new Date(timestamp);
+        // Ensure is 12:00:00:000
+        return date.getUTCHours() === 12 && date.getUTCMinutes() === 0 && date.getUTCSeconds() === 0 && date.getUTCMilliseconds() === 0;
     }
 };
 /**

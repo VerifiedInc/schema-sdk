@@ -1,5 +1,6 @@
 import { Type } from '../../type';
-import { UnumJsonSchema } from '..';
+import { DisplayFormat } from '../../enums/displayFormat';
+import { Static } from '@sinclair/typebox';
 
 export const documentImageCredentialJsonSchema = Type.Object(
   {
@@ -9,8 +10,12 @@ export const documentImageCredentialJsonSchema = Type.Object(
         'Base64 encoded government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
       examples: [
         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
-      ]
+      ],
+      title: 'Document Image',
+      displayFormat: DisplayFormat.Image
     })
   },
   { $id: 'DocumentImageCredential' }
-) as UnumJsonSchema;
+);
+
+export type DocumentImageCredentialJsonSchema = Static<typeof documentImageCredentialJsonSchema>;

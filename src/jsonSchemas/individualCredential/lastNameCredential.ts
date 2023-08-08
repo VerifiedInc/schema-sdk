@@ -1,12 +1,17 @@
 import { Type } from '../../type';
-import { UnumJsonSchema } from '..';
+import { DisplayFormat } from '../../enums/displayFormat';
+import { Static } from '@sinclair/typebox';
 
-export const lastNameCredentialJsonSchema: UnumJsonSchema = Type.Object(
+export const lastNameCredentialJsonSchema = Type.Object(
   {
     lastName: Type.String({
       description: "A person's last name",
-      examples: ['Smith', 'Garcia-Tony']
+      examples: ['Smith', 'Garcia-Tony'],
+      title: 'Last Name',
+      displayFormat: DisplayFormat.String
     })
   },
   { $id: 'LastNameCredential' }
-) as UnumJsonSchema;
+);
+
+export type LastNameCredentialJsonSchema = Static<typeof lastNameCredentialJsonSchema>;

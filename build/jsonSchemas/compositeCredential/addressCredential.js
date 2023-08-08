@@ -8,6 +8,7 @@ const line2Credential_1 = require("../addressCredential/line2Credential");
 const stateCredential_1 = require("../addressCredential/stateCredential");
 const countryCredential_1 = require("../addressCredential/countryCredential");
 const zipCodeCredential_1 = require("../addressCredential/zipCodeCredential");
+const displayFormat_1 = require("../../enums/displayFormat");
 exports.addressCredentialIntersectReferences = type_1.Type.IntersectReferences([
     line1Credential_1.line1CredentialJsonSchema,
     line2Credential_1.line2CredentialJsonSchema,
@@ -26,7 +27,9 @@ exports.addressCredentialJsonSchema = type_1.Type.Union([
             examples: [
                 '10 Downing Street, London, GB-ENG SW1A 2AA',
                 '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
-            ]
+            ],
+            title: 'Street Address',
+            displayFormat: displayFormat_1.DisplayFormat.Address
         })
     }, {
         additionalProperties: false

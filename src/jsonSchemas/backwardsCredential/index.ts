@@ -1,11 +1,5 @@
-import { TObject, TProperties, Type } from '@sinclair/typebox';
-
-/**
- * Interface to assist with typings of the UnumID schema definitions, which will always have $id defined.
- */
-interface UnumJsonSchema extends TObject<TProperties> {
-  $id: string; // UnumID schema definitions will always have a valid $id property
-}
+import { Static, Type } from '@sinclair/typebox';
+import { DisplayFormat } from '../../enums/displayFormat';
 
 export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(
   {
@@ -15,11 +9,33 @@ export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(
         'Base64 encoded government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
       examples: [
         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
-      ]
+      ],
+      title: 'Government Document Image',
+      displayFormat: DisplayFormat.Image
     })
   },
   { $id: 'GovernmentIdDocumentImageCredential' }
-) as UnumJsonSchema;
+);
+export type GovernmentIdDocumentImageCredentialJsonSchema = Static<typeof governmentIdDocumentImageCredentialJsonSchema>;
+
+export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object(
+  {
+    image: Type.String({
+      format: 'dataUriBase64Image',
+      description:
+        'Base64 encoded back of government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
+      examples: [
+        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
+      ],
+      title: 'Government Document Back Image',
+      displayFormat: DisplayFormat.Image
+    })
+  },
+  {
+    $id: 'GovernmentIdDocumentBackImageCredential'
+  }
+);
+export type GovernmentIdDocumentBackImageCredentialJsonSchema = Static<typeof governmentIdDocumentBackImageCredentialJsonSchema>;
 
 export const governmentIdTypeCredentialJsonSchema = Type.Object(
   {
@@ -35,83 +51,85 @@ export const governmentIdTypeCredentialJsonSchema = Type.Object(
         'Birth Certificate',
         'Voter Registration Card',
         'Other'
-      ]
+      ],
+      title: 'Government Document Type',
+      displayFormat: DisplayFormat.String
     })
   },
   { $id: 'GovernmentIdTypeCredential' }
-) as UnumJsonSchema;
-
-export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object(
-  {
-    image: Type.String({
-      format: 'dataUriBase64Image',
-      description:
-        'Base64 encoded back of government identification document image with the Data URI scheme prefix, i.e. data:image/<format>;base64,<encoded-data>',
-      examples: [
-        'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
-      ]
-    })
-  },
-  {
-    $id: 'GovernmentIdDocumentBackImageCredential'
-  }
-) as UnumJsonSchema;
+);
+export type GovernmentIdTypeCredentialJsonSchema = Static<typeof governmentIdTypeCredentialJsonSchema>;
 
 export const governmentIdStateCredentialJsonSchema = Type.Object(
   {
     state: Type.String({
       format: 'iso3166',
       description: 'The state or province of the government identification document',
-      examples: ['US-CA', 'US-NY', 'US-TX', 'GB-ENG']
+      examples: ['US-CA', 'US-NY', 'US-TX', 'GB-ENG'],
+      title: 'Government Document Region',
+      displayFormat: DisplayFormat.State
     })
   },
   { $id: 'GovernmentIdStateCredential' }
-) as UnumJsonSchema;
+);
+export type GovernmentIdStateCredentialJsonSchema = Static<typeof governmentIdStateCredentialJsonSchema>;
 
 export const governmentIdNumberCredentialJsonSchema = Type.Object(
   {
     idNumber: Type.String({
       description: 'Government identification document number. Note, it can be alphanumeric.',
-      examples: ['801322-1117621', 'F4698E1']
+      examples: ['801322-1117621', 'F4698E1'],
+      title: 'Government Document ID',
+      displayFormat: DisplayFormat.String
     })
   },
   { $id: 'GovernmentIdNumberCredential' }
-) as UnumJsonSchema;
+);
+export type GovernmentIdNumberCredentialJsonSchema = Static<typeof governmentIdNumberCredentialJsonSchema>;
 
 export const governmentIdIssuanceDateCredentialJsonSchema = Type.Object(
   {
     issuanceDate: Type.String({
-      format: 'digits',
+      format: 'unixMsEpochDayFormat',
       description:
-        'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
-      examples: ['1687488596000', '-45709']
+      'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch, which equates to 12:00:00:000 UTC of the date',
+      examples: ['631195200000', '-331560000000'],
+      title: 'Government Document Issuance Date',
+      displayFormat: DisplayFormat.Date
     })
   },
   { $id: 'GovernmentIdIssuanceDateCredential' }
-) as UnumJsonSchema;
+);
+export type GovernmentIdIssuanceDateCredentialJsonSchema = Static<typeof governmentIdIssuanceDateCredentialJsonSchema>;
 
 export const governmentIdExpirationDateCredentialJsonSchema = Type.Object(
   {
     expirationDate: Type.String({
-      format: 'digits',
+      format: 'unixMsEpochDayFormat',
       description:
-        'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch.',
-      examples: ['1687488596000', '-45709']
+      'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch, which equates to 12:00:00:000 UTC of the date',
+      examples: ['631195200000', '-331560000000'],
+      title: 'Government Document Expiration Date',
+      displayFormat: DisplayFormat.Date
     })
   },
   { $id: 'GovernmentIdExpirationDateCredential' }
-) as UnumJsonSchema;
+);
+export type GovernmentIdExpirationDateCredentialJsonSchema = Static<typeof governmentIdExpirationDateCredentialJsonSchema>;
 
 export const incomeCurrencyCredentialJsonSchema = Type.Object(
   {
     currency: Type.String({
       format: 'iso4217',
       description: 'ISO4217 currency format.',
-      examples: ['USD', 'GBP', 'EUR']
+      examples: ['USD', 'GBP', 'EUR'],
+      title: 'Income Currency',
+      displayFormat: DisplayFormat.String
     })
   },
   { $id: 'IncomeCurrencyCredential' }
-) as UnumJsonSchema;
+);
+export type IncomeCurrencyCredentialJsonSchema = Static<typeof incomeCurrencyCredentialJsonSchema>;
 
 export const annualIncomeRangeCredentialJsonSchema = Type.Object(
   {
@@ -119,8 +137,11 @@ export const annualIncomeRangeCredentialJsonSchema = Type.Object(
       format: 'iso4217AmountRange',
       description:
         'Annual income range with the preceding ISO4217 currency code followed by min<value>_max<value>.',
-      examples: ['USD min100000_max200000', 'GBP min40000_max50000']
+      examples: ['USD min100000_max200000', 'GBP min40000_max50000'],
+      title: 'Annual Income Range',
+      displayFormat: DisplayFormat.CurrencyRange
     })
   },
   { $id: 'AnnualIncomeRangeCredential' }
-) as UnumJsonSchema;
+);
+export type AnnualIncomeRangeCredentialJsonSchema = Static<typeof annualIncomeRangeCredentialJsonSchema>;

@@ -25,8 +25,13 @@ export declare const phoneFormat: Format;
 export declare const optionalPhoneFormat: Format;
 /**
  * Format to determine if a string containing all digits
+ * Note: used instead of number thanks to json serializing as a string.
  */
 export declare const digitsFormat: Format;
+/**
+ * Format to determine if the input is a valid Unix MS since epoch day, must 12:00:00:000 of the UTC day.
+ */
+export declare const unixMsEpochDayFormat: Format;
 /**
  * Format to determine if a string is a valid OTP (verification code)
  * validates that the string is six digits
