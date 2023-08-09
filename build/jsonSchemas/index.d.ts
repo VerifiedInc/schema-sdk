@@ -1,8 +1,8 @@
-import { AnySchema } from 'ajv';
+import { TSchema } from '@sinclair/typebox';
 /**
  * Export all of the UnumID schema definitions.
  */
-export declare const jsonSchemas: Record<string, AnySchema>;
+export declare const jsonSchemas: Record<string, TSchema>;
 export * from './addressCredential';
 export * from './atomicCredential';
 export * from './backwardsCredential';
