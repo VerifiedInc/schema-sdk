@@ -1,4 +1,4 @@
-import { TObject, TProperties } from '@sinclair/typebox';
+import { TSchema } from '@sinclair/typebox';
 
 import * as addressCredential from './addressCredential';
 import * as atomicCredential from './atomicCredential';
@@ -17,13 +17,12 @@ import {
   incomeCurrencyCredentialJsonSchema,
   annualIncomeRangeCredentialJsonSchema
 } from './backwardsCredential';
-import { AnySchema } from 'ajv';
 
 /**
  * Export all of the UnumID schema definitions.
  */
 
-export const jsonSchemas: Record<string, AnySchema> = {
+export const jsonSchemas: Record<string, TSchema> = {
   // Address Credential
   CityCredential: addressCredential.cityCredentialJsonSchema,
   CountryCredential: addressCredential.countryCredentialJsonSchema,
