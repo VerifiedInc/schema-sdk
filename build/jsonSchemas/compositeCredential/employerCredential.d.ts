@@ -11,7 +11,9 @@ export declare const employerCredentialJsonSchema: import("@sinclair/typebox").T
     amount: import("@sinclair/typebox").TString;
 }>]>, import("@sinclair/typebox").TObject<{
     income: import("@sinclair/typebox").TString;
-}>]>]>, import("@sinclair/typebox").TObject<{
+}>]>, import("@sinclair/typebox").TObject<{
+    employer: import("@sinclair/typebox").TString;
+}>]>, import("@sinclair/typebox").TObject<{
     employer: import("@sinclair/typebox").TString;
 }>]>;
 export type EmployerCredentialJsonSchemaType = Static<typeof employerCredentialJsonSchema>;

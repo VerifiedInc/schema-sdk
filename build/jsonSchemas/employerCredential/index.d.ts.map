@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/jsonSchemas/employerCredential/index.ts"],"names":[],"mappings":"AAAA,cAAc,iCAAiC,CAAC;AAChD,cAAc,yBAAyB,CAAC;AACxC,cAAc,mBAAmB,CAAC"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/jsonSchemas/employerCredential/index.ts"],"names":[],"mappings":"AAAA,cAAc,iCAAiC,CAAC;AAChD,cAAc,yBAAyB,CAAC;AACxC,cAAc,mBAAmB,CAAC;AAClC,cAAc,0BAA0B,CAAC"}

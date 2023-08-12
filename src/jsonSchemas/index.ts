@@ -49,6 +49,7 @@ export const jsonSchemas: Record<string, TSchema> = {
   EmploymentStartDateCredential: employerCredential.employmentStartDateCredentialJsonSchema,
   IncomeRangeCredential: employerCredential.incomeRangeCredentialJsonSchema,
   TitleCredential: employerCredential.titleCredentialJsonSchema,
+  EmployerNameCredential: employerCredential.employerNameCredentialJsonSchema,
 
   // GovernmentIdCredential
   DocumentBackImageCredential: governmentIdCredential.documentBackImageCredentialJsonSchema,
