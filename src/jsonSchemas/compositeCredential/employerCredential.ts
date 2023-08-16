@@ -3,6 +3,7 @@ import { annualIncomeCredentialJsonSchema } from './annualIncomeCredential';
 import { employmentStartDateCredentialJsonSchema } from '../employerCredential/employmentStartDateCredential';
 import { titleCredentialJsonSchema } from '../employerCredential/titleCredential';
 import { incomeRangeCredentialJsonSchema } from '../employerCredential/incomeRangeCredential';
+import { employerNameCredentialJsonSchema } from '../employerCredential/employerNameCredential';
 
 import { DisplayFormat } from '../../enums/displayFormat';
 import { Static } from '@sinclair/typebox';
@@ -10,6 +11,7 @@ import { Static } from '@sinclair/typebox';
 export const employerCredentialJsonSchema = Type.Union(
   [
     Type.IntersectReferences([
+      employerNameCredentialJsonSchema,
       employmentStartDateCredentialJsonSchema,
       titleCredentialJsonSchema,
       incomeRangeCredentialJsonSchema,
@@ -17,7 +19,7 @@ export const employerCredentialJsonSchema = Type.Union(
     ]),
     Type.Object({
       employer: Type.String({
-        description: 'Employer name',
+        description: 'Employer Name',
         examples: ['Acme Corp', 'Piped Piper', 'Hooli'],
         title: 'Employer',
         displayFormat: DisplayFormat.String
@@ -25,8 +27,8 @@ export const employerCredentialJsonSchema = Type.Union(
     })
   ],
   {
-    unevaluatedProperties: false,
-    $id: 'EmployerCredential'
+    $id: 'EmployerCredential',
+    unevaluatedProperties: false
   }
 );
 

@@ -17,4 +17,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./employmentStartDateCredential"), exports);
 __exportStar(require("./incomeRangeCredential"), exports);
 __exportStar(require("./titleCredential"), exports);
+__exportStar(require("./employerNameCredential"), exports);
 //# sourceMappingURL=index.js.map

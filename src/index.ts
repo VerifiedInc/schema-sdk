@@ -20,7 +20,55 @@ import {
   addressFormat
 } from './formats';
 import { ajv } from './ajv';
-import { AddressCredentialJsonSchema, AmountCredentialJsonSchema, AnnualIncomeCredentialJsonSchemaType, AnnualIncomeRangeCredentialJsonSchema, BirthDateCredentialJsonSchema, CityCredentialJsonSchema, CountryCredentialJsonSchema, CountryResidenceCredentialJsonSchema, CurrencyCredentialJsonSchema, DocumentBackImageCredentialJsonSchema, DocumentImageCredentialJsonSchema, DocumentNumberCredentialJsonSchema, DocumentTypeCredentialJsonSchema, EmailCredentialJsonSchema, EmployerCredentialJsonSchemaType, EmploymentStartDateCredentialJsonSchema, ExpirationDateCredentialJsonSchema, FacialImageCredentialJsonSchema, FirstNameCredentialJsonSchema, FullNameCredentialJsonSchema, GenderCredentialJsonSchema, GovernmentIdCredentialJsonSchema, GovernmentIdDocumentBackImageCredentialJsonSchema, GovernmentIdDocumentImageCredentialJsonSchema, GovernmentIdExpirationDateCredentialJsonSchema, GovernmentIdIssuanceDateCredentialJsonSchema, GovernmentIdNumberCredentialJsonSchema, GovernmentIdStateCredentialJsonSchema, GovernmentIdTypeCredentialJsonSchema, IdentityCredentialJsonSchema, IncomeCurrencyCredentialJsonSchema, IncomeRangeCredentialJsonSchema, IssuanceDateCredentialJsonSchema, LastNameCredentialJsonSchema, Line1CredentialJsonSchema, Line2CredentialJsonSchema, LivenessCredentialJsonSchema, MatchCredentialJsonSchema, MiddleNameCredentialJsonSchema, NationalityCredentialJsonSchema, PhoneCredentialJsonSchema, SexCredentialJsonSchema, SsnCredentialJsonSchema, StateCredentialJsonSchema, TitleCredentialJsonSchema, ZipCodeCredentialJsonSchema } from './types';
+import {
+  AddressCredentialJsonSchema,
+  AmountCredentialJsonSchema,
+  AnnualIncomeCredentialJsonSchemaType,
+  AnnualIncomeRangeCredentialJsonSchema,
+  BirthDateCredentialJsonSchema,
+  CityCredentialJsonSchema,
+  CountryCredentialJsonSchema,
+  CountryResidenceCredentialJsonSchema,
+  CurrencyCredentialJsonSchema,
+  DocumentBackImageCredentialJsonSchema,
+  DocumentImageCredentialJsonSchema,
+  DocumentNumberCredentialJsonSchema,
+  DocumentTypeCredentialJsonSchema,
+  EmailCredentialJsonSchema,
+  EmployerCredentialJsonSchemaType,
+  EmploymentStartDateCredentialJsonSchema,
+  ExpirationDateCredentialJsonSchema,
+  FacialImageCredentialJsonSchema,
+  FirstNameCredentialJsonSchema,
+  FullNameCredentialJsonSchema,
+  GenderCredentialJsonSchema,
+  GovernmentIdCredentialJsonSchema,
+  GovernmentIdDocumentBackImageCredentialJsonSchema,
+  GovernmentIdDocumentImageCredentialJsonSchema,
+  GovernmentIdExpirationDateCredentialJsonSchema,
+  GovernmentIdIssuanceDateCredentialJsonSchema,
+  GovernmentIdNumberCredentialJsonSchema,
+  GovernmentIdStateCredentialJsonSchema,
+  GovernmentIdTypeCredentialJsonSchema,
+  IdentityCredentialJsonSchema,
+  IncomeCurrencyCredentialJsonSchema,
+  IncomeRangeCredentialJsonSchema,
+  IssuanceDateCredentialJsonSchema,
+  LastNameCredentialJsonSchema,
+  Line1CredentialJsonSchema,
+  Line2CredentialJsonSchema,
+  LivenessCredentialJsonSchema,
+  MatchCredentialJsonSchema,
+  MiddleNameCredentialJsonSchema,
+  NationalityCredentialJsonSchema,
+  PhoneCredentialJsonSchema,
+  SexCredentialJsonSchema,
+  SsnCredentialJsonSchema,
+  StateCredentialJsonSchema,
+  TitleCredentialJsonSchema,
+  ZipCodeCredentialJsonSchema,
+  EmployerNameCredentialJsonSchema
+} from './types';
 import { jsonSchemas } from './jsonSchemas';
 
 export {
@@ -82,6 +130,7 @@ export {
   EmploymentStartDateCredentialJsonSchema,
   IncomeRangeCredentialJsonSchema,
   TitleCredentialJsonSchema,
+  EmployerNameCredentialJsonSchema,
 
   // Government ID
   DocumentBackImageCredentialJsonSchema,
