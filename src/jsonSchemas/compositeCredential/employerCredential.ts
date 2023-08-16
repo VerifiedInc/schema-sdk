@@ -11,29 +11,24 @@ import { Static } from '@sinclair/typebox';
 export const employerCredentialJsonSchema = Type.Union(
   [
     Type.IntersectReferences([
+      employerNameCredentialJsonSchema,
       employmentStartDateCredentialJsonSchema,
       titleCredentialJsonSchema,
       incomeRangeCredentialJsonSchema,
-      annualIncomeCredentialJsonSchema,
-      employerNameCredentialJsonSchema
+      annualIncomeCredentialJsonSchema
     ]),
-    Type.Object(
-      {
-        employer: Type.String({
-          description: 'Employer name',
-          examples: ['Acme Corp', 'Piped Piper', 'Hooli'],
-          title: 'Employer',
-          displayFormat: DisplayFormat.String
-        })
-      },
-      {
-        additionalProperties: false
-      }
-    )
+    Type.Object({
+      employer: Type.String({
+        description: 'Employer Name',
+        examples: ['Acme Corp', 'Piped Piper', 'Hooli'],
+        title: 'Employer',
+        displayFormat: DisplayFormat.String
+      })
+    })
   ],
   {
-    unevaluatedProperties: false,
-    $id: 'EmployerCredential'
+    $id: 'EmployerCredential',
+    unevaluatedProperties: false
   }
 );
 

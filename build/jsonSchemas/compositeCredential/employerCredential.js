@@ -10,24 +10,22 @@ const employerNameCredential_1 = require("../employerCredential/employerNameCred
 const displayFormat_1 = require("../../enums/displayFormat");
 exports.employerCredentialJsonSchema = type_1.Type.Union([
     type_1.Type.IntersectReferences([
+        employerNameCredential_1.employerNameCredentialJsonSchema,
         employmentStartDateCredential_1.employmentStartDateCredentialJsonSchema,
         titleCredential_1.titleCredentialJsonSchema,
         incomeRangeCredential_1.incomeRangeCredentialJsonSchema,
-        annualIncomeCredential_1.annualIncomeCredentialJsonSchema,
-        employerNameCredential_1.employerNameCredentialJsonSchema
+        annualIncomeCredential_1.annualIncomeCredentialJsonSchema
     ]),
     type_1.Type.Object({
         employer: type_1.Type.String({
-            description: 'Employer name',
+            description: 'Employer Name',
             examples: ['Acme Corp', 'Piped Piper', 'Hooli'],
             title: 'Employer',
             displayFormat: displayFormat_1.DisplayFormat.String
         })
-    }, {
-        additionalProperties: false
     })
 ], {
-    unevaluatedProperties: false,
-    $id: 'EmployerCredential'
+    $id: 'EmployerCredential',
+    unevaluatedProperties: false
 });
 //# sourceMappingURL=employerCredential.js.map
