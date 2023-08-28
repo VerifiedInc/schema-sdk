@@ -1,496 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.genderFormat = exports.sexFormat = exports.usZipCodeFormat = exports.iso3166RegionCodeFormat = exports.iso3166USRegionCodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.iso3166CodeFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.unixMsEpochDayFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
-// iso4317 codes: https://www.iban.com/currency-codes
-const validISO4217Codes = new Set([
-    'AED',
-    'AFN',
-    'ALL',
-    'AMD',
-    'ANG',
-    'AOA',
-    'ARS',
-    'AUD',
-    'AWG',
-    'AZN',
-    'BAM',
-    'BBD',
-    'BDT',
-    'BGN',
-    'BHD',
-    'BIF',
-    'BMD',
-    'BND',
-    'BOB',
-    'BRL',
-    'BSD',
-    'BTN',
-    'BWP',
-    'BYN',
-    'BZD',
-    'CAD',
-    'CDF',
-    'CHF',
-    'CLP',
-    'CNY',
-    'COP',
-    'CRC',
-    'CUC',
-    'CUP',
-    'CVE',
-    'CZK',
-    'DJF',
-    'DKK',
-    'DOP',
-    'DZD',
-    'EGP',
-    'ERN',
-    'ETB',
-    'EUR',
-    'FJD',
-    'FKP',
-    'GBP',
-    'GEL',
-    'GGP',
-    'GHS',
-    'GIP',
-    'GMD',
-    'GNF',
-    'GTQ',
-    'GYD',
-    'HKD',
-    'HNL',
-    'HRK',
-    'HTG',
-    'HUF',
-    'IDR',
-    'ILS',
-    'IMP',
-    'INR',
-    'IQD',
-    'IRR',
-    'ISK',
-    'JEP',
-    'JMD',
-    'JOD',
-    'JPY',
-    'KES',
-    'KGS',
-    'KHR',
-    'KMF',
-    'KPW',
-    'KRW',
-    'KWD',
-    'KYD',
-    'KZT',
-    'LAK',
-    'LBP',
-    'LKR',
-    'LRD',
-    'LSL',
-    'LYD',
-    'MAD',
-    'MDL',
-    'MGA',
-    'MKD',
-    'MMK',
-    'MNT',
-    'MOP',
-    'MRU',
-    'MUR',
-    'MVR',
-    'MWK',
-    'MXN',
-    'MYR',
-    'MZN',
-    'NAD',
-    'NGN',
-    'NIO',
-    'NOK',
-    'NPR',
-    'NZD',
-    'OMR',
-    'PAB',
-    'PEN',
-    'PGK',
-    'PHP',
-    'PKR',
-    'PLN',
-    'PYG',
-    'QAR',
-    'RON',
-    'RSD',
-    'RUB',
-    'RWF',
-    'SAR',
-    'SBD',
-    'SCR',
-    'SDG',
-    'SEK',
-    'SGD',
-    'SHP',
-    'SLL',
-    'SOS',
-    'SPL',
-    'SRD',
-    'STN',
-    'SVC',
-    'SYP',
-    'SZL',
-    'THB',
-    'TJS',
-    'TMT',
-    'TND',
-    'TOP',
-    'TRY',
-    'TTD',
-    'TVD',
-    'TWD',
-    'TZS',
-    'UAH',
-    'UGX',
-    'USD',
-    'UYU',
-    'UZS',
-    'VEF',
-    'VND',
-    'VUV',
-    'WST',
-    'XAF',
-    'XCD',
-    'XDR',
-    'XOF',
-    'XPF',
-    'YER',
-    'ZAR',
-    'ZMW',
-    'ZWD'
-]);
-// iso3166-1 alpha-2 Country codes: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
-const validISO31661Alpha2CountryCodes = new Set([
-    'AD',
-    'AE',
-    'AF',
-    'AG',
-    'AI',
-    'AL',
-    'AM',
-    'AO',
-    'AQ',
-    'AR',
-    'AS',
-    'AT',
-    'AU',
-    'AW',
-    'AX',
-    'AZ',
-    'BA',
-    'BB',
-    'BD',
-    'BE',
-    'BF',
-    'BG',
-    'BH',
-    'BI',
-    'BJ',
-    'BL',
-    'BM',
-    'BN',
-    'BO',
-    'BQ',
-    'BR',
-    'BS',
-    'BT',
-    'BV',
-    'BW',
-    'BY',
-    'BZ',
-    'CA',
-    'CC',
-    'CD',
-    'CF',
-    'CG',
-    'CH',
-    'CI',
-    'CK',
-    'CL',
-    'CM',
-    'CN',
-    'CO',
-    'CR',
-    'CU',
-    'CV',
-    'CW',
-    'CX',
-    'CY',
-    'CZ',
-    'DE',
-    'DJ',
-    'DK',
-    'DM',
-    'DO',
-    'DZ',
-    'EC',
-    'EE',
-    'EG',
-    'EH',
-    'ER',
-    'ES',
-    'ET',
-    'FI',
-    'FJ',
-    'FK',
-    'FM',
-    'FO',
-    'FR',
-    'GA',
-    'GB',
-    'GD',
-    'GE',
-    'GF',
-    'GG',
-    'GH',
-    'GI',
-    'GL',
-    'GM',
-    'GN',
-    'GP',
-    'GQ',
-    'GR',
-    'GS',
-    'GT',
-    'GU',
-    'GW',
-    'GY',
-    'HK',
-    'HM',
-    'HN',
-    'HR',
-    'HT',
-    'HU',
-    'ID',
-    'IE',
-    'IL',
-    'IM',
-    'IN',
-    'IO',
-    'IQ',
-    'IR',
-    'IS',
-    'IT',
-    'JE',
-    'JM',
-    'JO',
-    'JP',
-    'KE',
-    'KG',
-    'KH',
-    'KI',
-    'KM',
-    'KN',
-    'KP',
-    'KR',
-    'KW',
-    'KY',
-    'KZ',
-    'LA',
-    'LB',
-    'LC',
-    'LI',
-    'LK',
-    'LR',
-    'LS',
-    'LT',
-    'LU',
-    'LV',
-    'LY',
-    'MA',
-    'MC',
-    'MD',
-    'ME',
-    'MF',
-    'MG',
-    'MH',
-    'MK',
-    'ML',
-    'MM',
-    'MN',
-    'MO',
-    'MP',
-    'MQ',
-    'MR',
-    'MS',
-    'MT',
-    'MU',
-    'MV',
-    'MW',
-    'MX',
-    'MY',
-    'MZ',
-    'NA',
-    'NC',
-    'NE',
-    'NF',
-    'NG',
-    'NI',
-    'NL',
-    'NO',
-    'NP',
-    'NR',
-    'NU',
-    'NZ',
-    'OM',
-    'PA',
-    'PE',
-    'PF',
-    'PG',
-    'PH',
-    'PK',
-    'PL',
-    'PM',
-    'PN',
-    'PR',
-    'PS',
-    'PT',
-    'PW',
-    'PY',
-    'QA',
-    'RE',
-    'RO',
-    'RS',
-    'RU',
-    'RW',
-    'SA',
-    'SB',
-    'SC',
-    'SD',
-    'SE',
-    'SG',
-    'SH',
-    'SI',
-    'SJ',
-    'SK',
-    'SL',
-    'SM',
-    'SN',
-    'SO',
-    'SR',
-    'SS',
-    'ST',
-    'SV',
-    'SX',
-    'SY',
-    'SZ',
-    'TC',
-    'TD',
-    'TF',
-    'TG',
-    'TH',
-    'TJ',
-    'TK',
-    'TL',
-    'TM',
-    'TN',
-    'TO',
-    'TR',
-    'TT',
-    'TV',
-    'TW',
-    'TZ',
-    'UA',
-    'UG',
-    'UM',
-    'US',
-    'UY',
-    'UZ',
-    'VA',
-    'VC',
-    'VE',
-    'VG',
-    'VI',
-    'VN',
-    'VU',
-    'WF',
-    'WS',
-    'YE',
-    'YT',
-    'ZA',
-    'ZM',
-    'ZW'
-]);
-// iso3166-2 US region codes (50 states and 6 territories) as defined by ANSI: https://en.wikipedia.org/wiki/ISO_3166-2:US
-const validISO31662USCodes = new Set([
-    'AL',
-    'AK',
-    'AZ',
-    'AR',
-    'CA',
-    'CO',
-    'CT',
-    'DE',
-    'FL',
-    'GA',
-    'HI',
-    'ID',
-    'IL',
-    'IN',
-    'IA',
-    'KS',
-    'KY',
-    'LA',
-    'ME',
-    'MD',
-    'MA',
-    'MI',
-    'MN',
-    'MS',
-    'MO',
-    'MT',
-    'NE',
-    'NV',
-    'NH',
-    'NJ',
-    'NM',
-    'NY',
-    'NC',
-    'ND',
-    'OH',
-    'OK',
-    'OR',
-    'PA',
-    'RI',
-    'SC',
-    'SD',
-    'TN',
-    'TX',
-    'UT',
-    'VT',
-    'VA',
-    'WA',
-    'WV',
-    'WI',
-    'WY',
-    'DC',
-    'AS',
-    'GU',
-    'MP',
-    'PR',
-    'UM',
-    'VI'
-]);
-const sexes = new Set(['Male', 'Female']);
-const genders = new Set(['Male', 'Female', 'Non-Binary', 'Other']);
-const documentTypes = new Set([
-    'Drivers License',
-    'Passport',
-    'State ID',
-    'Military ID',
-    'National ID',
-    'Birth Certificate',
-    'Voter Registration Card',
-    'Other'
-]);
-const confidenceLevels = new Set(['Very High', 'High', 'Medium', 'Low', 'Very Low']);
+const values_1 = require("./values");
 /*******************************************************************
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
@@ -582,7 +93,10 @@ exports.unixMsEpochDayFormat = {
         // Convert Unix timestamp (in milliseconds) to a Date object.
         const date = new Date(timestamp);
         // Ensure is 12:00:00:000
-        return date.getUTCHours() === 12 && date.getUTCMinutes() === 0 && date.getUTCSeconds() === 0 && date.getUTCMilliseconds() === 0;
+        return (date.getUTCHours() === 12 &&
+            date.getUTCMinutes() === 0 &&
+            date.getUTCSeconds() === 0 &&
+            date.getUTCMilliseconds() === 0);
     }
 };
 /**
@@ -614,7 +128,7 @@ exports.dataUriBase64ImageFormat = {
 exports.iso4217Format = {
     type: 'string',
     validate: (input) => {
-        return validISO4217Codes.has(input);
+        return values_1.ISO4217Codes.has(input);
     }
 };
 /**
@@ -626,7 +140,7 @@ exports.iso4217AmountFormat = {
         const parts = input.split(' ');
         const currencyCode = parts[0];
         const amount = parts[1];
-        if (!validISO4217Codes.has(currencyCode))
+        if (!values_1.ISO4217Codes.has(currencyCode))
             return false;
         // check if the amount is a valid number
         return /^\d+$/.test(amount);
@@ -641,7 +155,7 @@ exports.iso4217AmountRangeFormat = {
         const parts = input.split(' ');
         const currencyCode = parts[0];
         const range = parts[1];
-        if (!validISO4217Codes.has(currencyCode))
+        if (!values_1.ISO4217Codes.has(currencyCode))
             return false;
         // check if the amount is a valid range
         const rangeRegex = /^min(\d+)_max(\d+)$/;
@@ -698,11 +212,11 @@ exports.addressFormat = {
         const isoCountryCode = iso3166Parts[0];
         const isoRegionCode = iso3166Parts[1]; // aka state or territory code
         // Check that country is a valid ISO 3166-1 alpha-2 code
-        if (!validISO31661Alpha2CountryCodes.has(isoCountryCode))
+        if (!values_1.ISO31661Alpha2CountryCodes.has(isoCountryCode))
             return false;
         if (isoCountryCode === 'US') {
             // preform additional validation to check for valid US region codes
-            if (!validISO31662USCodes.has(isoRegionCode))
+            if (!values_1.ISO31662USCodes.has(isoRegionCode))
                 return false;
             // Check that zip follows expected pattern. Assuming US zip codes, we can expect 5 digits or 9
             const usZipRegex = /^\d{5}(-\d{4})?$/;
@@ -732,11 +246,11 @@ exports.iso3166CodeFormat = {
         const isoCountryCode = iso3166Parts[0];
         const isoRegionCode = iso3166Parts[1]; // aka state or territory code
         // Check that country is a valid ISO 3166-1 alpha-2 code
-        if (!validISO31661Alpha2CountryCodes.has(isoCountryCode))
+        if (!values_1.ISO31661Alpha2CountryCodes.has(isoCountryCode))
             return false;
         if (isoCountryCode === 'US') {
             // preform additional validation to check for valid US region codes
-            if (!validISO31662USCodes.has(isoRegionCode))
+            if (!values_1.ISO31662USCodes.has(isoRegionCode))
                 return false;
         }
         else {
@@ -754,7 +268,7 @@ exports.iso3166CodeFormat = {
 exports.iso3166Alpha2CountryCodeFormat = {
     type: 'string',
     validate: (input) => {
-        if (!validISO31661Alpha2CountryCodes.has(input))
+        if (!values_1.ISO31661Alpha2CountryCodes.has(input))
             return false;
         return true;
     }
@@ -765,7 +279,7 @@ exports.iso3166Alpha2CountryCodeFormat = {
 exports.iso3166USRegionCodeFormat = {
     type: 'string',
     validate: (input) => {
-        if (!validISO31662USCodes.has(input))
+        if (!values_1.ISO31662USCodes.has(input))
             return false;
         return true;
     }
@@ -802,7 +316,7 @@ exports.usZipCodeFormat = {
 exports.sexFormat = {
     type: 'string',
     validate: (input) => {
-        if (!sexes.has(input))
+        if (!values_1.sexes.has(input))
             return false;
         return true;
     }
@@ -813,7 +327,7 @@ exports.sexFormat = {
 exports.genderFormat = {
     type: 'string',
     validate: (input) => {
-        if (!genders.has(input))
+        if (!values_1.genders.has(input))
             return false;
         return true;
     }
@@ -824,7 +338,7 @@ exports.genderFormat = {
 exports.documentTypeFormat = {
     type: 'string',
     validate: (input) => {
-        if (!documentTypes.has(input))
+        if (!values_1.documentTypes.has(input))
             return false;
         return true;
     }
@@ -835,7 +349,7 @@ exports.documentTypeFormat = {
 exports.confidenceLevelFormat = {
     type: 'string',
     validate: (input) => {
-        if (!confidenceLevels.has(input))
+        if (!values_1.confidenceLevels.has(input))
             return false;
         return true;
     }
