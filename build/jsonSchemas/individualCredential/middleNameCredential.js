@@ -8,7 +8,10 @@ exports.middleNameCredentialJsonSchema = type_1.Type.Object({
         description: "A person's middle name",
         examples: ['Henry', 'Fitzgerald'],
         title: 'Middle Name',
-        displayFormat: displayFormat_1.DisplayFormat.String
+        displayFormat: displayFormat_1.DisplayFormat.String,
+        input: {
+            type: 'Text'
+        }
     }))
 }, { $id: 'MiddleNameCredential' });
 //# sourceMappingURL=middleNameCredential.js.map

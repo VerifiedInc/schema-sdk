@@ -8,7 +8,10 @@ exports.firstNameCredentialJsonSchema = type_1.Type.Object({
         description: "A person's first name",
         examples: ['John', 'Mary Kate'],
         title: 'First Name',
-        displayFormat: displayFormat_1.DisplayFormat.String
+        displayFormat: displayFormat_1.DisplayFormat.String,
+        input: {
+            type: 'Text'
+        }
     })
 }, { $id: 'FirstNameCredential' });
 //# sourceMappingURL=firstNameCredential.js.map

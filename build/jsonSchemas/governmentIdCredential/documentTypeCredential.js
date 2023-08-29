@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.documentTypeCredentialJsonSchema = void 0;
 const type_1 = require("../../type");
 const displayFormat_1 = require("../../enums/displayFormat");
+const values_1 = require("../../values");
 exports.documentTypeCredentialJsonSchema = type_1.Type.Object({
     documentType: type_1.Type.String({
         format: 'documentType',
@@ -18,7 +19,11 @@ exports.documentTypeCredentialJsonSchema = type_1.Type.Object({
             'Other'
         ],
         title: 'Document Type',
-        displayFormat: displayFormat_1.DisplayFormat.String
+        displayFormat: displayFormat_1.DisplayFormat.String,
+        input: {
+            type: 'Select',
+            options: Array.from(values_1.documentTypes)
+        }
     })
 }, { $id: 'DocumentTypeCredential' });
 //# sourceMappingURL=documentTypeCredential.js.map
