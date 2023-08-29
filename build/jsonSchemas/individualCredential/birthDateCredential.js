@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.birthDateCredentialJsonSchema = void 0;
 const type_1 = require("../../type");
 const displayFormat_1 = require("../../enums/displayFormat");
+const inputType_1 = require("../../enums/inputType");
 exports.birthDateCredentialJsonSchema = type_1.Type.Object({
     birthDate: type_1.Type.String({
         format: 'unixMsEpochDayFormat',
@@ -11,7 +12,7 @@ exports.birthDateCredentialJsonSchema = type_1.Type.Object({
         title: 'Birthday',
         displayFormat: displayFormat_1.DisplayFormat.Date,
         input: {
-            type: 'Date'
+            type: inputType_1.InputType.Date
         }
     })
 }, { $id: 'BirthDateCredential' });

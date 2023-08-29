@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.expirationDateCredentialJsonSchema = void 0;
 const type_1 = require("../../type");
 const displayFormat_1 = require("../../enums/displayFormat");
+const inputType_1 = require("../../enums/inputType");
 exports.expirationDateCredentialJsonSchema = type_1.Type.Object({
     expirationDate: type_1.Type.String({
         format: 'unixMsEpochDayFormat',
@@ -11,7 +12,7 @@ exports.expirationDateCredentialJsonSchema = type_1.Type.Object({
         title: 'Expiration Date',
         displayFormat: displayFormat_1.DisplayFormat.Date,
         input: {
-            type: 'Date'
+            type: inputType_1.InputType.Date
         }
     })
 }, { $id: 'ExpirationDateCredential' });

@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.facialImageCredentialJsonSchema = void 0;
 const type_1 = require("../../type");
 const displayFormat_1 = require("../../enums/displayFormat");
+const inputType_1 = require("../../enums/inputType");
 exports.facialImageCredentialJsonSchema = type_1.Type.Object({
     image: type_1.Type.String({
         format: 'dataUriBase64Image',
@@ -13,7 +14,7 @@ exports.facialImageCredentialJsonSchema = type_1.Type.Object({
         title: 'Facial Image',
         displayFormat: displayFormat_1.DisplayFormat.Image,
         input: {
-            type: 'Image'
+            type: inputType_1.InputType.Image
         }
     })
 }, { $id: 'FacialImageCredential' });

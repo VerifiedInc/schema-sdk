@@ -4,6 +4,7 @@ exports.genderCredentialJsonSchema = void 0;
 const type_1 = require("../../type");
 const displayFormat_1 = require("../../enums/displayFormat");
 const values_1 = require("../../values");
+const inputType_1 = require("../../enums/inputType");
 exports.genderCredentialJsonSchema = type_1.Type.Object({
     gender: type_1.Type.String({
         format: 'gender',
@@ -12,7 +13,7 @@ exports.genderCredentialJsonSchema = type_1.Type.Object({
         title: 'Gender',
         displayFormat: displayFormat_1.DisplayFormat.String,
         input: {
-            type: 'Select',
+            type: inputType_1.InputType.Select,
             options: Array.from(values_1.genders)
         }
     })

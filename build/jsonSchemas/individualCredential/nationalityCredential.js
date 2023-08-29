@@ -4,6 +4,7 @@ exports.nationalityCredentialJsonSchema = void 0;
 const type_1 = require("../../type");
 const displayFormat_1 = require("../../enums/displayFormat");
 const values_1 = require("../../values");
+const inputType_1 = require("../../enums/inputType");
 exports.nationalityCredentialJsonSchema = type_1.Type.Object({
     nationality: type_1.Type.String({
         format: 'iso3361Alpha2',
@@ -12,7 +13,7 @@ exports.nationalityCredentialJsonSchema = type_1.Type.Object({
         title: 'Nationality',
         displayFormat: displayFormat_1.DisplayFormat.String,
         input: {
-            type: 'Select',
+            type: inputType_1.InputType.Select,
             options: Array.from(values_1.countrySelectOptions)
         }
     })
