@@ -1,5 +1,7 @@
 import { Static, Type } from '@sinclair/typebox';
 import { DisplayFormat } from '../../enums/displayFormat';
+import { InputType } from '../../enums/inputType';
+import { ISO31662USCodes, currencySelectOptions, documentTypes, incomeRangeOptions } from '../../values';
 
 export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(
   {
@@ -11,12 +13,17 @@ export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(
         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
       ],
       title: 'Government Document Image',
-      displayFormat: DisplayFormat.Image
+      displayFormat: DisplayFormat.Image,
+      input: {
+        type: InputType.Image
+      }
     })
   },
   { $id: 'GovernmentIdDocumentImageCredential' }
 );
-export type GovernmentIdDocumentImageCredentialJsonSchema = Static<typeof governmentIdDocumentImageCredentialJsonSchema>;
+export type GovernmentIdDocumentImageCredentialJsonSchema = Static<
+  typeof governmentIdDocumentImageCredentialJsonSchema
+>;
 
 export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object(
   {
@@ -28,14 +35,19 @@ export const governmentIdDocumentBackImageCredentialJsonSchema = Type.Object(
         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
       ],
       title: 'Government Document Back Image',
-      displayFormat: DisplayFormat.Image
+      displayFormat: DisplayFormat.Image,
+      input: {
+        type: InputType.Image
+      }
     })
   },
   {
     $id: 'GovernmentIdDocumentBackImageCredential'
   }
 );
-export type GovernmentIdDocumentBackImageCredentialJsonSchema = Static<typeof governmentIdDocumentBackImageCredentialJsonSchema>;
+export type GovernmentIdDocumentBackImageCredentialJsonSchema = Static<
+  typeof governmentIdDocumentBackImageCredentialJsonSchema
+>;
 
 export const governmentIdTypeCredentialJsonSchema = Type.Object(
   {
@@ -53,7 +65,11 @@ export const governmentIdTypeCredentialJsonSchema = Type.Object(
         'Other'
       ],
       title: 'Government Document Type',
-      displayFormat: DisplayFormat.String
+      displayFormat: DisplayFormat.String,
+      input: {
+        type: InputType.Select,
+        options: Array.from(documentTypes)
+      }
     })
   },
   { $id: 'GovernmentIdTypeCredential' }
@@ -67,7 +83,11 @@ export const governmentIdStateCredentialJsonSchema = Type.Object(
       description: 'The state or province of the government identification document',
       examples: ['US-CA', 'US-NY', 'US-TX', 'GB-ENG'],
       title: 'Government Document Region',
-      displayFormat: DisplayFormat.State
+      displayFormat: DisplayFormat.State,
+      input: {
+        type: InputType.Select,
+        options: Array.from(ISO31662USCodes)
+      }
     })
   },
   { $id: 'GovernmentIdStateCredential' }
@@ -92,30 +112,40 @@ export const governmentIdIssuanceDateCredentialJsonSchema = Type.Object(
     issuanceDate: Type.String({
       format: 'unixMsEpochDayFormat',
       description:
-      'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch, which equates to 12:00:00:000 UTC of the date',
+        'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch, which equates to 12:00:00:000 UTC of the date',
       examples: ['631195200000', '-331560000000'],
       title: 'Government Document Issuance Date',
-      displayFormat: DisplayFormat.Date
+      displayFormat: DisplayFormat.Date,
+      input: {
+        type: InputType.Date
+      }
     })
   },
   { $id: 'GovernmentIdIssuanceDateCredential' }
 );
-export type GovernmentIdIssuanceDateCredentialJsonSchema = Static<typeof governmentIdIssuanceDateCredentialJsonSchema>;
+export type GovernmentIdIssuanceDateCredentialJsonSchema = Static<
+  typeof governmentIdIssuanceDateCredentialJsonSchema
+>;
 
 export const governmentIdExpirationDateCredentialJsonSchema = Type.Object(
   {
     expirationDate: Type.String({
       format: 'unixMsEpochDayFormat',
       description:
-      'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch, which equates to 12:00:00:000 UTC of the date',
+        'Unix time in milliseconds since epoch, or a negative number of milliseconds before the Unix epoch, which equates to 12:00:00:000 UTC of the date',
       examples: ['631195200000', '-331560000000'],
       title: 'Government Document Expiration Date',
-      displayFormat: DisplayFormat.Date
+      displayFormat: DisplayFormat.Date,
+      input: {
+        type: InputType.Date
+      }
     })
   },
   { $id: 'GovernmentIdExpirationDateCredential' }
 );
-export type GovernmentIdExpirationDateCredentialJsonSchema = Static<typeof governmentIdExpirationDateCredentialJsonSchema>;
+export type GovernmentIdExpirationDateCredentialJsonSchema = Static<
+  typeof governmentIdExpirationDateCredentialJsonSchema
+>;
 
 export const incomeCurrencyCredentialJsonSchema = Type.Object(
   {
@@ -124,7 +154,11 @@ export const incomeCurrencyCredentialJsonSchema = Type.Object(
       description: 'ISO4217 currency format.',
       examples: ['USD', 'GBP', 'EUR'],
       title: 'Income Currency',
-      displayFormat: DisplayFormat.String
+      displayFormat: DisplayFormat.String,
+      input: {
+        type: InputType.Select,
+        options: currencySelectOptions
+      }
     })
   },
   { $id: 'IncomeCurrencyCredential' }
@@ -139,7 +173,11 @@ export const annualIncomeRangeCredentialJsonSchema = Type.Object(
         'Annual income range with the preceding ISO4217 currency code followed by min<value>_max<value>.',
       examples: ['USD min100000_max200000', 'GBP min40000_max50000'],
       title: 'Annual Income Range',
-      displayFormat: DisplayFormat.CurrencyRange
+      displayFormat: DisplayFormat.CurrencyRange,
+      input: {
+        type: InputType.Select,
+        options: incomeRangeOptions
+      }
     })
   },
   { $id: 'AnnualIncomeRangeCredential' }
