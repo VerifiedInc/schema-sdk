@@ -5,6 +5,7 @@ import {
   booleanFormat,
   confidenceLevelFormat,
   dataUriBase64ImageFormat,
+  dateUsFormat,
   digitsFormat,
   documentTypeFormat,
   emailFormat,
@@ -131,6 +132,25 @@ describe('formats', () => {
     expect(validate('1680319455')).toBe(false); // not 12 hour
     expect(validate('-1819455')).toBe(false); // not 12th hour
     expect(validate('0')).toBe(false); // not 12 hour
+  });
+
+  test('dateUsFormat', () => {
+    const format = dateUsFormat as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid unixMsEpochDayFormat
+    expect(validate('08-28-2023')).toBe(true);
+    expect(validate('01-01-2534')).toBe(true);
+    expect(validate('12-31-1992')).toBe(true);
+
+    // invalid unixMsEpochDayFormat
+    expect(validate('test')).toBe(false);
+    expect(validate('631195200005')).toBe(false);
+    expect(validate('1992-12-32')).toBe(false); // 32nd day of month
+    expect(validate('12-32-1992')).toBe(false); // 32nd day of month
+    expect(validate('11-31-1992')).toBe(false); // 31st day of November
+    expect(validate('00-10-1992')).toBe(false); // month 0
+    expect(validate('0')).toBe(false);
   });
 
   test('otpFormat', () => {
