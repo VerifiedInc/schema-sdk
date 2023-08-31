@@ -123,6 +123,30 @@ export const unixMsEpochDayFormat: Format = {
 };
 
 /**
+ * Format to determine if the string is a valid date in the format MM-DD-YYYY, customary US format.
+ */
+export const dateUsFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    // Check if dateStr matches the MM-DD-YYYY format
+    if (!/^\d{2}-\d{2}-\d{4}$/.test(input)) {
+      return false;
+    }
+
+    // Extract date parts
+    const [month, day, year] = input.split('-').map(Number);
+
+    // Basic validation
+    if (month < 1 || month > 12) return false;
+    if (day < 1 || day > 31) return false;
+
+    // Accurate validation taking into account leap years and each month's max day
+    const date = new Date(year, month - 1, day);
+    return date && date.getMonth() === month - 1;
+  }
+};
+
+/**
  * Format to determine if a string is a valid OTP (verification code)
  * validates that the string is six digits
  */

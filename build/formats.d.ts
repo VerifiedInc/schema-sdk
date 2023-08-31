@@ -33,6 +33,10 @@ export declare const digitsFormat: Format;
  */
 export declare const unixMsEpochDayFormat: Format;
 /**
+ * Format to determine if the string is a valid date in the format MM-DD-YYYY, customary US format.
+ */
+export declare const dateUsFormat: Format;
+/**
  * Format to determine if a string is a valid OTP (verification code)
  * validates that the string is six digits
  */

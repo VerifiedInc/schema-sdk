@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.genderFormat = exports.sexFormat = exports.usZipCodeFormat = exports.iso3166RegionCodeFormat = exports.iso3166USRegionCodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.iso3166CodeFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.unixMsEpochDayFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
+exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.genderFormat = exports.sexFormat = exports.usZipCodeFormat = exports.iso3166RegionCodeFormat = exports.iso3166USRegionCodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.iso3166CodeFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.dateUsFormat = exports.unixMsEpochDayFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
 const values_1 = require("./values");
 /*******************************************************************
  * Creating custom formats                                         *
@@ -97,6 +97,28 @@ exports.unixMsEpochDayFormat = {
             date.getUTCMinutes() === 0 &&
             date.getUTCSeconds() === 0 &&
             date.getUTCMilliseconds() === 0);
+    }
+};
+/**
+ * Format to determine if the string is a valid date in the format MM-DD-YYYY, customary US format.
+ */
+exports.dateUsFormat = {
+    type: 'string',
+    validate: (input) => {
+        // Check if dateStr matches the MM-DD-YYYY format
+        if (!/^\d{2}-\d{2}-\d{4}$/.test(input)) {
+            return false;
+        }
+        // Extract date parts
+        const [month, day, year] = input.split('-').map(Number);
+        // Basic validation
+        if (month < 1 || month > 12)
+            return false;
+        if (day < 1 || day > 31)
+            return false;
+        // Accurate validation taking into account leap years and each month's max day
+        const date = new Date(year, month - 1, day);
+        return date && date.getMonth() === month - 1;
     }
 };
 /**

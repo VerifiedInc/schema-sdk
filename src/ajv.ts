@@ -25,7 +25,8 @@ import {
   iso3166USRegionCodeFormat,
   iso3166RegionCodeFormat,
   usZipCodeFormat,
-  unixMsEpochDayFormat
+  unixMsEpochDayFormat,
+  dateUsFormat
 } from './formats';
 import { DisplayFormat } from './enums/displayFormat';
 import { InputType } from './enums/inputType';
@@ -64,6 +65,7 @@ ajv.addFormat('optionalPhone', optionalPhoneFormat);
 ajv.addFormat('ssn', ssnFormat);
 ajv.addFormat('digits', digitsFormat);
 ajv.addFormat('unixMsEpochDayFormat', unixMsEpochDayFormat);
+ajv.addFormat('dateUsFormat', dateUsFormat);
 ajv.addFormat('dataUriBase64Image', dataUriBase64ImageFormat);
 ajv.addFormat('iso4217', iso4217Format);
 ajv.addFormat('iso4217Amount', iso4217AmountFormat);
