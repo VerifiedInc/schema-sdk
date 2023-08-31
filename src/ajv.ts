@@ -26,7 +26,8 @@ import {
   iso3166RegionCodeFormat,
   usZipCodeFormat,
   unixMsEpochDayFormat,
-  dateUsFormat
+  dateUsFormat,
+  dateISO8601Format
 } from './formats';
 import { DisplayFormat } from './enums/displayFormat';
 
@@ -65,6 +66,7 @@ ajv.addFormat('ssn', ssnFormat);
 ajv.addFormat('digits', digitsFormat);
 ajv.addFormat('unixMsEpochDayFormat', unixMsEpochDayFormat);
 ajv.addFormat('dateUsFormat', dateUsFormat);
+ajv.addFormat('dateISO8601Format', dateISO8601Format);
 ajv.addFormat('dataUriBase64Image', dataUriBase64ImageFormat);
 ajv.addFormat('iso4217', iso4217Format);
 ajv.addFormat('iso4217Amount', iso4217AmountFormat);

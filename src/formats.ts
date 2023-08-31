@@ -634,6 +634,33 @@ export const dateUsFormat: Format = {
   }
 };
 
+export const dateISO8601Format: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    // check if input matches the YYYY-MM-DDTHH:MM:SSZ format
+    if (!/^(\d{4}-\d{2}-\d{2})(T(\d{2}:\d{2}:\d{2})(\.\d{3})?Z?)?$/.test(input)) {
+      console.log('failed regex');
+      return false;
+    }
+
+    // extract date and time parts
+    const [date, time] = input.endsWith('Z') ? input.slice(0, -1).split('T') : input.split('T');
+    const [year, month, day] = date.split('-').map(Number);
+    const [hour, minute, second] = time ? time.split(':').map(Number) : [0, 0, 0];
+
+    // basic validation
+    if (month < 1 || month > 12) return false;
+    if (day < 1 || day > 31) return false;
+    if (hour < 0 || hour > 23) return false;
+    if (minute < 0 || minute > 59) return false;
+    if (second < 0 || second > 59) return false;
+
+    // accurate validation taking into account leap years and each month's max day
+    const dateObj = new Date(year, month - 1, day, hour, minute, second);
+    return dateObj && dateObj.getMonth() === month - 1;
+  }
+};
+
 /**
  * Format to determine if a string is a valid OTP (verification code)
  * validates that the string is six digits

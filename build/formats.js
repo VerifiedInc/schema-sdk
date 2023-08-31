@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.genderFormat = exports.sexFormat = exports.usZipCodeFormat = exports.iso3166RegionCodeFormat = exports.iso3166USRegionCodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.iso3166CodeFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.dateUsFormat = exports.unixMsEpochDayFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
+exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.genderFormat = exports.sexFormat = exports.usZipCodeFormat = exports.iso3166RegionCodeFormat = exports.iso3166USRegionCodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.iso3166CodeFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.dateISO8601Format = exports.dateUsFormat = exports.unixMsEpochDayFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
 // iso4317 codes: https://www.iban.com/currency-codes
 const validISO4217Codes = new Set([
     'AED',
@@ -608,6 +608,34 @@ exports.dateUsFormat = {
         // Accurate validation taking into account leap years and each month's max day
         const date = new Date(year, month - 1, day);
         return date && date.getMonth() === month - 1;
+    }
+};
+exports.dateISO8601Format = {
+    type: 'string',
+    validate: (input) => {
+        // check if input matches the YYYY-MM-DDTHH:MM:SSZ format
+        if (!/^(\d{4}-\d{2}-\d{2})(T(\d{2}:\d{2}:\d{2})(\.\d{3})?Z?)?$/.test(input)) {
+            console.log('failed regex');
+            return false;
+        }
+        // extract date and time parts
+        const [date, time] = input.endsWith('Z') ? input.slice(0, -1).split('T') : input.split('T');
+        const [year, month, day] = date.split('-').map(Number);
+        const [hour, minute, second] = time ? time.split(':').map(Number) : [0, 0, 0];
+        // basic validation
+        if (month < 1 || month > 12)
+            return false;
+        if (day < 1 || day > 31)
+            return false;
+        if (hour < 0 || hour > 23)
+            return false;
+        if (minute < 0 || minute > 59)
+            return false;
+        if (second < 0 || second > 59)
+            return false;
+        // accurate validation taking into account leap years and each month's max day
+        const dateObj = new Date(year, month - 1, day, hour, minute, second);
+        return dateObj && dateObj.getMonth() === month - 1;
     }
 };
 /**
