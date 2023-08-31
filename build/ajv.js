@@ -43,6 +43,7 @@ exports.ajv.addFormat('ssn', formats_1.ssnFormat);
 exports.ajv.addFormat('digits', formats_1.digitsFormat);
 exports.ajv.addFormat('unixMsEpochDayFormat', formats_1.unixMsEpochDayFormat);
 exports.ajv.addFormat('dateUsFormat', formats_1.dateUsFormat);
+exports.ajv.addFormat('dateISO8601Format', formats_1.dateISO8601Format);
 exports.ajv.addFormat('dataUriBase64Image', formats_1.dataUriBase64ImageFormat);
 exports.ajv.addFormat('iso4217', formats_1.iso4217Format);
 exports.ajv.addFormat('iso4217Amount', formats_1.iso4217AmountFormat);

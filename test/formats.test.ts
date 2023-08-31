@@ -5,6 +5,7 @@ import {
   booleanFormat,
   confidenceLevelFormat,
   dataUriBase64ImageFormat,
+  dateISO8601Format,
   dateUsFormat,
   digitsFormat,
   documentTypeFormat,
@@ -151,6 +152,26 @@ describe('formats', () => {
     expect(validate('11-31-1992')).toBe(false); // 31st day of November
     expect(validate('00-10-1992')).toBe(false); // month 0
     expect(validate('0')).toBe(false);
+  });
+
+  test('dateISO8601Format', () => {
+    const format = dateISO8601Format as FormatDefinition<string>;
+    const validate = format.validate as FormatValidator<string>;
+
+    // valid dateISO8601Format
+    expect(validate('2023-08-31')).toBe(true);
+    expect(validate('2023-08-31T12:34:56')).toBe(true);
+    expect(validate('2023-08-31T12:34:56.123')).toBe(true);
+    expect(validate('2023-08-31T12:34:56.123Z')).toBe(true);
+
+    // invalid dateISO8601Format
+    expect(validate('test')).toBe(false);
+    expect(validate('123456')).toBe(false);
+    expect(validate('2023-08-32T12:34:56.123Z')).toBe(false); // 32nd day of month
+    expect(validate('2023-00-32T12:34:56.123Z')).toBe(false); // 0th month
+    expect(validate('2023-08-31T24:34:56.123Z')).toBe(false); // 24th hour
+    expect(validate('2023-08-31T12:60:56.123Z')).toBe(false); // 60th minute
+    expect(validate('2023-08-31T12:34:60.123Z')).toBe(false); // 60th second
   });
 
   test('otpFormat', () => {
