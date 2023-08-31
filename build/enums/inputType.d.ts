@@ -4,14 +4,11 @@
  */
 export declare enum InputType {
     Text = "Text",
-    Number = "Number",
     Date = "Date",
-    DateTime = "DateTime",
     Select = "Select",
     Email = "Email",
     Phone = "Phone",
     SSN = "SSN",
-    Image = "Image",
-    File = "File"
+    Image = "Image"
 }
 //# sourceMappingURL=inputType.d.ts.map

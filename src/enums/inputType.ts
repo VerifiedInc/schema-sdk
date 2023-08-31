@@ -4,13 +4,10 @@
  */
 export enum InputType {
   Text = 'Text', // text input
-  Number = 'Number', // number input
   Date = 'Date', // date input
-  DateTime = 'DateTime', // date and time input
   Select = 'Select', // a dropdown of predefined options
   Email = 'Email', // email input
   Phone = 'Phone', // custom input for phone numbers
   SSN = 'SSN', // custom input for social security numbers
-  Image = 'Image', // file input allowing only images
-  File = 'File' // file input
+  Image = 'Image' // file input allowing only images
 }

@@ -8,14 +8,11 @@ exports.InputType = void 0;
 var InputType;
 (function (InputType) {
     InputType["Text"] = "Text";
-    InputType["Number"] = "Number";
     InputType["Date"] = "Date";
-    InputType["DateTime"] = "DateTime";
     InputType["Select"] = "Select";
     InputType["Email"] = "Email";
     InputType["Phone"] = "Phone";
     InputType["SSN"] = "SSN";
-    InputType["Image"] = "Image";
-    InputType["File"] = "File"; // file input
+    InputType["Image"] = "Image"; // file input allowing only images
 })(InputType = exports.InputType || (exports.InputType = {}));
 //# sourceMappingURL=inputType.js.map
