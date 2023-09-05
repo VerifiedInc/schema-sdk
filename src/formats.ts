@@ -151,7 +151,6 @@ export const dateISO8601Format: Format = {
   validate: (input: string) => {
     // check if input matches the YYYY-MM-DDTHH:MM:SSZ format
     if (!/^(\d{4}-\d{2}-\d{2})(T(\d{2}:\d{2}:\d{2})(\.\d{3})?Z?)?$/.test(input)) {
-      console.log('failed regex');
       return false;
     }
 
