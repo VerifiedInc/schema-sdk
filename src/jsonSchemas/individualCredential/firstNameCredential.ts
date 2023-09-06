@@ -1,6 +1,7 @@
 import { Type } from '../../type';
 import { DisplayFormat } from '../../enums/displayFormat';
 import { Static } from '@sinclair/typebox';
+import { InputType } from '../../enums/inputType';
 
 export const firstNameCredentialJsonSchema = Type.Object(
   {
@@ -8,7 +9,10 @@ export const firstNameCredentialJsonSchema = Type.Object(
       description: "A person's first name",
       examples: ['John', 'Mary Kate'],
       title: 'First Name',
-      displayFormat: DisplayFormat.String
+      displayFormat: DisplayFormat.String,
+      input: {
+        type: InputType.Text
+      }
     })
   },
   { $id: 'FirstNameCredential' }

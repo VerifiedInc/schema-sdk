@@ -1,6 +1,8 @@
 import { Type } from '../../type';
 import { DisplayFormat } from '../../enums/displayFormat';
 import { Static } from '@sinclair/typebox';
+import { documentTypes } from '../../values';
+import { InputType } from '../../enums/inputType';
 
 export const documentTypeCredentialJsonSchema = Type.Object(
   {
@@ -18,7 +20,11 @@ export const documentTypeCredentialJsonSchema = Type.Object(
         'Other'
       ],
       title: 'Document Type',
-      displayFormat: DisplayFormat.String
+      displayFormat: DisplayFormat.String,
+      input: {
+        type: InputType.Select,
+        options: Array.from(documentTypes)
+      }
     })
   },
   { $id: 'DocumentTypeCredential' }

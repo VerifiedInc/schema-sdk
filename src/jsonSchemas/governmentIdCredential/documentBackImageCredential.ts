@@ -1,6 +1,7 @@
 import { Type } from '../../type';
 import { DisplayFormat } from '../../enums/displayFormat';
 import { Static } from '@sinclair/typebox';
+import { InputType } from '../../enums/inputType';
 
 export const documentBackImageCredentialJsonSchema = Type.Object(
   {
@@ -12,7 +13,10 @@ export const documentBackImageCredentialJsonSchema = Type.Object(
         'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
       ],
       title: 'Back of Document Image',
-      displayFormat: DisplayFormat.Image
+      displayFormat: DisplayFormat.Image,
+      input: {
+        type: InputType.Image
+      }
     })
   },
   {

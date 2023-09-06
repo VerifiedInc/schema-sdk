@@ -1,6 +1,8 @@
 import { Type } from '../../type';
 import { DisplayFormat } from '../../enums/displayFormat';
 import { Static } from '@sinclair/typebox';
+import { sexes } from '../../values';
+import { InputType } from '../../enums/inputType';
 
 export const sexCredentialJsonSchema = Type.Object(
   {
@@ -9,7 +11,11 @@ export const sexCredentialJsonSchema = Type.Object(
       description: "A person's sex",
       examples: ['Male', 'Female'],
       title: 'Sex',
-      displayFormat: DisplayFormat.String
+      displayFormat: DisplayFormat.String,
+      input: {
+        type: InputType.Select,
+        options: Array.from(sexes)
+      }
     })
   },
   { $id: 'SexCredential' }

@@ -12,6 +12,7 @@ const ajv_formats_1 = __importDefault(require("ajv-formats"));
 const jsonSchemas_1 = require("./jsonSchemas");
 const formats_1 = require("./formats");
 const displayFormat_1 = require("./enums/displayFormat");
+const inputType_1 = require("./enums/inputType");
 // get all the values of the jsonSchemas object in an array
 // schemas to add to ajv instance options
 const schemas = Object.values(jsonSchemas_1.jsonSchemas);
@@ -71,4 +72,48 @@ const displayFormatDefinition = {
     keyword: 'displayFormat'
 };
 exports.ajv.addKeyword('displayFormat', displayFormatDefinition);
+// allows input information describing how data should be collected to be added to the schema
+const inputDefinition = {
+    type: 'object',
+    keyword: 'input',
+    metaSchema: {
+        type: 'object',
+        properties: {
+            // type (required) describes the type of input to use
+            type: {
+                type: 'string',
+                enum: Object.values(inputType_1.InputType)
+            },
+            // options (optional) describes the options to use for a select input
+            options: {
+                type: 'array',
+                items: {
+                    // items can be either a string or an object with a value and label
+                    oneOf: [
+                        {
+                            type: 'object',
+                            properties: {
+                                value: {
+                                    type: 'string'
+                                },
+                                label: {
+                                    type: 'string'
+                                }
+                            }
+                        },
+                        {
+                            type: 'string'
+                        }
+                    ]
+                }
+            },
+            // pattern (optional) describes an optional regex pattern to use for a text input
+            pattern: {
+                type: 'string'
+            }
+        },
+        required: ['type']
+    }
+};
+exports.ajv.addKeyword('input', inputDefinition);
 //# sourceMappingURL=ajv.js.map

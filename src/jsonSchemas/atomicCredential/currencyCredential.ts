@@ -2,6 +2,8 @@ import { Type } from '../../type';
 
 import { DisplayFormat } from '../../enums/displayFormat';
 import { Static } from '@sinclair/typebox';
+import { currencySelectOptions } from '../../values';
+import { InputType } from '../../enums/inputType';
 
 export const currencyCredentialJsonSchema = Type.Object(
   {
@@ -10,7 +12,11 @@ export const currencyCredentialJsonSchema = Type.Object(
       examples: ['USD', 'EUR', 'GBP'],
       title: 'Currency',
       format: 'iso4217',
-      displayFormat: DisplayFormat.String
+      displayFormat: DisplayFormat.String,
+      input: {
+        type: InputType.Select,
+        options: currencySelectOptions
+      }
     })
   },
   {

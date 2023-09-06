@@ -3,13 +3,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ssnCredentialJsonSchema = void 0;
 const type_1 = require("../../type");
 const displayFormat_1 = require("../../enums/displayFormat");
+const inputType_1 = require("../../enums/inputType");
 exports.ssnCredentialJsonSchema = type_1.Type.Object({
     ssn: type_1.Type.String({
         format: 'ssn',
         description: '9 digit social security number, with no dashes, in the format of: 123456789',
         examples: ['123456789', '333224444'],
         title: 'Social Security Number',
-        displayFormat: displayFormat_1.DisplayFormat.SSN
+        displayFormat: displayFormat_1.DisplayFormat.SSN,
+        input: {
+            type: inputType_1.InputType.SSN
+        }
     })
 }, { $id: 'SsnCredential' });
 //# sourceMappingURL=ssnCredential.js.map

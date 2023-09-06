@@ -30,6 +30,7 @@ import {
   dateISO8601Format
 } from './formats';
 import { DisplayFormat } from './enums/displayFormat';
+import { InputType } from './enums/inputType';
 
 // get all the values of the jsonSchemas object in an array
 // schemas to add to ajv instance options
@@ -96,3 +97,49 @@ const displayFormatDefinition: FuncKeywordDefinition = {
 };
 
 ajv.addKeyword('displayFormat', displayFormatDefinition);
+
+// allows input information describing how data should be collected to be added to the schema
+const inputDefinition: FuncKeywordDefinition = {
+  type: 'object',
+  keyword: 'input',
+  metaSchema: {
+    type: 'object',
+    properties: {
+      // type (required) describes the type of input to use
+      type: {
+        type: 'string',
+        enum: Object.values(InputType)
+      },
+      // options (optional) describes the options to use for a select input
+      options: {
+        type: 'array',
+        items: {
+          // items can be either a string or an object with a value and label
+          oneOf: [
+            {
+              type: 'object',
+              properties: {
+                value: {
+                  type: 'string'
+                },
+                label: {
+                  type: 'string'
+                }
+              }
+            },
+            {
+              type: 'string'
+            }
+          ]
+        }
+      },
+      // pattern (optional) describes an optional regex pattern to use for a text input
+      pattern: {
+        type: 'string'
+      }
+    },
+    required: ['type']
+  }
+};
+
+ajv.addKeyword('input', inputDefinition);

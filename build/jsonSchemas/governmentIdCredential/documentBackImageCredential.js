@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.documentBackImageCredentialJsonSchema = void 0;
 const type_1 = require("../../type");
 const displayFormat_1 = require("../../enums/displayFormat");
+const inputType_1 = require("../../enums/inputType");
 exports.documentBackImageCredentialJsonSchema = type_1.Type.Object({
     documentBackImage: type_1.Type.String({
         format: 'dataUriBase64Image',
@@ -11,7 +12,10 @@ exports.documentBackImageCredentialJsonSchema = type_1.Type.Object({
             'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII'
         ],
         title: 'Back of Document Image',
-        displayFormat: displayFormat_1.DisplayFormat.Image
+        displayFormat: displayFormat_1.DisplayFormat.Image,
+        input: {
+            type: inputType_1.InputType.Image
+        }
     })
 }, {
     $id: 'DocumentBackImageCredential'

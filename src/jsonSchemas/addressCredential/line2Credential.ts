@@ -2,6 +2,7 @@ import { Type } from '../../type';
 
 import { DisplayFormat } from '../../enums/displayFormat';
 import { Static } from '@sinclair/typebox';
+import { InputType } from '../../enums/inputType';
 
 export const line2CredentialJsonSchema = Type.Object(
   {
@@ -10,7 +11,10 @@ export const line2CredentialJsonSchema = Type.Object(
         description: 'The second line of the address.',
         examples: ['Apt #4', 'Suite 200'],
         title: 'Address Line 2',
-        displayFormat: DisplayFormat.String
+        displayFormat: DisplayFormat.String,
+        input: {
+          type: InputType.Text
+        }
       })
     )
   },
