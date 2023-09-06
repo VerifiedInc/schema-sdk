@@ -1,6 +1,6 @@
 {
   "name": "@verifiedinc/schema-sdk",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "SDK for Unum ID credential scheme handling, e.g. definitions and validation.",
   "main": "build/index.js",
   "engines": {
