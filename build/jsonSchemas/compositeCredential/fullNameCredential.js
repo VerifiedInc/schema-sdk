@@ -16,7 +16,7 @@ exports.fullNameCredentialJsonSchema = type_1.Type.Union([
         fullName: type_1.Type.String({
             description: "A person's full name",
             examples: ['John Smith', 'John Michael Smith', 'Mary Kate Sierra Garcia-Tony'],
-            title: 'fullName',
+            title: 'Full Name',
             displayFormat: displayFormat_1.DisplayFormat.String
         })
     }, {
