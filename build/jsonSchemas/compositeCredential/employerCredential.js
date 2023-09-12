@@ -10,11 +10,11 @@ const employerNameCredential_1 = require("../employerCredential/employerNameCred
 const displayFormat_1 = require("../../enums/displayFormat");
 exports.employerCredentialJsonSchema = type_1.Type.Union([
     type_1.Type.IntersectReferences([
-        employerNameCredential_1.employerNameCredentialJsonSchema,
-        employmentStartDateCredential_1.employmentStartDateCredentialJsonSchema,
-        titleCredential_1.titleCredentialJsonSchema,
-        incomeRangeCredential_1.incomeRangeCredentialJsonSchema,
-        annualIncomeCredential_1.annualIncomeCredentialJsonSchema
+        type_1.Type.Optional(employerNameCredential_1.employerNameCredentialJsonSchema),
+        type_1.Type.Optional(employmentStartDateCredential_1.employmentStartDateCredentialJsonSchema),
+        type_1.Type.Optional(titleCredential_1.titleCredentialJsonSchema),
+        type_1.Type.Optional(incomeRangeCredential_1.incomeRangeCredentialJsonSchema),
+        type_1.Type.Optional(annualIncomeCredential_1.annualIncomeCredentialJsonSchema)
     ]),
     type_1.Type.Object({
         employer: type_1.Type.String({
