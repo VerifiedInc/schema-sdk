@@ -31,10 +31,42 @@ import {
 } from './formats';
 import { DisplayFormat } from './enums/displayFormat';
 import { InputType } from './enums/inputType';
+import { TSchema } from '@sinclair/typebox';
 
 // get all the values of the jsonSchemas object in an array
 // schemas to add to ajv instance options
 const schemas = Object.values(jsonSchemas);
+
+// filter all duplicate schema with same $id, looking to $id inside allOf, anyOf, oneOf recursively
+const properties = ['allOf', 'anyOf', 'oneOf'];
+
+// Get the IDs from inside allOf, anyOf, oneOf
+const childrenIds = new Set();
+
+const getIds = (schema: TSchema) => {
+  properties.forEach((property) => {
+    if (schema[property]) {
+      schema[property].forEach((childSchema: TSchema) => {
+        if (childSchema.$id) {
+          childrenIds.add(childSchema.$id);
+        }
+        getIds(childSchema);
+      });
+    }
+  });
+};
+
+schemas.forEach((schema) => {
+  getIds(schema);
+});
+
+// filter schemas with same $id
+const filteredSchemas = schemas.filter((schema) => {
+  if (schema.$id) {
+    return !childrenIds.has(schema.$id);
+  }
+  return true;
+});
 
 /**
  * Passing all schemas to Ajv constructor, which internally calls addSchema, instead of adding them on demand
@@ -49,7 +81,7 @@ export const ajv = new Ajv2019({
   coerceTypes: true, // ref: https://ajv.js.org/guide/modifying-data.html#coercing-data-types,
   removeAdditional: true,
   logger,
-  schemas
+  schemas: filteredSchemas
 });
 
 // Adding default formats to ajv
