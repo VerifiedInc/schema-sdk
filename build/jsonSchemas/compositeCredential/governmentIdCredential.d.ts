@@ -1,5 +1,5 @@
 import { Static } from '@sinclair/typebox';
-export declare const governmentIdCredentialJsonSchema: import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
+export declare const governmentIdCredentialJsonSchema: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TObject<{
     documentBackImage: import("@sinclair/typebox").TString;
 }>, import("@sinclair/typebox").TObject<{
     documentImage: import("@sinclair/typebox").TString;

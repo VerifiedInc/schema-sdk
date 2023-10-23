@@ -9,7 +9,7 @@ import { documentTypeCredentialJsonSchema } from '../governmentIdCredential/docu
 import { expirationDateCredentialJsonSchema } from '../governmentIdCredential/expirationDateCredential';
 import { issuanceDateCredentialJsonSchema } from '../governmentIdCredential/issuanceDateCredential';
 
-export const governmentIdCredentialJsonSchema = Type.IntersectReferences(
+export const governmentIdCredentialJsonSchema = Type.Union(
   [
     documentBackImageCredentialJsonSchema,
     documentImageCredentialJsonSchema,

@@ -9,7 +9,7 @@ const stateCredential_1 = require("../addressCredential/stateCredential");
 const countryCredential_1 = require("../addressCredential/countryCredential");
 const zipCodeCredential_1 = require("../addressCredential/zipCodeCredential");
 const displayFormat_1 = require("../../enums/displayFormat");
-exports.addressCredentialIntersectReferences = type_1.Type.IntersectReferences([
+exports.addressCredentialIntersectReferences = type_1.Type.Union([
     line1Credential_1.line1CredentialJsonSchema,
     line2Credential_1.line2CredentialJsonSchema,
     cityCredential_1.cityCredentialJsonSchema,
@@ -31,8 +31,6 @@ exports.addressCredentialJsonSchema = type_1.Type.Union([
             title: 'Street Address',
             displayFormat: displayFormat_1.DisplayFormat.Address
         })
-    }, {
-        additionalProperties: false
     })
 ], {
     $id: 'AddressCredential',

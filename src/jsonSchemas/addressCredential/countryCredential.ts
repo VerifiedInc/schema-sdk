@@ -12,6 +12,7 @@ export const countryCredentialJsonSchema = Type.Object(
       examples: ['US', 'CA', 'MX'],
       description: "A country's ISO 3166-1 alpha-2 code.",
       title: 'Country',
+      default: 'US',
       displayFormat: DisplayFormat.String,
       input: {
         type: InputType.Select,

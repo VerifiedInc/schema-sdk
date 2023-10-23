@@ -9,6 +9,7 @@ exports.currencyCredentialJsonSchema = type_1.Type.Object({
     currency: type_1.Type.String({
         description: 'The iso4217 currency code',
         examples: ['USD', 'EUR', 'GBP'],
+        default: 'USD',
         title: 'Currency',
         format: 'iso4217',
         displayFormat: displayFormat_1.DisplayFormat.String,

@@ -1,5 +1,5 @@
 import { Static } from '@sinclair/typebox';
-export declare const addressCredentialIntersectReferences: import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
+export declare const addressCredentialIntersectReferences: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TObject<{
     line1: import("@sinclair/typebox").TString;
 }>, import("@sinclair/typebox").TObject<{
     line2: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
@@ -12,7 +12,7 @@ export declare const addressCredentialIntersectReferences: import("@sinclair/typ
 }>, import("@sinclair/typebox").TObject<{
     zipCode: import("@sinclair/typebox").TString;
 }>]>;
-export declare const addressCredentialJsonSchema: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TIntersect<[import("@sinclair/typebox").TObject<{
+export declare const addressCredentialJsonSchema: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TObject<{
     line1: import("@sinclair/typebox").TString;
 }>, import("@sinclair/typebox").TObject<{
     line2: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;

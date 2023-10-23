@@ -16,6 +16,8 @@ exports.annualIncomeCredentialJsonSchema = type_1.Type.Union([
             title: 'Annual Income',
             displayFormat: displayFormat_1.DisplayFormat.CurrencyAmount
         })
+    }, {
+        additionalProperties: true
     })
 ], {
     $id: 'AnnualIncomeCredential',
