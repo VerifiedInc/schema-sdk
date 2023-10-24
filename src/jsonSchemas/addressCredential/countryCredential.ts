@@ -15,7 +15,8 @@ export const countryCredentialJsonSchema = Type.Object(
       displayFormat: DisplayFormat.String,
       input: {
         type: InputType.Select,
-        options: Array.from(countrySelectOptions)
+        options: Array.from(countrySelectOptions),
+        default: 'US'
       }
     })
   },

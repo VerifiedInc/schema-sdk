@@ -16,6 +16,32 @@ const inputType_1 = require("./enums/inputType");
 // get all the values of the jsonSchemas object in an array
 // schemas to add to ajv instance options
 const schemas = Object.values(jsonSchemas_1.jsonSchemas);
+// filter all duplicate schema with same $id, looking to $id inside allOf, anyOf, oneOf recursively
+const properties = ['allOf', 'anyOf', 'oneOf'];
+// Get the IDs from inside allOf, anyOf, oneOf
+const childrenIds = new Set();
+const getIds = (schema) => {
+    properties.forEach((property) => {
+        if (schema[property]) {
+            schema[property].forEach((childSchema) => {
+                if (childSchema.$id) {
+                    childrenIds.add(childSchema.$id);
+                }
+                getIds(childSchema);
+            });
+        }
+    });
+};
+schemas.forEach((schema) => {
+    getIds(schema);
+});
+// filter schemas with same $id
+const filteredSchemas = schemas.filter((schema) => {
+    if (schema.$id) {
+        return !childrenIds.has(schema.$id);
+    }
+    return true;
+});
 /**
  * Passing all schemas to Ajv constructor, which internally calls addSchema, instead of adding them on demand
  * Options ref: https://ajv.js.org/options.html#ajv-options
@@ -28,7 +54,7 @@ exports.ajv = new _2019_1.default({
     coerceTypes: true,
     removeAdditional: true,
     logger: logger_1.default,
-    schemas
+    schemas: filteredSchemas
 });
 // Adding default formats to ajv
 (0, ajv_formats_1.default)(exports.ajv);

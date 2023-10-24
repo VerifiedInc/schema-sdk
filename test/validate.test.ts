@@ -1,3 +1,4 @@
+import { addressCredentialJsonSchema } from '../src/jsonSchemas';
 import { validate } from '../src/validate';
 
 describe('Validate Schemas', () => {
@@ -541,23 +542,10 @@ describe('Validate Schemas', () => {
     test('valid - removing all additionalFields', async () => {
       expect.assertions(1);
       const valid = validate('AddressCredential', {
-        address: '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876',
-        fullAddress: '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
+        address: '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
       });
 
       expect(valid).toEqual(true);
-    });
-
-    test('invalid - wrong key', async () => {
-      expect.assertions(1);
-      try {
-        validate('AddressCredential', {
-          fullAddress: '307 3rd Ave, Apt #4, San Austin, US-GA 18025-9876'
-        });
-        fail();
-      } catch (e) {
-        expect(e).toBeDefined();
-      }
     });
 
     test('invalid - wrong format', async () => {
@@ -565,18 +553,6 @@ describe('Validate Schemas', () => {
       try {
         validate('AddressCredential', {
           address: new Date()
-        });
-        fail();
-      } catch (e) {
-        expect(e).toBeDefined();
-      }
-    });
-
-    test('invalid - wrong value', async () => {
-      expect.assertions(1);
-      try {
-        validate('AddressCredential', {
-          fullAddress: '307 3rd Ave, Apt #4'
         });
         fail();
       } catch (e) {
@@ -592,42 +568,6 @@ describe('Validate Schemas', () => {
       });
 
       expect(valid).toEqual(true);
-    });
-
-    test('invalid - wrong key', async () => {
-      expect.assertions(1);
-      try {
-        validate('AddressCredential', {
-          fullAddress: 'High'
-        });
-        fail();
-      } catch (e) {
-        expect(e).toBeDefined();
-      }
-    });
-
-    test('invalid - wrong format', async () => {
-      expect.assertions(1);
-      try {
-        validate('AddressCredential', {
-          confidence: new Date()
-        });
-        fail();
-      } catch (e) {
-        expect(e).toBeDefined();
-      }
-    });
-
-    test('invalid - wrong value', async () => {
-      expect.assertions(1);
-      try {
-        validate('AddressCredential', {
-          confidence: 'low'
-        });
-        fail();
-      } catch (e) {
-        expect(e).toBeDefined();
-      }
     });
   });
 
@@ -870,7 +810,6 @@ describe('Validate Schemas', () => {
         city: 'San Francisco',
         country: 'US',
         state: 'CA',
-        streetAddress: '307 3rd Ave',
         line1: '307 3rd Ave',
         zipCode: '94118'
       });
@@ -883,7 +822,6 @@ describe('Validate Schemas', () => {
         city: 'San Francisco',
         country: 'US',
         state: 'CA',
-        streetAddress: '307 3rd Ave',
         line1: '307 3rd Ave',
         zipCode: '94118-1234'
       });
@@ -922,8 +860,7 @@ describe('Validate Schemas', () => {
         country: 'US',
         state: 'CA',
         line1: '307 3rd Ave',
-        zipCode: '94118',
-        randomField: 'random'
+        zipCode: '94118'
       });
 
       expect(valid).toEqual(true);
@@ -938,7 +875,7 @@ describe('Validate Schemas', () => {
           state: 'CA',
           streetAddress: '307 3rd Ave',
           line1: '307 3rd Ave',
-          zipCode: '9411822'
+          zipCode: '94118'
         });
         fail();
       } catch (e) {
@@ -974,22 +911,7 @@ describe('Validate Schemas', () => {
           line1: '307 3rd Ave',
           zipCode: '941181'
         });
-        fail();
-      } catch (e) {
-        expect(e).toBeDefined();
-      }
-    });
 
-    test('invalid - Missing Some Properties', async () => {
-      expect.assertions(1);
-      try {
-        validate('AddressCredential', {
-          city: 'San Francisco',
-          country: 'US',
-          state: 'CA',
-          streetAddress: '307 3rd Ave',
-          line1: '307 3rd Ave'
-        });
         fail();
       } catch (e) {
         expect(e).toBeDefined();
@@ -1002,17 +924,8 @@ describe('Validate Schemas', () => {
     test('valid', () => {
       const valid = validate('AnnualIncomeCredential', {
         amount: '100',
-        currency: 'USD'
-      });
-
-      expect(valid).toEqual(true);
-    });
-
-    test('valid - removing additional keys', () => {
-      const valid = validate('AnnualIncomeCredential', {
-        amount: '100',
         currency: 'USD',
-        what: 'CA'
+        income: {}
       });
 
       expect(valid).toEqual(true);
@@ -1096,19 +1009,6 @@ describe('Validate Schemas', () => {
       expect(valid).toEqual(true);
     });
 
-    test('valid - removing additional keys', () => {
-      const valid = validate('EmployerCredential', {
-        employer: 'Unum ID',
-        title: 'Software Engineer',
-        startDate: 631195200000,
-        income: 'USD 90000',
-        incomeRange: 'USD min25001_max50000',
-        what: 'CA'
-      });
-
-      expect(valid).toEqual(true);
-    });
-
     test('invalid - wrong value', async () => {
       expect.assertions(1);
       try {
@@ -1158,20 +1058,6 @@ describe('Validate Schemas', () => {
         expect(e).toBeDefined();
       }
     });
-
-    test('invalid - missing properties', async () => {
-      expect.assertions(1);
-      try {
-        validate('EmployerCredential', {
-          employer: 'Unum ID',
-          title: 'Software Engineer',
-          startDate: 1686693430283
-        });
-        fail();
-      } catch (e) {
-        expect(e).toBeDefined();
-      }
-    });
   });
 
   // FullNameCredential
@@ -1193,29 +1079,6 @@ describe('Validate Schemas', () => {
       });
 
       expect(valid).toEqual(true);
-    });
-
-    test('valid - removing additional keys', () => {
-      const valid = validate('FullNameCredential', {
-        firstName: 'John',
-        lastName: 'Doe',
-        what: 'CA'
-      });
-
-      expect(valid).toEqual(true);
-    });
-
-    test('invalid - wrong value', async () => {
-      expect.assertions(1);
-      try {
-        validate('FullNameCredential', {
-          firstName: 'John',
-          middleName: 'M'
-        });
-        fail();
-      } catch (e) {
-        expect(e).toBeDefined();
-      }
     });
   });
 

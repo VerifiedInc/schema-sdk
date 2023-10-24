@@ -15,7 +15,8 @@ export const currencyCredentialJsonSchema = Type.Object(
       displayFormat: DisplayFormat.String,
       input: {
         type: InputType.Select,
-        options: currencySelectOptions
+        options: currencySelectOptions,
+        default: 'USD'
       }
     })
   },

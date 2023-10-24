@@ -14,7 +14,8 @@ exports.countryCredentialJsonSchema = type_1.Type.Object({
         displayFormat: displayFormat_1.DisplayFormat.String,
         input: {
             type: inputType_1.InputType.Select,
-            options: Array.from(values_1.countrySelectOptions)
+            options: Array.from(values_1.countrySelectOptions),
+            default: 'US'
         }
     })
 }, { $id: 'CountryCredential' });

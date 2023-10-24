@@ -14,7 +14,8 @@ exports.currencyCredentialJsonSchema = type_1.Type.Object({
         displayFormat: displayFormat_1.DisplayFormat.String,
         input: {
             type: inputType_1.InputType.Select,
-            options: values_1.currencySelectOptions
+            options: values_1.currencySelectOptions,
+            default: 'USD'
         }
     })
 }, {

@@ -9,15 +9,20 @@ export const annualIncomeCredentialJsonSchema = Type.Union(
   [
     Type.IntersectReferences([currencyCredentialJsonSchema, amountCredentialJsonSchema]),
     // Allow backward compatibility with the old format
-    Type.Object({
-      income: Type.String({
-        format: 'iso4217Amount',
-        description: 'Annual income with the preceding ISO4217 currency format.',
-        examples: ['USD 101000', 'GBP 46000'],
-        title: 'Annual Income',
-        displayFormat: DisplayFormat.CurrencyAmount
-      })
-    })
+    Type.Object(
+      {
+        income: Type.String({
+          format: 'iso4217Amount',
+          description: 'Annual income with the preceding ISO4217 currency format.',
+          examples: ['USD 101000', 'GBP 46000'],
+          title: 'Annual Income',
+          displayFormat: DisplayFormat.CurrencyAmount
+        })
+      },
+      {
+        additionalProperties: true
+      }
+    )
   ],
   {
     $id: 'AnnualIncomeCredential',

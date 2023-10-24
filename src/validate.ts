@@ -8,7 +8,7 @@ import logger from './logger';
  * @param data: any
  * @returns boolean
  */
-export function validate (type: string, data: any): boolean {
+export function validate(type: string, data: any): boolean {
   const validator = ajv.getSchema(type);
 
   if (!validator) {
