@@ -1,7 +1,7 @@
 import { Type } from '../../type';
 
 import { DisplayFormat } from '../../enums/displayFormat';
-import { ISO31662USCodes } from '../../values';
+import { stateSelectOptions } from '../../values';
 
 import { Static } from '@sinclair/typebox';
 import { InputType } from '../../enums/inputType';
@@ -34,7 +34,7 @@ export const stateCredentialJsonSchema = Type.Object(
         title: 'State',
         input: {
           type: InputType.Select,
-          options: Array.from(ISO31662USCodes)
+          options: Array.from(stateSelectOptions)
         }
       })
     })

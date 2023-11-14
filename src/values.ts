@@ -6,6 +6,14 @@
  */
 export const currencySelectOptions = [
   {
+    value: 'USD',
+    label: 'USD (US Dollar)'
+  },
+  {
+    value: 'CAD',
+    label: 'CAD (Canadian Dollar)'
+  },
+  {
     value: 'AED',
     label: 'AED (UAE Dirham)'
   },
@@ -108,10 +116,6 @@ export const currencySelectOptions = [
   {
     value: 'BZD',
     label: 'BZD (Belize Dollar)'
-  },
-  {
-    value: 'CAD',
-    label: 'CAD (Canadian Dollar)'
   },
   {
     value: 'CDF',
@@ -598,10 +602,6 @@ export const currencySelectOptions = [
     label: 'UGX (Uganda Shilling)'
   },
   {
-    value: 'USD',
-    label: 'USD (US Dollar)'
-  },
-  {
     value: 'UYI',
     label: 'UYI (Uruguay Peso en Unidades Indexadas (URUIURUI))'
   },
@@ -691,6 +691,8 @@ export const ISO4217Codes = new Set(currencySelectOptions.map((option) => option
 // value is the iso3166-1 alpha-2 country code
 // label is the country name (English short name officially used by the ISO 3166 Maintenance Agency)
 export const countrySelectOptions = [
+  { value: 'US', label: 'United States of America' },
+  { value: 'CA', label: 'Canada' },
   { value: 'AF', label: 'Afghanistan' },
   { value: 'AL', label: 'Albania' },
   { value: 'DZ', label: 'Algeria' },
@@ -730,7 +732,6 @@ export const countrySelectOptions = [
   { value: 'CV', label: 'Cabo Verde' },
   { value: 'KH', label: 'Cambodia' },
   { value: 'CM', label: 'Cameroon' },
-  { value: 'CA', label: 'Canada' },
   { value: 'KY', label: 'Cayman Islands' },
   { value: 'CF', label: 'Central African Republic' },
   { value: 'TD', label: 'Chad' },
@@ -925,7 +926,6 @@ export const countrySelectOptions = [
   { value: 'UA', label: 'Ukraine' },
   { value: 'AE', label: 'United Arab Emirates' },
   { value: 'GB', label: 'United Kingdom of Great Britain and Northern Ireland' },
-  { value: 'US', label: 'United States of America' },
   { value: 'UM', label: 'United States Minor Outlying Islands' },
   { value: 'UY', label: 'Uruguay' },
   { value: 'UZ', label: 'Uzbekistan' },
@@ -1256,6 +1256,64 @@ export const ISO31662USCodes = new Set([
   'UM',
   'VI'
 ]);
+
+// an array of objects with value and label properties
+// value is the iso3166-2 US region code
+// label is the region name
+export const stateSelectOptions = [
+  { value: 'AL', label: 'Alabama' },
+  { value: 'AK', label: 'Alaska' },
+  { value: 'AZ', label: 'Arizona' },
+  { value: 'AR', label: 'Arkansas' },
+  { value: 'CA', label: 'California' },
+  { value: 'CO', label: 'Colorado' },
+  { value: 'CT', label: 'Connecticut' },
+  { value: 'DE', label: 'Delaware' },
+  { value: 'DC', label: 'District of Columbia' },
+  { value: 'FL', label: 'Florida' },
+  { value: 'GA', label: 'Georgia' },
+  { value: 'HI', label: 'Hawaii' },
+  { value: 'ID', label: 'Idaho' },
+  { value: 'IL', label: 'Illinois' },
+  { value: 'IN', label: 'Indiana' },
+  { value: 'IA', label: 'Iowa' },
+  { value: 'KS', label: 'Kansas' },
+  { value: 'KY', label: 'Kentucky' },
+  { value: 'LA', label: 'Louisiana' },
+  { value: 'ME', label: 'Maine' },
+  { value: 'MD', label: 'Maryland' },
+  { value: 'MA', label: 'Massachusetts' },
+  { value: 'MI', label: 'Michigan' },
+  { value: 'MN', label: 'Minnesota' },
+  { value: 'MS', label: 'Mississippi' },
+  { value: 'MO', label: 'Missouri' },
+  { value: 'MT', label: 'Montana' },
+  { value: 'NE', label: 'Nebraska' },
+  { value: 'NV', label: 'Nevada' },
+  { value: 'NH', label: 'New Hampshire' },
+  { value: 'NJ', label: 'New Jersey' },
+  { value: 'NM', label: 'New Mexico' },
+  { value: 'NY', label: 'New York' },
+  { value: 'NC', label: 'North Carolina' },
+  { value: 'ND', label: 'North Dakota' },
+  { value: 'OH', label: 'Ohio' },
+  { value: 'OK', label: 'Oklahoma' },
+  { value: 'OR', label: 'Oregon' },
+  { value: 'PA', label: 'Pennsylvania' },
+  { value: 'RI', label: 'Rhode Island' },
+  { value: 'SC', label: 'South Carolina' },
+  { value: 'SD', label: 'South Dakota' },
+  { value: 'TN', label: 'Tennessee' },
+  { value: 'TX', label: 'Texas' },
+  { value: 'UT', label: 'Utah' },
+  { value: 'VT', label: 'Vermont' },
+  { value: 'VI', label: 'Virgin Islands' },
+  { value: 'VA', label: 'Virginia' },
+  { value: 'WA', label: 'Washington' },
+  { value: 'WV', label: 'West Virginia' },
+  { value: 'WI', label: 'Wisconsin' },
+  { value: 'WY', label: 'Wyoming' }
+];
 
 // these are the ranges used by UNest
 export const incomeRangeOptions = [

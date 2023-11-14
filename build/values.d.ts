@@ -15,6 +15,10 @@ export declare const countrySelectOptions: {
 }[];
 export declare const ISO31661Alpha2CountryCodes: Set<string>;
 export declare const ISO31662USCodes: Set<string>;
+export declare const stateSelectOptions: {
+    value: string;
+    label: string;
+}[];
 export declare const incomeRangeOptions: {
     value: string;
     label: string;

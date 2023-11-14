@@ -31,7 +31,7 @@ exports.stateCredentialJsonSchema = type_1.Type.Object({
             title: 'State',
             input: {
                 type: inputType_1.InputType.Select,
-                options: Array.from(values_1.ISO31662USCodes)
+                options: Array.from(values_1.stateSelectOptions)
             }
         })
     })
