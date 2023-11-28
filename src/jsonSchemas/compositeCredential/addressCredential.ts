@@ -37,7 +37,10 @@ export const addressCredentialJsonSchema = Type.Union(
   ],
   {
     $id: 'AddressCredential',
-    unevaluatedProperties: false
+    unevaluatedProperties: false,
+    errorMessage: {
+      unevaluatedProperties: "AddressCredential doesn't match the schema"
+    }
   }
 );
 

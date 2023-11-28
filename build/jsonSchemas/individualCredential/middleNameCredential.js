@@ -5,7 +5,7 @@ const type_1 = require("../../type");
 const displayFormat_1 = require("../../enums/displayFormat");
 const inputType_1 = require("../../enums/inputType");
 exports.middleNameCredentialJsonSchema = type_1.Type.Object({
-    middleName: type_1.Type.Optional(type_1.Type.String({
+    middleName: type_1.Type.String({
         description: "A person's middle name",
         examples: ['Henry', 'Fitzgerald'],
         title: 'Middle Name',
@@ -13,6 +13,6 @@ exports.middleNameCredentialJsonSchema = type_1.Type.Object({
         input: {
             type: inputType_1.InputType.Text
         }
-    }))
+    })
 }, { $id: 'MiddleNameCredential' });
 //# sourceMappingURL=middleNameCredential.js.map

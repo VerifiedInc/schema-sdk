@@ -20,7 +20,10 @@ export const employerCredentialJsonSchema = Type.Union(
   ],
   {
     $id: 'EmployerCredential',
-    unevaluatedProperties: false
+    unevaluatedProperties: false,
+    errorMessage: {
+      unevaluatedProperties: "EmployerCredential doesn't match the schema"
+    }
   }
 );
 

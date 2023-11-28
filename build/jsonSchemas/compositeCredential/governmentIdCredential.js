@@ -19,6 +19,9 @@ exports.governmentIdCredentialJsonSchema = type_1.Type.Union([
     addressCredential_1.stateCredentialJsonSchema
 ], {
     $id: 'GovernmentIdCredential',
-    unevaluatedProperties: false
+    unevaluatedProperties: false,
+    errorMessage: {
+        unevaluatedProperties: "GovernmentIdCredential doesn't match the schema"
+    }
 });
 //# sourceMappingURL=governmentIdCredential.js.map

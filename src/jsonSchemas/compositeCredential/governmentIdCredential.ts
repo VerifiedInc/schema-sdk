@@ -21,7 +21,10 @@ export const governmentIdCredentialJsonSchema = Type.Union(
   ],
   {
     $id: 'GovernmentIdCredential',
-    unevaluatedProperties: false
+    unevaluatedProperties: false,
+    errorMessage: {
+      unevaluatedProperties: "GovernmentIdCredential doesn't match the schema"
+    }
   }
 );
 

@@ -22,6 +22,9 @@ exports.annualIncomeCredentialJsonSchema = type_1.Type.Union([
 ], {
     $id: 'AnnualIncomeCredential',
     unevaluatedProperties: false,
+    errorMessage: {
+        unevaluatedProperties: "AnnualIncomeCredential doesn't match the schema"
+    },
     // Allow backward compatibility with the old format
     // ?? What old format? Pretty sure it has always been iso4217Amount
     if: type_1.Type.Object({

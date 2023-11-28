@@ -20,7 +20,10 @@ export const fullNameCredentialJsonSchema = Type.Union(
   ],
   {
     $id: 'FullNameCredential',
-    unevaluatedProperties: false
+    unevaluatedProperties: false,
+    errorMessage: {
+      unevaluatedProperties: "FullNameCredential doesn't match the schema"
+    }
   }
 );
 

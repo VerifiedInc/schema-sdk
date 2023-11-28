@@ -13,6 +13,7 @@ const jsonSchemas_1 = require("./jsonSchemas");
 const formats_1 = require("./formats");
 const displayFormat_1 = require("./enums/displayFormat");
 const inputType_1 = require("./enums/inputType");
+const ajv_errors_1 = __importDefault(require("ajv-errors"));
 // get all the values of the jsonSchemas object in an array
 // schemas to add to ajv instance options
 const schemas = Object.values(jsonSchemas_1.jsonSchemas);
@@ -58,6 +59,8 @@ exports.ajv = new _2019_1.default({
 });
 // Adding default formats to ajv
 (0, ajv_formats_1.default)(exports.ajv);
+// Adding ajv-errors to ajv
+(0, ajv_errors_1.default)(exports.ajv);
 /*******************************************************************
  * Add custom formats to ajv below                                 *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
