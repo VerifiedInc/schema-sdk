@@ -34,6 +34,9 @@ exports.addressCredentialJsonSchema = type_1.Type.Union([
     })
 ], {
     $id: 'AddressCredential',
-    unevaluatedProperties: false
+    unevaluatedProperties: false,
+    errorMessage: {
+        unevaluatedProperties: "AddressCredential doesn't match the schema"
+    }
 });
 //# sourceMappingURL=addressCredential.js.map

@@ -4,7 +4,7 @@ export declare const fullNameCredentialJsonSchema: import("@sinclair/typebox").T
 }>, import("@sinclair/typebox").TObject<{
     lastName: import("@sinclair/typebox").TString;
 }>, import("@sinclair/typebox").TObject<{
-    middleName: import("@sinclair/typebox").TOptional<import("@sinclair/typebox").TString>;
+    middleName: import("@sinclair/typebox").TString;
 }>]>, import("@sinclair/typebox").TObject<{
     fullName: import("@sinclair/typebox").TString;
 }>]>;

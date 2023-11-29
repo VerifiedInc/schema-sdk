@@ -32,6 +32,7 @@ import {
 import { DisplayFormat } from './enums/displayFormat';
 import { InputType } from './enums/inputType';
 import { TSchema } from '@sinclair/typebox';
+import ajvErrors from 'ajv-errors';
 
 // get all the values of the jsonSchemas object in an array
 // schemas to add to ajv instance options
@@ -86,6 +87,9 @@ export const ajv = new Ajv2019({
 
 // Adding default formats to ajv
 addFormats(ajv);
+
+// Adding ajv-errors to ajv
+ajvErrors(ajv);
 
 /*******************************************************************
  * Add custom formats to ajv below                                 *
