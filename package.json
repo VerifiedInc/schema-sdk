@@ -55,6 +55,7 @@
     "ajv-errors": "^3.0.0",
     "ajv-formats": "^2.1.1",
     "dotenv": "^16.0.3",
+    "libphonenumber-js": "^1.10.52",
     "winston": "^3.3.3",
     "winston-syslog": "^2.4.4"
   },

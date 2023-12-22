@@ -10,6 +10,8 @@ import {
   sexes
 } from './values';
 
+import { isValidPhoneNumber, parsePhoneNumber } from 'libphonenumber-js';
+
 /*******************************************************************
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
@@ -60,10 +62,17 @@ export const ssnFormat: Format = {
 export const phoneFormat: Format = {
   type: 'string',
   validate: (phone: string) => {
+    if (!phone) {
+      return false;
+    }
+
     // matches a valid e.164 format telephone number
     // ref: https://ihateregex.io/expr/e164-phone/
     const phoneRegex = /^\+[1-9]\d{1,14}$/;
-    return phoneRegex.test(phone);
+    const isValidFormat = phoneRegex.test(phone);
+    const isValidNumber = isValidPhoneNumber(phone);
+
+    return isValidFormat && isValidNumber;
   }
 };
 

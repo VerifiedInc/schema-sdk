@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.genderFormat = exports.sexFormat = exports.usZipCodeFormat = exports.iso3166RegionCodeFormat = exports.iso3166USRegionCodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.iso3166CodeFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.dateISO8601Format = exports.dateUsFormat = exports.unixMsEpochDayFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = void 0;
 const values_1 = require("./values");
+const libphonenumber_js_1 = require("libphonenumber-js");
 /*******************************************************************
  * Creating custom formats                                         *
  * ref: https://ajv.js.org/guide/formats.html#user-defined-formats *
@@ -47,10 +48,15 @@ exports.ssnFormat = {
 exports.phoneFormat = {
     type: 'string',
     validate: (phone) => {
+        if (!phone) {
+            return false;
+        }
         // matches a valid e.164 format telephone number
         // ref: https://ihateregex.io/expr/e164-phone/
         const phoneRegex = /^\+[1-9]\d{1,14}$/;
-        return phoneRegex.test(phone);
+        const isValidFormat = phoneRegex.test(phone);
+        const isValidNumber = (0, libphonenumber_js_1.isValidPhoneNumber)(phone);
+        return isValidFormat && isValidNumber;
     }
 };
 /**

@@ -64,9 +64,13 @@ describe('formats', () => {
     const validate = format.validate as FormatValidator<string>;
 
     // valid phone number
-    expect(validate('+15555555555')).toBe(true);
+    expect(validate('+14044327573')).toBe(true);
+    expect(validate('+17704415514')).toBe(true);
+    expect(validate('+5561993726621')).toBe(true);
 
     // invalid phone number
+    expect(validate('+1 770 441 5514')).toBe(false);
+    expect(validate('(+55) 6199-372-6621')).toBe(false);
     expect(validate('test')).toBe(false);
 
     // missing phone number
