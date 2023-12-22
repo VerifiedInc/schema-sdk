@@ -67,6 +67,7 @@ describe('formats', () => {
     expect(validate('+14044327573')).toBe(true);
     expect(validate('+17704415514')).toBe(true);
     expect(validate('+5561993726621')).toBe(true);
+    expect(validate('+10123456789')).toBe(true); // I think we want this to be true for testing purposes... if so we can not make this change.
 
     // invalid phone number
     expect(validate('+1 770 441 5514')).toBe(false);
