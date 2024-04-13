@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.confidenceLevels = exports.documentTypes = exports.genders = exports.sexes = exports.incomeRangeOptions = exports.stateSelectOptions = exports.ISO31662USCodes = exports.ISO31661Alpha2CountryCodes = exports.countrySelectOptions = exports.ISO4217Codes = exports.currencySelectOptions = void 0;
+exports.lineTypes = exports.confidenceLevels = exports.documentTypes = exports.genders = exports.sexes = exports.incomeRangeOptions = exports.stateSelectOptions = exports.ISO31662USCodes = exports.ISO31661Alpha2CountryCodes = exports.countrySelectOptions = exports.ISO4217Codes = exports.currencySelectOptions = void 0;
 /**
  * select options for a currency credential input
  * ref: https://www.iban.com/currency-codes
@@ -1364,4 +1364,6 @@ exports.documentTypes = new Set([
 ]);
 // Used by LivenessCredential, MatchCredential
 exports.confidenceLevels = new Set(['Very High', 'High', 'Medium', 'Low', 'Very Low']);
+// Used by LineTypeCredential
+exports.lineTypes = new Set(['Mobile', 'Landline', 'FixedVoIP', 'NonFixedVoIP']);
 //# sourceMappingURL=values.js.map

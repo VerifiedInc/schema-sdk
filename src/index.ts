@@ -17,7 +17,8 @@ import {
   iso4217Format,
   iso4217AmountFormat,
   iso4217AmountRangeFormat,
-  addressFormat
+  addressFormat,
+  lineTypeFormat
 } from './formats';
 import { ajv } from './ajv';
 import {
@@ -97,6 +98,7 @@ export {
   documentTypeFormat,
   confidenceLevelFormat,
   booleanFormat,
+  lineTypeFormat,
 
   // credential schemas map
   jsonSchemas,

@@ -7,6 +7,7 @@ import {
   confidenceLevels,
   documentTypes,
   genders,
+  lineTypes,
   sexes
 } from './values';
 
@@ -453,5 +454,17 @@ export const booleanFormat: Format = {
   type: 'string',
   validate: (input: string) => {
     return input === 'true' || input === 'false';
+  }
+};
+
+/**
+ * Format to determine if a string contains valid a lineType value
+ */
+export const lineTypeFormat: Format = {
+  type: 'string',
+  validate: (input: string) => {
+    if (!lineTypes.has(input)) return false;
+
+    return true;
   }
 };

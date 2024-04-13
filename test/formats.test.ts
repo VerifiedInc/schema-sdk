@@ -18,6 +18,7 @@ import {
   iso4217AmountFormat,
   iso4217AmountRangeFormat,
   iso4217Format,
+  lineTypeFormat,
   optionalEmailFormat,
   optionalPhoneFormat,
   otpFormat,
@@ -423,4 +424,20 @@ describe('formats', () => {
     expect(validate('FAlse')).toBe(false);
     expect(validate('unknown')).toBe(false);
   });
+});
+
+test('LineTypeFormat', () => {
+  const format = lineTypeFormat as FormatDefinition<string>;
+  const validate = format.validate as FormatValidator<string>;
+
+  // valid
+  expect(validate('Mobile')).toBe(true);
+  expect(validate('Landline')).toBe(true);
+  expect(validate('FixedVoIP')).toBe(true);
+  expect(validate('NonFixedVoIP')).toBe(true);
+
+  // invalid
+  expect(validate('mobile')).toBe(false);
+  expect(validate('cell')).toBe(false);
+  expect(validate('FixedVoip')).toBe(false);
 });

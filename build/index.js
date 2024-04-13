@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.jsonSchemas = exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.iso3166CodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.genderFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = exports.validate = exports.ajv = void 0;
+exports.jsonSchemas = exports.lineTypeFormat = exports.booleanFormat = exports.confidenceLevelFormat = exports.documentTypeFormat = exports.iso3166CodeFormat = exports.iso3166Alpha2CountryCodeFormat = exports.genderFormat = exports.addressFormat = exports.iso4217AmountRangeFormat = exports.iso4217AmountFormat = exports.iso4217Format = exports.dataUriBase64ImageFormat = exports.otpFormat = exports.digitsFormat = exports.optionalPhoneFormat = exports.phoneFormat = exports.ssnFormat = exports.optionalEmailFormat = exports.emailFormat = exports.validate = exports.ajv = void 0;
 const validate_1 = require("./validate");
 Object.defineProperty(exports, "validate", { enumerable: true, get: function () { return validate_1.validate; } });
 const formats_1 = require("./formats");
@@ -22,6 +22,7 @@ Object.defineProperty(exports, "iso4217Format", { enumerable: true, get: functio
 Object.defineProperty(exports, "iso4217AmountFormat", { enumerable: true, get: function () { return formats_1.iso4217AmountFormat; } });
 Object.defineProperty(exports, "iso4217AmountRangeFormat", { enumerable: true, get: function () { return formats_1.iso4217AmountRangeFormat; } });
 Object.defineProperty(exports, "addressFormat", { enumerable: true, get: function () { return formats_1.addressFormat; } });
+Object.defineProperty(exports, "lineTypeFormat", { enumerable: true, get: function () { return formats_1.lineTypeFormat; } });
 const ajv_1 = require("./ajv");
 Object.defineProperty(exports, "ajv", { enumerable: true, get: function () { return ajv_1.ajv; } });
 const jsonSchemas_1 = require("./jsonSchemas");

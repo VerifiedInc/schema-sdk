@@ -1371,3 +1371,6 @@ export const documentTypes = new Set([
 
 // Used by LivenessCredential, MatchCredential
 export const confidenceLevels = new Set(['Very High', 'High', 'Medium', 'Low', 'Very Low']);
+
+// Used by LineTypeCredential
+export const lineTypes = new Set(['Mobile', 'Landline', 'FixedVoIP', 'NonFixedVoIP']);

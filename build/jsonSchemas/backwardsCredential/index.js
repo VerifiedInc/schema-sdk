@@ -5,6 +5,9 @@ const typebox_1 = require("@sinclair/typebox");
 const displayFormat_1 = require("../../enums/displayFormat");
 const inputType_1 = require("../../enums/inputType");
 const values_1 = require("../../values");
+/*******************************************************
+ * Old credentials that we use, but will be deprecated *
+ *******************************************************/
 exports.governmentIdDocumentImageCredentialJsonSchema = typebox_1.Type.Object({
     image: typebox_1.Type.String({
         format: 'dataUriBase64Image',

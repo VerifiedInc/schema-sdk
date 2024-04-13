@@ -1,4 +1,7 @@
 import { Static } from '@sinclair/typebox';
+/*******************************************************
+ * Old credentials that we use, but will be deprecated *
+ *******************************************************/
 export declare const governmentIdDocumentImageCredentialJsonSchema: import("@sinclair/typebox").TObject<{
     image: import("@sinclair/typebox").TString;
 }>;
