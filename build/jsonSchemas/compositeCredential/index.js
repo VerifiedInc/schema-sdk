@@ -19,4 +19,5 @@ __exportStar(require("./annualIncomeCredential"), exports);
 __exportStar(require("./employerCredential"), exports);
 __exportStar(require("./fullNameCredential"), exports);
 __exportStar(require("./governmentIdCredential"), exports);
+__exportStar(require("./phoneInfoCredential"), exports);
 //# sourceMappingURL=index.js.map

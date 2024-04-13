@@ -1232,3 +1232,106 @@ describe('Validate Schemas', () => {
     });
   });
 });
+
+describe('LineTypeCredential Schema', () => {
+  test('valid - Mobile', () => {
+    const valid = validate('LineTypeCredential', {
+      type: 'Mobile'
+    });
+
+    expect(valid).toEqual(true);
+  });
+
+  test('valid - Landline', () => {
+    const valid = validate('LineTypeCredential', {
+      type: 'Landline'
+    });
+
+    expect(valid).toEqual(true);
+  });
+
+  test('valid - FixedVoIP', () => {
+    const valid = validate('LineTypeCredential', {
+      type: 'FixedVoIP'
+    });
+
+    expect(valid).toEqual(true);
+  });
+
+  test('valid - NonFixVoIP', () => {
+    const valid = validate('LineTypeCredential', {
+      type: 'NonFixVoIP'
+    });
+
+    expect(valid).toEqual(true);
+  });
+
+  test('invalid - wrong value', async () => {
+    expect.assertions(1);
+    try {
+      validate('CountryCredential', {
+        type: 'phone'
+      });
+      fail();
+    } catch (e) {
+      expect(e).toBeDefined();
+    }
+  });
+
+  test('invalid - wrong key', async () => {
+    expect.assertions(1);
+    try {
+      validate('CountryCredential', {
+        lineType: 'Mobile'
+      });
+      fail();
+    } catch (e) {
+      expect(e).toBeDefined();
+    }
+  });
+});
+
+describe('PhoneInfoCredential Schema', () => {
+  test('valid - Mobile', () => {
+    const valid = validate('PhoneInfoCredential', {
+      type: 'Mobile',
+      phone: '16175551212'
+    });
+
+    expect(valid).toEqual(true);
+  });
+
+  test('valid - Landline', () => {
+    const valid = validate('PhoneInfoCredential', {
+      type: 'Landline',
+      phone: '+14041238686'
+    });
+
+    expect(valid).toEqual(true);
+  });
+
+  test('invalid - wrong line type value', async () => {
+    expect.assertions(1);
+    try {
+      validate('PhoneInfoCredential', {
+        type: 'phone',
+        phone: '+14041238686'
+      });
+      fail();
+    } catch (e) {
+      expect(e).toBeDefined();
+    }
+  });
+
+  test('invalid - missing phone key', async () => {
+    expect.assertions(1);
+    try {
+      validate('PhoneInfoCredential', {
+        lineType: 'Mobile'
+      });
+      fail();
+    } catch (e) {
+      expect(e).toBeDefined();
+    }
+  });
+});

@@ -51,12 +51,14 @@ exports.jsonSchemas = {
     IdentityCredential: atomicCredential.identityCredentialJsonSchema,
     LivenessCredential: atomicCredential.livenessCredentialJsonSchema,
     MatchCredential: atomicCredential.matchCredentialJsonSchema,
+    LineTypeCredential: atomicCredential.lineTypeCredentialJsonSchema,
     // Composite Credential
     AddressCredential: compositeCredential.addressCredentialJsonSchema,
     AnnualIncomeCredential: compositeCredential.annualIncomeCredentialJsonSchema,
     EmployerCredential: compositeCredential.employerCredentialJsonSchema,
     FullNameCredential: compositeCredential.fullNameCredentialJsonSchema,
     GovernmentIdCredential: compositeCredential.governmentIdCredentialJsonSchema,
+    PhoneInfoCredential: compositeCredential.phoneInfoCredentialJsonSchema,
     // EmployerCredential
     EmploymentStartDateCredential: employerCredential.employmentStartDateCredentialJsonSchema,
     IncomeRangeCredential: employerCredential.incomeRangeCredentialJsonSchema,

@@ -5,7 +5,6 @@ import { titleCredentialJsonSchema } from '../employerCredential/titleCredential
 import { incomeRangeCredentialJsonSchema } from '../employerCredential/incomeRangeCredential';
 import { employerNameCredentialJsonSchema } from '../employerCredential/employerNameCredential';
 
-import { DisplayFormat } from '../../enums/displayFormat';
 import { Static } from '@sinclair/typebox';
 
 export const employerCredentialJsonSchema = Type.Union(

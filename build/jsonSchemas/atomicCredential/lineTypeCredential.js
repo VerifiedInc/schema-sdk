@@ -4,7 +4,7 @@ exports.lineTypeCredentialJsonSchema = void 0;
 const type_1 = require("../../type");
 const displayFormat_1 = require("../../enums/displayFormat");
 exports.lineTypeCredentialJsonSchema = type_1.Type.Object({
-    confidence: type_1.Type.String({
+    type: type_1.Type.String({
         format: 'lineTypeFormat',
         description: 'Line type associated with a phone number.',
         examples: ['Mobile', 'Landline', 'FixedVoIP', 'NonFixVoIP'],

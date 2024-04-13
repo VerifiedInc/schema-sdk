@@ -68,7 +68,9 @@ import {
   StateCredentialJsonSchema,
   TitleCredentialJsonSchema,
   ZipCodeCredentialJsonSchema,
-  EmployerNameCredentialJsonSchema
+  EmployerNameCredentialJsonSchema,
+  LineTypeCredentialJsonSchema,
+  PhoneInfoCredentialJsonSchema
 } from './types';
 import { jsonSchemas } from './jsonSchemas';
 
@@ -120,6 +122,7 @@ export {
   IdentityCredentialJsonSchema,
   LivenessCredentialJsonSchema,
   MatchCredentialJsonSchema,
+  LineTypeCredentialJsonSchema,
 
   // Composite
   AddressCredentialJsonSchema,
@@ -127,6 +130,7 @@ export {
   EmployerCredentialJsonSchemaType,
   FullNameCredentialJsonSchema,
   GovernmentIdCredentialJsonSchema,
+  PhoneInfoCredentialJsonSchema,
 
   // Employer
   EmploymentStartDateCredentialJsonSchema,

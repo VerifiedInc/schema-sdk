@@ -61,19 +61,16 @@ Note: custom formats (and some built-in ones as well) do not work well for valid
 ### Adding New Schemas
 There are a number of spots that need to be updated in order to properly add a new schema definition.
 
-1. **Create and export the new JsonLDSchema in jsonLDSchemas.ts**, e.g. identityCredentialJsonLDSchema
-    a. **Update the `unum.id.json` JsonLD context file** if necessary with credential property schemas **NOTE: the schema context MUST include the `"rdfs:subPropertyOf"` key, among others. Use `"@id": "schema:miscellaneous"` if nothing else makes sense. Also, the `rdfs:rangeIncludes` must be a single value.**
-2. **Add the newly created JsonLDSchema to the jsonLDSchemas map in jsonLDSchemas.ts** this is easily forgotten as it as the bottom of the file.
-3. **Create and export a new file to the new JsonSchema in `src/jsonSchema` folder**, naming the file `{credentialName}Credential.ts`, and add the file to credential related folder, e.g. `src/jsonSchema/addressCredential/stateCredential.ts`, 
+
+1. **Create and export a new file to the new JsonSchema in `src/jsonSchema` folder**, naming the file `{credentialName}Credential.ts`, and add the file to credential related folder, e.g. `src/jsonSchema/addressCredential/stateCredential.ts`.
    1. if is not related to any existing folder, create a new folder for it. 
    2. Use `import { Type }` from `./src/type` instead of `import { Type } from '@sinclair/typebox'` to create the schema, this will allow us to create a reference to the atomic credential.
-4. **Add the credential schema to the `src/jsonSchema/index.ts` exports**
-5. **Add the newly created JsonSchema to the jsonSchemas map in `src/jsonSchema/index.ts`** this is easily forgotten as it as the bottom of the file.
-6. **Create a new type definition in types.d.ts using the newly created jsonSchema definition**, e.g. IdentityCredentialSchemaType
-7. **Add the newly created type definition to index.ts exports** under the "credential types" inline comment
-8. **Add the newly created jsonSchema and jsonLdSchema to the schemas map in `schemas.ts`** **THIS IS NECESSARY FOR THE SCHEMA TO BE RETRIEVED FROM THE SCHEMA RESOLVER**
-9.  **Create a new Jest describe block for validation tests in validate.test.ts** which covers the newly created JsonSchema, e.g. `describe('IdentityCredential Schema', () => {...`
-10. ~~**DON'T FORGET TO BUILD! `npm run compile`**~~ This step is actually now being handling automatically via the husky pre-commit setup.
+2. **Add the credential schema to the `src/jsonSchema/index.ts` exports**
+3. **Add the newly created JsonSchema to the jsonSchemas map in `src/jsonSchema/index.ts`** this is easily forgotten as it as the bottom of the file.
+4. **Create a new type definition in types.d.ts using the newly created jsonSchema definition**, e.g. IdentityCredentialSchemaType
+5. **Add the newly created type definition to src/index.ts exports** under the "Types" inline comment
+6.  **Create a new Jest describe block for validation tests in validate.test.ts** which covers the newly created JsonSchema, e.g. `describe('IdentityCredential Schema', () => {...`
+7.  ~~**DON'T FORGET TO BUILD! `npm run compile`**~~ This step is actually now being handling automatically via the husky pre-commit setup.
 
 ### Adding New Formats
 1. **Create the format validator in formats.ts**
