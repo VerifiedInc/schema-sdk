@@ -88,6 +88,7 @@ exports.ajv.addFormat('documentType', formats_1.documentTypeFormat);
 exports.ajv.addFormat('confidenceLevel', formats_1.confidenceLevelFormat);
 exports.ajv.addFormat('boolean', formats_1.booleanFormat);
 exports.ajv.addFormat('usZipCode', formats_1.usZipCodeFormat);
+exports.ajv.addFormat('lineType', formats_1.lineTypeFormat);
 /************************************
  * Add custom keywords to ajv below *
  ************************************/

@@ -27,7 +27,8 @@ import {
   usZipCodeFormat,
   unixMsEpochDayFormat,
   dateUsFormat,
-  dateISO8601Format
+  dateISO8601Format,
+  lineTypeFormat
 } from './formats';
 import { DisplayFormat } from './enums/displayFormat';
 import { InputType } from './enums/inputType';
@@ -118,6 +119,7 @@ ajv.addFormat('documentType', documentTypeFormat);
 ajv.addFormat('confidenceLevel', confidenceLevelFormat);
 ajv.addFormat('boolean', booleanFormat);
 ajv.addFormat('usZipCode', usZipCodeFormat);
+ajv.addFormat('lineType', lineTypeFormat);
 
 /************************************
  * Add custom keywords to ajv below *

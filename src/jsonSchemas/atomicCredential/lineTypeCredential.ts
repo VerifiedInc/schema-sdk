@@ -6,7 +6,7 @@ import { Static } from '@sinclair/typebox';
 export const lineTypeCredentialJsonSchema = Type.Object(
   {
     type: Type.String({
-      format: 'lineTypeFormat',
+      format: 'lineType',
       description: 'Line type associated with a phone number.',
       examples: ['Mobile', 'Landline', 'FixedVoIP', 'NonFixVoIP'],
       title: 'Phone Line Type',

@@ -1260,7 +1260,7 @@ describe('LineTypeCredential Schema', () => {
 
   test('valid - NonFixVoIP', () => {
     const valid = validate('LineTypeCredential', {
-      type: 'NonFixVoIP'
+      type: 'NonFixedVoIP'
     });
 
     expect(valid).toEqual(true);
@@ -1295,7 +1295,7 @@ describe('PhoneInfoCredential Schema', () => {
   test('valid - Mobile', () => {
     const valid = validate('PhoneInfoCredential', {
       type: 'Mobile',
-      phone: '16175551212'
+      phone: '+16175551212'
     });
 
     expect(valid).toEqual(true);
