@@ -3,6 +3,10 @@ import { DisplayFormat } from '../../enums/displayFormat';
 import { InputType } from '../../enums/inputType';
 import { ISO31662USCodes, currencySelectOptions, documentTypes, incomeRangeOptions } from '../../values';
 
+/*******************************************************
+ * Old credentials that we use, but will be deprecated *
+ *******************************************************/
+
 export const governmentIdDocumentImageCredentialJsonSchema = Type.Object(
   {
     image: Type.String({

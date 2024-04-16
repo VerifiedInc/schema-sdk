@@ -19,4 +19,5 @@ __exportStar(require("./currencyCredential"), exports);
 __exportStar(require("./identityCredential"), exports);
 __exportStar(require("./livenessCredential"), exports);
 __exportStar(require("./matchCredential"), exports);
+__exportStar(require("./lineTypeCredential"), exports);
 //# sourceMappingURL=index.js.map

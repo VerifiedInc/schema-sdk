@@ -27,4 +27,5 @@ export declare const sexes: Set<string>;
 export declare const genders: Set<string>;
 export declare const documentTypes: Set<string>;
 export declare const confidenceLevels: Set<string>;
+export declare const lineTypes: Set<string>;
 //# sourceMappingURL=values.d.ts.map

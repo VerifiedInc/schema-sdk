@@ -17,7 +17,8 @@ import {
   iso4217Format,
   iso4217AmountFormat,
   iso4217AmountRangeFormat,
-  addressFormat
+  addressFormat,
+  lineTypeFormat
 } from './formats';
 import { ajv } from './ajv';
 import {
@@ -67,7 +68,9 @@ import {
   StateCredentialJsonSchema,
   TitleCredentialJsonSchema,
   ZipCodeCredentialJsonSchema,
-  EmployerNameCredentialJsonSchema
+  EmployerNameCredentialJsonSchema,
+  LineTypeCredentialJsonSchema,
+  PhoneInfoCredentialJsonSchema
 } from './types';
 import { jsonSchemas } from './jsonSchemas';
 
@@ -97,6 +100,7 @@ export {
   documentTypeFormat,
   confidenceLevelFormat,
   booleanFormat,
+  lineTypeFormat,
 
   // credential schemas map
   jsonSchemas,
@@ -118,6 +122,7 @@ export {
   IdentityCredentialJsonSchema,
   LivenessCredentialJsonSchema,
   MatchCredentialJsonSchema,
+  LineTypeCredentialJsonSchema,
 
   // Composite
   AddressCredentialJsonSchema,
@@ -125,6 +130,7 @@ export {
   EmployerCredentialJsonSchemaType,
   FullNameCredentialJsonSchema,
   GovernmentIdCredentialJsonSchema,
+  PhoneInfoCredentialJsonSchema,
 
   // Employer
   EmploymentStartDateCredentialJsonSchema,

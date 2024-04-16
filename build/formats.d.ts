@@ -106,4 +106,8 @@ export declare const confidenceLevelFormat: Format;
  * Format to determine if a string is a valid boolean
  */
 export declare const booleanFormat: Format;
+/**
+ * Format to determine if a string contains valid a lineType value
+ */
+export declare const lineTypeFormat: Format;
 //# sourceMappingURL=formats.d.ts.map
