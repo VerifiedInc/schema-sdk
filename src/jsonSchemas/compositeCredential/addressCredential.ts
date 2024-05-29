@@ -13,8 +13,8 @@ export const addressCredentialIntersectReferences = Type.Union([
   line1CredentialJsonSchema,
   line2CredentialJsonSchema,
   cityCredentialJsonSchema,
-  stateCredentialJsonSchema,
   countryCredentialJsonSchema,
+  stateCredentialJsonSchema,
   zipCodeCredentialJsonSchema
 ]);
 

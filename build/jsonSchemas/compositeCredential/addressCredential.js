@@ -13,8 +13,8 @@ exports.addressCredentialIntersectReferences = type_1.Type.Union([
     line1Credential_1.line1CredentialJsonSchema,
     line2Credential_1.line2CredentialJsonSchema,
     cityCredential_1.cityCredentialJsonSchema,
-    stateCredential_1.stateCredentialJsonSchema,
     countryCredential_1.countryCredentialJsonSchema,
+    stateCredential_1.stateCredentialJsonSchema,
     zipCodeCredential_1.zipCodeCredentialJsonSchema
 ]);
 exports.addressCredentialJsonSchema = type_1.Type.Union([

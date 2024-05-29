@@ -7,7 +7,7 @@ const firstNameCredential_1 = require("../individualCredential/firstNameCredenti
 const lastNameCredential_1 = require("../individualCredential/lastNameCredential");
 const middleNameCredential_1 = require("../individualCredential/middleNameCredential");
 exports.fullNameCredentialJsonSchema = type_1.Type.Union([
-    type_1.Type.Union([firstNameCredential_1.firstNameCredentialJsonSchema, lastNameCredential_1.lastNameCredentialJsonSchema, middleNameCredential_1.middleNameCredentialJsonSchema]),
+    type_1.Type.Union([firstNameCredential_1.firstNameCredentialJsonSchema, middleNameCredential_1.middleNameCredentialJsonSchema, lastNameCredential_1.lastNameCredentialJsonSchema]),
     type_1.Type.Object({
         fullName: type_1.Type.String({
             description: "A person's full name",

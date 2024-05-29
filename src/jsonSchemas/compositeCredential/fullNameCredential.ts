@@ -8,7 +8,7 @@ import { middleNameCredentialJsonSchema } from '../individualCredential/middleNa
 
 export const fullNameCredentialJsonSchema = Type.Union(
   [
-    Type.Union([firstNameCredentialJsonSchema, lastNameCredentialJsonSchema, middleNameCredentialJsonSchema]),
+    Type.Union([firstNameCredentialJsonSchema, middleNameCredentialJsonSchema, lastNameCredentialJsonSchema]),
     Type.Object({
       fullName: Type.String({
         description: "A person's full name",
