@@ -378,6 +378,7 @@ describe('formats', () => {
     expect(validate('test')).toBe(false);
     expect(validate('7845')).toBe(false);
     expect(validate('83508-566')).toBe(false);
+    expect(validate('82030-040')).toBe(false);
   });
 
   test('DocumentTypeFormat', () => {
