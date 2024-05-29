@@ -8,7 +8,7 @@ export const zipCodeCredentialJsonSchema = Type.Object(
   {
     zipCode: Type.String({
       description: 'The zip code of the address.',
-      examples: ['94103', '94103-1234', '82030-040'],
+      examples: ['94103', '94103-1234'],
       title: 'Zip Code',
       displayFormat: DisplayFormat.String,
       input: {
