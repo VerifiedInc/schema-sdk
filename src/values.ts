@@ -1373,4 +1373,4 @@ export const documentTypes = new Set([
 export const confidenceLevels = new Set(['Very High', 'High', 'Medium', 'Low', 'Very Low']);
 
 // Used by LineTypeCredential
-export const lineTypes = new Set(['Mobile', 'Landline', 'FixedVoIP', 'NonFixedVoIP']);
+export const lineTypes = new Set(['Mobile', 'Landline', 'FixedVoIP', 'NonFixedVoIP', 'Unknown', 'Unlisted']);

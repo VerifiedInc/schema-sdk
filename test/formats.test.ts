@@ -436,6 +436,8 @@ test('LineTypeFormat', () => {
   expect(validate('Landline')).toBe(true);
   expect(validate('FixedVoIP')).toBe(true);
   expect(validate('NonFixedVoIP')).toBe(true);
+  expect(validate('Unknown')).toBe(true);
+  expect(validate('Unlisted')).toBe(true);
 
   // invalid
   expect(validate('mobile')).toBe(false);
