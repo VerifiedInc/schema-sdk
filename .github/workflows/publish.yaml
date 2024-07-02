@@ -34,7 +34,7 @@ jobs:
           echo ${{ env.RELEASE_VERSION }}
           echo $TAG_VERSION
           echo ${{ env.TAG_VERSION }}
-          echo ${{ env.TAG_MESSAGE }}
+          echo "${{ env.TAG_MESSAGE }}"
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
