@@ -1365,5 +1365,5 @@ exports.documentTypes = new Set([
 // Used by LivenessCredential, MatchCredential
 exports.confidenceLevels = new Set(['Very High', 'High', 'Medium', 'Low', 'Very Low']);
 // Used by LineTypeCredential
-exports.lineTypes = new Set(['Mobile', 'Landline', 'FixedVoIP', 'NonFixedVoIP']);
+exports.lineTypes = new Set(['Mobile', 'Landline', 'FixedVoIP', 'NonFixedVoIP', 'Unknown', 'Unlisted']);
 //# sourceMappingURL=values.js.map

@@ -7,7 +7,7 @@ exports.lineTypeCredentialJsonSchema = type_1.Type.Object({
     type: type_1.Type.String({
         format: 'lineType',
         description: 'Line type associated with a phone number.',
-        examples: ['Mobile', 'Landline', 'FixedVoIP', 'NonFixVoIP'],
+        examples: ['Mobile', 'Landline', 'FixedVoIP', 'NonFixVoIP', 'Unknown', 'Unlisted'],
         title: 'Phone Line Type',
         displayFormat: displayFormat_1.DisplayFormat.String
     })
